@@ -1,0 +1,97 @@
+.container {
+  display: block;
+  color: #ffffff;
+
+  &__hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
+
+    &--images {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100% !important;
+      }
+    }
+  }
+
+  &__nav {
+    display: block;
+    padding: 2.5rem;
+
+    &--title {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 2.5rem;
+      padding: 0 0 0 1rem;
+
+      span {
+        font-size: 3.5rem;
+        font-family: Roboto;
+        line-height: 1.28571429em;
+        font-weight: 500;
+        letter-spacing: 0.05rem;
+      }
+    }
+
+    .games {
+      display: block;
+
+      &__card {
+        padding: 1rem 0 0 1rem;
+
+        ul {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: center;
+          list-style-type: none;
+
+          li {
+            display: flex;
+            flex: 0 1 50%;
+            padding: 0 1rem 1rem 0;
+
+            a {
+              margin: 1.5rem;
+              max-width: 100%;
+              color: #ffffff;
+              text-decoration: none;
+
+              img {
+                max-width: 100%;
+                height: auto;
+                border: 2px solid transparent;
+                border-radius: 3ch;
+                opacity: 1;
+                transition: all 0.35s ease-in-out;
+              }
+
+              &:hover {
+                img {
+                  border: 2px solid #535353;
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__divider {
+    padding: 0 2.5rem;
+  }
+}

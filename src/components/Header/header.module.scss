@@ -1,0 +1,209 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #111111;
+  padding: 0 5rem;
+  border-bottom: 3px solid #ffffff;
+
+  &__nav {
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      list-style-type: none;
+      gap: 1.5rem;
+
+      li {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        &:first-child {
+          .logo {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            svg {
+              opacity: 0.5;
+              transition: opacity 0.25s ease-in-out;
+            }
+
+            i {
+              opacity: 0.5;
+              transition: opacity 0.25s ease-in-out;
+            }
+
+            &:hover {
+              svg {
+                opacity: 1;
+              }
+
+              i {
+                opacity: 1;
+              }
+            }
+          }
+
+          .open {
+            svg {
+              opacity: 1;
+            }
+
+            i {
+              opacity: 1;
+            }
+          }
+        }
+
+        .games {
+          padding: 1rem 1.25rem;
+          background-color: transparent;
+          border-radius: 0.75rem;
+          border-bottom: 3px solid transparent;
+
+          &:hover {
+            padding: 1rem 1.25rem;
+            background-color: #1c1c1c;
+            border-radius: 0.75rem;
+            border-bottom: 3px solid #535353;
+          }
+
+          &.active {
+            padding: 1rem 1.25rem;
+            background-color: #1c1c1c;
+            border-radius: 0.75rem;
+            border-bottom: 3px solid #535353;
+          }
+        }
+
+        ul {
+          background-color: #111111 !important;
+          border: 3px #535353 solid !important;
+          border-radius: 0.5rem !important;
+          min-width: 137.5px !important;
+
+          li {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 0.25rem !important;
+
+            &::before {
+              content: '';
+              display: inline-block;
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+              background-color: transparent;
+              z-index: 1;
+              transition: background-color 0.25s ease-in-out;
+            }
+
+            span {
+              color: #ffffff;
+              opacity: 0.75;
+              transition: all 0.25s ease-in-out;
+              width: 100% !important;
+              height: 100% !important;
+              padding: 0 3rem 0 0;
+            }
+
+            &:hover {
+              background-color: #212121 !important;
+
+              span {
+                opacity: 1;
+                padding: 0 2rem 0 1rem;
+              }
+
+              &::before {
+                background-color: #ffffff;
+              }
+            }
+          }
+
+          &::after {
+            display: none !important;
+          }
+        }
+
+        a {
+          display: inline-flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          svg {
+            circle {
+              transition: fill 0.25s ease-in-out;
+            }
+
+            polygon {
+              transition: fill 0.25s ease-in-out;
+            }
+          }
+
+          &:hover {
+            svg {
+              circle {
+                fill: #d13539;
+              }
+
+              polygon {
+                fill: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__settings {
+    .language {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: center !important;
+      align-items: center !important;
+      padding: 0 0 0 2.75rem;
+
+      ul {
+        background-color: #111111 !important;
+        border: 3px #535353 solid !important;
+        border-radius: 0.5rem !important;
+
+        li {
+          span {
+            margin: 0.25rem 0.75rem;
+            color: #ffffff;
+            padding: 0 0.5rem;
+
+            &.selected {
+              border-bottom: 1px solid white;
+            }
+          }
+
+          &:hover {
+            background-color: #212121 !important;
+          }
+        }
+
+        &::after {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+}

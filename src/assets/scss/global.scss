@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // border: 3px solid #ffffff;
+
+  &::after {
+    box-sizing: border-box;
+  }
+
+  &::before {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  background-color: #111111;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
