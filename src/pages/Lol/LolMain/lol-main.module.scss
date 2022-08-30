@@ -126,6 +126,10 @@
             }
           }
         }
+
+        .nav {
+          padding: 0;
+        }
       }
     }
   }
@@ -136,6 +140,7 @@
 
   .content {
     display: block;
+    padding: 2rem;
   }
 
   .nav {
