@@ -18,7 +18,7 @@ interface IGames {
 }
 
 const Home = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const gameList: IGames[] = [
     {
@@ -37,7 +37,8 @@ const Home = () => {
 
   useEffect(() => {
     document.title = t('pageRiotHome');
-  }, [t]);
+    document.documentElement.lang = i18n.language.slice(0, 2);
+  }, [t, i18n]);
 
   return (
     <div className={styles.container}>

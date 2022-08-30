@@ -7,11 +7,12 @@ import ValoList from '../../../components/ValoList/ValoList';
 import { useEffect } from 'react';
 
 const ValoMain = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     document.title = t('pageValoHome');
-  }, [t]);
+    document.documentElement.lang = i18n.language.slice(0, 2);
+  }, [t, i18n]);
 
   return (
     <div className={styles.container}>

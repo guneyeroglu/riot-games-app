@@ -7,11 +7,12 @@ import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import styles from './lol-main.module.scss';
 
 const LolMain = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     document.title = t('pageLolHome');
-  }, [t]);
+    document.documentElement.lang = i18n.language.slice(0, 2);
+  }, [t, i18n]);
 
   return (
     <div className={styles.container}>
