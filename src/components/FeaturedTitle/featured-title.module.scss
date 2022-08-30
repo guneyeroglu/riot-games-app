@@ -31,11 +31,15 @@
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
 
-    img {
       &:first-child {
         transform: rotate(180deg);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
       }
     }
   }

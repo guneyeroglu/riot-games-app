@@ -1,3 +1,4 @@
-import images from './lol/main/Images';
+import imagesCarousel from './lol/main/ImagesCarousel';
+import imagesOther from './lol/main/ImagesOther';
 
-export { images };
+export { imagesCarousel, imagesOther };
