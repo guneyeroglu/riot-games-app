@@ -1,30 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-
-import axios from 'axios';
 
 import { CardLolChar } from '../../../components/Cards';
 
 import championsBackground from '../../../assets/images/lol/champions-background.jpeg';
+
 import styles from './champions.module.scss';
+import useFetchData from '../../../global/hooks/useFetchData';
 
 const Champions = () => {
   const { t, i18n } = useTranslation();
-  const [champData, setChampData] = useState<any>([]);
+
+  const { data } = useFetchData('lol-champions');
 
   useEffect(() => {
     document.title = t('pageLolChampions');
     document.documentElement.lang = i18n.language.slice(0, 2);
-
-    const fetchLolData = async () => {
-      const response = await axios.get(
-        `https://ddragon.leagueoflegends.com/cdn/12.8.1/data/${i18n.language}/champion.json`
-      );
-
-      setChampData(response.data.data);
-    };
-
-    fetchLolData();
   }, [t, i18n]);
 
   return (
@@ -37,9 +28,10 @@ const Champions = () => {
       ></div>
       <div className={styles.container__filter}></div>
       <div className={styles.container__content}>
-        {Object.keys(champData).map((champName: string) => (
-          <CardLolChar data={champData[champName]} key={champName} />
-        ))}
+        {data?.data &&
+          Object.keys(data?.data).map((champName: string) => (
+            <CardLolChar data={data?.data[champName]} key={champName} />
+          ))}
       </div>
     </div>
   );
