@@ -13,7 +13,7 @@
 
     &--content {
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       justify-content: center;
       align-items: flex-start;
       gap: 1rem;
@@ -21,6 +21,7 @@
       span {
         font-size: 1.25rem;
         font-weight: 500;
+        transition: color 0.35s ease-in-out, transform 0.35s ease-in-out;
       }
 
       a {
@@ -42,6 +43,11 @@
             box-shadow: 0 0 0 3px #ffffff, 0 4px 0 0 #767676,
               0 3px 30px 0 #ffffff;
             opacity: 1;
+          }
+
+          & ~ span {
+            color: #d13539;
+            transform: translateY(-1rem);
           }
         }
       }

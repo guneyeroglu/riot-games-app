@@ -30,14 +30,14 @@ const ValoList = () => {
       {contentList.map((li: IContentList) => (
         <li key={li.id} className={styles.wrapper__item}>
           <div className={styles['wrapper__item--content']}>
+            <Link to={li.name}>
+              <img src={li.image} alt={li.name} />
+            </Link>
             <span>
               {i18n.language === 'tr_TR'
                 ? t(li.name).toLocaleUpperCase()
                 : t(li.name).toUpperCase()}
             </span>
-            <Link to={li.name}>
-              <img src={li.image} alt={li.name} />
-            </Link>
           </div>
         </li>
       ))}
