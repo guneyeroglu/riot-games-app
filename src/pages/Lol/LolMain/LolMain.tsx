@@ -35,7 +35,12 @@ const LolMain = () => {
 
   return (
     <div className={styles.container}>
-      <motion.div ref={slider} className={styles.container__slider}>
+      <motion.div
+        ref={slider}
+        whileTap={{ cursor: 'grabbing' }}
+        whileHover={{ cursor: 'grab' }}
+        className={styles.container__slider}
+      >
         <motion.div
           drag={'x'}
           dragConstraints={{ right: 0, left: -width }}
