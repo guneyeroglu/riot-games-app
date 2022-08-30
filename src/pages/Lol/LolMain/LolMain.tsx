@@ -28,8 +28,10 @@ const LolMain = () => {
   useEffect(() => {
     document.title = t('pageLolHome');
     document.documentElement.lang = i18n.language.slice(0, 2);
+
     const scrollWidth = slider.current?.scrollWidth;
     const offsetWidth = slider.current?.offsetWidth;
+
     setWidth(scrollWidth - offsetWidth);
   }, [t, i18n]);
 

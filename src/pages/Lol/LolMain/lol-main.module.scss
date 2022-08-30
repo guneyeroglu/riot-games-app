@@ -46,6 +46,53 @@
         background-position: center;
         z-index: -1;
       }
+
+      &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        &--title {
+          display: block;
+        }
+
+        &--content {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &--nav {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 0 0 2rem 0;
+
+          a {
+            color: #ffffff;
+            text-decoration: none;
+
+            span {
+              color: #c4b998;
+              white-space: nowrap;
+              font-size: 1.65rem;
+              font-weight: 700;
+              letter-spacing: 0.05em;
+              text-transform: uppercase;
+              transition: color 0.35s ease-in-out;
+
+              &:hover {
+                color: #8a6c3c;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
     }
 
     .regions {
@@ -60,6 +107,53 @@
         background-size: cover;
         background-position: center;
         z-index: -1;
+      }
+
+      &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        &--title {
+          display: block;
+        }
+
+        &--content {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &--nav {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 0 0 2rem 0;
+
+          a {
+            color: #ffffff;
+            text-decoration: none;
+
+            span {
+              color: #c4b998;
+              white-space: nowrap;
+              font-size: 1.65rem;
+              font-weight: 700;
+              letter-spacing: 0.05em;
+              text-transform: uppercase;
+              transition: color 0.35s ease-in-out;
+
+              &:hover {
+                color: #8a6c3c;
+                cursor: pointer;
+              }
+            }
+          }
+        }
       }
     }
   }
