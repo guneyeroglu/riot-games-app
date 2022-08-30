@@ -1,10 +1,12 @@
-import agent from '../../../assets/images/valo/fade.jpg';
+import { useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import styles from './valorant-main.module.scss';
 import ValoList from '../../../components/ValoList/ValoList';
-import { useEffect } from 'react';
+
+import agent from '../../../assets/images/valo/fade.jpg';
+
+import styles from './valorant-main.module.scss';
 
 const ValoMain = () => {
   const { t, i18n } = useTranslation();
