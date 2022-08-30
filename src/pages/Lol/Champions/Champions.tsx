@@ -21,8 +21,6 @@ const Champions = () => {
         `https://ddragon.leagueoflegends.com/cdn/12.8.1/data/${i18n.language}/champion.json`
       );
 
-      console.log('hey');
-
       setChampData(response.data.data);
     };
 

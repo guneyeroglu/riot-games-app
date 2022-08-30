@@ -18,13 +18,8 @@ interface IProps {
 const CardLol = (props: IProps) => {
   const { data: champ } = props;
 
-  console.log('Olmadı.');
-
   return (
-    <div
-      className={styles.card}
-      onClick={() => console.log(champ.name.toUpperCase())}
-    >
+    <div className={styles.card}>
       <div className={styles.card__item}>
         <LazyLoad
           width={'100%'}
