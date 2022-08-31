@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-
 import { useTranslation } from 'react-i18next';
 
 import axios from 'axios';
+
+import { useQuery } from '@tanstack/react-query';
 
 type url =
   | 'lol-champions'
@@ -36,19 +36,15 @@ const useFetchData = (urlAdress: url) => {
     { type: 'lol-regions', url: '' },
   ];
 
-  const [data, setData] = useState<any>([]);
-
   const adress = urls.find((url: IUrl) => url.type === urlAdress);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(adress?.url ?? '');
-      setData(response.data);
-    };
-    fetchData();
-  }, [adress?.url]);
+  const fetchData = async () => {
+    return await axios.get(adress?.url ?? '').then((res) => res.data);
+  };
 
-  return { data, setData };
+  const { data, isLoading, refetch } = useQuery([urlAdress], fetchData);
+
+  return { data, isLoading, refetch };
 };
 
 export default useFetchData;

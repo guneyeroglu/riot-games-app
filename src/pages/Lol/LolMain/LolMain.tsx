@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { motion } from 'framer-motion';
+import useFetchData from '../../../global/hooks/useFetchData';
 
+import { CardLolChar } from '../../../components/Cards';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 
 import { imagesCarousel, imagesOther } from '../../../components/Images/';
@@ -12,6 +14,7 @@ import backgroundImageChampions from '../../../assets/images/lol/map-bg-1.jpeg';
 import backgroundImageRegions from '../../../assets/images/lol/map-bg-2.jpeg';
 
 import styles from './lol-main.module.scss';
+import Spinner from '../../../components/Spinner/Spinner';
 
 const LolMain = () => {
   const { t, i18n } = useTranslation();
@@ -19,6 +22,16 @@ const LolMain = () => {
   const carousel = useRef<HTMLDivElement | any>(null);
 
   const [width, setWidth] = useState<number>(0);
+
+  const featuredCharacters: string[] = [
+    'Vex',
+    'Gwen',
+    'Udyr',
+    'Zeri',
+    'Samira',
+  ];
+
+  const { data, isLoading, refetch } = useFetchData('lol-champions');
 
   useEffect(() => {
     document.title = t('pageLolHome');
@@ -28,7 +41,8 @@ const LolMain = () => {
     const offsetWidth = carousel.current?.offsetWidth;
 
     setWidth(scrollWidth - offsetWidth);
-  }, [t, i18n]);
+    refetch();
+  }, [t, i18n, refetch]);
 
   return (
     <div className={styles.container}>
@@ -60,7 +74,13 @@ const LolMain = () => {
             <div className={styles.title}>
               <FeaturedTitle type='champions' />
             </div>
-            <div className={styles.content}>CARD ITEM</div>
+            <div className={styles.content}>
+              {isLoading && <Spinner />}
+              {!isLoading &&
+                featuredCharacters.map((champName: string) => (
+                  <CardLolChar key={champName} data={data?.data[champName]} />
+                ))}
+            </div>
             <div className={styles.nav}>
               <Link to='champions'>
                 <span>{t('viewChamps')}</span>
