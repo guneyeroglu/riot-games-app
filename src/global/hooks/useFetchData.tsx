@@ -5,8 +5,8 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 type url =
-  | 'lol-champions'
-  | 'lol-regions'
+  | 'lol-champions-regions'
+  | 'lol-skins'
   | 'lol-items'
   | 'lol-ranks'
   | 'valo-agents'
@@ -19,21 +19,33 @@ interface IUrl {
   type: url;
 }
 
-const useFetchData = (urlAdress: url) => {
+const useFetchData = (urlAdress: url, champName?: string) => {
   const { i18n } = useTranslation();
 
   const urls: IUrl[] = [
     {
-      type: 'lol-champions',
-      url: `https://ddragon.leagueoflegends.com/cdn/12.8.1/data/${i18n.language}/champion.json`,
+      type: 'lol-champions-regions',
+      url: `https://universe-meeps.leagueoflegends.com/v1/${
+        i18n.language === 'tr_TR' ? 'tr_tr' : 'en_us'
+      }/search/index.json`,
     },
-    { type: 'lol-items', url: '' },
-    { type: 'lol-ranks', url: '' },
-    { type: 'lol-regions', url: '' },
-    { type: 'lol-regions', url: '' },
-    { type: 'lol-regions', url: '' },
-    { type: 'lol-regions', url: '' },
-    { type: 'lol-regions', url: '' },
+    {
+      type: 'lol-skins',
+      url: `https://www.leagueoflegends.com/page-data/${
+        i18n.language === 'tr_TR' ? 'tr-tr' : 'en-us'
+      }/champions/${champName}/page-data.json`,
+    },
+    {
+      type: 'lol-items',
+      url: ``,
+    },
+
+    { type: 'lol-ranks', url: `` },
+
+    { type: 'valo-agents', url: `` },
+    { type: 'valo-maps', url: `` },
+    { type: 'valo-arsenal', url: `` },
+    { type: 'valo-ranks', url: `` },
   ];
 
   const adress = urls.find((url: IUrl) => url.type === urlAdress);

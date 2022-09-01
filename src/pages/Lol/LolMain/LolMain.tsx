@@ -6,55 +6,108 @@ import { motion } from 'framer-motion';
 import useFetchData from '../../../global/hooks/useFetchData';
 
 import { CardLolChar } from '../../../components/Cards';
-import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
-
 import { imagesCarousel, imagesOther } from '../../../components/Images/';
+import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
+import Spinner from '../../../components/Spinner/Spinner';
 
 import backgroundImageChampions from '../../../assets/images/lol/map-bg-1.jpeg';
 import backgroundImageRegions from '../../../assets/images/lol/map-bg-2.jpeg';
 
 import styles from './lol-main.module.scss';
-import Spinner from '../../../components/Spinner/Spinner';
+
+interface IChamp {
+  background: {
+    title: string;
+    uri: string;
+    width: number;
+    height: number;
+    x: number;
+    y: number;
+  };
+  image: {
+    title: string;
+    uri: string;
+    width: number;
+    height: number;
+    x: number;
+    y: number;
+  };
+  name: string;
+  slug: string;
+}
+
+interface IRegion {
+  description: string;
+  image: {
+    title: string;
+    subtitle: string;
+    description: string;
+    uri: string;
+    width: number;
+    height: number;
+    x: number;
+    y: number;
+  };
+  name: string;
+  title: string;
+}
 
 const LolMain = () => {
   const { t, i18n } = useTranslation();
 
-  const carousel = useRef<HTMLDivElement | any>(null);
+  const carouselGeneral = useRef<HTMLDivElement | any>(null);
+  const carouselRegion = useRef<HTMLDivElement | any>(null);
 
-  const [width, setWidth] = useState<number>(0);
+  const [widthGeneral, setWidthGeneral] = useState<number>(0);
+  const [widthRegion, setWidthRegion] = useState<number>(0);
 
   const featuredCharacters: string[] = [
-    'Vex',
-    'Gwen',
-    'Udyr',
-    'Zeri',
-    'Samira',
+    'VEX',
+    'GWEN',
+    'UDYR',
+    'ZERI',
+    'SAMIRA',
   ];
 
-  const { data, isLoading, refetch } = useFetchData('lol-champions');
+  const featuredRegions: string[] = [
+    'NOXUS',
+    'IONIA',
+    'DEMACIA',
+    'IXTAL',
+    'PILTOVER',
+    'SHURIMA',
+  ];
+
+  const { data, isLoading, refetch } = useFetchData('lol-champions-regions');
 
   useEffect(() => {
     document.title = t('pageLolHome');
     document.documentElement.lang = i18n.language.slice(0, 2);
 
-    const scrollWidth = carousel.current?.scrollWidth;
-    const offsetWidth = carousel.current?.offsetWidth;
+    const scrollWidthGeneral = carouselGeneral.current?.scrollWidth;
+    const offsetWidthGeneral = carouselGeneral.current?.offsetWidth;
 
-    setWidth(scrollWidth - offsetWidth);
+    const scrollWidthRegion = carouselRegion.current?.scrollWidth;
+    const offsetWidthRegion = carouselRegion.current?.offsetWidth;
+
+    setWidthGeneral(scrollWidthGeneral - offsetWidthGeneral);
+
+    setWidthRegion(scrollWidthRegion - offsetWidthRegion);
+
     refetch();
-  }, [t, i18n, refetch]);
+  }, [t, i18n, refetch, isLoading]);
 
   return (
     <div className={styles.container}>
       <motion.div
-        ref={carousel}
+        ref={carouselGeneral}
         whileTap={{ cursor: 'grabbing' }}
         whileHover={{ cursor: 'grab' }}
         className={styles.container__carousel}
       >
         <motion.div
           drag={'x'}
-          dragConstraints={{ right: 0, left: -width }}
+          dragConstraints={{ right: 0, left: -widthGeneral }}
           className={styles['container__carousel--inner']}
         >
           {imagesCarousel.map((image) => (
@@ -77,9 +130,16 @@ const LolMain = () => {
             <div className={styles.content}>
               {isLoading && <Spinner />}
               {!isLoading &&
-                featuredCharacters.map((champName: string) => (
-                  <CardLolChar key={champName} data={data?.data[champName]} />
-                ))}
+                featuredCharacters
+                  .map((champName: string) =>
+                    data?.champions.find(
+                      (champ: IChamp) =>
+                        champ.name.toUpperCase() === champName.toUpperCase()
+                    )
+                  )
+                  .map((champ: IChamp) => (
+                    <CardLolChar data={champ} key={champ.name} />
+                  ))}
             </div>
             <div className={styles.nav}>
               <Link to='champions'>
@@ -97,7 +157,38 @@ const LolMain = () => {
             <div className={styles.title}>
               <FeaturedTitle type='regions' />
             </div>
-            <div className={styles.content}>Dizayn ve düşün</div>
+            <div className={styles.content}>
+              <motion.div
+                ref={carouselRegion}
+                whileTap={{ cursor: 'grabbing' }}
+                whileHover={{ cursor: 'grab' }}
+                className={styles.carousel}
+              >
+                <motion.div
+                  drag={'x'}
+                  dragConstraints={{ right: 0, left: -widthRegion }}
+                  className={styles.carousel__inner}
+                >
+                  {!isLoading &&
+                    featuredRegions
+                      .map((regionName: string) =>
+                        data?.factions.find(
+                          (region: IRegion) =>
+                            regionName.toLowerCase() ===
+                            region.name.toLowerCase()
+                        )
+                      )
+                      .map((region: IRegion) => (
+                        <motion.div key={region.name} className={styles.item}>
+                          <img src={region.image.uri} alt={region.name} />
+                          <div className={styles.name}>
+                            <span>{region.name.toUpperCase()}</span>
+                          </div>
+                        </motion.div>
+                      ))}
+                </motion.div>
+              </motion.div>
+            </div>
             <div className={styles.nav}>
               <Link to='regions'>
                 <span>{t('viewRegions')}</span>

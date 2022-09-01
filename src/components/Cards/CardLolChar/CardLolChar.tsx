@@ -2,17 +2,29 @@ import LazyLoad from 'react-lazy-load';
 
 import styles from './card-lol-char.module.scss';
 
-interface IProps {
-  data: {
-    blurb: string;
-    id: string;
-    image: { full: string; group: string; sprite: string };
-    key: string;
-    name: string;
-    partype: string;
-    tags: { 0: string; 1: string };
+interface IChamp {
+  background: {
     title: string;
+    uri: string;
+    width: number;
+    height: number;
+    x: number;
+    y: number;
   };
+  image: {
+    title: string;
+    uri: string;
+    width: number;
+    height: number;
+    x: number;
+    y: number;
+  };
+  name: string;
+  slug: string;
+}
+
+interface IProps {
+  data: IChamp;
 }
 
 const CardLol = (props: IProps) => {
@@ -23,14 +35,19 @@ const CardLol = (props: IProps) => {
       <div className={styles.card__item}>
         <LazyLoad
           width={'100%'}
-          height={'100%'}
-          offset={300}
+          height={375}
+          offset={400}
           className={styles['card__item--hero']}
         >
-          <img
-            src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`}
-            alt={champ.name}
-          />
+          <div
+            style={{
+              backgroundImage: `url(${champ.background.uri})`,
+              backgroundPosition: `${
+                100 * (champ.background.x / champ.background.width)
+              }%`,
+            }}
+            className={styles.image}
+          ></div>
         </LazyLoad>
         <div className={styles['card__item--name']}>
           <span>{champ.name.toUpperCase()}</span>

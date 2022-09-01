@@ -4,8 +4,8 @@ The development process continues...
 
 - Header (DONE)
 - Home (DONE)
-  - LoL Home (IN PROCESS)
-    - Champions (TODO)
+  - LoL Home (DONE)
+    - Champions (DONE)
     - Regions (TODO)
     - Items (TODO)
     - Ranks (TODO)

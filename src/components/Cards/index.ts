@@ -1,3 +1,4 @@
 import CardLolChar from './CardLolChar/CardLolChar';
+import CardLolRegion from './CardLolRegion/CardLolRegion';
 
-export { CardLolChar };
+export { CardLolChar, CardLolRegion };

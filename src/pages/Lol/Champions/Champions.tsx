@@ -4,11 +4,32 @@ import { useTranslation } from 'react-i18next';
 import useFetchData from '../../../global/hooks/useFetchData';
 
 import { CardLolChar } from '../../../components/Cards';
+import Spinner from '../../../components/Spinner/Spinner';
 
 import championsBackground from '../../../assets/images/lol/champions-background.jpeg';
 
 import styles from './champions.module.scss';
-import Spinner from '../../../components/Spinner/Spinner';
+
+interface IChamp {
+  background: {
+    title: string;
+    uri: string;
+    width: number;
+    height: number;
+    x: number;
+    y: number;
+  };
+  image: {
+    title: string;
+    uri: string;
+    width: number;
+    height: number;
+    x: number;
+    y: number;
+  };
+  name: string;
+  slug: string;
+}
 
 const Champions = () => {
   const { t, i18n } = useTranslation();
@@ -17,7 +38,7 @@ const Champions = () => {
     data: championsData,
     isLoading,
     refetch,
-  } = useFetchData('lol-champions');
+  } = useFetchData('lol-champions-regions');
 
   useEffect(() => {
     document.title = t('pageLolChampions');
@@ -25,8 +46,6 @@ const Champions = () => {
 
     refetch();
   }, [t, i18n, refetch]);
-
-  console.log(isLoading);
 
   return (
     <div className={styles.container}>
@@ -40,12 +59,11 @@ const Champions = () => {
       <div className={styles.container__content}>
         {isLoading && <Spinner />}
         {!isLoading &&
-          Object.keys(championsData?.data).map((champName: string) => (
-            <CardLolChar
-              data={championsData?.data[champName]}
-              key={champName}
-            />
-          ))}
+          championsData?.champions
+            .sort((a: IChamp, b: IChamp) => a.name.localeCompare(b.name))
+            .map((champ: IChamp) => (
+              <CardLolChar data={champ} key={champ.name} />
+            ))}
       </div>
     </div>
   );
