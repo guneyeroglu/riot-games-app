@@ -31,7 +31,7 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      padding: 0.75rem 1rem;
+      padding: 1.25rem 1.5rem;
       background-color: #535353;
       border-bottom-left-radius: 0.7ch;
       border-bottom-right-radius: 0.7ch;
@@ -48,7 +48,7 @@
         font-size: 1.2rem;
         font-weight: 800;
         letter-spacing: 0.08em;
-        transition: padding 0.5s ease-in-out;
+        transition: padding 0.5s ease-in-out, color 0.35s ease-in-out;
       }
     }
 
@@ -70,6 +70,7 @@
 
         span {
           padding: 0 0 0 1rem !important;
+          color: #c4b998;
         }
       }
     }

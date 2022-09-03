@@ -35,7 +35,7 @@ const CardLol = (props: IProps) => {
       <div className={styles.card__item}>
         <LazyLoad
           width={'100%'}
-          height={375}
+          height={425}
           offset={400}
           className={styles['card__item--hero']}
         >
