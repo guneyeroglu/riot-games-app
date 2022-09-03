@@ -6,7 +6,7 @@ The development process continues...
 - Home (DONE)
   - LoL Home (DONE)
     - Champions (DONE)
-    - Regions (TODO)
+    - Regions (INPROCESS)
     - Items (TODO)
     - Ranks (TODO)
   - Valo Home (DONE)
