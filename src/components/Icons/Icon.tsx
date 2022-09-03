@@ -9,6 +9,8 @@ import InstagramIcon from './InstagramIcon';
 import YouTubeIcon from './YouTubeIcon';
 import GitHubIcon from './GitHubIcon';
 import LinkedInIcon from './LinkedInIcon';
+import SearchIcon from './SearchIcon';
+import CloseIcon from './CloseIcon';
 
 export type iconName =
   | 'RiotGamesIcon'
@@ -21,7 +23,9 @@ export type iconName =
   | 'InstagramIcon'
   | 'YouTubeIcon'
   | 'GitHubIcon'
-  | 'LinkedInIcon';
+  | 'LinkedInIcon'
+  | 'SearchIcon'
+  | 'CloseIcon';
 
 interface IProps {
   name: iconName;
@@ -43,6 +47,8 @@ const IconComponentName: any = {
   YouTubeIcon: <YouTubeIcon />,
   GitHubIcon: <GitHubIcon />,
   LinkedInIcon: <LinkedInIcon />,
+  SearchIcon: <SearchIcon />,
+  CloseIcon: <CloseIcon />,
 };
 
 const Icon = (props: IProps) => {
