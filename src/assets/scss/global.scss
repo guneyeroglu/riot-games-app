@@ -22,6 +22,10 @@ body {
   font-style: normal;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+
+  img {
+    pointer-events: none;
+  }
 }
 
 ::selection {
