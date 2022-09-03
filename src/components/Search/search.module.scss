@@ -1,0 +1,63 @@
+.wrapper {
+  display: block;
+  padding: 2rem;
+
+  &__filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    gap: 1rem;
+
+    input {
+      border: none;
+      outline: none;
+      padding: 0.5rem 2.5rem 0.5rem 3.5rem;
+      min-width: 400px;
+      height: 35px;
+      border-radius: 0.5rem;
+      background-color: transparent;
+      color: #c4b998;
+      letter-spacing: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    &--close {
+      width: 20px;
+      height: 20px !important;
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      top: 7.5px;
+      right: 7.5px;
+      opacity: 0.35;
+      transition: opacity 0.35s ease-in-out;
+
+      svg {
+        width: 14px;
+
+        path {
+          fill: #ffffff;
+        }
+      }
+
+      &:hover {
+        opacity: 0.75;
+        cursor: pointer;
+      }
+    }
+
+    img {
+      position: absolute;
+      left: 5px;
+      width: auto;
+      max-height: 32px;
+    }
+  }
+}
