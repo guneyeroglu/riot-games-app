@@ -92,78 +92,15 @@
           overflow: hidden;
           margin: 0;
           padding: 2rem 5.5rem;
+          width: 100%;
 
           .carousel {
             &__inner {
               display: flex;
               flex-direction: row;
+              flex-wrap: nowrap;
               justify-content: flex-start;
               align-items: stretch;
-
-              .item {
-                width: 100%;
-                min-width: 33.333%;
-                transform: scale(0.9);
-                transition: transform 0.35s ease-in-out;
-                position: relative;
-
-                img {
-                  width: 100%;
-                  height: 100%;
-                  pointer-events: none;
-                  object-fit: cover;
-                  object-position: 40%;
-                  box-shadow: 0 0 0 2px #535353, 0 1px 0 0 #535353,
-                    0 1px 6px 0 #535353;
-                  transition: box-shadow 0.35s ease-in-out;
-                  border-radius: 0.7ch;
-                }
-
-                .name {
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: flex-start;
-                  align-items: center;
-                  padding: 0.75rem 1rem;
-                  background-color: #535353;
-                  border-bottom-left-radius: 0.7ch;
-                  border-bottom-right-radius: 0.7ch;
-                  position: absolute;
-                  bottom: 0;
-                  left: 0;
-                  right: 0;
-                  opacity: 0.75;
-                  transition: background-color 0.5s ease-in-out,
-                    opacity 0.35s ease-in-out;
-
-                  span {
-                    color: #fff;
-                    white-space: nowrap;
-                    font-size: 1.2rem;
-                    font-weight: 800;
-                    letter-spacing: 0.08em;
-                    transition: padding 0.5s ease-in-out;
-                  }
-                }
-
-                &:hover {
-                  transform: scale(0.95);
-
-                  img {
-                    box-shadow: 0 0 0 3px #c4b998, 0 3px 0 0 #c4b998,
-                      0 5px 36px 0 #c4b998;
-                  }
-
-                  .name {
-                    background-color: rgba(10, 10, 12, 0.9);
-                    opacity: 0.85;
-
-                    span {
-                      padding: 0 0 0 1rem !important;
-                    }
-                  }
-                }
-              }
             }
           }
         }

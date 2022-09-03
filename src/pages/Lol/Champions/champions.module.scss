@@ -11,9 +11,23 @@
     background-size: cover;
     background-attachment: fixed;
     opacity: 0.2;
+    filter: brightness(0.4);
+    z-index: -1;
   }
 
   &__filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 75px;
+    z-index: 5;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  &__title {
     display: block;
   }
 
@@ -24,5 +38,14 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 0 2.5rem 2rem;
+
+    .not-found {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 2.5rem 2rem 0 0;
+      width: 100%;
+    }
   }
 }
