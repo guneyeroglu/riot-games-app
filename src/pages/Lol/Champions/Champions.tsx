@@ -42,7 +42,7 @@ const Champions = () => {
     data: championsData,
     isLoading,
     refetch,
-  } = useFetchData('lol-champions-regions');
+  } = useFetchData('lol-champions');
 
   useEffect(() => {
     document.title = t('pageLolChampions');

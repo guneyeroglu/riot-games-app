@@ -78,7 +78,16 @@ const LolMain = () => {
     'SHURIMA',
   ];
 
-  const { data, isLoading, refetch } = useFetchData('lol-champions-regions');
+  const {
+    data: championsData,
+    isLoading: areChampionsLoading,
+    refetch: refetchChampions,
+  } = useFetchData('lol-champions');
+  const {
+    data: regionsData,
+    isLoading: areRegionsLoading,
+    refetch: refetchRegions,
+  } = useFetchData('lol-regions');
 
   useEffect(() => {
     document.title = t('pageLolHome');
@@ -94,8 +103,16 @@ const LolMain = () => {
 
     setWidthRegion(scrollWidthRegion - offsetWidthRegion);
 
-    refetch();
-  }, [t, i18n, refetch, isLoading]);
+    refetchChampions();
+    refetchRegions();
+  }, [
+    t,
+    i18n,
+    areChampionsLoading,
+    areRegionsLoading,
+    refetchChampions,
+    refetchRegions,
+  ]);
 
   return (
     <div className={styles.container}>
@@ -128,11 +145,11 @@ const LolMain = () => {
               <FeaturedTitle type='champions' />
             </div>
             <div className={styles.content}>
-              {isLoading && <Spinner />}
-              {!isLoading &&
+              {areChampionsLoading && <Spinner />}
+              {!areChampionsLoading &&
                 featuredCharacters
                   .map((champName: string) =>
-                    data?.champions.find(
+                    championsData?.champions.find(
                       (champ: IChamp) =>
                         champ.name.toUpperCase() === champName.toUpperCase()
                     )
@@ -169,10 +186,11 @@ const LolMain = () => {
                   dragConstraints={{ right: 0, left: -widthRegion }}
                   className={styles.carousel__inner}
                 >
-                  {!isLoading &&
+                  {areRegionsLoading && <Spinner />}
+                  {!areRegionsLoading &&
                     featuredRegions
                       .map((regionName: string) =>
-                        data?.factions.find(
+                        regionsData?.factions.find(
                           (region: IRegion) =>
                             regionName.toLowerCase() ===
                             region.name.toLowerCase()
