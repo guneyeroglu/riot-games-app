@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import useFetchData from '../../../global/hooks/useFetchData';
 
-import { CardLolChar } from '../../../components/Cards';
+import { CardLolChar, CardLolRegion } from '../../../components/Cards';
 import { imagesCarousel, imagesOther } from '../../../components/Images/';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import Spinner from '../../../components/Spinner/Spinner';
@@ -49,7 +49,7 @@ interface IRegion {
     y: number;
   };
   name: string;
-  title: string;
+  slug: string;
 }
 
 const LolMain = () => {
@@ -179,12 +179,7 @@ const LolMain = () => {
                         )
                       )
                       .map((region: IRegion) => (
-                        <motion.div key={region.name} className={styles.item}>
-                          <img src={region.image.uri} alt={region.name} />
-                          <div className={styles.name}>
-                            <span>{region.name.toUpperCase()}</span>
-                          </div>
-                        </motion.div>
+                        <CardLolRegion key={region.name} region={region} />
                       ))}
                 </motion.div>
               </motion.div>

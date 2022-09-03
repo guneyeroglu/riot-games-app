@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useFetchData from '../../../global/hooks/useFetchData';
 
 import { CardLolChar } from '../../../components/Cards';
 import Spinner from '../../../components/Spinner/Spinner';
+import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
+import SearchBar from '../../../components/Search/SearchBar';
 
 import championsBackground from '../../../assets/images/lol/champions-background.jpeg';
 
@@ -34,6 +36,8 @@ interface IChamp {
 const Champions = () => {
   const { t, i18n } = useTranslation();
 
+  const [inputValue, setInputValue] = useState<string>('');
+
   const {
     data: championsData,
     isLoading,
@@ -47,6 +51,12 @@ const Champions = () => {
     refetch();
   }, [t, i18n, refetch]);
 
+  const filteredData =
+    !isLoading &&
+    championsData.champions.filter((champ: IChamp) =>
+      champ.name.toUpperCase().includes(inputValue.toUpperCase())
+    );
+
   return (
     <div className={styles.container}>
       <div
@@ -55,11 +65,25 @@ const Champions = () => {
           backgroundImage: `url(${championsBackground})`,
         }}
       ></div>
-      <div className={styles.container__filter}></div>
+      <div className={styles.container__filter}>
+        <SearchBar
+          inputValue={inputValue}
+          onSetInputValue={setInputValue}
+          find='champion'
+        />
+      </div>
+      <div className={styles.container__title}>
+        <FeaturedTitle type='champions' translation='champions' />
+      </div>
       <div className={styles.container__content}>
         {isLoading && <Spinner />}
-        {!isLoading &&
-          championsData?.champions
+        {filteredData && filteredData.length === 0 && (
+          <div className={styles['not-found']}>
+            <span>{t('notFoundChampions')}</span>
+          </div>
+        )}
+        {filteredData &&
+          filteredData
             .sort((a: IChamp, b: IChamp) => a.name.localeCompare(b.name))
             .map((champ: IChamp) => (
               <CardLolChar data={champ} key={champ.name} />
