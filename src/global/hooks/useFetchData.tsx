@@ -5,7 +5,10 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 type url =
-  | 'lol-champions-regions'
+  | 'lol-champions'
+  | 'lol-champion-detail'
+  | 'lol-regions'
+  | 'lol-region-detail'
   | 'lol-skins'
   | 'lol-items'
   | 'lol-ranks'
@@ -19,21 +22,33 @@ interface IUrl {
   type: url;
 }
 
-const useFetchData = (urlAdress: url, champName?: string) => {
+const useFetchData = (urlAdress: url, name?: string) => {
   const { i18n } = useTranslation();
 
   const urls: IUrl[] = [
     {
-      type: 'lol-champions-regions',
+      type: 'lol-champions',
       url: `https://universe-meeps.leagueoflegends.com/v1/${
         i18n.language === 'tr_TR' ? 'tr_tr' : 'en_us'
-      }/search/index.json`,
+      }/champion-browse/index.json`,
     },
     {
-      type: 'lol-skins',
+      type: 'lol-champion-detail',
       url: `https://www.leagueoflegends.com/page-data/${
         i18n.language === 'tr_TR' ? 'tr-tr' : 'en-us'
-      }/champions/${champName}/page-data.json`,
+      }/champions/${name}/page-data.json`,
+    },
+    {
+      type: 'lol-regions',
+      url: `https://universe-meeps.leagueoflegends.com/v1/${
+        i18n.language === 'tr_TR' ? 'tr_tr' : 'en_us'
+      }/faction-browse/index.json`,
+    },
+    {
+      type: 'lol-region-detail',
+      url: `https://universe-meeps.leagueoflegends.com/v1/${
+        i18n.language === 'tr_TR' ? 'tr-tr' : 'en-us'
+      }/factions/${name}/index.json`,
     },
     {
       type: 'lol-items',
