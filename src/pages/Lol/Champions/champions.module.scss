@@ -1,6 +1,7 @@
 .container {
   display: block;
   position: relative;
+  min-height: 68.92vh;
 
   &__background {
     position: absolute;
@@ -20,9 +21,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 75px;
-    z-index: 5;
     max-width: 1400px;
     margin: 0 auto;
   }
@@ -44,8 +42,15 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      padding: 2.5rem 2rem 0 0;
+      padding: 2.5rem 2rem 2rem 0;
       width: 100%;
+
+      span {
+        font-weight: 400;
+        font-size: 14px;
+        color: #c4b998;
+        letter-spacing: 4px;
+      }
     }
   }
 }
