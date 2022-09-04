@@ -28,7 +28,7 @@ const SearchBar = (props: IProps) => {
       : '';
 
   const handleInputChange = (event: { target: HTMLInputElement }) => {
-    onSetInputValue(event.target.value);
+    onSetInputValue(event.target.value.toLocaleLowerCase().toUpperCase());
   };
 
   const handleInputValue = () => {
@@ -42,7 +42,7 @@ const SearchBar = (props: IProps) => {
         <input
           type={'search'}
           placeholder={placeholder}
-          value={inputValue.toUpperCase()}
+          value={inputValue}
           onChange={handleInputChange}
         />
         {inputValue.length > 0 && (
