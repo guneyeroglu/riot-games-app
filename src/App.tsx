@@ -1,16 +1,17 @@
 import { Route, Routes } from 'react-router';
-import Footer from './components/Footer/Footer';
+
+import ScrollToTop from './global/scroll/ScrollToTop';
 
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 import { Home } from './pages/Home';
 import { Champions, Regions, Items, LolRanks, LolMain } from './pages/Lol';
-
 import { Agents, Maps, Arsenal, ValoRanks, ValoMain } from './pages/Valo';
 
 const App = () => {
   return (
-    <>
+    <ScrollToTop>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -26,7 +27,7 @@ const App = () => {
         <Route path='/valorant/ranks' element={<ValoRanks />} />
       </Routes>
       <Footer />
-    </>
+    </ScrollToTop>
   );
 };
 
