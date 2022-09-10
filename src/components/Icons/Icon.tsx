@@ -11,6 +11,7 @@ import GitHubIcon from './GitHubIcon';
 import LinkedInIcon from './LinkedInIcon';
 import SearchIcon from './SearchIcon';
 import CloseIcon from './CloseIcon';
+import SortIcon from './SortIcon';
 
 export type iconName =
   | 'RiotGamesIcon'
@@ -25,7 +26,8 @@ export type iconName =
   | 'GitHubIcon'
   | 'LinkedInIcon'
   | 'SearchIcon'
-  | 'CloseIcon';
+  | 'CloseIcon'
+  | 'SortIcon';
 
 interface IProps {
   name: iconName;
@@ -49,6 +51,7 @@ const IconComponentName: any = {
   LinkedInIcon: <LinkedInIcon />,
   SearchIcon: <SearchIcon />,
   CloseIcon: <CloseIcon />,
+  SortIcon: <SortIcon />,
 };
 
 const Icon = (props: IProps) => {
