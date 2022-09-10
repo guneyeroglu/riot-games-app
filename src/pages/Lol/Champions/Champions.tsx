@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useFetchData from '../../../global/hooks/useFetchData';
+import useSortOrder from '../../../global/hooks/useSortOrder';
 
 import { CardLolChar } from '../../../components/Cards';
 import Spinner from '../../../components/Spinner/Spinner';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import SearchBar from '../../../components/Search/SearchBar';
+import Sort from '../../../components/Sort/Sort';
 
 import championsBackground from '../../../assets/images/lol/champions-background.jpeg';
 
@@ -44,6 +46,11 @@ const Champions = () => {
     refetch,
   } = useFetchData('lol-champions');
 
+  const { sortType, setSortType, handleSortOrder } = useSortOrder(
+    'a-z',
+    'name'
+  );
+
   useEffect(() => {
     document.title = t('pageLolChampions');
     document.documentElement.lang = i18n.language.slice(0, 2);
@@ -66,11 +73,14 @@ const Champions = () => {
         }}
       ></div>
       <div className={styles.container__filter}>
-        <SearchBar
-          inputValue={inputValue}
-          onSetInputValue={setInputValue}
-          find='champion'
-        />
+        <div className={styles.box}>
+          <SearchBar
+            inputValue={inputValue}
+            onSetInputValue={setInputValue}
+            find='champion'
+          />
+          <Sort type={sortType} onSetType={setSortType} />
+        </div>
       </div>
       <div className={styles.container__title}>
         <FeaturedTitle type='champions' translation='champions' />
@@ -84,7 +94,7 @@ const Champions = () => {
         )}
         {filteredData &&
           filteredData
-            .sort((a: IChamp, b: IChamp) => a.name.localeCompare(b.name))
+            .sort(handleSortOrder)
             .map((champ: IChamp) => (
               <CardLolChar data={champ} key={champ.name} />
             ))}

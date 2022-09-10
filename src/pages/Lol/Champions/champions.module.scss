@@ -17,12 +17,22 @@
   }
 
   &__filter {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
+    display: block;
+    border: 3px solid rgba(51, 51, 51, 0.25);
+    background-color: #121212;
+    margin: 0 0 5rem 0;
+    height: 100px;
+    z-index: 99;
+
+    .box {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      height: 100%;
+      margin: 0 auto;
+    }
   }
 
   &__title {
