@@ -12,6 +12,9 @@ import LinkedInIcon from './LinkedInIcon';
 import SearchIcon from './SearchIcon';
 import CloseIcon from './CloseIcon';
 import SortIcon from './SortIcon';
+import FilterIcon from './FilterIcon';
+import TargetIcon from './TargetIcon';
+import ValorantIcon from './ValorantIcon';
 
 export type iconName =
   | 'RiotGamesIcon'
@@ -27,7 +30,10 @@ export type iconName =
   | 'LinkedInIcon'
   | 'SearchIcon'
   | 'CloseIcon'
-  | 'SortIcon';
+  | 'SortIcon'
+  | 'FilterIcon'
+  | 'TargetIcon'
+  | 'ValorantIcon';
 
 interface IProps {
   name: iconName;
@@ -52,6 +58,9 @@ const IconComponentName: any = {
   SearchIcon: <SearchIcon />,
   CloseIcon: <CloseIcon />,
   SortIcon: <SortIcon />,
+  FilterIcon: <FilterIcon />,
+  TargetIcon: <TargetIcon />,
+  ValorantIcon: <ValorantIcon />,
 };
 
 const Icon = (props: IProps) => {
