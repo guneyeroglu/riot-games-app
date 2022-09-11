@@ -1,0 +1,114 @@
+.wrapper {
+  position: relative;
+  transition: filter 0.35s ease-in-out;
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: #1c1c1c;
+    border: 1px solid #535353;
+    border-radius: 0.5rem;
+    gap: 1.25rem;
+    width: 150px;
+    height: 35px;
+
+    &--icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: #535353;
+      border-top-left-radius: 0.3rem;
+      border-bottom-left-radius: 0.3rem;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      width: 35px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &--text {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #2a2a2a;
+    }
+
+    &.open {
+      background-color: #2a2a2a;
+    }
+  }
+
+  &__menu {
+    display: none;
+    position: absolute;
+    margin: 1rem 0 0 0;
+    border: 1px solid #535353;
+    border-radius: 0.5rem;
+
+    h3 {
+      padding: 0.5rem 1rem;
+      margin: 0;
+      border-bottom: 1px solid #ffffff;
+      background-color: #535353;
+      border-top-left-radius: 0.3rem;
+      border-top-right-radius: 0.3rem;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      list-style-type: none;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        width: 250px;
+        padding: 0.5rem 1rem;
+        min-height: 45px;
+        background-color: #1c1c1c;
+
+        img {
+          width: 24px;
+          height: auto;
+        }
+
+        span {
+          font-size: 1rem;
+          font-weight: 400;
+        }
+
+        &:hover {
+          background-color: #535353;
+          cursor: pointer;
+        }
+
+        &:last-child {
+          border-bottom-left-radius: 0.42rem;
+          border-bottom-right-radius: 0.42rem;
+        }
+      }
+    }
+
+    &.visible {
+      display: block;
+    }
+  }
+}
