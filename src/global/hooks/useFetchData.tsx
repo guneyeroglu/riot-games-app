@@ -57,7 +57,12 @@ const useFetchData = (urlAdress: url, name?: string) => {
 
     { type: 'lol-ranks', url: `` },
 
-    { type: 'valo-agents', url: `` },
+    {
+      type: 'valo-agents',
+      url: `https://valorant-api.com/v1/agents?language=${
+        i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'
+      }`,
+    },
     { type: 'valo-maps', url: `` },
     { type: 'valo-arsenal', url: `` },
     { type: 'valo-ranks', url: `` },
