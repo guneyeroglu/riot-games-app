@@ -23,6 +23,16 @@
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: none;
+
+      &:focus {
+        & ~ .wrapper__filter--logo {
+          svg {
+            path {
+              fill: #d13539;
+            }
+          }
+        }
+      }
     }
 
     &--close {
@@ -54,11 +64,23 @@
       }
     }
 
-    img {
+    &--logo {
       position: absolute;
       left: 5px;
-      width: auto;
-      max-height: 32px;
+
+      img {
+        width: auto;
+        max-height: 32px;
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+
+        path {
+          transition: fill 0.35s ease-in-out;
+        }
+      }
     }
   }
 }
