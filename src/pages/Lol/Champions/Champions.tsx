@@ -92,7 +92,8 @@ const Champions = () => {
             <span>{t('notFoundChampions')}</span>
           </div>
         )}
-        {filteredData &&
+        {!isLoading &&
+          filteredData &&
           filteredData
             .sort(handleSortOrder)
             .map((champ: IChamp) => (
