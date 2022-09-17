@@ -1,4 +1,4 @@
-import { Dispatch, useState } from 'react';
+import { Dispatch, useEffect, useState } from 'react';
 
 import { Icon } from '../Icons/Icon';
 
@@ -38,6 +38,8 @@ const Filter = (props: IProps) => {
 
   const [open, setOpen] = useState<boolean>(false);
 
+  const [roleNumber, setRoleNumber] = useState<number>(-1);
+
   const { data, inputValue, filterValue, onSetFilterValue } = props;
 
   const roleList = data?.data
@@ -51,8 +53,13 @@ const Filter = (props: IProps) => {
     setOpen((prev) => !prev);
   };
 
-  const handleSelectedListItem = (roleName: string) => {
-    onSetFilterValue(roleName);
+  const handleSelectedListItem = (number: number) => {
+    setRoleNumber(number);
+    if (number >= 0) {
+      return onSetFilterValue(Object.keys(roleList)[number]);
+    }
+
+    return onSetFilterValue('');
   };
 
   const menuClassList = open
@@ -62,6 +69,12 @@ const Filter = (props: IProps) => {
   const buttonClassList = open
     ? `${styles.wrapper__button} ${styles.open}`
     : styles.wrapper__button;
+
+  useEffect(() => {
+    if (roleNumber >= 0) {
+      onSetFilterValue(Object.keys(roleList)[roleNumber]);
+    }
+  }, [onSetFilterValue, roleList, roleNumber]);
 
   return (
     <div className={styles.wrapper}>
@@ -86,7 +99,7 @@ const Filter = (props: IProps) => {
                 ? styles.selected
                 : ''
             }
-            onClick={() => handleSelectedListItem('')}
+            onClick={() => handleSelectedListItem(-1)}
           >
             <Icon name='TargetIcon' />
             <span>{t('all')}</span>
@@ -106,7 +119,11 @@ const Filter = (props: IProps) => {
             Object.keys(roleList).map((roleName: string) => (
               <li
                 key={roleName}
-                onClick={() => handleSelectedListItem(roleName)}
+                onClick={() =>
+                  handleSelectedListItem(
+                    Object.keys(roleList).indexOf(roleName)
+                  )
+                }
                 className={
                   data?.data
                     .filter((agent) =>
