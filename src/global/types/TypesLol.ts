@@ -1,1 +1,1 @@
-export type typesLol = 'champions' | 'regions' | 'items' | 'ranks';
+export type typesLol = 'champions' | 'regions' | 'items' | 'ranksLol';
