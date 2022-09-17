@@ -1,8 +1,8 @@
+import { Dispatch, useState } from 'react';
+
 import { Icon } from '../Icons/Icon';
 
 import { useTranslation } from 'react-i18next';
-
-import { useState } from 'react';
 
 import styles from './filter.module.scss';
 
@@ -24,11 +24,13 @@ interface IAgent {
     description: string;
     displayIcon: string;
   };
+  isPlayableCharacter: boolean;
 }
-
 interface IProps {
   data: { data: IAgent[] };
   inputValue: string;
+  filterValue: string;
+  onSetFilterValue: Dispatch<string>;
 }
 
 const Filter = (props: IProps) => {
@@ -36,21 +38,21 @@ const Filter = (props: IProps) => {
 
   const [open, setOpen] = useState<boolean>(false);
 
-  const { data, inputValue } = props;
+  const { data, inputValue, filterValue, onSetFilterValue } = props;
 
-  const roleList = data?.data.reduce((agents: any, agent: IAgent) => {
-    agents[agent?.role?.displayName] = agent?.role?.displayIcon;
-    return agents;
-  }, {});
+  const roleList = data?.data
+    .filter((agent: IAgent) => agent.displayName && agent.isPlayableCharacter)
+    .reduce((agents: any, agent: IAgent) => {
+      agents[agent?.role?.displayName] = agent?.role?.displayIcon;
+      return agents;
+    }, {});
 
   const handleVisibleMenu = () => {
     setOpen((prev) => !prev);
   };
 
-  const handleSelectedListItem = () => {
-    //
-
-    console.log('first');
+  const handleSelectedListItem = (roleName: string) => {
+    onSetFilterValue(roleName);
   };
 
   const menuClassList = open
@@ -73,48 +75,67 @@ const Filter = (props: IProps) => {
       </div>
       <div className={menuClassList}>
         <h3>{t('agentsRole')}</h3>
-        <ul>
-          <div>
+        <ul id='roles'>
+          <li
+            className={
+              data?.data.filter((agent) =>
+                agent.displayName.toUpperCase().includes(inputValue)
+              ).length === 0
+                ? styles.deactivate
+                : filterValue === ''
+                ? styles.selected
+                : ''
+            }
+            onClick={() => handleSelectedListItem('')}
+          >
             <Icon name='TargetIcon' />
             <span>{t('all')}</span>
             <span>
               (
               {
-                data?.data.filter((agent) =>
-                  agent.displayName.toUpperCase().includes(inputValue)
+                data?.data.filter(
+                  (agent) =>
+                    agent.displayName.toUpperCase().includes(inputValue) &&
+                    agent.isPlayableCharacter
                 ).length
               }
               )
             </span>
-          </div>
+          </li>
           {roleList &&
-            Object.keys(roleList)
-              .filter((role: string) => role !== 'undefined')
-              .map((roleName: string) => (
-                <div
-                  key={roleName}
-                  onClick={handleSelectedListItem}
-                  aria-disabled='true'
-                  aria-checked='true'
-                  style={{ pointerEvents: 'none' }}
-                >
-                  <img src={roleList[roleName]} alt={roleName} />
-                  <span>{roleName}</span>
-                  <span>
-                    (
-                    {
-                      data?.data
-                        .filter((agent) =>
-                          agent.displayName.toUpperCase().includes(inputValue)
-                        )
-                        .filter(
-                          (agent) => agent?.role?.displayName === roleName
-                        ).length
-                    }
+            Object.keys(roleList).map((roleName: string) => (
+              <li
+                key={roleName}
+                onClick={() => handleSelectedListItem(roleName)}
+                className={
+                  data?.data
+                    .filter((agent) =>
+                      agent.displayName.toUpperCase().includes(inputValue)
                     )
-                  </span>
-                </div>
-              ))}
+                    .filter((agent) => agent?.role?.displayName === roleName)
+                    .length === 0
+                    ? styles.deactivate
+                    : filterValue === roleName
+                    ? styles.selected
+                    : ''
+                }
+              >
+                <img src={roleList[roleName]} alt={roleName} />
+                <span>{roleName}</span>
+                <span>
+                  (
+                  {
+                    data?.data
+                      .filter((agent) =>
+                        agent.displayName.toUpperCase().includes(inputValue)
+                      )
+                      .filter((agent) => agent?.role?.displayName === roleName)
+                      .length
+                  }
+                  )
+                </span>
+              </li>
+            ))}
         </ul>
       </div>
     </div>

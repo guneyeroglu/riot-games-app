@@ -10,7 +10,7 @@ type find = 'champion' | 'agent';
 
 interface IProps {
   inputValue: string;
-  onSetInputValue: Dispatch<any>;
+  onSetInputValue: Dispatch<string>;
   find: find;
 }
 

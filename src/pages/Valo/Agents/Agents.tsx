@@ -1,14 +1,21 @@
 import { useEffect, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
+
 import { CardValoAgent } from '../../../components/Cards';
 
 import Filter from '../../../components/Filter/Filter';
 import SearchBar from '../../../components/Search/SearchBar';
 import Spinner from '../../../components/Spinner/Spinner';
+import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
+
 import useFetchData from '../../../global/hooks/useFetchData';
 
+import background from '../../../assets/images/valo/agent-background.jpeg';
+
 import styles from './agent.module.scss';
+
+type abilityName = 'Ability1' | 'Ability2' | 'Grenade' | 'Ultimate' | 'Passive';
 
 interface IAgent {
   uuid: string;
@@ -22,18 +29,22 @@ interface IAgent {
     description: string;
     displayIcon: string;
   };
-  abilities: {
-    slot: string;
-    displayName: string;
-    description: string;
-    displayIcon: string;
-  };
+  abilities: [
+    {
+      slot: abilityName;
+      displayName: string;
+      description: string;
+      displayIcon: string;
+    }
+  ];
+  isPlayableCharacter: boolean;
 }
 
 const Agents = () => {
   const { t, i18n } = useTranslation();
 
   const [inputValue, setInputValue] = useState<string>('');
+  const [filterValue, setFilterValue] = useState<string>('');
 
   const { data, isLoading, refetch } = useFetchData('valo-agents');
 
@@ -44,30 +55,49 @@ const Agents = () => {
     refetch();
   }, [t, i18n, refetch]);
 
+  const filteredData = data?.data
+    .filter((agent: IAgent) => agent.isPlayableCharacter)
+    .filter((agent: IAgent) =>
+      agent.displayName.toUpperCase().includes(inputValue.toUpperCase())
+    )
+    .filter((agent: IAgent) => agent.role.displayName.includes(filterValue));
+
   return (
     <div className={styles.container}>
+      <div
+        className={styles.container__background}
+        style={{ backgroundImage: `url(${background})` }}
+      ></div>
       <div className={styles.container__filter}>
-        <Filter data={data} inputValue={inputValue} />
-        <SearchBar
-          find='agent'
-          inputValue={inputValue}
-          onSetInputValue={setInputValue}
-        />
+        <div className={styles['container__filter--mid']}>
+          <SearchBar
+            find='agent'
+            inputValue={inputValue}
+            onSetInputValue={setInputValue}
+          />
+          <Filter
+            data={data}
+            inputValue={inputValue}
+            filterValue={filterValue}
+            onSetFilterValue={setFilterValue}
+          />
+        </div>
+      </div>
+      <div className={styles.container__title}>
+        <FeaturedTitle type='agents' />
       </div>
       <div className={styles.container__cards}>
         {isLoading && <Spinner />}
         {!isLoading &&
-          data.data
-            .filter(
-              (agent: { isPlayableCharacter: boolean }) =>
-                agent.isPlayableCharacter
-            )
-            .filter((agent: IAgent) =>
-              agent.displayName.toUpperCase().includes(inputValue.toUpperCase())
-            )
-            .map((agent: IAgent) => (
-              <CardValoAgent data={agent} key={agent.uuid} />
-            ))}
+          filteredData &&
+          filteredData.map((agent: IAgent) => (
+            <CardValoAgent data={agent} key={agent.uuid} />
+          ))}
+        {filteredData && filteredData.length === 0 && (
+          <div className={styles['not-found']}>
+            <span>{t('notFoundAgents')}</span>
+          </div>
+        )}
       </div>
     </div>
   );

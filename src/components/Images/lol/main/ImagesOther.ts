@@ -12,7 +12,7 @@ interface IImage {
 
 const imagesOther: IImage[] = [
   { id: 1, name: 'items', view: 'viewItems', url: image1 },
-  { id: 2, name: 'ranks', view: 'viewRanks', url: image2 },
+  { id: 2, name: 'ranksLol', view: 'viewRanks', url: image2 },
 ];
 
 export default imagesOther;

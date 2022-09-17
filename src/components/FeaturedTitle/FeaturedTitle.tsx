@@ -3,14 +3,15 @@ import { useTranslation } from 'react-i18next';
 import styles from './featured-title.module.scss';
 
 import { typesLol } from '../../global/types/TypesLol';
+import { typesValo } from '../../global/types/TypesValo';
 
 interface IProps {
-  type: typesLol;
+  type: typesLol | typesValo;
   translation?: string;
 }
 
 interface IContent {
-  name: typesLol;
+  name: typesLol | typesValo;
   link: string;
   translation: string;
 }
@@ -19,6 +20,7 @@ const FeaturedTitle = (props: IProps) => {
   const { t, i18n } = useTranslation();
 
   const isTurkish = i18n.language === 'tr_TR' ? true : false;
+
   const contents: IContent[] = [
     {
       name: 'champions',
@@ -36,9 +38,14 @@ const FeaturedTitle = (props: IProps) => {
       translation: 'items',
     },
     {
-      name: 'ranks',
+      name: 'ranksLol',
       link: 'https://universe.leagueoflegends.com/esimages/content_type_icon_latest__1ulWu.png',
       translation: 'ranks',
+    },
+    {
+      name: 'agents',
+      link: 'https://www.freelogovectors.net/svg10/valorant_logo-freelogovectors.net_.svg',
+      translation: 'agents',
     },
   ];
 
@@ -46,7 +53,11 @@ const FeaturedTitle = (props: IProps) => {
     champions = 0,
     regions = 1,
     items = 2,
-    ranks = 3,
+    ranksLol = 3,
+    agents = 4,
+    maps = 5,
+    arsenal = 6,
+    ranksValo = 7,
   }
 
   const content = contents[FEATURED_TYPES[props.type]];
