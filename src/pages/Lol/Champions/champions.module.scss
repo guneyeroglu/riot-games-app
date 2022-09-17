@@ -12,8 +12,8 @@
     background-size: cover;
     background-attachment: fixed;
     opacity: 0.2;
-    filter: brightness(0.4);
     z-index: -1;
+    filter: brightness(0.4);
   }
 
   &__filter {
@@ -32,11 +32,13 @@
       max-width: 1400px;
       height: 100%;
       margin: 0 auto;
+      padding: 0 2rem;
     }
   }
 
   &__title {
     display: block;
+    margin: 0 0 2rem 0;
   }
 
   &__content {

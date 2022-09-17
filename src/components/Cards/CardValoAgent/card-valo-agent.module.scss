@@ -10,6 +10,8 @@
     align-items: stretch;
     box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 #767676, 0 1px 3px 0 #d4d4d5;
     border-radius: 0.5rem;
+    position: relative;
+    transition: box-shadow 0.35s ease-in-out;
 
     .image {
       padding: 2rem;
@@ -32,6 +34,7 @@
       padding: 1rem;
       width: 100%;
       height: 100%;
+      min-height: 200px;
       background-color: #1c1c1c;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
@@ -75,7 +78,6 @@
         font-size: 0.95rem;
         font-weight: 400;
         width: 100%;
-        min-height: 56px;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -86,6 +88,117 @@
           color: #ffffff;
           opacity: 1;
         }
+      }
+    }
+
+    .abilities {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      width: 0%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: stretch;
+      background-size: cover;
+      background-position: center;
+      background-color: #272727;
+      border-radius: inherit;
+      padding: 3rem 0;
+      transition: width 0.35s ease-in-out;
+
+      &__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #d4d4d5;
+        padding: 1rem 0;
+        opacity: 0.75;
+
+        &--item {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+
+          img {
+            width: 50px;
+            height: 50px;
+            filter: invert(0.7);
+          }
+
+          span {
+            white-space: break-spaces;
+            color: #1c1c1c;
+            font-size: 1.25rem;
+            font-weight: 700;
+            opacity: 0.75;
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            img {
+              filter: invert(1);
+            }
+
+            span {
+              opacity: 1;
+            }
+          }
+
+          &.active {
+            img {
+              filter: invert(1);
+            }
+
+            span {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &__description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        background-color: #d4d4d5;
+        padding: 1rem 0;
+        opacity: 0.95;
+        color: #000000;
+
+        h4 {
+          text-align: center;
+          color: black;
+          font-size: 1.25rem;
+          font-weight: 600;
+          line-height: 1.5;
+          white-space: break-spaces;
+        }
+
+        span {
+          text-align: center;
+          color: black;
+          line-height: 1.5;
+          font-weight: 600;
+          white-space: break-spaces;
+        }
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 3px #ffffff, 0 4px 0 0 #767676, 0 3px 30px 0 #ffffff;
+
+      .abilities {
+        width: 100%;
       }
     }
   }
