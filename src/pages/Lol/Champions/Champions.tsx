@@ -87,11 +87,6 @@ const Champions = () => {
       </div>
       <div className={styles.container__content}>
         {isLoading && <Spinner />}
-        {filteredData && filteredData.length === 0 && (
-          <div className={styles['not-found']}>
-            <span>{t('notFoundChampions')}</span>
-          </div>
-        )}
         {!isLoading &&
           filteredData &&
           filteredData
@@ -99,6 +94,11 @@ const Champions = () => {
             .map((champ: IChamp) => (
               <CardLolChar data={champ} key={champ.name} />
             ))}
+        {!isLoading && filteredData && filteredData.length === 0 && (
+          <div className={styles['not-found']}>
+            <span>{t('notFoundChampions')}</span>
+          </div>
+        )}
       </div>
     </div>
   );
