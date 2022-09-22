@@ -40,13 +40,13 @@ const CardLol = (props: IProps) => {
           className={styles['card__item--hero']}
         >
           <div
+            className={styles.image}
             style={{
               backgroundImage: `url(${champ.background.uri})`,
               backgroundPosition: `${
                 100 * (champ.background.x / champ.background.width)
               }%`,
             }}
-            className={styles.image}
           ></div>
         </LazyLoad>
         <div className={styles['card__item--name']}>
