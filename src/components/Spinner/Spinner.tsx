@@ -2,9 +2,18 @@ import { CircularProgress } from '@mui/material';
 
 import styles from './spinner.module.scss';
 
-const Spinner = () => {
+interface IProps {
+  padding?: boolean;
+}
+
+const Spinner = (props: IProps) => {
+  const padding = props.padding;
+  const classList = padding
+    ? `${styles.wrapper} ${styles.padding}`
+    : styles.wrapper;
+
   return (
-    <div className={styles.wrapper}>
+    <div className={classList}>
       <CircularProgress color='error' />
     </div>
   );

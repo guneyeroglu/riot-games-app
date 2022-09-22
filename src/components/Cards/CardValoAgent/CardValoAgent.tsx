@@ -1,4 +1,8 @@
 import { useState } from 'react';
+
+import LazyLoad from 'react-lazy-load';
+import Spinner from '../../Spinner/Spinner';
+
 import styles from './card-valo-agent.module.scss';
 
 type abilityName = 'Ability1' | 'Ability2' | 'Grenade' | 'Ultimate' | 'Passive';
@@ -27,6 +31,8 @@ const CardValoAgent = (props: IProps) => {
 
   const [abilityId, setAbilityId] = useState<number>(-1);
 
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
   const handleAbility = (id: number) => {
     if (abilityId === id || id === -1) {
       return setAbilityId(-1);
@@ -35,11 +41,28 @@ const CardValoAgent = (props: IProps) => {
     return setAbilityId(id);
   };
 
+  const handleSpinner = () => {
+    setIsLoading(false);
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.card__item} onMouseLeave={() => handleAbility(-1)}>
         <div className={styles.image}>
-          <img src={agent.fullPortrait} alt={agent.displayName} />
+          {isLoading && <Spinner />}
+          {
+            <LazyLoad
+              width={isLoading ? '0%' : '100%'}
+              height={'100%'}
+              offset={800}
+            >
+              <img
+                src={agent.fullPortrait}
+                alt={agent.displayName}
+                onLoad={handleSpinner}
+              />
+            </LazyLoad>
+          }
         </div>
         <div className={styles.info}>
           <div className={styles.info__title}>
@@ -72,7 +95,9 @@ const CardValoAgent = (props: IProps) => {
                   key={ability.displayName}
                   id={`ability-${agent.abilities.indexOf(ability)}`}
                 >
-                  <img src={ability.displayIcon} alt={ability.displayName} />
+                  <LazyLoad width={'100%'} height={'100%'} offset={400}>
+                    <img src={ability.displayIcon} alt={ability.displayName} />
+                  </LazyLoad>
                   <span>
                     {ability.slot === 'Ability1' && 'Q'}
                     {ability.slot === 'Ability2' && 'E'}

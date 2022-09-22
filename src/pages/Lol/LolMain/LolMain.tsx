@@ -145,7 +145,7 @@ const LolMain = () => {
               <FeaturedTitle type='champions' />
             </div>
             <div className={styles.content}>
-              {areChampionsLoading && <Spinner />}
+              {areChampionsLoading && <Spinner padding={true} />}
               {!areChampionsLoading &&
                 featuredCharacters
                   .map((champName: string) =>

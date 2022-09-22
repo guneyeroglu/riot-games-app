@@ -87,7 +87,7 @@ const Agents = () => {
         <FeaturedTitle type='agents' />
       </div>
       <div className={styles.container__cards}>
-        {isLoading && <Spinner />}
+        {isLoading && <Spinner padding={true} />}
         {!isLoading &&
           filteredData &&
           filteredData.map((agent: IAgent) => (
