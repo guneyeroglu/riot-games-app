@@ -5,6 +5,7 @@ import { Icon } from '../Icons/Icon';
 import { useTranslation } from 'react-i18next';
 
 import styles from './sort.module.scss';
+import useClickOutside from '../../global/hooks/useClickOutside';
 
 type orderType = 'a-z' | 'z-a' | 'newest';
 
@@ -17,6 +18,8 @@ const Sort = (props: IProps) => {
   const { t } = useTranslation();
 
   const [visible, setVisible] = useState<boolean>(false);
+
+  const domNode = useClickOutside(() => setVisible(false));
 
   const { type, onSetType } = props;
 
@@ -33,14 +36,16 @@ const Sort = (props: IProps) => {
     : styles['container__sort--menu'];
 
   return (
-    <button className={style} onClick={handleVisible}>
-      <div className={styles.container__sort}>
-        <Icon name='SortIcon' color='#937341' />
-        <div className={styles['container__sort--title']}>
-          <span>{t('sorting')}:</span>
-          <span>{t(type)}</span>
+    <div className={style} ref={domNode}>
+      <button onClick={handleVisible}>
+        <div className={styles.container__sort}>
+          <Icon name='SortIcon' color='#937341' />
+          <div className={styles['container__sort--title']}>
+            <span>{t('sorting')}:</span>
+            <span>{t(type)}</span>
+          </div>
         </div>
-      </div>
+      </button>
       <div className={classList}>
         <ul>
           <li onClick={() => onSetType('a-z')}>
@@ -54,7 +59,7 @@ const Sort = (props: IProps) => {
           </li>
         </ul>
       </div>
-    </button>
+    </div>
   );
 };
 

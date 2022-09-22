@@ -5,6 +5,7 @@ import { Icon } from '../Icons/Icon';
 import { useTranslation } from 'react-i18next';
 
 import styles from './filter.module.scss';
+import useClickOutside from '../../global/hooks/useClickOutside';
 
 interface IAgent {
   uuid: string;
@@ -42,6 +43,8 @@ const Filter = (props: IProps) => {
 
   const { data, inputValue, filterValue, onSetFilterValue } = props;
 
+  const domNode = useClickOutside(() => setOpen(false));
+
   const roleList = data?.data
     .filter((agent: IAgent) => agent.displayName && agent.isPlayableCharacter)
     .reduce((agents: any, agent: IAgent) => {
@@ -77,7 +80,7 @@ const Filter = (props: IProps) => {
   }, [onSetFilterValue, roleList, roleNumber]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} ref={domNode}>
       <div className={buttonClassList} onClick={handleVisibleMenu}>
         <div className={styles['wrapper__button--icon']}>
           <Icon name='FilterIcon' />
