@@ -2,10 +2,11 @@ import { Dispatch, useEffect, useState } from 'react';
 
 import { Icon } from '../Icons/Icon';
 
+import useClickOutside from '../../global/hooks/useClickOutside';
+
 import { useTranslation } from 'react-i18next';
 
 import styles from './filter.module.scss';
-import useClickOutside from '../../global/hooks/useClickOutside';
 
 interface IAgent {
   uuid: string;
