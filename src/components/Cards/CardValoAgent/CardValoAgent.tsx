@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import LazyLoad from 'react-lazy-load';
 import Spinner from '../../Spinner/Spinner';
 
@@ -28,6 +30,8 @@ interface IProps {
 
 const CardValoAgent = (props: IProps) => {
   const { data: agent } = props;
+
+  const { i18n } = useTranslation();
 
   const [abilityId, setAbilityId] = useState<number>(-1);
 
@@ -109,7 +113,13 @@ const CardValoAgent = (props: IProps) => {
           </div>
           {abilityId !== -1 && (
             <div className={styles.abilities__description}>
-              <h4>- {agent.abilities[abilityId].displayName} -</h4>
+              <h4>
+                {`- ${
+                  i18n.language === 'tr_TR'
+                    ? agent.abilities[abilityId].displayName.toLocaleUpperCase()
+                    : agent.abilities[abilityId].displayName.toUpperCase()
+                } -`}
+              </h4>
               <span>{agent.abilities[abilityId].description}</span>
             </div>
           )}
