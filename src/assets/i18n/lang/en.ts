@@ -39,6 +39,7 @@ const en = {
     duelist: 'Duelist',
     sentinel: 'Sentinel',
     controller: 'Controller',
+    seeMore: 'SEE MORE',
     viewGallery: 'VIEW GALLERY',
     chooseYourWeapon: 'CHOOSE YOUR WEAPON',
     valoProtocol: 'VLRT PR0T0C0L',

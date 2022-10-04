@@ -38,6 +38,7 @@ const tr = {
     duelist: 'Düellocu',
     sentinel: 'Gözcü',
     controller: 'Kontrol Uzmanı',
+    seeMore: 'DAHA FAZLASI',
     viewGallery: 'GALERİYE BAK',
     chooseYourWeapon: 'SİLAHINI SEÇ',
     valoProtocol: 'VLRT PR0T0K0LÜ',
