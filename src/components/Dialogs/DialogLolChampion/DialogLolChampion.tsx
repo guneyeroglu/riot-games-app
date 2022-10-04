@@ -219,7 +219,10 @@ const DialogLolChampion = (props: IProps) => {
           <div className={styles['wrapper__content-img']}>
             <div
               className={styles.image}
-              style={{ pointerEvents: onLoad ? 'auto' : 'none' }}
+              style={{
+                pointerEvents: onLoad ? 'auto' : 'none',
+                backgroundColor: onLoad ? 'transparent' : '#ffffff',
+              }}
               onClick={handleImageModalOpen}
             >
               {!onLoad && <Spinner color='#111111' />}
@@ -261,7 +264,10 @@ const DialogLolChampion = (props: IProps) => {
                       ? `${styles.skill__item} ${styles.active}`
                       : styles.skill__item
                   }
-                  style={{ pointerEvents: skillOnLoad ? 'auto' : 'none' }}
+                  style={{
+                    pointerEvents: skillOnLoad ? 'auto' : 'none',
+                    backgroundColor: skillOnLoad ? 'transparent' : '#ffffff',
+                  }}
                   onClick={() => handleSelectedSkill(skill.name)}
                 >
                   {!skillOnLoad && <Spinner color='#111111' />}
