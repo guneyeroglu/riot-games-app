@@ -15,25 +15,9 @@ import SortIcon from './SortIcon';
 import FilterIcon from './FilterIcon';
 import TargetIcon from './TargetIcon';
 import ValorantIcon from './ValorantIcon';
+import ArrowIcon from './ArrowIcon';
 
-export type iconName =
-  | 'RiotGamesIcon'
-  | 'RiotFistIcon'
-  | 'WorldIcon'
-  | 'TRIcon'
-  | 'GBIcon'
-  | 'FacebookIcon'
-  | 'TwitterIcon'
-  | 'InstagramIcon'
-  | 'YouTubeIcon'
-  | 'GitHubIcon'
-  | 'LinkedInIcon'
-  | 'SearchIcon'
-  | 'CloseIcon'
-  | 'SortIcon'
-  | 'FilterIcon'
-  | 'TargetIcon'
-  | 'ValorantIcon';
+import { iconName } from '../../global/types/IconName';
 
 interface IProps {
   name: iconName;
@@ -61,6 +45,7 @@ const IconComponentName: any = {
   FilterIcon: <FilterIcon />,
   TargetIcon: <TargetIcon />,
   ValorantIcon: <ValorantIcon />,
+  ArrowIcon: <ArrowIcon />,
 };
 
 const Icon = (props: IProps) => {

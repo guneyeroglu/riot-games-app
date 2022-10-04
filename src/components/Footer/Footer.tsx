@@ -1,7 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import { Icon, iconName } from '../Icons/Icon';
+import { Icon } from '../Icons/Icon';
 import FooterItemTop from './FooterItemTop';
+
+import { iconName } from '../../global/types/IconName';
 
 import { Divider } from 'semantic-ui-react';
 

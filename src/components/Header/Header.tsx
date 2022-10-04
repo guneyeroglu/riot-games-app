@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { Icon, iconName } from '../Icons/Icon';
+import { Icon } from '../Icons/Icon';
+
+import { iconName } from '../../global/types/IconName';
 
 import { Dropdown } from 'semantic-ui-react';
 
