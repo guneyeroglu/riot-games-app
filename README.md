@@ -27,5 +27,5 @@ Tools that I used in this project:
 - Semantic UI Library
 - React-i18n
 - Framer-Motion
-- React-Lazy-Load (Maybe Infinite Scroll can be used. IDK.)
+- React-Lazy-Load
 - ...
