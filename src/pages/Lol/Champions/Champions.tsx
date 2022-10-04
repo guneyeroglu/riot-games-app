@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 
 import useFetchData from '../../../global/hooks/useFetchData';
 import useSortOrder from '../../../global/hooks/useSortOrder';
+import useChampionDialog from '../../../global/hooks/useChampionDialog';
 
 import { CardLolChar } from '../../../components/Cards';
+
 import Spinner from '../../../components/Spinner/Spinner';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import SearchBar from '../../../components/Search/SearchBar';
@@ -51,6 +53,14 @@ const Champions = () => {
     'name'
   );
 
+  const {
+    openModal,
+    setOpenModal,
+    championName,
+    setChampionName,
+    DialogLolChampion,
+  } = useChampionDialog();
+
   useEffect(() => {
     document.title = t('pageLolChampions');
     document.documentElement.lang = i18n.language.slice(0, 2);
@@ -92,13 +102,23 @@ const Champions = () => {
           filteredData
             .sort(handleSortOrder)
             .map((champ: IChamp) => (
-              <CardLolChar data={champ} key={champ.name} />
+              <CardLolChar
+                key={champ.name}
+                data={champ}
+                onSetChampionName={setChampionName}
+                onSetOpen={setOpenModal}
+              />
             ))}
         {!isLoading && filteredData && filteredData.length === 0 && (
           <div className={styles['not-found']}>
             <span>{t('notFoundChampions')}</span>
           </div>
         )}
+        <DialogLolChampion
+          open={openModal}
+          onSetOpen={setOpenModal}
+          championName={championName}
+        />
       </div>
     </div>
   );

@@ -10,6 +10,8 @@ import { imagesCarousel, imagesOther } from '../../../components/Images/';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import Spinner from '../../../components/Spinner/Spinner';
 
+import useChampionDialog from '../../../global/hooks/useChampionDialog';
+
 import backgroundImageChampions from '../../../assets/images/lol/map-bg-1.jpeg';
 import backgroundImageRegions from '../../../assets/images/lol/map-bg-2.jpeg';
 
@@ -89,6 +91,14 @@ const LolMain = () => {
     refetch: refetchRegions,
   } = useFetchData('lol-regions');
 
+  const {
+    openModal,
+    setOpenModal,
+    championName,
+    setChampionName,
+    DialogLolChampion,
+  } = useChampionDialog();
+
   useEffect(() => {
     document.title = t('pageLolHome');
     document.documentElement.lang = i18n.language.slice(0, 2);
@@ -155,8 +165,18 @@ const LolMain = () => {
                     )
                   )
                   .map((champ: IChamp) => (
-                    <CardLolChar data={champ} key={champ.name} />
+                    <CardLolChar
+                      key={champ.name}
+                      data={champ}
+                      onSetOpen={setOpenModal}
+                      onSetChampionName={setChampionName}
+                    />
                   ))}
+              <DialogLolChampion
+                open={openModal}
+                onSetOpen={setOpenModal}
+                championName={championName}
+              />
             </div>
             <div className={styles.nav}>
               <Link to='champions'>

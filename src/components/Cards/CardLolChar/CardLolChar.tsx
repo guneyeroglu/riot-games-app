@@ -1,3 +1,5 @@
+import { Dispatch } from 'react';
+
 import LazyLoad from 'react-lazy-load';
 
 import styles from './card-lol-char.module.scss';
@@ -25,14 +27,24 @@ interface IChamp {
 
 interface IProps {
   data: IChamp;
+  onSetChampionName: Dispatch<string>;
+  onSetOpen: Dispatch<boolean>;
 }
 
 const CardLol = (props: IProps) => {
-  const { data: champ } = props;
+  const { data: champ, onSetChampionName: setChampionName, onSetOpen } = props;
+
+  const handleChampionName = (name: string) => {
+    setChampionName(name.replace(`’`, "'"));
+    onSetOpen(true);
+  };
 
   return (
     <div className={styles.card}>
-      <div className={styles.card__item}>
+      <div
+        className={styles.card__item}
+        onClick={() => handleChampionName(champ.name)}
+      >
         <LazyLoad
           width={'100%'}
           height={425}
