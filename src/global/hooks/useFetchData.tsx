@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 
 type url =
   | 'lol-champions'
+  | 'lol-champion-url'
   | 'lol-champion-detail'
   | 'lol-regions'
   | 'lol-region-detail'
@@ -33,10 +34,16 @@ const useFetchData = (urlAdress: url, name?: string) => {
       }/champion-browse/index.json`,
     },
     {
+      type: 'lol-champion-url',
+      url: `https://www.leagueoflegends.com/page-data/${
+        i18n.language === 'tr_TR' ? 'tr-tr' : 'en-us'
+      }/champions/page-data.json`,
+    },
+    {
       type: 'lol-champion-detail',
       url: `https://www.leagueoflegends.com/page-data/${
         i18n.language === 'tr_TR' ? 'tr-tr' : 'en-us'
-      }/champions/${name}/page-data.json`,
+      }${name}page-data.json`,
     },
     {
       type: 'lol-regions',
@@ -74,9 +81,13 @@ const useFetchData = (urlAdress: url, name?: string) => {
     return await axios.get(adress?.url ?? '').then((res) => res.data);
   };
 
-  const { data, isLoading, refetch } = useQuery([urlAdress], fetchData);
+  const { data, isLoading, refetch, isFetching } = useQuery(
+    [urlAdress],
+    fetchData,
+    { refetchOnWindowFocus: false }
+  );
 
-  return { data, isLoading, refetch };
+  return { data, isLoading, refetch, isFetching };
 };
 
 export default useFetchData;
