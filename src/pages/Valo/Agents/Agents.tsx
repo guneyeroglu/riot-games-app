@@ -93,7 +93,7 @@ const Agents = () => {
           filteredData.map((agent: IAgent) => (
             <CardValoAgent data={agent} key={agent.uuid} />
           ))}
-        {isLoading && filteredData && filteredData.length === 0 && (
+        {!isLoading && filteredData && filteredData.length === 0 && (
           <div className={styles['not-found']}>
             <span>{t('notFoundAgents')}</span>
           </div>
