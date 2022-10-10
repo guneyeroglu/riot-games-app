@@ -1,21 +1,10 @@
+import { IRegion } from '../../../global/interfaces';
+
 import styles from './card-lol-region.module.scss';
 
 interface IProps {
-  region: {
-    description: string;
-    image: {
-      title: string;
-      subtitle: string;
-      description: string;
-      uri: string;
-      width: number;
-      height: number;
-      x: number;
-      y: number;
-    };
-    name: string;
-    slug: string;
-  };
+  region: IRegion;
+  cursor?: boolean;
 }
 
 enum REGIONS {
@@ -35,10 +24,14 @@ enum REGIONS {
 }
 
 const CardLolRegion = (props: IProps) => {
-  const { region } = props;
+  const { region, cursor } = props;
+
+  const classList = cursor
+    ? `${styles.card} ${styles['carousel__inner--item']}`
+    : styles.card;
 
   return (
-    <div className={styles.card}>
+    <div className={classList}>
       <div
         className={styles.card__background}
         style={{ backgroundImage: `url(${region.image.uri})` }}
