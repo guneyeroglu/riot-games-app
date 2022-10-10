@@ -38,7 +38,7 @@
     transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
 
     span {
-      color: #fff;
+      color: #ffffff;
       white-space: nowrap;
       font-size: 1.25rem;
       font-weight: 800;
@@ -61,6 +61,7 @@
 
   &:hover {
     transform: scale(0.8);
+    cursor: pointer;
 
     .card__background {
       box-shadow: 0 0 0 3px #c4b998, 0 3px 0 0 #c4b998, 0 5px 36px 0 #c4b998;
@@ -79,5 +80,11 @@
     img {
       opacity: 0;
     }
+  }
+}
+
+.carousel__inner--item {
+  &:active {
+    cursor: grabbing;
   }
 }
