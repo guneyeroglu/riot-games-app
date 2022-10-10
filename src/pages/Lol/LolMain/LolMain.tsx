@@ -12,8 +12,8 @@ import Spinner from '../../../components/Spinner/Spinner';
 
 import useChampionDialog from '../../../global/hooks/useChampionDialog';
 
-import backgroundImageChampions from '../../../assets/images/lol/map-bg-1.jpeg';
-import backgroundImageRegions from '../../../assets/images/lol/map-bg-2.jpeg';
+import backgroundImageChampions from '../../../assets/images/lol/featured-champs-bg.jpeg';
+import backgroundImageRegions from '../../../assets/images/lol/featured-regions-bg.jpeg.jpeg';
 
 import styles from './lol-main.module.scss';
 
@@ -217,7 +217,11 @@ const LolMain = () => {
                         )
                       )
                       .map((region: IRegion) => (
-                        <CardLolRegion key={region.name} region={region} />
+                        <CardLolRegion
+                          key={region.name}
+                          region={region}
+                          cursor={true}
+                        />
                       ))}
                 </motion.div>
               </motion.div>
