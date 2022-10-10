@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const ValoRanks = () => {
+const Ranks = () => {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -12,4 +12,4 @@ const ValoRanks = () => {
   return <div>ValoRanks</div>;
 };
 
-export default ValoRanks;
+export default Ranks;

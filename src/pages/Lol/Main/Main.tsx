@@ -15,7 +15,7 @@ import useChampionDialog from '../../../global/hooks/useChampionDialog';
 import backgroundImageChampions from '../../../assets/images/lol/featured-champs-bg.jpeg';
 import backgroundImageRegions from '../../../assets/images/lol/featured-regions-bg.jpeg.jpeg';
 
-import styles from './lol-main.module.scss';
+import styles from './main.module.scss';
 
 interface IChamp {
   background: {
@@ -54,7 +54,7 @@ interface IRegion {
   slug: string;
 }
 
-const LolMain = () => {
+const Main = () => {
   const { t, i18n } = useTranslation();
 
   const carouselGeneral = useRef<HTMLDivElement | any>(null);
@@ -259,4 +259,4 @@ const LolMain = () => {
   );
 };
 
-export default LolMain;
+export default Main;

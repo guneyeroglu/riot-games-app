@@ -6,8 +6,20 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 import { Home } from './pages/Home';
-import { Champions, Regions, Items, LolRanks, LolMain } from './pages/Lol';
-import { Agents, Maps, Arsenal, ValoRanks, ValoMain } from './pages/Valo';
+import {
+  Champions,
+  Regions,
+  Items,
+  Ranks as LolRanks,
+  Main as LolMain,
+} from './pages/Lol';
+import {
+  Agents,
+  Maps,
+  Arsenal,
+  Ranks as ValoRanks,
+  Main as ValoMain,
+} from './pages/Valo';
 
 const App = () => {
   return (

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const LolRanks = () => {
+const Ranks = () => {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -12,4 +12,4 @@ const LolRanks = () => {
   return <div>LolRanks</div>;
 };
 
-export default LolRanks;
+export default Ranks;

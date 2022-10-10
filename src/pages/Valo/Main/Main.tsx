@@ -6,9 +6,9 @@ import ValoList from '../../../components/ValoList/ValoList';
 
 import agent from '../../../assets/images/valo/fade.jpg';
 
-import styles from './valorant-main.module.scss';
+import styles from './main.module.scss';
 
-const ValoMain = () => {
+const Main = () => {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -38,4 +38,4 @@ const ValoMain = () => {
   );
 };
 
-export default ValoMain;
+export default Main;
