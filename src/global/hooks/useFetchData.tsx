@@ -54,7 +54,7 @@ const useFetchData = (urlAdress: url, name?: string) => {
     {
       type: 'lol-region-detail',
       url: `https://universe-meeps.leagueoflegends.com/v1/${
-        i18n.language === 'tr_TR' ? 'tr-tr' : 'en-us'
+        i18n.language === 'tr_TR' ? 'tr_tr' : 'en_us'
       }/factions/${name}/index.json`,
     },
     {
