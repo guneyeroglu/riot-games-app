@@ -5,6 +5,7 @@ import styles from './card-lol-region.module.scss';
 interface IProps {
   region: IRegion;
   cursor?: boolean;
+  onSetDrawer: () => void;
 }
 
 enum REGIONS {
@@ -24,14 +25,14 @@ enum REGIONS {
 }
 
 const CardLolRegion = (props: IProps) => {
-  const { region, cursor } = props;
+  const { region, cursor, onSetDrawer } = props;
 
   const classList = cursor
     ? `${styles.card} ${styles['carousel__inner--item']}`
     : styles.card;
 
   return (
-    <div className={classList}>
+    <div className={classList} onClick={onSetDrawer}>
       <div
         className={styles.card__background}
         style={{ backgroundImage: `url(${region.image.uri})` }}

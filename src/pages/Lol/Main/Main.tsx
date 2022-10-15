@@ -62,6 +62,7 @@ const Main = () => {
 
   const [widthGeneral, setWidthGeneral] = useState<number>(0);
   const [widthRegion, setWidthRegion] = useState<number>(0);
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
 
   const featuredCharacters: string[] = [
     'VEX',
@@ -123,6 +124,10 @@ const Main = () => {
     refetchChampions,
     refetchRegions,
   ]);
+
+  const handleSetDrawer = () => {
+    setOpenDrawer(false);
+  };
 
   return (
     <div className={styles.container}>
@@ -221,6 +226,7 @@ const Main = () => {
                           key={region.name}
                           region={region}
                           cursor={true}
+                          onSetDrawer={handleSetDrawer}
                         />
                       ))}
                 </motion.div>

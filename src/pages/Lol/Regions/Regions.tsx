@@ -1,19 +1,22 @@
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
 import useFetchData from '../../../global/hooks/useFetchData';
 
+import DrawerRegion from '../../../components/Drawers/DrawerRegion/DrawerRegion';
+import Spinner from '../../../components/Spinner/Spinner';
 import { CardLolRegion } from '../../../components/Cards';
 
-import Spinner from '../../../components/Spinner/Spinner';
-
 import backgroundImageRegions from '../../../assets/images/lol/regions-background.png';
+
+import { IRegion } from '../../../global/interfaces';
 
 import styles from './regions.module.scss';
 
 const Regions = () => {
   const { t, i18n } = useTranslation();
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
 
   const { data, isLoading, refetch } = useFetchData('lol-regions');
 
@@ -23,6 +26,10 @@ const Regions = () => {
 
     refetch();
   }, [t, i18n, refetch]);
+
+  const handleDrawer = () => {
+    setOpenDrawer((preValue: boolean) => !preValue);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -40,10 +47,15 @@ const Regions = () => {
       <div className={styles.wrapper__content}>
         {isLoading && <Spinner color='#ffffff' />}
         {!isLoading &&
-          data?.factions.map((region: any) => (
-            <CardLolRegion key={region.name} region={region} />
+          data?.factions.map((region: IRegion) => (
+            <CardLolRegion
+              key={region.name}
+              region={region}
+              onSetDrawer={handleDrawer}
+            />
           ))}
       </div>
+      <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region='da' />
     </div>
   );
 };

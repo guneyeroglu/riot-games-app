@@ -1,0 +1,38 @@
+.wrapper {
+  display: block;
+
+  [tabindex='-1'] {
+    height: 750px;
+    background-color: #535353;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: #111111;
+
+    span {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #535353;
+
+    span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #ffffff;
+    }
+  }
+}

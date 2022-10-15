@@ -1,19 +1,31 @@
-import { useState } from 'react';
+import { Dispatch } from 'react';
 
 import { SwipeableDrawer } from '@mui/material';
 
 import styles from './drawer-region.module.scss';
+import useFetchData from '../../../global/hooks/useFetchData';
 
-const DrawerRegion = () => {
-  const [open, setOpen] = useState<boolean>(false);
+interface IProps {
+  open: boolean;
+  onSetOpen: Dispatch<boolean>;
+  region: string;
+}
+
+const DrawerRegion = (props: IProps) => {
+  const { open, onSetOpen, region } = props;
 
   const handleCloseDrawer = () => {
-    setOpen(false);
+    onSetOpen(false);
   };
 
   const handleOpenDrawer = () => {
-    setOpen(true);
+    onSetOpen(true);
   };
+
+  const { data, isFetching, isLoading, refetch } = useFetchData(
+    'lol-region-detail',
+    region
+  );
 
   return (
     <SwipeableDrawer
@@ -21,9 +33,18 @@ const DrawerRegion = () => {
       open={open}
       onClose={handleCloseDrawer}
       onOpen={handleOpenDrawer}
+      className={styles.wrapper}
     >
-      <div className=''>
-        <div></div>
+      <div className={styles.wrapper__title}>
+        <span>Peki</span>
+      </div>
+      <div className={styles.wrapper__content}>
+        <div className={styles['wrapper__content--bg']}></div>
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+          ullam veniam consequatur totam tempore sit est maxime laboriosam et
+          sint, atque consequuntur officia ducimus aperiam!
+        </span>
       </div>
     </SwipeableDrawer>
   );
