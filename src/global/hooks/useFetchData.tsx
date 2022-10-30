@@ -87,7 +87,7 @@ const useFetchData = (urlAdress: url, name?: string) => {
     { refetchOnWindowFocus: false }
   );
 
-  return { data, isLoading, refetch, isFetching };
+  return { data, isLoading, refetch, isFetching } as const;
 };
 
 export default useFetchData;

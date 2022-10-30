@@ -3,7 +3,6 @@
 
   [tabindex='-1'] {
     height: 750px;
-    background-color: #535353;
   }
 
   &__title {
@@ -13,6 +12,9 @@
     align-items: center;
     padding: 1rem 0;
     background-color: #111111;
+    z-index: 5;
+    position: sticky;
+    top: 0;
 
     span {
       font-size: 2rem;
@@ -28,6 +30,17 @@
     align-items: center;
     padding: 2rem;
     background-color: #535353;
+
+    video {
+      object-fit: cover;
+      width: 100vw;
+      height: 750px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: -20;
+      filter: brightness(0.75);
+    }
 
     span {
       font-size: 1rem;

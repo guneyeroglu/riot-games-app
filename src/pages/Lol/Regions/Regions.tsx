@@ -17,6 +17,7 @@ import styles from './regions.module.scss';
 const Regions = () => {
   const { t, i18n } = useTranslation();
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+  const [regionName, setRegionName] = useState<string>('');
 
   const { data, isLoading, refetch } = useFetchData('lol-regions');
 
@@ -27,8 +28,9 @@ const Regions = () => {
     refetch();
   }, [t, i18n, refetch]);
 
-  const handleDrawer = () => {
+  const handleDrawer = (name: string) => {
     setOpenDrawer((preValue: boolean) => !preValue);
+    setRegionName(name);
   };
 
   return (
@@ -55,7 +57,13 @@ const Regions = () => {
             />
           ))}
       </div>
-      <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region='da' />
+      {openDrawer && (
+        <DrawerRegion
+          open={openDrawer}
+          onSetOpen={setOpenDrawer}
+          region={regionName}
+        />
+      )}
     </div>
   );
 };

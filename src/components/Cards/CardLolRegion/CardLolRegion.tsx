@@ -5,7 +5,7 @@ import styles from './card-lol-region.module.scss';
 interface IProps {
   region: IRegion;
   cursor?: boolean;
-  onSetDrawer: () => void;
+  onSetDrawer: (name: string) => void;
 }
 
 enum REGIONS {
@@ -32,7 +32,7 @@ const CardLolRegion = (props: IProps) => {
     : styles.card;
 
   return (
-    <div className={classList} onClick={onSetDrawer}>
+    <div className={classList} onClick={() => onSetDrawer(region.slug)}>
       <div
         className={styles.card__background}
         style={{ backgroundImage: `url(${region.image.uri})` }}
