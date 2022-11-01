@@ -3,6 +3,7 @@ import { Dispatch, useEffect, useState } from 'react';
 import { Dialog } from '@mui/material';
 
 import { Icon } from '../../Icons/Icon';
+import IconButton from '../../IconButton/IconButton';
 import Spinner from '../../Spinner/Spinner';
 
 import useFetchData from '../../../global/hooks/useFetchData';
@@ -10,7 +11,6 @@ import useFetchData from '../../../global/hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
 import styles from './dialog-lol-champion.module.scss';
-import IconButton from '../../IconButton/IconButton';
 
 interface IProps {
   open: boolean;
@@ -92,16 +92,19 @@ const DialogLolChampion = (props: IProps) => {
   const url = urlData?.result?.data?.allChampions?.edges?.filter(
     (champ: { node: { champion_name: string } }) =>
       champ.node.champion_name.toLowerCase() === championName.toLowerCase()
-  )[0].node.url;
+  )[0]?.node?.url;
 
   const { data, isFetching, refetch } = useFetchData(
     'lol-champion-detail',
-    url ?? '/champions/ahri/'
+    url,
+    { enabled: false }
   );
 
   useEffect(() => {
-    refetch();
-  }, [refetch, championName, i18n.language]);
+    if (url) {
+      refetch();
+    }
+  }, [refetch, championName, i18n.language, url]);
 
   const championDetails: IChampionDetails = data?.result?.data?.all?.nodes[0];
 

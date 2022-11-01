@@ -23,7 +23,13 @@ interface IUrl {
   type: url;
 }
 
-const useFetchData = (urlAdress: url, name?: string) => {
+const useFetchData = (
+  urlAdress: url,
+  name?: string,
+  options?: {
+    enabled?: boolean;
+  }
+) => {
   const { i18n } = useTranslation();
 
   const urls: IUrl[] = [
@@ -81,13 +87,13 @@ const useFetchData = (urlAdress: url, name?: string) => {
     return await axios.get(adress?.url ?? '').then((res) => res.data);
   };
 
-  const { data, isLoading, refetch, isFetching } = useQuery(
+  const { data, isLoading, refetch, isFetching, isError } = useQuery(
     [urlAdress],
     fetchData,
-    { refetchOnWindowFocus: false }
+    { refetchOnWindowFocus: false, enabled: options?.enabled, retry: false }
   );
 
-  return { data, isLoading, refetch, isFetching } as const;
+  return { data, isLoading, refetch, isFetching, isError } as const;
 };
 
 export default useFetchData;
