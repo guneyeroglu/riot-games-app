@@ -32,6 +32,8 @@ const useFetchData = (
 ) => {
   const { i18n } = useTranslation();
 
+  const enabled = options ? options.enabled : true;
+
   const urls: IUrl[] = [
     {
       type: 'lol-champions',
@@ -90,7 +92,7 @@ const useFetchData = (
   const { data, isLoading, refetch, isFetching, isError } = useQuery(
     [urlAdress],
     fetchData,
-    { refetchOnWindowFocus: false, enabled: options?.enabled, retry: false }
+    { refetchOnWindowFocus: false, enabled: enabled, retry: false }
   );
 
   return { data, isLoading, refetch, isFetching, isError } as const;

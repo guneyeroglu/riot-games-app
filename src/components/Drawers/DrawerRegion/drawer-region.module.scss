@@ -2,50 +2,72 @@
   display: block;
 
   [tabindex='-1'] {
-    height: 750px;
-  }
-
-  &__title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0;
+    height: 80vh;
     background-color: #111111;
-    z-index: 5;
-    position: sticky;
-    top: 0;
-
-    span {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #ffffff;
-    }
   }
 
   &__content {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    background-color: #535353;
+    flex-direction: column;
+    background-color: #111111;
 
-    video {
-      object-fit: cover;
+    .video {
+      position: relative;
       width: 100vw;
-      height: 750px;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      z-index: -20;
-      filter: brightness(0.75);
-    }
+      height: 70vh;
+      -webkit-mask-image: linear-gradient(
+        rgb(0, 0, 0) 90%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      mask-image: linear-gradient(rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
 
-    span {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #ffffff;
+      &__title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 0;
+        background-color: #111111;
+        z-index: 5;
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 5%;
+        opacity: 0.95;
+
+        &--logo {
+          width: auto;
+          height: 100px;
+          margin: 0 0 1rem 0;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        &--header {
+          span {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #533c15;
+          }
+        }
+
+        &--footer {
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        filter: brightness(0.75);
+      }
     }
   }
 }

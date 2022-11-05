@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import { useState, Dispatch } from 'react';
 
 import { SwipeableDrawer } from '@mui/material';
 
@@ -60,6 +60,7 @@ interface ILolRegionDetail {
         x: number;
         y: number;
       };
+      overview: { short: string };
     };
     id: string;
     locale: string;
@@ -74,18 +75,37 @@ interface ILolRegionDetail {
 const DrawerRegion = (props: IProps) => {
   const { open, onSetOpen, region } = props;
 
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
   const handleCloseDrawer = () => {
     onSetOpen(false);
+    setIsLoaded(false);
   };
 
   const handleOpenDrawer = () => {
     onSetOpen(true);
   };
 
-  const { data, isFetching, isLoading, refetch }: ILolRegionDetail =
-    useFetchData('lol-region-detail', region);
+  const { data, isFetching }: ILolRegionDetail = useFetchData(
+    'lol-region-detail',
+    region
+  );
 
-  console.log(data);
+  enum REGIONS {
+    'bandle-city' = 'bandle_city',
+    bilgewater = 'bilgewater',
+    demacia = 'demacia',
+    freljord = 'freljord',
+    'shadow-isles' = 'shadow_isles',
+    void = 'void',
+    ionia = 'iona',
+    ixtal = 'ixtal',
+    noxus = 'noxus',
+    piltover = 'piltover',
+    shurima = 'shurima',
+    'mount-targon' = 'mt_targon',
+    zaun = 'zaun',
+  }
 
   return (
     <SwipeableDrawer
@@ -95,22 +115,53 @@ const DrawerRegion = (props: IProps) => {
       onOpen={handleOpenDrawer}
       className={styles.wrapper}
     >
-      <div className={styles.wrapper__title}>
-        {!isFetching && <span>{data?.faction.name.toUpperCase()}</span>}
-        {isFetching && <Spinner />}
-      </div>
       <div className={styles.wrapper__content}>
         {!isFetching && (
-          <video
-            src={data?.faction.video.uri}
-            autoPlay
-            loop
-            preload='auto'
-          ></video>
+          <div className={styles.video}>
+            {isLoaded && (
+              <div className={styles.video__title}>
+                <div className={styles['video__title--logo']}>
+                  <img
+                    src={`https://universe.leagueoflegends.com/images/${
+                      REGIONS[data?.faction.slug as keyof typeof REGIONS]
+                    }_crest_icon.png`}
+                    alt={data?.faction.name}
+                  />
+                </div>
+                <div className={styles['video__title--header']}>
+                  <span>{data?.faction.name.toUpperCase()}</span>
+                </div>
+                <div className={styles['video__title--footer']}>
+                  <img
+                    src='https://universe.leagueoflegends.com/images/t1HeaderDivider.png'
+                    alt='-'
+                  />
+                </div>
+              </div>
+            )}
+            <video
+              src={data?.faction.video.uri}
+              autoPlay
+              loop
+              preload='auto'
+              onLoadedData={() => {
+                console.log('first');
+
+                return setIsLoaded(true);
+              }}
+            ></video>
+          </div>
         )}
-        {isFetching && <Spinner color='#111111' center />}
-        <span>{data.faction.name}</span>
+        {isLoaded && (
+          <>
+            <div className={styles['wrapper__content--description']}>
+              <span>{data?.faction.overview.short}</span>
+            </div>
+            <div className={styles['wrapper__content--featured']}></div>
+          </>
+        )}
       </div>
+      {!isLoaded && <Spinner color='#ffffff' center />}
     </SwipeableDrawer>
   );
 };
