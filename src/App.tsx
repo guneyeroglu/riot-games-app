@@ -13,6 +13,7 @@ import {
   Ranks as LolRanks,
   Main as LolMain,
 } from './pages/Lol';
+
 import {
   Agents,
   Maps,
