@@ -144,18 +144,16 @@ const DrawerRegion = (props: IProps) => {
               autoPlay
               loop
               preload='auto'
-              onLoadedData={() => {
-                console.log('first');
-
-                return setIsLoaded(true);
-              }}
+              onLoadedData={() => setIsLoaded(true)}
             ></video>
           </div>
         )}
         {isLoaded && (
           <>
             <div className={styles['wrapper__content--description']}>
-              <span>{data?.faction.overview.short}</span>
+              <span>
+                {data?.faction.overview.short.replace(/<\/?[^>]+(>|$)/g, '')}
+              </span>
             </div>
             <div className={styles['wrapper__content--featured']}></div>
           </>

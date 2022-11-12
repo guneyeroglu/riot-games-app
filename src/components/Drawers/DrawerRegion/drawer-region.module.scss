@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     background-color: #111111;
+    overflow: overlay;
 
     .video {
       position: relative;
@@ -67,6 +68,25 @@
         width: 100%;
         height: 100%;
         filter: brightness(0.75);
+      }
+    }
+
+    &--description {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-align: justify;
+      padding: 2rem;
+
+      span {
+        font-weight: 400;
+        font-size: 14px;
+        color: #c4b998;
+        line-height: 1.6;
+        margin: 0 35px 35px;
+        max-width: 900px;
+        text-align: justify;
       }
     }
   }
