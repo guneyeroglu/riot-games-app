@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 
 type url =
   | 'lol-champions'
-  | 'lol-champion-url'
+  | 'lol-champions-url'
   | 'lol-champion-detail'
   | 'lol-regions'
   | 'lol-region-detail'
@@ -42,16 +42,16 @@ const useFetchData = (
       }/champion-browse/index.json`,
     },
     {
-      type: 'lol-champion-url',
-      url: `https://www.leagueoflegends.com/page-data/${
-        i18n.language === 'tr_TR' ? 'tr-tr' : 'en-us'
-      }/champions/page-data.json`,
+      type: 'lol-champions-url',
+      url: `http://ddragon.leagueoflegends.com/cdn/12.21.1/data/${
+        i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'
+      }/champion.json`,
     },
     {
       type: 'lol-champion-detail',
-      url: `https://www.leagueoflegends.com/page-data/${
-        i18n.language === 'tr_TR' ? 'tr-tr' : 'en-us'
-      }${name}page-data.json`,
+      url: `https://ddragon.leagueoflegends.com/cdn/12.21.1/data/${
+        i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'
+      }/champion/${name}.json`,
     },
     {
       type: 'lol-regions',

@@ -1,4 +1,5 @@
 import { Dispatch } from 'react';
+import useFetchData from '../../../global/hooks/useFetchData';
 
 import LazyLoad from 'react-lazy-load';
 
@@ -34,8 +35,17 @@ interface IProps {
 const CardLol = (props: IProps) => {
   const { data: champ, onSetChampionName: setChampionName, onSetOpen } = props;
 
+  const { data: champUrl } = useFetchData('lol-champions-url');
+
   const handleChampionName = (name: string) => {
-    setChampionName(name.replace(`’`, "'"));
+    const charName = Object.keys(champUrl?.data).find((char: string) =>
+      name.toLowerCase().includes(char.toLowerCase())
+    );
+
+    console.log(champUrl?.data);
+
+    setChampionName(charName || '');
+
     onSetOpen(true);
   };
 
@@ -43,7 +53,7 @@ const CardLol = (props: IProps) => {
     <div className={styles.card}>
       <div
         className={styles.card__item}
-        onClick={() => handleChampionName(champ.name)}
+        onClick={() => handleChampionName(champ.slug)}
       >
         <LazyLoad
           width={'100%'}

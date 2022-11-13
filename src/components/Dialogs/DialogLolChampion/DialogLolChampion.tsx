@@ -18,48 +18,39 @@ interface IProps {
   championName: string;
 }
 
-interface ISkin {
-  imageUrl: string;
-  name: string;
+interface IImage {
+  full: string;
+  group: string;
+  h: number;
+  sprite: string;
+  w: number;
+  x: number;
+  y: number;
 }
 
 interface ISkill {
-  url: string;
-  name: string;
   description: string;
+  image: IImage;
+  name: string;
+}
+
+interface ISkin {
+  id: string;
+  name: string;
+  num: number;
 }
 
 interface IChampionDetails {
-  champion_blurb: string;
+  blurb: string;
+  id: string;
+  image: IImage;
+  key: string;
   lore: string;
-  champion_passive: {
-    champion_passive_description: string;
-    champion_passive_icon: string;
-    champion_passive_name: string;
-  };
-  champion_q: {
-    champion_q_description: string;
-    champion_q_icon: string;
-    champion_q_name: string;
-  };
-  champion_w: {
-    champion_w_description: string;
-    champion_w_icon: string;
-    champion_w_name: string;
-  };
-  champion_e: {
-    champion_e_description: string;
-    champion_e_icon: string;
-    champion_e_name: string;
-  };
-  champion_r: {
-    champion_r_description: string;
-    champion_r_icon: string;
-    champion_r_name: string;
-  };
-  champion_name: string;
-  champion_title: string;
+  name: string;
+  passive: ISkill;
   skins: ISkin[];
+  spells: ISkill[];
+  title: string;
 }
 
 const DialogLolChampion = (props: IProps) => {
@@ -87,55 +78,48 @@ const DialogLolChampion = (props: IProps) => {
     setLore(false);
   };
 
-  const { data: urlData } = useFetchData('lol-champion-url');
-
-  const url = urlData?.result?.data?.allChampions?.edges?.filter(
-    (champ: { node: { champion_name: string } }) =>
-      champ.node.champion_name.toLowerCase() === championName.toLowerCase()
-  )[0]?.node?.url;
-
   const { data, isFetching, refetch } = useFetchData(
     'lol-champion-detail',
-    url,
+    championName,
     { enabled: false }
   );
 
   useEffect(() => {
-    if (url) {
+    if (championName) {
       refetch();
     }
-  }, [refetch, championName, i18n.language, url]);
+  }, [refetch, championName, i18n.language]);
 
-  const championDetails: IChampionDetails = data?.result?.data?.all?.nodes[0];
+  const championDetails: IChampionDetails = data?.data?.[championName];
 
-  const skills: ISkill[] = [
-    {
-      url: championDetails?.champion_passive.champion_passive_icon,
-      name: championDetails?.champion_passive.champion_passive_name,
-      description:
-        championDetails?.champion_passive.champion_passive_description,
-    },
-    {
-      url: championDetails?.champion_q.champion_q_icon,
-      name: championDetails?.champion_q.champion_q_name,
-      description: championDetails?.champion_q.champion_q_description,
-    },
-    {
-      url: championDetails?.champion_w.champion_w_icon,
-      name: championDetails?.champion_w.champion_w_name,
-      description: championDetails?.champion_w.champion_w_description,
-    },
-    {
-      url: championDetails?.champion_e.champion_e_icon,
-      name: championDetails?.champion_e.champion_e_name,
-      description: championDetails?.champion_e.champion_e_description,
-    },
-    {
-      url: championDetails?.champion_r.champion_r_icon,
-      name: championDetails?.champion_r.champion_r_name,
-      description: championDetails?.champion_r.champion_r_description,
-    },
-  ];
+  // const skills: ISkill[] = [
+  //   {
+  //     url: championDetails?.champion_passive.champion_passive_icon,
+  //     name: championDetails?.champion_passive.champion_passive_name,
+  //     description:
+  //       championDetails?.champion_passive.champion_passive_description,
+  //   },
+  //   {
+  //     url: championDetails?.champion_q.champion_q_icon,
+  //     name: championDetails?.champion_q.champion_q_name,
+  //     description: championDetails?.champion_q.champion_q_description,
+  //   },
+  //   {
+  //     url: championDetails?.champion_w.champion_w_icon,
+  //     name: championDetails?.champion_w.champion_w_name,
+  //     description: championDetails?.champion_w.champion_w_description,
+  //   },
+  //   {
+  //     url: championDetails?.champion_e.champion_e_icon,
+  //     name: championDetails?.champion_e.champion_e_name,
+  //     description: championDetails?.champion_e.champion_e_description,
+  //   },
+  //   {
+  //     url: championDetails?.champion_r.champion_r_icon,
+  //     name: championDetails?.champion_r.champion_r_name,
+  //     description: championDetails?.champion_r.champion_r_description,
+  //   },
+  // ];
 
   const skinQuantity = championDetails?.skins.length;
 
@@ -211,10 +195,10 @@ const DialogLolChampion = (props: IProps) => {
           {isFetching && <Spinner color='#c4b998' />}
           <span>
             {!isFetching &&
-              `${championDetails?.champion_name.toUpperCase()} - ${
+              `${championDetails?.name.toUpperCase()} - ${
                 i18n.language === 'tr_TR'
-                  ? championDetails?.champion_title.toLocaleUpperCase()
-                  : championDetails?.champion_title.toUpperCase()
+                  ? championDetails?.title.toLocaleUpperCase()
+                  : championDetails?.title.toUpperCase()
               }`}
           </span>
         </div>
@@ -231,7 +215,7 @@ const DialogLolChampion = (props: IProps) => {
               {!onLoad && <Spinner color='#111111' />}
               {!isFetching && (
                 <img
-                  src={championDetails?.skins[skinId].imageUrl}
+                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_0.jpg`}
                   alt={championDetails?.skins[skinId].name}
                   width={width}
                   onLoad={handleImageOnLoad}
@@ -252,14 +236,14 @@ const DialogLolChampion = (props: IProps) => {
               {isFetching && <Spinner />}
               {!isFetching && !lore && (
                 <span>
-                  {championDetails?.champion_blurb}
+                  {championDetails?.blurb}
                   <button onClick={() => setLore(true)}>{t('seeMore')}</button>
                 </span>
               )}
               {!isFetching && lore && <span>{championDetails?.lore}</span>}
             </div>
             <div className={styles.skill}>
-              {skills.map((skill) => (
+              {/* {skills.map((skill) => (
                 <div
                   key={skill.name + skill.description + skill.url}
                   className={
@@ -283,7 +267,7 @@ const DialogLolChampion = (props: IProps) => {
                     />
                   )}
                 </div>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
@@ -300,12 +284,12 @@ const DialogLolChampion = (props: IProps) => {
                 </div>
               </div>
               <div className={styles['wrapper__drawer--content']}>
-                <span>
+                {/* <span>
                   {
                     skills.find((skill) => skill.name === skillName)
                       ?.description
                   }
-                </span>
+                </span> */}
               </div>
             </>
           )}
@@ -318,7 +302,7 @@ const DialogLolChampion = (props: IProps) => {
         onClose={handleImageModalClose}
         className={styles.big__image}
       >
-        <div className={styles.dialog}>
+        {/* <div className={styles.dialog}>
           <div className={styles.dialog__title}>
             <div className={styles.button}>
               <IconButton label='CloseIcon' onClick={handleImageModalClose} />
@@ -337,7 +321,7 @@ const DialogLolChampion = (props: IProps) => {
               alt={championDetails?.skins[skinId].name}
             />
           </div>
-        </div>
+        </div> */}
       </Dialog>
     </Dialog>
   );
