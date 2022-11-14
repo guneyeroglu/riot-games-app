@@ -78,9 +78,24 @@ const useFetchData = (
         i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'
       }`,
     },
-    { type: 'valo-maps', url: `` },
-    { type: 'valo-arsenal', url: `` },
-    { type: 'valo-ranks', url: `` },
+    {
+      type: 'valo-maps',
+      url: `https://valorant-api.com/v1/maps?language=${
+        i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'
+      }`,
+    },
+    {
+      type: 'valo-arsenal',
+      url: `https://valorant-api.com/v1/weapons?language=${
+        i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'
+      }`,
+    },
+    {
+      type: 'valo-ranks',
+      url: `https://valorant-api.com/v1/competitivetiers?language=${
+        i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'
+      }`,
+    },
   ];
 
   const adress = urls.find((url: IUrl) => url.type === urlAdress);
