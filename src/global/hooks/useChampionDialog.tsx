@@ -3,7 +3,7 @@ import { DialogLolChampion } from '../../components/Dialogs';
 
 const useChampionDialog = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const [championName, setChampionName] = useState<string>('Ahri');
+  const [championName, setChampionName] = useState<string>('');
 
   return {
     DialogLolChampion,

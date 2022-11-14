@@ -84,42 +84,7 @@ const DialogLolChampion = (props: IProps) => {
     { enabled: false }
   );
 
-  useEffect(() => {
-    if (championName) {
-      refetch();
-    }
-  }, [refetch, championName, i18n.language]);
-
   const championDetails: IChampionDetails = data?.data?.[championName];
-
-  // const skills: ISkill[] = [
-  //   {
-  //     url: championDetails?.champion_passive.champion_passive_icon,
-  //     name: championDetails?.champion_passive.champion_passive_name,
-  //     description:
-  //       championDetails?.champion_passive.champion_passive_description,
-  //   },
-  //   {
-  //     url: championDetails?.champion_q.champion_q_icon,
-  //     name: championDetails?.champion_q.champion_q_name,
-  //     description: championDetails?.champion_q.champion_q_description,
-  //   },
-  //   {
-  //     url: championDetails?.champion_w.champion_w_icon,
-  //     name: championDetails?.champion_w.champion_w_name,
-  //     description: championDetails?.champion_w.champion_w_description,
-  //   },
-  //   {
-  //     url: championDetails?.champion_e.champion_e_icon,
-  //     name: championDetails?.champion_e.champion_e_name,
-  //     description: championDetails?.champion_e.champion_e_description,
-  //   },
-  //   {
-  //     url: championDetails?.champion_r.champion_r_icon,
-  //     name: championDetails?.champion_r.champion_r_name,
-  //     description: championDetails?.champion_r.champion_r_description,
-  //   },
-  // ];
 
   const skinQuantity = championDetails?.skins.length;
 
@@ -175,6 +140,12 @@ const DialogLolChampion = (props: IProps) => {
     setImageOpen(false);
   };
 
+  useEffect(() => {
+    if (championName) {
+      refetch();
+    }
+  }, [refetch, championName, i18n.language]);
+
   return (
     <Dialog
       open={open}
@@ -213,9 +184,9 @@ const DialogLolChampion = (props: IProps) => {
               onClick={handleImageModalOpen}
             >
               {!onLoad && <Spinner color='#111111' />}
-              {!isFetching && (
+              {!isFetching && championDetails && (
                 <img
-                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_0.jpg`}
+                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${championDetails?.skins[skinId].num}.jpg`}
                   alt={championDetails?.skins[skinId].name}
                   width={width}
                   onLoad={handleImageOnLoad}
@@ -243,31 +214,36 @@ const DialogLolChampion = (props: IProps) => {
               {!isFetching && lore && <span>{championDetails?.lore}</span>}
             </div>
             <div className={styles.skill}>
-              {/* {skills.map((skill) => (
-                <div
-                  key={skill.name + skill.description + skill.url}
-                  className={
-                    skillName === skill.name
-                      ? `${styles.skill__item} ${styles.active}`
-                      : styles.skill__item
-                  }
-                  style={{
-                    pointerEvents: skillOnLoad ? 'auto' : 'none',
-                    backgroundColor: skillOnLoad ? 'transparent' : '#ffffff',
-                  }}
-                  onClick={() => handleSelectedSkill(skill.name)}
-                >
-                  {!skillOnLoad && <Spinner color='#111111' />}
-                  {!isFetching && (
-                    <img
-                      src={skill.url}
-                      alt={skill.name}
-                      width={skillWidth}
-                      onLoad={handleSkillOnLoad}
-                    />
-                  )}
-                </div>
-              ))} */}
+              {championDetails &&
+                [championDetails?.passive, ...championDetails?.spells]?.map(
+                  (skill) => (
+                    <div
+                      key={skill.name + skill.description}
+                      className={
+                        skillName === skill.name
+                          ? `${styles.skill__item} ${styles.active}`
+                          : styles.skill__item
+                      }
+                      style={{
+                        pointerEvents: skillOnLoad ? 'auto' : 'none',
+                        backgroundColor: skillOnLoad
+                          ? 'transparent'
+                          : '#ffffff',
+                      }}
+                      onClick={() => handleSelectedSkill(skill.name)}
+                    >
+                      {!skillOnLoad && <Spinner color='#111111' />}
+                      {!isFetching && (
+                        <img
+                          src={`http://ddragon.leagueoflegends.com/cdn/12.21.1/img/${skill.image.group}/${skill.image.full}`}
+                          alt={skill.name}
+                          width={skillWidth}
+                          onLoad={handleSkillOnLoad}
+                        />
+                      )}
+                    </div>
+                  )
+                )}
             </div>
           </div>
         </div>
@@ -284,12 +260,12 @@ const DialogLolChampion = (props: IProps) => {
                 </div>
               </div>
               <div className={styles['wrapper__drawer--content']}>
-                {/* <span>
-                  {
-                    skills.find((skill) => skill.name === skillName)
-                      ?.description
-                  }
-                </span> */}
+                <span>
+                  {championDetails &&
+                    [championDetails.passive, ...championDetails.spells]
+                      .find((skill) => skill.name === skillName)
+                      ?.description.replace(/<\/?[^>]+(>|$)/g, '')}
+                </span>
               </div>
             </>
           )}
@@ -302,14 +278,14 @@ const DialogLolChampion = (props: IProps) => {
         onClose={handleImageModalClose}
         className={styles.big__image}
       >
-        {/* <div className={styles.dialog}>
+        <div className={styles.dialog}>
           <div className={styles.dialog__title}>
             <div className={styles.button}>
               <IconButton label='CloseIcon' onClick={handleImageModalClose} />
             </div>
             <span>
               {championDetails?.skins[skinId].name === 'default'
-                ? championDetails.champion_name.toUpperCase()
+                ? championDetails.name.toUpperCase()
                 : i18n.language === 'tr_TR'
                 ? championDetails?.skins[skinId].name.toLocaleUpperCase()
                 : championDetails?.skins[skinId].name.toUpperCase()}
@@ -317,11 +293,11 @@ const DialogLolChampion = (props: IProps) => {
           </div>
           <div className={styles.dialog__content}>
             <img
-              src={championDetails?.skins[skinId].imageUrl}
+              src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${championDetails?.skins[skinId].num}.jpg`}
               alt={championDetails?.skins[skinId].name}
             />
           </div>
-        </div> */}
+        </div>
       </Dialog>
     </Dialog>
   );
