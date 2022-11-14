@@ -32,6 +32,20 @@
           }
         }
       }
+
+      &::placeholder {
+        color: #c4b998;
+      }
+    }
+
+    &.agent {
+      input {
+        color: #ffffff;
+
+        &::placeholder {
+          color: #ffffff;
+        }
+      }
     }
 
     &--close {

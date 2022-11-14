@@ -22,6 +22,11 @@ const SearchBar = (props: IProps) => {
   const placeholder: string =
     find === 'champion' ? t('searchChampion') : t('searchAgent');
 
+  const classList =
+    find === 'champion'
+      ? `${styles.wrapper__filter}`
+      : `${styles.wrapper__filter} ${styles.agent}`;
+
   const logo: JSX.Element =
     find === 'champion' ? (
       <img
@@ -44,7 +49,7 @@ const SearchBar = (props: IProps) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.wrapper__filter}>
+      <div className={classList}>
         <input
           type={'search'}
           placeholder={placeholder}
