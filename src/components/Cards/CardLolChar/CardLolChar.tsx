@@ -1,7 +1,8 @@
 import { Dispatch } from 'react';
-import useFetchData from '../../../global/hooks/useFetchData';
 
 import LazyLoad from 'react-lazy-load';
+
+import { useFetchData } from '../../../global/utils';
 
 import styles from './card-lol-char.module.scss';
 

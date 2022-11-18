@@ -2,7 +2,7 @@ import { useState, Dispatch } from 'react';
 
 import { SwipeableDrawer } from '@mui/material';
 
-import useFetchData from '../../../global/hooks/useFetchData';
+import { useFetchData } from '../../../global/utils';
 
 import {
   QueryObserverResult,

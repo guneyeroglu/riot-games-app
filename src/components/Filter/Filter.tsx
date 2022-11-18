@@ -2,7 +2,7 @@ import { Dispatch, useEffect, useState } from 'react';
 
 import { Icon } from '../Icons/Icon';
 
-import useClickOutside from '../../global/hooks/useClickOutside';
+import { useClickOutside } from '../../global/utils';
 
 import { useTranslation } from 'react-i18next';
 

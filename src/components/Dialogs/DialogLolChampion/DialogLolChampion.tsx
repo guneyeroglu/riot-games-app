@@ -6,7 +6,7 @@ import { Icon } from '../../Icons/Icon';
 import IconButton from '../../IconButton/IconButton';
 import Spinner from '../../Spinner/Spinner';
 
-import useFetchData from '../../../global/hooks/useFetchData';
+import { useFetchData } from '../../../global/utils';
 
 import { useTranslation } from 'react-i18next';
 

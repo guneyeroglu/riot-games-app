@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DialogLolChampion } from '../../components/Dialogs';
+import { DialogLolChampion } from '../../../components/Dialogs';
 
 const useChampionDialog = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);

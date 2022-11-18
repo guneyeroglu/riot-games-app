@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router';
 
-import ScrollToTop from './global/scroll/ScrollToTop';
+import { ScrollToTop } from './global/utils';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';

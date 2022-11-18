@@ -1,11 +1,12 @@
 import { useState, Dispatch } from 'react';
 
-import { Icon } from '../Icons/Icon';
-
 import { useTranslation } from 'react-i18next';
 
+import { Icon } from '../Icons/Icon';
+
+import { useClickOutside } from '../../global/utils';
+
 import styles from './sort.module.scss';
-import useClickOutside from '../../global/hooks/useClickOutside';
 
 type orderType = 'a-z' | 'z-a' | 'newest';
 

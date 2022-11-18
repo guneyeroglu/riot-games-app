@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import useFetchData from '../../../global/hooks/useFetchData';
-import useSortOrder from '../../../global/hooks/useSortOrder';
-import useChampionDialog from '../../../global/hooks/useChampionDialog';
+import {
+  useFetchData,
+  useSortOrder,
+  useChampionDialog,
+} from '../../../global/utils';
 
 import { CardLolChar } from '../../../components/Cards';
 
