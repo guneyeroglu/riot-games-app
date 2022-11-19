@@ -7,7 +7,7 @@ import { iconName } from '../../global/types/IconName';
 
 import { Divider } from 'semantic-ui-react';
 
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import styles from './footer.module.scss';
 
@@ -32,7 +32,7 @@ const socialMediaIcon: INavIcon[] = [
 ];
 
 const Footer = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { pathname } = useLocation();
 
   return (
@@ -70,30 +70,24 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.wrapper__info}>
-        {i18n.language === 'tr_TR' ? (
-          <p>
-            © 2022 | Bu web sitesi
-            <a
-              href='https://www.linkedin.com/in/guneyeroglu/'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <span> Güney Eroğlu </span>
-            </a>
-            tarafından yapılmıştır.
-          </p>
-        ) : (
-          <p>
-            © 2022 | This website is made by{' '}
-            <a
-              href='https://www.linkedin.com/in/guneyeroglu/'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <span>Güney Eroğlu</span>
-            </a>
-          </p>
-        )}
+        <p>
+          <Trans
+            defaults='developedByWho'
+            values={{ word: 'Güney Eroğlu' }}
+            components={{
+              span: <span />,
+              a: (
+                <a
+                  href='https://www.linkedin.com/in/guneyeroglu/'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  {null}
+                </a>
+              ),
+            }}
+          />
+        </p>
       </div>
     </footer>
   );

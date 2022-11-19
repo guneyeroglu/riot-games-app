@@ -13,6 +13,8 @@ const tr = {
     copyrightRiot:
       "™ & © 2022 Riot Games Inc. Her hakkı saklıdır. Riot Games, League of Legends ve Valorant; Riot Games, Inc.'nin tescilli markaları, ticari markaları ya da hizmet markalarıdır.",
     socialMedia: 'Sosyal Medya',
+    developedByWho:
+      '© 2022 | Bu web sitesi <a><span>{{word}}</span></a> tarafından geliştirilmiştir.',
     featuredChamps: 'ÖNE ÇIKAN ŞAMPİYONLAR',
     featuredRegions: 'ÖNE ÇIKAN BÖLGELER',
     viewChamps: 'TÜM ŞAMPİYONLARI GÖRÜNTÜLE',
