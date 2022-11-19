@@ -186,7 +186,7 @@ const Header = () => {
               >
                 <span
                   className={
-                    ctry.lang === localStorage.getItem('language')
+                    ctry.lang === (localStorage.getItem('language') ?? 'en_US')
                       ? styles.selected
                       : ''
                   }
