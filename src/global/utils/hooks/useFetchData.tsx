@@ -43,13 +43,13 @@ const useFetchData = (
     },
     {
       type: 'lol-champions-url',
-      url: `https://ddragon.leagueoflegends.com/cdn/12.21.1/data/${
+      url: `https://ddragon.leagueoflegends.com/cdn/12.22.1/data/${
         i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'
       }/champion.json`,
     },
     {
       type: 'lol-champion-detail',
-      url: `https://ddragon.leagueoflegends.com/cdn/12.21.1/data/${
+      url: `https://ddragon.leagueoflegends.com/cdn/12.22.1/data/${
         i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'
       }/champion/${name}.json`,
     },
