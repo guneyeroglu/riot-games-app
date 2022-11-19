@@ -2,14 +2,15 @@ import { useState, Dispatch } from 'react';
 
 import { SwipeableDrawer } from '@mui/material';
 
-import { useFetchData } from '../../../global/utils';
-
 import {
   QueryObserverResult,
   RefetchOptions,
   RefetchQueryFilters,
 } from '@tanstack/react-query';
 
+import { useFetchData } from '../../../global/utils';
+
+import { CardLolChar } from '../../Cards';
 import Spinner from '../../Spinner/Spinner';
 
 import styles from './drawer-region.module.scss';
