@@ -116,11 +116,13 @@ const Champions = () => {
             <span>{t('notFoundChampions')}</span>
           </div>
         )}
-        <DialogLolChampion
-          open={openModal}
-          onSetOpen={setOpenModal}
-          championName={championName}
-        />
+        {openModal && (
+          <DialogLolChampion
+            open={openModal}
+            onSetOpen={setOpenModal}
+            championName={championName}
+          />
+        )}
       </div>
     </div>
   );

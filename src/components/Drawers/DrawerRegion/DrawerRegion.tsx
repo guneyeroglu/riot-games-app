@@ -2,13 +2,19 @@ import { useState, Dispatch } from 'react';
 
 import { SwipeableDrawer } from '@mui/material';
 
+import { useTranslation } from 'react-i18next';
+
+import { Link } from 'react-router-dom';
+
 import {
   QueryObserverResult,
   RefetchOptions,
   RefetchQueryFilters,
 } from '@tanstack/react-query';
 
-import { useFetchData } from '../../../global/utils';
+import FeaturedTitle from '../../FeaturedTitle/FeaturedTitle';
+import { useChampionDialog, useFetchData } from '../../../global/utils';
+import { IChamp } from '../../../global/interfaces/LolChampion';
 
 import { CardLolChar } from '../../Cards';
 import Spinner from '../../Spinner/Spinner';
@@ -23,29 +29,7 @@ interface IProps {
 
 interface ILolRegionDetail {
   data: {
-    'associated-champions': {
-      'associated-faction': string;
-      'associated-faction-slug': string;
-      background: {
-        description: string;
-        encoding: string;
-        'featured-champions': any;
-        height: number;
-        subtitle: string;
-        title: string;
-        uri: string;
-        width: number;
-        x: number;
-        y: number;
-      };
-      biography: { short: string };
-      name: string;
-      'section-title': string;
-      slug: string;
-      subtitle: string;
-      title: string;
-      url: string;
-    }[];
+    'associated-champions': IChamp[];
     'champion-list-order': number;
     faction: {
       headerImage: string;
@@ -76,6 +60,7 @@ interface ILolRegionDetail {
 const DrawerRegion = (props: IProps) => {
   const { open, onSetOpen, region } = props;
 
+  const { t } = useTranslation();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   const handleCloseDrawer = () => {
@@ -107,6 +92,14 @@ const DrawerRegion = (props: IProps) => {
     'mount-targon' = 'mt_targon',
     zaun = 'zaun',
   }
+
+  const {
+    openModal,
+    setOpenModal,
+    championName,
+    setChampionName,
+    DialogLolChampion,
+  } = useChampionDialog();
 
   return (
     <SwipeableDrawer
@@ -156,7 +149,30 @@ const DrawerRegion = (props: IProps) => {
                 {data?.faction.overview.short.replace(/<\/?[^>]+(>|$)/g, '')}
               </span>
             </div>
-            <div className={styles['wrapper__content--featured']}></div>
+            <FeaturedTitle type='champions' translation='champions' />
+            <div className={styles['wrapper__content--featured']}>
+              {data['associated-champions'].map((champ) => (
+                <CardLolChar
+                  key={champ.name}
+                  data={champ}
+                  onSetChampionName={setChampionName}
+                  onSetOpen={setOpenModal}
+                />
+              ))}
+            </div>
+            <div className={styles.nav}>
+              <Link to='champions'>
+                <span>{t('viewChamps')}</span>
+              </Link>
+            </div>
+
+            {openModal && (
+              <DialogLolChampion
+                open={openModal}
+                onSetOpen={setOpenModal}
+                championName={championName}
+              />
+            )}
           </>
         )}
       </div>

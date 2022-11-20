@@ -6,26 +6,7 @@ import { useFetchData } from '../../../global/utils';
 
 import styles from './card-lol-char.module.scss';
 
-interface IChamp {
-  background: {
-    title: string;
-    uri: string;
-    width: number;
-    height: number;
-    x: number;
-    y: number;
-  };
-  image: {
-    title: string;
-    uri: string;
-    width: number;
-    height: number;
-    x: number;
-    y: number;
-  };
-  name: string;
-  slug: string;
-}
+import { IChamp } from '../../../global/interfaces/LolChampion';
 
 interface IProps {
   data: IChamp;
@@ -43,10 +24,7 @@ const CardLol = (props: IProps) => {
       name.toLowerCase().includes(char.toLowerCase())
     );
 
-    console.log(champUrl?.data);
-
     setChampionName(charName || '');
-
     onSetOpen(true);
   };
 

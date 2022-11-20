@@ -33,7 +33,7 @@
         position: absolute;
         right: 0;
         left: 0;
-        bottom: 5%;
+        bottom: 0;
         opacity: 0.95;
 
         &--logo {
@@ -88,6 +88,16 @@
         max-width: 900px;
         text-align: justify;
       }
+    }
+
+    &--featured {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 0 2.5rem 2rem;
     }
   }
 }
