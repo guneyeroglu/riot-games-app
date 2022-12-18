@@ -149,23 +149,26 @@ const DrawerRegion = (props: IProps) => {
                 {data?.faction.overview.short.replace(/<\/?[^>]+(>|$)/g, '')}
               </span>
             </div>
-            <FeaturedTitle type='champions' translation='champions' />
-            <div className={styles['wrapper__content--featured']}>
-              {data['associated-champions'].map((champ) => (
-                <CardLolChar
-                  key={champ.name}
-                  data={champ}
-                  onSetChampionName={setChampionName}
-                  onSetOpen={setOpenModal}
-                />
-              ))}
+            <div className={styles['wrapper__content--champions']}>
+              <div className={styles.title}>
+                <FeaturedTitle type='champions' />
+              </div>
+              <div className={styles.featured}>
+                {data['associated-champions'].map((champ) => (
+                  <CardLolChar
+                    key={champ.name}
+                    data={champ}
+                    onSetChampionName={setChampionName}
+                    onSetOpen={setOpenModal}
+                  />
+                ))}
+              </div>
+              <div className={styles.nav}>
+                <Link to='/leagueoflegends/champions'>
+                  <span>{t('viewChamps')}</span>
+                </Link>
+              </div>
             </div>
-            <div className={styles.nav}>
-              <Link to='champions'>
-                <span>{t('viewChamps')}</span>
-              </Link>
-            </div>
-
             {openModal && (
               <DialogLolChampion
                 open={openModal}

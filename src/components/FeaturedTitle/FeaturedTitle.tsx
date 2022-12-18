@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import styles from './featured-title.module.scss';
-
 import { typesLol } from '../../global/types/TypesLol';
 import { typesValo } from '../../global/types/TypesValo';
+
+import styles from './featured-title.module.scss';
 
 interface IProps {
   type: typesLol | typesValo;

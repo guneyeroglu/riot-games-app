@@ -28,7 +28,6 @@
         justify-content: center;
         align-items: center;
         padding: 2rem 0;
-        background-color: #111111;
         z-index: 5;
         position: absolute;
         right: 0;
@@ -51,7 +50,7 @@
           span {
             font-size: 2rem;
             font-weight: 600;
-            color: #533c15;
+            color: #c4b998;
           }
         }
 
@@ -68,6 +67,11 @@
         width: 100%;
         height: 100%;
         filter: brightness(0.75);
+        mask-image: linear-gradient(rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 90%);
+        -webkit-mask-image: linear-gradient(
+          rgb(0, 0, 0) 50%,
+          rgba(0, 0, 0, 0) 90%
+        );
       }
     }
 
@@ -90,14 +94,52 @@
       }
     }
 
-    &--featured {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 0 2.5rem 2rem;
+    &--champions {
+      .title {
+        position: sticky;
+        top: 0;
+        z-index: 33;
+        background-color: rgb(17 17 17 / 99%);
+      }
+
+      .featured {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 0 2.5rem 2rem;
+      }
+
+      .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 0;
+
+        a {
+          color: #ffffff;
+          text-decoration: none;
+
+          span {
+            color: #c4b998;
+            white-space: nowrap;
+            font-size: 1.65rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.35s ease-in-out;
+          }
+
+          &:hover {
+            span {
+              color: #896c3c;
+            }
+          }
+        }
+      }
     }
   }
 }
