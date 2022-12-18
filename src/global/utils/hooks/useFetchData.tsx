@@ -1,7 +1,5 @@
 import { useTranslation } from 'react-i18next';
-
 import axios from 'axios';
-
 import { useQuery } from '@tanstack/react-query';
 
 type url =

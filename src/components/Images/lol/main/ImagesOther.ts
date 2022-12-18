@@ -1,7 +1,7 @@
 import image1 from '../../../../assets/images/lol/items.jpeg';
 import image2 from '../../../../assets/images/lol/ranks.jpeg';
 
-import { typesLol } from '../../../../global/types/TypesLol';
+import { typesLol } from '../../../../global/types/';
 
 interface IImage {
   id: number;

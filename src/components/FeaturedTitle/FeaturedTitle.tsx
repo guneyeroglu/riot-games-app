@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { typesLol } from '../../global/types/TypesLol';
-import { typesValo } from '../../global/types/TypesValo';
+import { typesLol, typesValo } from '../../global/types/';
 
 import styles from './featured-title.module.scss';
 
@@ -19,7 +18,7 @@ interface IContent {
 const FeaturedTitle = (props: IProps) => {
   const { t, i18n } = useTranslation();
 
-  const isTurkish = i18n.language === 'tr_TR' ? true : false;
+  const isTurkish = i18n.language === 'tr_TR';
 
   const contents: IContent[] = [
     {

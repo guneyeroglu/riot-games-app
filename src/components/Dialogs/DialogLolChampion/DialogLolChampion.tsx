@@ -1,4 +1,5 @@
 import { Dispatch, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Dialog } from '@mui/material';
 
@@ -7,8 +8,6 @@ import IconButton from '../../IconButton/IconButton';
 import Spinner from '../../Spinner/Spinner';
 
 import { useFetchData } from '../../../global/utils';
-
-import { useTranslation } from 'react-i18next';
 
 import styles from './dialog-lol-champion.module.scss';
 

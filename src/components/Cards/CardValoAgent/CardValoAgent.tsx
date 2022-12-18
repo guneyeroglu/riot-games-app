@@ -1,8 +1,7 @@
 import { useState } from 'react';
-
 import { useTranslation } from 'react-i18next';
-
 import LazyLoad from 'react-lazy-load';
+
 import Spinner from '../../Spinner/Spinner';
 
 import styles from './card-valo-agent.module.scss';

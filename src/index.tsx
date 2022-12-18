@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import App from './App';
 
 import './assets/i18n';
-
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import './assets/scss/global.scss';
 

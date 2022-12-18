@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
-import { useFetchData } from '../../../global/utils';
+import { useTranslation } from 'react-i18next';
 
 import DrawerRegion from '../../../components/Drawers/DrawerRegion/DrawerRegion';
 import Spinner from '../../../components/Spinner/Spinner';
@@ -8,9 +7,8 @@ import { CardLolRegion } from '../../../components/Cards';
 
 import backgroundImageRegions from '../../../assets/images/lol/regions-background.png';
 
+import { useFetchData } from '../../../global/utils';
 import { IRegion } from '../../../global/interfaces';
-
-import { useTranslation } from 'react-i18next';
 
 import styles from './regions.module.scss';
 

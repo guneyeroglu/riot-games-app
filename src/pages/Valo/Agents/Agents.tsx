@@ -9,14 +9,13 @@ import SearchBar from '../../../components/Search/SearchBar';
 import Spinner from '../../../components/Spinner/Spinner';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 
-import { useFetchData } from '../../../global/utils';
-
 import background from '../../../assets/images/valo/agent-background.jpeg';
+
+import { useFetchData } from '../../../global/utils';
 
 import styles from './agent.module.scss';
 
 type abilityName = 'Ability1' | 'Ability2' | 'Grenade' | 'Ultimate' | 'Passive';
-
 interface IAgent {
   uuid: string;
   displayName: string;

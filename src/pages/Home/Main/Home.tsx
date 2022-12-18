@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Divider } from 'semantic-ui-react';
 
 import heroPhoto from '../../../assets/images/home/riot-games-home-logo.jpeg';
 import valoPhoto from '../../../assets/images/home/valo-card.jpg';
 import lolPhoto from '../../../assets/images/home/lol-card.jpg';
-
-import { Divider } from 'semantic-ui-react';
 
 import styles from './home.module.scss';
 

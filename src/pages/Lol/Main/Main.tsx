@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { useFetchData, useChampionDialog } from '../../../global/utils';
 
 import { CardLolChar, CardLolRegion } from '../../../components/Cards';
 import { imagesCarousel, imagesOther } from '../../../components/Images/';
@@ -12,7 +11,7 @@ import Spinner from '../../../components/Spinner/Spinner';
 import backgroundImageChampions from '../../../assets/images/lol/featured-champs-bg.jpeg';
 import backgroundImageRegions from '../../../assets/images/lol/featured-regions-bg.jpeg.jpeg';
 
-import { useTranslation } from 'react-i18next';
+import { useFetchData, useChampionDialog } from '../../../global/utils';
 
 import styles from './main.module.scss';
 

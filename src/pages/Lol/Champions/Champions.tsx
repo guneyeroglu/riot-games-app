@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import {
-  useFetchData,
-  useSortOrder,
-  useChampionDialog,
-} from '../../../global/utils';
-
 import { CardLolChar } from '../../../components/Cards';
-
 import Spinner from '../../../components/Spinner/Spinner';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import SearchBar from '../../../components/Search/SearchBar';
 import Sort from '../../../components/Sort/Sort';
 
 import championsBackground from '../../../assets/images/lol/champions-background.jpeg';
+
+import {
+  useFetchData,
+  useSortOrder,
+  useChampionDialog,
+} from '../../../global/utils';
 
 import styles from './champions.module.scss';
 

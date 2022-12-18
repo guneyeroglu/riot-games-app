@@ -1,12 +1,10 @@
-import { Dispatch, useEffect } from 'react';
-
+import { Dispatch } from 'react';
 import LazyLoad from 'react-lazy-load';
 
 import { useFetchData } from '../../../global/utils';
+import { IChamp } from '../../../global/interfaces';
 
 import styles from './card-lol-char.module.scss';
-
-import { IChamp } from '../../../global/interfaces/LolChampion';
 
 interface IProps {
   data: IChamp;

@@ -1,13 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
+import { Trans, useTranslation } from 'react-i18next';
+import { Divider } from 'semantic-ui-react';
 
 import { Icon } from '../Icons/Icon';
 import FooterItemTop from './FooterItemTop';
 
-import { iconName } from '../../global/types/IconName';
-
-import { Divider } from 'semantic-ui-react';
-
-import { Trans, useTranslation } from 'react-i18next';
+import { iconName } from '../../global/types/';
 
 import styles from './footer.module.scss';
 

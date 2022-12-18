@@ -1,10 +1,8 @@
 import { useState, Dispatch } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import { SwipeableDrawer } from '@mui/material';
-
-import { useTranslation } from 'react-i18next';
-
-import { Link } from 'react-router-dom';
 
 import {
   QueryObserverResult,
@@ -12,12 +10,12 @@ import {
   RefetchQueryFilters,
 } from '@tanstack/react-query';
 
-import FeaturedTitle from '../../FeaturedTitle/FeaturedTitle';
-import { useChampionDialog, useFetchData } from '../../../global/utils';
-import { IChamp } from '../../../global/interfaces/LolChampion';
-
 import { CardLolChar } from '../../Cards';
+import FeaturedTitle from '../../FeaturedTitle/FeaturedTitle';
 import Spinner from '../../Spinner/Spinner';
+
+import { useChampionDialog, useFetchData } from '../../../global/utils';
+import { IChamp } from '../../../global/interfaces/';
 
 import styles from './drawer-region.module.scss';
 

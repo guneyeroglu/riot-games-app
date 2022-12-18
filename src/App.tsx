@@ -1,7 +1,5 @@
 import { Route, Routes } from 'react-router';
 
-import { ScrollToTop } from './global/utils';
-
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
@@ -21,6 +19,8 @@ import {
   Ranks as ValoRanks,
   Main as ValoMain,
 } from './pages/Valo';
+
+import { ScrollToTop } from './global/utils';
 
 const App = () => {
   return (

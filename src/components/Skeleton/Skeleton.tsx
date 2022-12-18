@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Skeleton as MuiSkeleton } from '@mui/material';
 
 import styles from './skeleton.module.scss';

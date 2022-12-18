@@ -1,10 +1,9 @@
 import { Dispatch, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Icon } from '../Icons/Icon';
 
 import { useClickOutside } from '../../global/utils';
-
-import { useTranslation } from 'react-i18next';
 
 import styles from './filter.module.scss';
 

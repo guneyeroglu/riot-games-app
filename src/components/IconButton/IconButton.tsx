@@ -1,6 +1,6 @@
 import { Icon } from '../Icons/Icon';
 
-import { iconName } from '../../global/types/IconName';
+import { iconName } from '../../global/types/';
 
 import styles from './icon-button.module.scss';
 

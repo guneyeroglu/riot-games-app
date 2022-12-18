@@ -1,14 +1,12 @@
 import { useState } from 'react';
-
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Dropdown } from 'semantic-ui-react';
 
 import { Icon } from '../Icons/Icon';
 
-import { iconName } from '../../global/types/IconName';
-
-import { Dropdown } from 'semantic-ui-react';
+import { iconName } from '../../global/types/';
 
 import styles from './header.module.scss';
 
