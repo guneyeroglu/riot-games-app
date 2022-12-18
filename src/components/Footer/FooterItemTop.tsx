@@ -13,10 +13,10 @@ const FooterItemTop = ({ pathname }: IProps) => {
 
   useEffect(() => {
     if (pathname.includes('valorant')) {
-      return setHref(t('valoGameDownload'));
+      setHref(t('valoGameDownload'));
+    } else {
+      setHref(t('lolGameDownload'));
     }
-
-    return setHref(t('lolGameDownload'));
   }, [pathname, href, t]);
 
   return (

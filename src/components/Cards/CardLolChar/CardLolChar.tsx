@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import { Dispatch, useEffect } from 'react';
 
 import LazyLoad from 'react-lazy-load';
 
@@ -20,8 +20,14 @@ const CardLol = (props: IProps) => {
   const { data: champUrl } = useFetchData('lol-champions-url');
 
   const handleChampionName = (name: string) => {
-    const charName = Object.keys(champUrl?.data).find((char: string) =>
-      name.toLowerCase().includes(char.toLowerCase())
+    const charName = Object.keys(champUrl?.data).find(
+      (char: string) =>
+        champUrl?.data[char]?.name
+          .replace("'", '')
+          .replace('`', '')
+          .replace('’', '')
+          .toLowerCase() ===
+        name.replace("'", '').replace('`', '').replace('’', '').toLowerCase()
     );
 
     setChampionName(charName || '');
@@ -32,7 +38,7 @@ const CardLol = (props: IProps) => {
     <div className={styles.card}>
       <div
         className={styles.card__item}
-        onClick={() => handleChampionName(champ.slug)}
+        onClick={() => handleChampionName(champ.name)}
       >
         <LazyLoad
           width={'100%'}
