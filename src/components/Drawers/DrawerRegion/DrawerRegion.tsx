@@ -1,4 +1,4 @@
-import { useState, Dispatch } from 'react';
+import { useState, Dispatch, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
@@ -52,8 +52,12 @@ interface ILolRegionDetail {
 const DrawerRegion = (props: IProps) => {
   const { open, onSetOpen, region } = props;
 
+  const divRef = useRef<HTMLDivElement>(null);
+  const [divOffSetTop, setDivOffSetTop] = useState<number>(0);
+
   const { t } = useTranslation();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [scroll, setScroll] = useState<boolean>(false);
 
   const handleCloseDrawer = () => {
     onSetOpen(false);
@@ -84,9 +88,23 @@ const DrawerRegion = (props: IProps) => {
 
   const { openModal, setOpenModal, championName, setChampionName, DialogLolChampion } = useChampionDialog();
 
+  const handleScroll = () => {
+    if (divRef.current && divRef.current?.offsetTop > divOffSetTop) {
+      return setScroll(true);
+    }
+
+    return setScroll(false);
+  };
+
+  useEffect(() => {
+    if (divRef.current) {
+      setDivOffSetTop(divRef.current?.offsetTop);
+    }
+  }, [divRef.current?.offsetTop]);
+
   return (
     <SwipeableDrawer anchor='bottom' open={open} onClose={handleCloseDrawer} onOpen={handleOpenDrawer} className={styles.wrapper}>
-      <div className={styles.wrapper__content}>
+      <div className={styles.wrapper__content} onScroll={handleScroll}>
         {!isFetching && (
           <div className={styles.video}>
             {isLoaded && (
@@ -114,7 +132,7 @@ const DrawerRegion = (props: IProps) => {
               <span>{data?.faction.overview.short.replace(/<\/?[^>]+(>|$)/g, '')}</span>
             </div>
             <div className={styles['wrapper__content--champions']}>
-              <div className={styles.title}>
+              <div className={`${styles.title} ${scroll ? styles.sticky : ''}`.trim()} ref={divRef}>
                 <FeaturedTitle type='champions' />
               </div>
               <div className={styles.featured}>
