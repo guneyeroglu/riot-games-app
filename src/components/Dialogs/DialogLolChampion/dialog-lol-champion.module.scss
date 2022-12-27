@@ -43,9 +43,7 @@
               border-radius: 50%;
               width: 18px;
               height: 18px;
-              transition: width 0.35s ease-in-out, height 0.35s ease-in-out,
-                border-radius 0.35s ease-in-out,
-                background-color 0.35s ease-in-out;
+              transition: width 0.35s ease-in-out, height 0.35s ease-in-out, border-radius 0.35s ease-in-out, background-color 0.35s ease-in-out;
 
               svg {
                 width: 0px;
@@ -102,10 +100,8 @@
               height: 200px;
               border: 3px solid #ffffff;
               transform: scale(1);
-              box-shadow: 6px 6px 10px 2px rgb(39 42 42 / 65%),
-                0 0 0 0 rgb(0 0 0 / 0%), 0 0 0 0 rgb(0 0 0 / 0%);
-              transition: transform 0.35s ease-in-out,
-                box-shadow 0.35s ease-in-out;
+              box-shadow: 6px 6px 10px 2px rgb(39 42 42 / 65%), 0 0 0 0 rgb(0 0 0 / 0%), 0 0 0 0 rgb(0 0 0 / 0%);
+              transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
 
               img {
                 height: 100%;
@@ -115,8 +111,7 @@
 
               &:hover {
                 transform: scale(1.05);
-                box-shadow: 0px 0px 17px 2px #d4d4d5, 0 3px 0 0 #00000005,
-                  0 7px 26px 0 #d4d4d5;
+                box-shadow: 0px 0px 17px 2px #d4d4d5, 0 3px 0 0 #00000005, 0 7px 26px 0 #d4d4d5;
                 cursor: pointer;
 
                 img {
@@ -141,11 +136,9 @@
                 border: 3px solid #ffffff;
                 border-radius: 0.5rem;
                 background-color: #111111;
-                box-shadow: 6px 6px 10px 2px rgba(39, 42, 42, 0.6509803922),
-                  0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+                box-shadow: 6px 6px 10px 2px rgba(39, 42, 42, 0.6509803922), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
 
-                transition: background-color 0.35s ease-in-out,
-                  box-shadow 0.35s ease-in-out;
+                transition: background-color 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
 
                 svg {
                   transition: fill 0.35s ease-in-out;
@@ -153,8 +146,7 @@
 
                 &:hover {
                   background-color: #d4d4d5;
-                  box-shadow: 0px 0px 17px 2px #d4d4d5, 0 3px 0 0 #76767627,
-                    0 7px 26px 0 #d4d4d5;
+                  box-shadow: 0px 0px 17px 2px #d4d4d5, 0 3px 0 0 #76767627, 0 7px 26px 0 #d4d4d5;
 
                   cursor: pointer;
 
@@ -189,8 +181,7 @@
               height: 200px;
               padding: 2rem;
               background-color: #111111;
-              box-shadow: 6px 6px 10px 2px rgb(39 42 42 / 65%),
-                0 0 0 0 rgb(0 0 0 / 0%), 0 0 0 0 rgb(0 0 0 / 0%);
+              box-shadow: 6px 6px 10px 2px rgb(39 42 42 / 65%), 0 0 0 0 rgb(0 0 0 / 0%), 0 0 0 0 rgb(0 0 0 / 0%);
 
               span {
                 font-size: 0.95rem;
@@ -237,8 +228,7 @@
 
                 img {
                   opacity: 0.65;
-                  transition: transform 0.35s ease-in-out,
-                    box-shadow 0.35s ease-in-out, opacity 0.35s ease-in-out;
+                  transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out, opacity 0.35s ease-in-out;
                 }
 
                 &:hover {
@@ -247,8 +237,7 @@
 
                   img {
                     opacity: 1;
-                    box-shadow: 0px 0px 17px 2px #d4d4d5, 0 3px 0 0 #00000005,
-                      0 7px 26px 0 #d4d4d5;
+                    box-shadow: 0px 0px 17px 2px #d4d4d5, 0 3px 0 0 #00000005, 0 7px 26px 0 #d4d4d5;
                   }
                 }
 
@@ -257,8 +246,7 @@
 
                   img {
                     opacity: 1;
-                    box-shadow: 0px 0px 17px 2px #d4d4d5, 0 3px 0 0 #00000005,
-                      0 7px 26px 0 #d4d4d5;
+                    box-shadow: 0px 0px 17px 2px #d4d4d5, 0 3px 0 0 #00000005, 0 7px 26px 0 #d4d4d5;
                   }
                 }
               }

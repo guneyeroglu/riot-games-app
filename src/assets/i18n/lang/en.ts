@@ -13,8 +13,7 @@ const en = {
     copyrightRiot:
       '™ & © 2022 Riot Games, Inc. League of Legends, Valorant, and all related logos, characters, names and distinctive likenesses thereof are exclusive property of Riot Games, Inc. All Rights Reserved.',
     socialMedia: 'Social Media',
-    developedByWho:
-      '© 2022 | This website is made by <a><span>{{word}}</span></a>.',
+    developedByWho: '© 2022 | This website is made by <a><span>{{word}}</span></a>.',
     featuredChamps: 'FEATURED CHAMPIONS',
     featuredRegions: 'FEATURED REGIONS',
     viewChamps: 'VIEW ALL CHAMPIONS',
@@ -61,8 +60,7 @@ const en = {
     downloadAppText: 'DOWNLOAD RIOT MOBILE COMPANION APP',
     lolGameDownload: 'https://signup.leagueoflegends.com/en-us/signup/index',
     valoGameDownload: 'https://playvalorant.com/en-us/download/',
-    riotAppDownload:
-      'https://apps.apple.com/us/app/league-of-legends-friends/id1077150310?ls=1',
+    riotAppDownload: 'https://apps.apple.com/us/app/league-of-legends-friends/id1077150310?ls=1',
     pageRiotHome: 'Home - Riot Games',
     pageLolHome: 'Home - League of Legends',
     pageLolChampions: 'Champions - League of Legends',

@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
 
 import { CardLolChar, CardLolRegion } from '../../../components/Cards';
 import { imagesCarousel, imagesOther } from '../../../components/Images/';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import Spinner from '../../../components/Spinner/Spinner';
+import { Icon } from '../../../components/Icons/Icon';
+import DrawerRegion from '../../../components/Drawers/DrawerRegion/DrawerRegion';
 
 import backgroundImageChampions from '../../../assets/images/lol/featured-champs-bg.jpeg';
 import backgroundImageRegions from '../../../assets/images/lol/featured-regions-bg.jpeg.jpeg';
@@ -55,104 +56,107 @@ interface IRegion {
 const Main = () => {
   const { t, i18n } = useTranslation();
 
-  const carouselGeneral = useRef<HTMLDivElement | any>(null);
-  const carouselRegion = useRef<HTMLDivElement | any>(null);
-
-  const [widthGeneral, setWidthGeneral] = useState<number>(0);
-  const [widthRegion, setWidthRegion] = useState<number>(0);
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+  const [imageId, setImageId] = useState<number>(1);
+  const [regionName, setRegionName] = useState<string>('');
 
-  const featuredCharacters: string[] = [
-    'VEX',
-    'GWEN',
-    'UDYR',
-    'ZERI',
-    'SAMIRA',
-  ];
+  const featuredCharacters: string[] = ['VEX', 'GWEN', 'UDYR', 'ZERI', 'SAMIRA'];
 
-  const featuredRegions: string[] = [
-    'NOXUS',
-    'IONIA',
-    'DEMACIA',
-    'IXTAL',
-    'PILTOVER',
-    'SHURIMA',
-  ];
+  const featuredRegions: string[] = ['NOXUS', 'IONIA', 'DEMACIA', 'PILTOVER', 'TARGON', 'SHURIMA'];
 
-  const {
-    data: championsData,
-    isLoading: areChampionsLoading,
-    refetch: refetchChampions,
-  } = useFetchData('lol-champions');
-  const {
-    data: regionsData,
-    isLoading: areRegionsLoading,
-    refetch: refetchRegions,
-  } = useFetchData('lol-regions');
+  const { data: championsData, isLoading: areChampionsLoading, refetch: refetchChampions } = useFetchData('lol-champions');
+  const { data: regionsData, isLoading: areRegionsLoading, refetch: refetchRegions } = useFetchData('lol-regions');
 
-  const {
-    openModal,
-    setOpenModal,
-    championName,
-    setChampionName,
-    DialogLolChampion,
-  } = useChampionDialog();
+  const { openModal, setOpenModal, championName, setChampionName, DialogLolChampion } = useChampionDialog();
 
   useEffect(() => {
     document.title = t('pageLolHome');
     document.documentElement.lang = i18n.language.slice(0, 2);
 
-    const scrollWidthGeneral = carouselGeneral.current?.scrollWidth;
-    const offsetWidthGeneral = carouselGeneral.current?.offsetWidth;
-
-    const scrollWidthRegion = carouselRegion.current?.scrollWidth;
-    const offsetWidthRegion = carouselRegion.current?.offsetWidth;
-
-    setWidthGeneral(scrollWidthGeneral - offsetWidthGeneral);
-
-    setWidthRegion(scrollWidthRegion - offsetWidthRegion);
-
     refetchChampions();
     refetchRegions();
-  }, [
-    t,
-    i18n,
-    areChampionsLoading,
-    areRegionsLoading,
-    refetchChampions,
-    refetchRegions,
-  ]);
+  }, [t, i18n, areChampionsLoading, areRegionsLoading, refetchChampions, refetchRegions]);
 
-  const handleSetDrawer = () => {
-    setOpenDrawer(false);
+  const handleDrawer = (name: string) => {
+    setOpenDrawer((prevValue) => !prevValue);
+    setRegionName(name);
+  };
+
+  const handleImagePrev = () => {
+    if (imageId === 1) {
+      setImageId(imagesCarousel.length);
+    } else {
+      setImageId((preValue) => preValue - 1);
+    }
+  };
+
+  const handleImageNext = () => {
+    if (imageId === imagesCarousel.length) {
+      setImageId(1);
+    } else {
+      setImageId((preValue) => preValue + 1);
+    }
+  };
+
+  const handleImageId = (id: number) => {
+    setImageId(id);
+  };
+
+  const handleClassName = (number: number) => {
+    let className = styles.images__item;
+
+    if (number === imageId) {
+      className += ` ${styles.active}`;
+    }
+
+    if (number === imageId - 1 || (imageId === 1 && number === imagesCarousel.length)) {
+      className += ` ${styles.prev}`;
+    }
+
+    if (number === imageId + 1 || (imageId === imagesCarousel.length && number === 1)) {
+      className += ` ${styles.next}`;
+    }
+
+    return className;
   };
 
   return (
     <div className={styles.container}>
-      <motion.div
-        ref={carouselGeneral}
-        whileTap={{ cursor: 'grabbing' }}
-        whileHover={{ cursor: 'grab' }}
-        className={styles.container__carousel}
-      >
-        <motion.div
-          drag={'x'}
-          dragConstraints={{ right: 0, left: -widthGeneral }}
-          className={styles['container__carousel--inner']}
-        >
-          {imagesCarousel.map((image) => (
-            <motion.div key={image.id} className={styles.item}>
-              <img src={image.url} alt={image.name} />
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
+      <div className={styles.container__carousel}>
+        <div
+          className={styles['container__carousel--bg']}
+          style={{
+            backgroundImage: `url('${imagesCarousel[imageId - 1].url}')`,
+          }}
+        ></div>
+        <div className={styles['container__carousel--content']}>
+          <div className={styles.images}>
+            {imagesCarousel.map((image) => (
+              <div key={image.id} className={handleClassName(image.id)} onClick={() => handleImageId(image.id)}>
+                <img src={image.url} alt={image.name} />
+              </div>
+            ))}
+          </div>
+          <div className={styles.directions}>
+            <button className={`${styles.directions__button} ${styles.prev}`} onClick={handleImagePrev}>
+              <Icon name='ArrowIcon' />
+            </button>
+            <div className={styles.directions__dots}>
+              {imagesCarousel.map((image) => (
+                <span key={image.id} className={styles.dot} onClick={() => handleImageId(image.id)}>
+                  {image.id === imageId && <span className={styles.active}></span>}
+                </span>
+              ))}
+            </div>
+            <button className={`${styles.directions__button} ${styles.next}`} onClick={handleImageNext}>
+              <Icon name='ArrowIcon' />
+            </button>
+          </div>
+        </div>
+      </div>
       <div className={styles.container__featured}>
         <div className={styles.champions}>
-          <div
-            className={styles.champions__background}
-            style={{ backgroundImage: `url(${backgroundImageChampions})` }}
-          ></div>
+          <div className={styles.champions__background} style={{ backgroundImage: `url(${backgroundImageChampions})` }}></div>
           <div className={styles.champions__wrapper}>
             <div className={styles.title}>
               <FeaturedTitle type='champions' />
@@ -161,25 +165,9 @@ const Main = () => {
               {areChampionsLoading && <Spinner padding={true} />}
               {!areChampionsLoading &&
                 featuredCharacters
-                  .map((champName: string) =>
-                    championsData?.champions.find(
-                      (champ: IChamp) =>
-                        champ.name.toUpperCase() === champName.toUpperCase()
-                    )
-                  )
-                  .map((champ: IChamp) => (
-                    <CardLolChar
-                      key={champ.name}
-                      data={champ}
-                      onSetOpen={setOpenModal}
-                      onSetChampionName={setChampionName}
-                    />
-                  ))}
-              <DialogLolChampion
-                open={openModal}
-                onSetOpen={setOpenModal}
-                championName={championName}
-              />
+                  .map((champName: string) => championsData?.champions.find((champ: IChamp) => champ.name.toUpperCase() === champName.toUpperCase()))
+                  .map((champ: IChamp) => <CardLolChar key={champ.name} data={champ} onSetOpen={setOpenModal} onSetChampionName={setChampionName} />)}
+              <DialogLolChampion open={openModal} onSetOpen={setOpenModal} championName={championName} />
             </div>
             <div className={styles.nav}>
               <Link to='champions'>
@@ -189,46 +177,17 @@ const Main = () => {
           </div>
         </div>
         <div className={styles.regions}>
-          <div
-            className={styles.regions__background}
-            style={{ backgroundImage: `url(${backgroundImageRegions})` }}
-          ></div>
+          <div className={styles.regions__background} style={{ backgroundImage: `url(${backgroundImageRegions})` }}></div>
           <div className={styles.regions__wrapper}>
             <div className={styles.title}>
               <FeaturedTitle type='regions' />
             </div>
             <div className={styles.content}>
-              <motion.div
-                ref={carouselRegion}
-                whileTap={{ cursor: 'grabbing' }}
-                whileHover={{ cursor: 'grab' }}
-                className={styles.carousel}
-              >
-                <motion.div
-                  drag={'x'}
-                  dragConstraints={{ right: 0, left: -widthRegion }}
-                  className={styles.carousel__inner}
-                >
-                  {areRegionsLoading && <Spinner />}
-                  {!areRegionsLoading &&
-                    featuredRegions
-                      .map((regionName: string) =>
-                        regionsData?.factions.find(
-                          (region: IRegion) =>
-                            regionName.toLowerCase() ===
-                            region.name.toLowerCase()
-                        )
-                      )
-                      .map((region: IRegion) => (
-                        <CardLolRegion
-                          key={region.name}
-                          region={region}
-                          cursor={true}
-                          onSetDrawer={handleSetDrawer}
-                        />
-                      ))}
-                </motion.div>
-              </motion.div>
+              {areRegionsLoading && <Spinner />}
+              {!areRegionsLoading &&
+                featuredRegions
+                  .map((regionName: string) => regionsData?.factions.find((region: IRegion) => regionName.toLowerCase() === region.name.toLowerCase()))
+                  .map((region: IRegion) => <CardLolRegion key={region.name} region={region} onSetDrawer={handleDrawer} />)}
             </div>
             <div className={styles.nav}>
               <Link to='regions'>
@@ -259,6 +218,7 @@ const Main = () => {
           </div>
         ))}
       </div>
+      {openDrawer && <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region={regionName} />}
     </div>
   );
 };

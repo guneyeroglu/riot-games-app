@@ -86,13 +86,9 @@ const Header = () => {
 
   const dropdownStyle = isOpen.firstNav ? styles.open : '';
 
-  const firstGameStyle = isOpen.secondNav
-    ? `${styles.games} ${styles.active}`
-    : styles.games;
+  const firstGameStyle = isOpen.secondNav ? `${styles.games} ${styles.active}` : styles.games;
 
-  const secondGameStyle = isOpen.thirdNav
-    ? `${styles.games} ${styles.active}`
-    : styles.games;
+  const secondGameStyle = isOpen.thirdNav ? `${styles.games} ${styles.active}` : styles.games;
 
   return (
     <header className={styles.wrapper}>
@@ -104,27 +100,16 @@ const Header = () => {
               pointing
               icon={
                 <div className={styles.logo}>
-                  <Icon
-                    name='RiotGamesIcon'
-                    wh={85}
-                    hg={27}
-                    vb={'0 0 587.93 165'}
-                  />
+                  <Icon name='RiotGamesIcon' wh={85} hg={27} vb={'0 0 587.93 165'} />
                   <i aria-hidden='true' className='dropdown icon'></i>
                 </div>
               }
-              onClick={() =>
-                setIsOpen({ ...isOpen, firstNav: !isOpen.firstNav })
-              }
+              onClick={() => setIsOpen({ ...isOpen, firstNav: !isOpen.firstNav })}
               onClose={() => setIsOpen({ ...isOpen, firstNav: false })}
             >
               <Dropdown.Menu as={'ul'}>
                 {listItems.map((li: INavItem) => (
-                  <Dropdown.Item
-                    as={'li'}
-                    key={li.id}
-                    onClick={() => handleNavigate(li.to)}
-                  >
+                  <Dropdown.Item as={'li'} key={li.id} onClick={() => handleNavigate(li.to)}>
                     <span>{li.name}</span>
                   </Dropdown.Item>
                 ))}
@@ -154,11 +139,7 @@ const Header = () => {
               >
                 <Dropdown.Menu as={'ul'}>
                   {allNavItems[idx].map((nav: INavItem) => (
-                    <Dropdown.Item
-                      as={'li'}
-                      key={nav.id}
-                      onClick={() => handleNavigate(nav.to)}
-                    >
+                    <Dropdown.Item as={'li'} key={nav.id} onClick={() => handleNavigate(nav.to)}>
                       <span>{nav.name}</span>
                     </Dropdown.Item>
                   ))}
@@ -169,26 +150,11 @@ const Header = () => {
         </ul>
       </nav>
       <div className={styles.wrapper__settings}>
-        <Dropdown
-          icon={<Icon name='WorldIcon' wh={20} hg={20} />}
-          pointing
-          item
-          className={styles.language}
-        >
+        <Dropdown icon={<Icon name='WorldIcon' wh={20} hg={20} />} pointing item className={styles.language}>
           <Dropdown.Menu as={'ul'}>
             {countryList.map((ctry: ICountry) => (
-              <Dropdown.Item
-                as={'li'}
-                onClick={() => handleChangeLanguage(ctry.lang)}
-                key={ctry.id}
-              >
-                <span
-                  className={
-                    ctry.lang === (localStorage.getItem('language') ?? 'en_US')
-                      ? styles.selected
-                      : ''
-                  }
-                >
+              <Dropdown.Item as={'li'} onClick={() => handleChangeLanguage(ctry.lang)} key={ctry.id}>
+                <span className={ctry.lang === (localStorage.getItem('language') ?? 'en_US') ? styles.selected : ''}>
                   <Icon name={ctry.iconName} vb='0 0 640 480' wh={24} />
                 </span>
               </Dropdown.Item>

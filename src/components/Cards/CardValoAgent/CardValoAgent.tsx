@@ -22,7 +22,7 @@ interface IProps {
         displayName: string;
         description: string;
         displayIcon: string;
-      }
+      },
     ];
   };
 }
@@ -54,16 +54,8 @@ const CardValoAgent = (props: IProps) => {
         <div className={styles.image}>
           {isLoading && <Spinner />}
           {
-            <LazyLoad
-              width={isLoading ? '0%' : '100%'}
-              height={'100%'}
-              offset={800}
-            >
-              <img
-                src={agent.fullPortrait}
-                alt={agent.displayName}
-                onLoad={handleSpinner}
-              />
+            <LazyLoad width={isLoading ? '0%' : '100%'} height={'100%'} offset={800}>
+              <img src={agent.fullPortrait} alt={agent.displayName} onLoad={handleSpinner} />
             </LazyLoad>
           }
         </div>
@@ -78,23 +70,16 @@ const CardValoAgent = (props: IProps) => {
             <span>{agent.description}</span>
           </div>
         </div>
-        <div
-          className={styles.abilities}
-          style={{ backgroundImage: `url('${agent.background}')` }}
-        >
+        <div className={styles.abilities} style={{ backgroundImage: `url('${agent.background}')` }}>
           <div className={styles.abilities__list}>
             {agent.abilities
               .filter((ability) => ability.slot !== 'Passive')
               .map((ability) => (
                 <div
                   className={
-                    agent.abilities.indexOf(ability) === abilityId
-                      ? `${styles['abilities__list--item']} ${styles.active}`
-                      : styles['abilities__list--item']
+                    agent.abilities.indexOf(ability) === abilityId ? `${styles['abilities__list--item']} ${styles.active}` : styles['abilities__list--item']
                   }
-                  onClick={() =>
-                    handleAbility(agent.abilities.indexOf(ability))
-                  }
+                  onClick={() => handleAbility(agent.abilities.indexOf(ability))}
                   key={ability.displayName}
                   id={`ability-${agent.abilities.indexOf(ability)}`}
                 >
@@ -114,9 +99,7 @@ const CardValoAgent = (props: IProps) => {
             <div className={styles.abilities__description}>
               <h4>
                 {`- ${
-                  i18n.language === 'tr_TR'
-                    ? agent.abilities[abilityId].displayName.toLocaleUpperCase()
-                    : agent.abilities[abilityId].displayName.toUpperCase()
+                  i18n.language === 'tr_TR' ? agent.abilities[abilityId].displayName.toLocaleUpperCase() : agent.abilities[abilityId].displayName.toUpperCase()
                 } -`}
               </h4>
               <span>{agent.abilities[abilityId].description}</span>

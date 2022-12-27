@@ -13,8 +13,7 @@ const tr = {
     copyrightRiot:
       "™ & © 2022 Riot Games Inc. Her hakkı saklıdır. Riot Games, League of Legends ve Valorant; Riot Games, Inc.'nin tescilli markaları, ticari markaları ya da hizmet markalarıdır.",
     socialMedia: 'Sosyal Medya',
-    developedByWho:
-      '© 2022 | Bu web sitesi <a><span>{{word}}</span></a> tarafından geliştirilmiştir.',
+    developedByWho: '© 2022 | Bu web sitesi <a><span>{{word}}</span></a> tarafından geliştirilmiştir.',
     featuredChamps: 'ÖNE ÇIKAN ŞAMPİYONLAR',
     featuredRegions: 'ÖNE ÇIKAN BÖLGELER',
     viewChamps: 'TÜM ŞAMPİYONLARI GÖRÜNTÜLE',
@@ -60,8 +59,7 @@ const tr = {
     downloadAppText: 'RIOT MOBILE UYGULAMASINI İNDİR',
     lolGameDownload: 'https://signup.leagueoflegends.com/tr-tr/signup/index',
     valoGameDownload: 'https://playvalorant.com/tr-tr/download/',
-    riotAppDownload:
-      'https://apps.apple.com/tr/app/league-of-legends-friends/id1077150310?ls=1',
+    riotAppDownload: 'https://apps.apple.com/tr/app/league-of-legends-friends/id1077150310?ls=1',
     pageRiotHome: 'Anasayfa - Riot Games',
     pageLolHome: 'Anasayfa - League of Legends',
     pageLolChampions: 'Şampiyonlar - League of Legends',

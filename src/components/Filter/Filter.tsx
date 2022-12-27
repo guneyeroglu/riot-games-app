@@ -65,13 +65,9 @@ const Filter = (props: IProps) => {
     return onSetFilterValue('');
   };
 
-  const menuClassList = open
-    ? `${styles.wrapper__menu} ${styles.visible}`
-    : styles.wrapper__menu;
+  const menuClassList = open ? `${styles.wrapper__menu} ${styles.visible}` : styles.wrapper__menu;
 
-  const buttonClassList = open
-    ? `${styles.wrapper__button} ${styles.open}`
-    : styles.wrapper__button;
+  const buttonClassList = open ? `${styles.wrapper__button} ${styles.open}` : styles.wrapper__button;
 
   useEffect(() => {
     if (roleNumber >= 0) {
@@ -94,9 +90,7 @@ const Filter = (props: IProps) => {
         <ul id='roles'>
           <li
             className={
-              data?.data.filter((agent) =>
-                agent.displayName.toUpperCase().includes(inputValue)
-              ).length === 0
+              data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue)).length === 0
                 ? styles.deactivate
                 : filterValue === ''
                 ? styles.selected
@@ -106,33 +100,15 @@ const Filter = (props: IProps) => {
           >
             <Icon name='TargetIcon' />
             <span>{t('all')}</span>
-            <span>
-              (
-              {
-                data?.data.filter(
-                  (agent) =>
-                    agent.displayName.toUpperCase().includes(inputValue) &&
-                    agent.isPlayableCharacter
-                ).length
-              }
-              )
-            </span>
+            <span>({data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue) && agent.isPlayableCharacter).length})</span>
           </li>
           {roleList &&
             Object.keys(roleList).map((roleName: string) => (
               <li
                 key={roleName}
-                onClick={() =>
-                  handleSelectedListItem(
-                    Object.keys(roleList).indexOf(roleName)
-                  )
-                }
+                onClick={() => handleSelectedListItem(Object.keys(roleList).indexOf(roleName))}
                 className={
-                  data?.data
-                    .filter((agent) =>
-                      agent.displayName.toUpperCase().includes(inputValue)
-                    )
-                    .filter((agent) => agent?.role?.displayName === roleName)
+                  data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue)).filter((agent) => agent?.role?.displayName === roleName)
                     .length === 0
                     ? styles.deactivate
                     : filterValue === roleName
@@ -145,11 +121,7 @@ const Filter = (props: IProps) => {
                 <span>
                   (
                   {
-                    data?.data
-                      .filter((agent) =>
-                        agent.displayName.toUpperCase().includes(inputValue)
-                      )
-                      .filter((agent) => agent?.role?.displayName === roleName)
+                    data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue)).filter((agent) => agent?.role?.displayName === roleName)
                       .length
                   }
                   )

@@ -33,11 +33,7 @@ const ValoList = () => {
             <Link to={li.name}>
               <img src={li.image} alt={li.name} />
             </Link>
-            <span>
-              {i18n.language === 'tr_TR'
-                ? t(li.name).toLocaleUpperCase()
-                : t(li.name).toUpperCase()}
-            </span>
+            <span>{i18n.language === 'tr_TR' ? t(li.name).toLocaleUpperCase() : t(li.name).toUpperCase()}</span>
           </div>
         </li>
       ))}

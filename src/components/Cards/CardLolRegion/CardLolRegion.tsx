@@ -4,7 +4,6 @@ import styles from './card-lol-region.module.scss';
 
 interface IProps {
   region: IRegion;
-  cursor?: boolean;
   onSetDrawer: (name: string) => void;
 }
 
@@ -25,27 +24,15 @@ enum REGIONS {
 }
 
 const CardLolRegion = (props: IProps) => {
-  const { region, cursor, onSetDrawer } = props;
-
-  const classList = cursor
-    ? `${styles.card} ${styles['carousel__inner--item']}`
-    : styles.card;
+  const { region, onSetDrawer } = props;
 
   return (
-    <div className={classList} onClick={() => onSetDrawer(region.slug)}>
-      <div
-        className={styles.card__background}
-        style={{ backgroundImage: `url(${region.image.uri})` }}
-      ></div>
+    <div className={styles.card} onClick={() => onSetDrawer(region.slug)}>
+      <div className={styles.card__background} style={{ backgroundImage: `url(${region.image.uri})` }}></div>
       <div className={styles.card__name}>
         <span>{region.name.toUpperCase()}</span>
       </div>
-      <img
-        src={`https://universe.leagueoflegends.com/images/${
-          REGIONS[region.slug as keyof typeof REGIONS]
-        }_crest_icon.png`}
-        alt={region.name}
-      />
+      <img src={`https://universe.leagueoflegends.com/images/${REGIONS[region.slug as keyof typeof REGIONS]}_crest_icon.png`} alt={region.name} />
     </div>
   );
 };

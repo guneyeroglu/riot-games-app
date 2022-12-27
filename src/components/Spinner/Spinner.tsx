@@ -11,9 +11,7 @@ interface IProps {
 const Spinner = (props: IProps) => {
   const { padding, color, center } = props;
 
-  const classList = padding
-    ? `${styles.wrapper} ${styles.padding}`
-    : styles.wrapper;
+  const classList = padding ? `${styles.wrapper} ${styles.padding}` : styles.wrapper;
 
   const sx = color ? { sx: { color: `${color} !important` } } : {};
 

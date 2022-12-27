@@ -27,41 +27,21 @@ const Regions = () => {
   }, [t, i18n, refetch]);
 
   const handleDrawer = (name: string) => {
-    setOpenDrawer((preValue: boolean) => !preValue);
+    setOpenDrawer((preValue) => !preValue);
     setRegionName(name);
   };
 
   return (
     <div className={styles.wrapper}>
-      <div
-        className={styles.wrapper__background}
-        style={{ backgroundImage: `url(${backgroundImageRegions})` }}
-      ></div>
+      <div className={styles.wrapper__background} style={{ backgroundImage: `url(${backgroundImageRegions})` }}></div>
       <div className={styles.wrapper__title}>
-        <span>
-          {i18n.language === 'tr_TR'
-            ? t('regions').toLocaleUpperCase()
-            : t('regions').toUpperCase()}
-        </span>
+        <span>{i18n.language === 'tr_TR' ? t('regions').toLocaleUpperCase() : t('regions').toUpperCase()}</span>
       </div>
       <div className={styles.wrapper__content}>
         {isLoading && <Spinner color='#ffffff' />}
-        {!isLoading &&
-          data?.factions.map((region: IRegion) => (
-            <CardLolRegion
-              key={region.name}
-              region={region}
-              onSetDrawer={handleDrawer}
-            />
-          ))}
+        {!isLoading && data?.factions.map((region: IRegion) => <CardLolRegion key={region.name} region={region} onSetDrawer={handleDrawer} />)}
       </div>
-      {openDrawer && (
-        <DrawerRegion
-          open={openDrawer}
-          onSetOpen={setOpenDrawer}
-          region={regionName}
-        />
-      )}
+      {openDrawer && <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region={regionName} />}
     </div>
   );
 };

@@ -27,13 +27,9 @@ const Sort = (props: IProps) => {
     setVisible((prevValue: boolean) => !prevValue);
   };
 
-  const style = visible
-    ? `${styles.container} ${styles.open}`
-    : styles.container;
+  const style = visible ? `${styles.container} ${styles.open}` : styles.container;
 
-  const classList = visible
-    ? `${styles['container__sort--menu']} ${styles.visible}`
-    : styles['container__sort--menu'];
+  const classList = visible ? `${styles['container__sort--menu']} ${styles.visible}` : styles['container__sort--menu'];
 
   return (
     <div className={style} ref={domNode}>

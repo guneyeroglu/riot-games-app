@@ -16,10 +16,7 @@
       position: relative;
       width: 100vw;
       height: 70vh;
-      -webkit-mask-image: linear-gradient(
-        rgb(0, 0, 0) 90%,
-        rgba(0, 0, 0, 0) 100%
-      );
+      -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
       mask-image: linear-gradient(rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
 
       &__title {
@@ -68,10 +65,7 @@
         height: 100%;
         filter: brightness(0.75);
         mask-image: linear-gradient(rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 90%);
-        -webkit-mask-image: linear-gradient(
-          rgb(0, 0, 0) 50%,
-          rgba(0, 0, 0, 0) 90%
-        );
+        -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 90%);
       }
     }
 

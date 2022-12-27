@@ -75,11 +75,7 @@ const Footer = () => {
             components={{
               span: <span />,
               a: (
-                <a
-                  href='https://www.linkedin.com/in/guneyeroglu/'
-                  target='_blank'
-                  rel='noreferrer'
-                >
+                <a href='https://www.linkedin.com/in/guneyeroglu/' target='_blank' rel='noreferrer'>
                   {null}
                 </a>
               ),

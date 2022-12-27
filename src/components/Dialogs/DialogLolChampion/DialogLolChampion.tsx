@@ -77,11 +77,7 @@ const DialogLolChampion = (props: IProps) => {
     setLore(false);
   };
 
-  const { data, isFetching, refetch } = useFetchData(
-    'lol-champion-detail',
-    championName,
-    { enabled: false }
-  );
+  const { data, isFetching, refetch } = useFetchData('lol-champion-detail', championName, { enabled: false });
 
   const championDetails: IChampionDetails = data?.data?.[championName];
 
@@ -146,17 +142,7 @@ const DialogLolChampion = (props: IProps) => {
   }, [refetch, championName, i18n.language]);
 
   return (
-    <Dialog
-      open={open}
-      maxWidth='md'
-      fullWidth
-      onClose={handleClose}
-      className={
-        skillName === ''
-          ? styles.container
-          : `${styles.container} ${styles.open}`
-      }
-    >
+    <Dialog open={open} maxWidth='md' fullWidth onClose={handleClose} className={skillName === '' ? styles.container : `${styles.container} ${styles.open}`}>
       <div className={styles.wrapper}>
         <div className={styles.wrapper__title}>
           <div className={styles['wrapper__title--button']}>
@@ -166,9 +152,7 @@ const DialogLolChampion = (props: IProps) => {
           <span>
             {!isFetching &&
               `${championDetails?.name.toUpperCase()} - ${
-                i18n.language === 'tr_TR'
-                  ? championDetails?.title.toLocaleUpperCase()
-                  : championDetails?.title.toUpperCase()
+                i18n.language === 'tr_TR' ? championDetails?.title.toLocaleUpperCase() : championDetails?.title.toUpperCase()
               }`}
           </span>
         </div>
@@ -214,35 +198,27 @@ const DialogLolChampion = (props: IProps) => {
             </div>
             <div className={styles.skill}>
               {championDetails &&
-                [championDetails?.passive, ...championDetails?.spells]?.map(
-                  (skill) => (
-                    <div
-                      key={skill.name + skill.description}
-                      className={
-                        skillName === skill.name
-                          ? `${styles.skill__item} ${styles.active}`
-                          : styles.skill__item
-                      }
-                      style={{
-                        pointerEvents: skillOnLoad ? 'auto' : 'none',
-                        backgroundColor: skillOnLoad
-                          ? 'transparent'
-                          : '#ffffff',
-                      }}
-                      onClick={() => handleSelectedSkill(skill.name)}
-                    >
-                      {!skillOnLoad && <Spinner color='#111111' />}
-                      {!isFetching && (
-                        <img
-                          src={`https://ddragon.leagueoflegends.com/cdn/12.22.1/img/${skill.image.group}/${skill.image.full}`}
-                          alt={skill.name}
-                          width={skillWidth}
-                          onLoad={handleSkillOnLoad}
-                        />
-                      )}
-                    </div>
-                  )
-                )}
+                [championDetails?.passive, ...championDetails?.spells]?.map((skill) => (
+                  <div
+                    key={skill.name + skill.description}
+                    className={skillName === skill.name ? `${styles.skill__item} ${styles.active}` : styles.skill__item}
+                    style={{
+                      pointerEvents: skillOnLoad ? 'auto' : 'none',
+                      backgroundColor: skillOnLoad ? 'transparent' : '#ffffff',
+                    }}
+                    onClick={() => handleSelectedSkill(skill.name)}
+                  >
+                    {!skillOnLoad && <Spinner color='#111111' />}
+                    {!isFetching && (
+                      <img
+                        src={`https://ddragon.leagueoflegends.com/cdn/12.22.1/img/${skill.image.group}/${skill.image.full}`}
+                        alt={skill.name}
+                        width={skillWidth}
+                        onLoad={handleSkillOnLoad}
+                      />
+                    )}
+                  </div>
+                ))}
             </div>
           </div>
         </div>
@@ -252,31 +228,20 @@ const DialogLolChampion = (props: IProps) => {
               <div className={styles['wrapper__drawer--title']}>
                 <span>- {skillName} -</span>
                 <div className={styles.button}>
-                  <IconButton
-                    label='CloseIcon'
-                    onClick={handleSkillDescriptionClose}
-                  />
+                  <IconButton label='CloseIcon' onClick={handleSkillDescriptionClose} />
                 </div>
               </div>
               <div className={styles['wrapper__drawer--content']}>
                 <span>
                   {championDetails &&
-                    [championDetails.passive, ...championDetails.spells]
-                      .find((skill) => skill.name === skillName)
-                      ?.description.replace(/<\/?[^>]+(>|$)/g, '')}
+                    [championDetails.passive, ...championDetails.spells].find((skill) => skill.name === skillName)?.description.replace(/<\/?[^>]+(>|$)/g, '')}
                 </span>
               </div>
             </>
           )}
         </div>
       </div>
-      <Dialog
-        open={imageOpen}
-        maxWidth='lg'
-        fullWidth
-        onClose={handleImageModalClose}
-        className={styles.big__image}
-      >
+      <Dialog open={imageOpen} maxWidth='lg' fullWidth onClose={handleImageModalClose} className={styles.big__image}>
         <div className={styles.dialog}>
           <div className={styles.dialog__title}>
             <div className={styles.button}>

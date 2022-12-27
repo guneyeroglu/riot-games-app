@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { SwipeableDrawer } from '@mui/material';
 
-import {
-  QueryObserverResult,
-  RefetchOptions,
-  RefetchQueryFilters,
-} from '@tanstack/react-query';
+import { QueryObserverResult, RefetchOptions, RefetchQueryFilters } from '@tanstack/react-query';
 
 import { CardLolChar } from '../../Cards';
 import FeaturedTitle from '../../FeaturedTitle/FeaturedTitle';
@@ -50,9 +46,7 @@ interface ILolRegionDetail {
   };
   isFetching: boolean;
   isLoading: boolean;
-  refetch: <TPageData>(
-    options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined
-  ) => Promise<QueryObserverResult<any, unknown>>;
+  refetch: <TPageData>(options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined) => Promise<QueryObserverResult<any, unknown>>;
 }
 
 const DrawerRegion = (props: IProps) => {
@@ -70,10 +64,7 @@ const DrawerRegion = (props: IProps) => {
     onSetOpen(true);
   };
 
-  const { data, isFetching }: ILolRegionDetail = useFetchData(
-    'lol-region-detail',
-    region
-  );
+  const { data, isFetching }: ILolRegionDetail = useFetchData('lol-region-detail', region);
 
   enum REGIONS {
     'bandle-city' = 'bandle_city',
@@ -91,22 +82,10 @@ const DrawerRegion = (props: IProps) => {
     zaun = 'zaun',
   }
 
-  const {
-    openModal,
-    setOpenModal,
-    championName,
-    setChampionName,
-    DialogLolChampion,
-  } = useChampionDialog();
+  const { openModal, setOpenModal, championName, setChampionName, DialogLolChampion } = useChampionDialog();
 
   return (
-    <SwipeableDrawer
-      anchor='bottom'
-      open={open}
-      onClose={handleCloseDrawer}
-      onOpen={handleOpenDrawer}
-      className={styles.wrapper}
-    >
+    <SwipeableDrawer anchor='bottom' open={open} onClose={handleCloseDrawer} onOpen={handleOpenDrawer} className={styles.wrapper}>
       <div className={styles.wrapper__content}>
         {!isFetching && (
           <div className={styles.video}>
@@ -114,9 +93,7 @@ const DrawerRegion = (props: IProps) => {
               <div className={styles.video__title}>
                 <div className={styles['video__title--logo']}>
                   <img
-                    src={`https://universe.leagueoflegends.com/images/${
-                      REGIONS[data?.faction.slug as keyof typeof REGIONS]
-                    }_crest_icon.png`}
+                    src={`https://universe.leagueoflegends.com/images/${REGIONS[data?.faction.slug as keyof typeof REGIONS]}_crest_icon.png`}
                     alt={data?.faction.name}
                   />
                 </div>
@@ -124,28 +101,17 @@ const DrawerRegion = (props: IProps) => {
                   <span>{data?.faction.name.toUpperCase()}</span>
                 </div>
                 <div className={styles['video__title--footer']}>
-                  <img
-                    src='https://universe.leagueoflegends.com/images/t1HeaderDivider.png'
-                    alt='-'
-                  />
+                  <img src='https://universe.leagueoflegends.com/images/t1HeaderDivider.png' alt='-' />
                 </div>
               </div>
             )}
-            <video
-              src={data?.faction.video.uri}
-              autoPlay
-              loop
-              preload='auto'
-              onLoadedData={() => setIsLoaded(true)}
-            ></video>
+            <video src={data?.faction.video.uri} autoPlay loop preload='auto' onLoadedData={() => setIsLoaded(true)}></video>
           </div>
         )}
         {isLoaded && (
           <>
             <div className={styles['wrapper__content--description']}>
-              <span>
-                {data?.faction.overview.short.replace(/<\/?[^>]+(>|$)/g, '')}
-              </span>
+              <span>{data?.faction.overview.short.replace(/<\/?[^>]+(>|$)/g, '')}</span>
             </div>
             <div className={styles['wrapper__content--champions']}>
               <div className={styles.title}>
@@ -153,12 +119,7 @@ const DrawerRegion = (props: IProps) => {
               </div>
               <div className={styles.featured}>
                 {data['associated-champions'].map((champ) => (
-                  <CardLolChar
-                    key={champ.name}
-                    data={champ}
-                    onSetChampionName={setChampionName}
-                    onSetOpen={setOpenModal}
-                  />
+                  <CardLolChar key={champ.name} data={champ} onSetChampionName={setChampionName} onSetOpen={setOpenModal} />
                 ))}
               </div>
               <div className={styles.nav}>
@@ -167,13 +128,7 @@ const DrawerRegion = (props: IProps) => {
                 </Link>
               </div>
             </div>
-            {openModal && (
-              <DialogLolChampion
-                open={openModal}
-                onSetOpen={setOpenModal}
-                championName={championName}
-              />
-            )}
+            {openModal && <DialogLolChampion open={openModal} onSetOpen={setOpenModal} championName={championName} />}
           </>
         )}
       </div>

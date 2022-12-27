@@ -18,22 +18,13 @@ const SearchBar = (props: IProps) => {
 
   const { inputValue, onSetInputValue, find } = props;
 
-  const placeholder: string =
-    find === 'champion' ? t('searchChampion') : t('searchAgent');
+  const placeholder: string = find === 'champion' ? t('searchChampion') : t('searchAgent');
 
-  const classList =
-    find === 'champion'
-      ? `${styles.wrapper__filter}`
-      : `${styles.wrapper__filter} ${styles.agent}`;
+  const classList = find === 'champion' ? `${styles.wrapper__filter}` : `${styles.wrapper__filter} ${styles.agent}`;
 
   const logo: JSX.Element =
     find === 'champion' ? (
-      <img
-        src={
-          'https://universe.leagueoflegends.com/esimages/content_type_icon_champion__3nwJQ.png'
-        }
-        alt='search-icon'
-      />
+      <img src={'https://universe.leagueoflegends.com/esimages/content_type_icon_champion__3nwJQ.png'} alt='search-icon' />
     ) : (
       <Icon name='ValorantIcon' />
     );
@@ -49,18 +40,10 @@ const SearchBar = (props: IProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={classList}>
-        <input
-          type={'search'}
-          placeholder={placeholder}
-          value={inputValue}
-          onChange={handleInputChange}
-        />
+        <input type={'search'} placeholder={placeholder} value={inputValue} onChange={handleInputChange} />
         <div className={styles['wrapper__filter--logo']}>{logo}</div>
         {inputValue.length > 0 && (
-          <button
-            className={styles['wrapper__filter--close']}
-            onClick={handleInputValue}
-          >
+          <button className={styles['wrapper__filter--close']} onClick={handleInputValue}>
             <Icon name='CloseIcon' />
           </button>
         )}

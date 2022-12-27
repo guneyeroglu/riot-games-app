@@ -18,12 +18,7 @@
 
     &:hover {
       cursor: pointer;
-      background-image: -webkit-radial-gradient(
-        50% 12%,
-        circle,
-        #1b1b1b,
-        #121212 40%
-      );
+      background-image: -webkit-radial-gradient(50% 12%, circle, #1b1b1b, #121212 40%);
     }
   }
 
@@ -133,12 +128,7 @@
 
   &.open {
     button {
-      background-image: -webkit-radial-gradient(
-        50% 12%,
-        circle,
-        #1b1b1b,
-        #121212 40%
-      );
+      background-image: -webkit-radial-gradient(50% 12%, circle, #1b1b1b, #121212 40%);
     }
   }
 }
