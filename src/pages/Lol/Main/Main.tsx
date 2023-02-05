@@ -6,8 +6,8 @@ import { CardLolChar, CardLolRegion } from '../../../components/Cards';
 import { imagesCarousel, imagesOther } from '../../../components/Images/';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import Spinner from '../../../components/Spinner/Spinner';
-import { Icon } from '../../../components/Icons/Icon';
 import DrawerRegion from '../../../components/Drawers/DrawerRegion/DrawerRegion';
+import Carousel from '../../../components/Carousel/Carousel';
 
 import backgroundImageChampions from '../../../assets/images/lol/featured-champs-bg.jpeg';
 import backgroundImageRegions from '../../../assets/images/lol/featured-regions-bg.jpeg.jpeg';
@@ -57,7 +57,6 @@ const Main = () => {
   const { t, i18n } = useTranslation();
 
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
-  const [imageId, setImageId] = useState<number>(1);
   const [regionName, setRegionName] = useState<string>('');
 
   const featuredCharacters: string[] = ['VEX', 'GWEN', 'UDYR', 'ZERI', 'SAMIRA'];
@@ -82,78 +81,9 @@ const Main = () => {
     setRegionName(name);
   };
 
-  const handleImagePrev = () => {
-    if (imageId === 1) {
-      setImageId(imagesCarousel.length);
-    } else {
-      setImageId((preValue) => preValue - 1);
-    }
-  };
-
-  const handleImageNext = () => {
-    if (imageId === imagesCarousel.length) {
-      setImageId(1);
-    } else {
-      setImageId((preValue) => preValue + 1);
-    }
-  };
-
-  const handleImageId = (id: number) => {
-    setImageId(id);
-  };
-
-  const handleClassName = (number: number) => {
-    let className = styles.images__item;
-
-    if (number === imageId) {
-      className += ` ${styles.active}`;
-    }
-
-    if (number === imageId - 1 || (imageId === 1 && number === imagesCarousel.length)) {
-      className += ` ${styles.prev}`;
-    }
-
-    if (number === imageId + 1 || (imageId === imagesCarousel.length && number === 1)) {
-      className += ` ${styles.next}`;
-    }
-
-    return className;
-  };
-
   return (
     <div className={styles.container}>
-      <div className={styles.container__carousel}>
-        <div
-          className={styles['container__carousel--bg']}
-          style={{
-            backgroundImage: `url('${imagesCarousel[imageId - 1].url}')`,
-          }}
-        ></div>
-        <div className={styles['container__carousel--content']}>
-          <div className={styles.images}>
-            {imagesCarousel.map((image) => (
-              <div key={image.id} className={handleClassName(image.id)} onClick={() => handleImageId(image.id)}>
-                <img src={image.url} alt={image.name} />
-              </div>
-            ))}
-          </div>
-          <div className={styles.directions}>
-            <button className={`${styles.directions__button} ${styles.prev}`} onClick={handleImagePrev}>
-              <Icon name='ArrowIcon' />
-            </button>
-            <div className={styles.directions__dots}>
-              {imagesCarousel.map((image) => (
-                <span key={image.id} className={styles.dot} onClick={() => handleImageId(image.id)}>
-                  {image.id === imageId && <span className={styles.active}></span>}
-                </span>
-              ))}
-            </div>
-            <button className={`${styles.directions__button} ${styles.next}`} onClick={handleImageNext}>
-              <Icon name='ArrowIcon' />
-            </button>
-          </div>
-        </div>
-      </div>
+      <Carousel images={imagesCarousel} />
       <div className={styles.container__featured}>
         <div className={styles.champions}>
           <div className={styles.champions__background} style={{ backgroundImage: `url(${backgroundImageChampions})` }}></div>

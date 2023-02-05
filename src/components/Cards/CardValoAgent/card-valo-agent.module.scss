@@ -23,7 +23,7 @@
       height: 100%;
       min-height: 296.72px;
       background-color: #414141;
-      border-bottom: 3px solid #ffffff;
+      border-bottom: 3px solid #eeeeee;
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
       border-bottom-left-radius: 0;
@@ -57,7 +57,7 @@
         align-items: center;
 
         span {
-          color: #ffffff;
+          color: #eeeeee;
           opacity: 1;
         }
       }
@@ -74,7 +74,7 @@
         margin: 0 0 1rem 0;
 
         span {
-          color: #ffffff;
+          color: #eeeeee;
           opacity: 0.75;
         }
       }
@@ -90,7 +90,7 @@
         margin: 0 0 1rem 0;
 
         span {
-          color: #ffffff;
+          color: #eeeeee;
           opacity: 1;
         }
       }
@@ -202,7 +202,7 @@
     }
 
     &:hover {
-      box-shadow: 0 0 0 3px #ffffff, 0 4px 0 0 #767676, 0 3px 30px 0 #ffffff;
+      box-shadow: 0 0 0 3px #eeeeee, 0 4px 0 0 #767676, 0 3px 30px 0 #eeeeee;
 
       .abilities {
         width: 100%;

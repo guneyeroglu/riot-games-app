@@ -162,7 +162,7 @@ const DialogLolChampion = (props: IProps) => {
               className={styles.image}
               style={{
                 pointerEvents: onLoad ? 'auto' : 'none',
-                backgroundColor: onLoad ? 'transparent' : '#ffffff',
+                backgroundColor: onLoad ? 'transparent' : '#eeeeee',
               }}
               onClick={handleImageModalOpen}
             >
@@ -204,7 +204,7 @@ const DialogLolChampion = (props: IProps) => {
                     className={skillName === skill.name ? `${styles.skill__item} ${styles.active}` : styles.skill__item}
                     style={{
                       pointerEvents: skillOnLoad ? 'auto' : 'none',
-                      backgroundColor: skillOnLoad ? 'transparent' : '#ffffff',
+                      backgroundColor: skillOnLoad ? 'transparent' : '#eeeeee',
                     }}
                     onClick={() => handleSelectedSkill(skill.name)}
                   >

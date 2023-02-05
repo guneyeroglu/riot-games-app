@@ -53,7 +53,7 @@ const Icon = (props: IProps) => {
   const width: number = props.wh ?? 24;
   const height: number = props.hg ?? 24;
   const viewBox: string = props.vb ?? '0 0 24 24';
-  const fill: string = props.color ?? '#ffffff';
+  const fill: string = props.color ?? '#eeeeee';
   return (
     <svg width={width} height={height} viewBox={viewBox} fill={fill}>
       {IconComponentName[name]}

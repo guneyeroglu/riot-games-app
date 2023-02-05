@@ -12,7 +12,6 @@ type url =
   | 'lol-items'
   | 'lol-ranks'
   | 'valo-agents'
-  | 'valo-maps'
   | 'valo-arsenal'
   | 'valo-ranks';
 
@@ -63,10 +62,6 @@ const useFetchData = (
     {
       type: 'valo-agents',
       url: `https://valorant-api.com/v1/agents?language=${i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'}`,
-    },
-    {
-      type: 'valo-maps',
-      url: `https://valorant-api.com/v1/maps?language=${i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'}`,
     },
     {
       type: 'valo-arsenal',

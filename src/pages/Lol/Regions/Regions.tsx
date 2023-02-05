@@ -38,7 +38,7 @@ const Regions = () => {
         <span>{i18n.language === 'tr_TR' ? t('regions').toLocaleUpperCase() : t('regions').toUpperCase()}</span>
       </div>
       <div className={styles.wrapper__content}>
-        {isLoading && <Spinner color='#ffffff' />}
+        {isLoading && <Spinner color='#eeeeee' />}
         {!isLoading && data?.factions.map((region: IRegion) => <CardLolRegion key={region.name} region={region} onSetDrawer={handleDrawer} />)}
       </div>
       {openDrawer && <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region={regionName} />}

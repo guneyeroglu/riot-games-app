@@ -1,0 +1,120 @@
+[
+  {
+    "name": "PEARL",
+    "description": "valoPearlDescription",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blte17f24241398ef2a/62b1c4691944ac5ac426350d/PearlLoadingScreen_MapFeaturedImage_930x522.png",
+    "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta45fb32a709b9d1e/62b1c477482ba357e65de200/PearlLoadingScreen_MapFeaturedImageMobile_630X565.png",
+    "images": [
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8c140b764049e9a6/62b1c4c4a064e356abaf50ce/Pearl_Gallery_01.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltbdefa38d052fa9b6/62b1c50b1944ac5ac4263511/Pearl_Gallery_02.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt9967dd1125584e08/62b1c596ce3d8856b19fc8b5/Pearl_Gallery_03.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt5f6761f3a19d7af5/62b1c5a95ec90f4f1bae44db/Pearl_Gallery_04.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltd30d6fc55e9cd27c/62b1c5b7891af05acaff4506/Pearl_Gallery_05.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt220e845351d621cc/62b1c5c41944ac5ac4263515/Pearl_Gallery_06.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt781e2035ae37882e/62b1c5d3a9454a519709b973/Pearl_Gallery_07.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt0fed317e8481fa14/62b1c5e0a18b205191cfb68b/Pearl_Gallery_08.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltefff73a8bac1b981/62b1c5f958931557ed9fc1fb/Pearl_Gallery_09.jpg"
+    ]
+  },
+  {
+    "name": "FRACTURE",
+    "description": "valoFractionDescription",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf4485163c8c5873c/6131b23e9db95e7ff74b6393/Valorant_FRACTURE_Minimap_Alpha_web.png",
+    "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf4485163c8c5873c/6131b23e9db95e7ff74b6393/Valorant_FRACTURE_Minimap_Alpha_web.png",
+    "images": [
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt1a720126e3713bba/6131bf518e16ab655b34901a/Fracture_Screenshot-8.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt371ab49354f8002f/6131bedf07866d6a2d823d2c/Fracture_Screenshot-1.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt077539ab4901aaf7/6131bf103ff46b267bdfaf8a/Fracture_Screenshot-2.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt82553061d7056a29/6131bf1c85514a6ee3fac85b/Fracture_Screenshot-3.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltd8125668a17bf789/6131bf268e16ab655b349016/Fracture_Screenshot-4.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt559b3f202346778e/6131bf326768907ea9769a83/Fracture_Screenshot-5.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt6632690fbfaae9a1/6131bf3a504fe365615e53c9/Fracture_Screenshot-6.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt3f78695e7d88d648/6131bf4507866d6a2d823d30/Fracture_Screenshot-7.jpg"
+    ]
+  },
+  {
+    "name": "BREEZE",
+    "description": "valoBreezeDescription",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt35784ce11f377ff5/6087eefd5907c910150f7588/Breeze_MapWebsite.png",
+    "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltb2bb446a76f18515/607f996675873e466bcc554f/breeze-featured-mobile_v1.png",
+    "images": [
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltba64f41bce11904b/607f9e3bc661f15b3da77f85/breeze_1.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltde7c2fc29aa0d3a0/607f9e3ce650b13fbe2129d2/breeze_2.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt174b8512c8e4d6a5/607f9e3c03ce953dac7563e4/breeze_3.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt90c11f460b954f6e/607f9e3deed217453bf27386/breeze_4.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltc1e8e8a2228fef3a/607f9e3e92f0063e5c0711cb/breeze_6.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltcfb5c86d6c769f96/607f9e3f1cac355a10f6bf92/breeze_7.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt87534a4d10140c71/607f9e3f03ce953dac7563e8/breeze_8.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt94fe7606f1f4038a/607f9e40c661f15b3da77f89/breeze_9.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltd323a27f0a9daa93/607f9e4012dc9d3c68356aca/breeze_10.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt2e6fbf22c18b35b1/607f9e4e33cf413db790d62c/breeze_11.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta0463cfd3f61287d/607f9e4f1cac355a10f6bf96/breeze_12.jpg"
+    ]
+  },
+  {
+    "name": "ICEBOX",
+    "description": "valoIceboxDescription",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltde02911a015d7ef9/5f80d2851f5f6d4173b4e49d/Icebox_transparentbg_for_Web.png",
+    "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt906b24335d555d2d/5f80d2859245d74a2063d39b/Iceboxtopdown.jpg",
+    "images": [
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt9ef7b41910a14118/5f80debff6c586323f8b17a3/icebox_1.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta5558199bebb5107/5f80debfa50ed742e7fca4b9/icebox_3.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt5e97ee30cae1b6b6/5f80dec04671ee30c689ca24/icebox_5.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltd665c580a4b876c2/5f80debf271ecf4a1a642fe2/icebox_6.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt3073fafdd0e84ca8/5f80dec03f52332642075f9b/icebox_7.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt5afffe335e51db97/626c2e23d2794936634f95ce/04-2022-Icebox-9.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt700077e30f72cfd9/626c2e23bae21939d54447be/04-2022-Icebox-10.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt31a23d8039f4b397/626c2e248c90c334d0d403ab/04-2022-Icebox-11.jpg"
+    ]
+  },
+  {
+    "name": "BIND",
+    "description": "valoBindDescription",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8538036a309525ae/5ebc470bfd85ad7411ce6b50/bind-featured.png",
+    "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt0f5de98b3f24752b/5ebc799920f7727335262069/bind-featured-mobile.png",
+    "images": [
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltc54ad3a88d94a4d6/5eabe92eaf7e315106b4799b/bind1.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt4d395d5eb0c5aeec/5eabe92d97c0a55d71b7fce5/bind2.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt275a73b80ff9eb5a/5eabe92db8a6356e4ddc0c92/bind3.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt81c2ff999b2e5887/5eabe92d08d37e6d82ef715a/bind4.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta6be60823002f711/5eabe92d4398082ffe23fdb5/bind5.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta7ba841d52448022/5eabe92e2b79652f27c326c4/bind6.jpg"
+    ]
+  },
+  {
+    "name": "HAVEN",
+    "description": "valoHavenDescription",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8afb5b8145f5e9b2/5ebc46f7b8c49976b71c0bc5/haven-featured.png",
+    "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltb087e5cc6a3a8bb8/5ebc7993b97c864b123fbb24/haven-featured-mobile.png",
+    "images": [
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt7df0b99a582cc5aa/5eabe987b8a6356e4ddc0ca4/haven1.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt65a4029cdfaf77b4/5eabe9861b51e36d7c1b67ab/haven2.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt2bd976c100216469/5eabe98608d37e6d82ef7160/haven3.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt768f194cd2c52f84/5eabe9862b79652f27c326ca/haven4.jpg"
+    ]
+  },
+  {
+    "name": "SPLIT",
+    "description": "valoSplitDescription",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltd188c023f88f7d91/5ebc46db20f7727335261fcd/split-featured.png",
+    "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf054bce7a5079e50/5ebc79893f24223049062700/split-featured-mobile.png",
+    "images": [
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt643d33e2defb855c/5eabe9fe248a28605479c547/split1.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8114d8ae57703cf8/5ed81946bf4ae52c761ec8e8/split2-2.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltdfd43bd79d9b3410/5eabe9fea20afe612d82f833/split3.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf7a4f75409f2dbc1/5ed81936047b8c2b9c25fe74/split4-2.jpg"
+    ]
+  },
+  {
+    "name": "ASCENT",
+    "description": "valoAscendDescription",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta9b912e1a1b59aa4/5ebc471cfa550001f72bcb13/ascent-featured.png",
+    "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt3edb81dba7971965/5ebc79a2f7d1ee4c034c9c04/ascent-featured-mobile.png",
+    "images": [
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt930666d9ab927326/5eabe9c45751b2150e57a42c/ascent1.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt9e24fe356d0faf81/5eabe9c497c0a55d71b7fceb/ascent2.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt77e465b8079103af/5eabe9c4af7e315106b479a1/ascent3.jpg",
+      "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta7375f4e704347dc/5eabe9c4b8a6356e4ddc0caa/ascent4.jpg"
+    ]
+  }
+]

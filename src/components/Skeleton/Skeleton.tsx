@@ -11,7 +11,7 @@ interface IProps {
 const Skeleton = (props: IProps) => {
   const { color, width, height } = props;
 
-  const sxColor = color ? { backgroundColor: color } : { backgroundColor: '#ffffff' };
+  const sxColor = color ? { backgroundColor: color } : { backgroundColor: '#eeeeee' };
   const sxWidth = width ? { width: width } : { width: '100px' };
   const sxHeight = height ? { height: height } : { height: '20px' };
 

@@ -150,7 +150,7 @@ const DrawerRegion = (props: IProps) => {
           </>
         )}
       </div>
-      {!isLoaded && <Spinner color='#ffffff' center />}
+      {!isLoaded && <Spinner color='#eeeeee' center />}
     </SwipeableDrawer>
   );
 };

@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
 
 import './assets/i18n';
-
 import './assets/scss/global.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);

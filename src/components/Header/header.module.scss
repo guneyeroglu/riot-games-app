@@ -9,7 +9,7 @@
   z-index: 999;
   background-color: #111111;
   padding: 0 5rem;
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 3px solid #eeeeee;
 
   &__nav {
     ul {
@@ -112,7 +112,7 @@
             }
 
             span {
-              color: #ffffff;
+              color: #eeeeee;
               opacity: 0.75;
               transition: all 0.25s ease-in-out;
               width: 100% !important;
@@ -129,7 +129,7 @@
               }
 
               &::before {
-                background-color: #ffffff;
+                background-color: #eeeeee;
               }
             }
           }
@@ -162,7 +162,7 @@
               }
 
               polygon {
-                fill: #ffffff;
+                fill: #eeeeee;
               }
             }
           }
@@ -187,7 +187,7 @@
         li {
           span {
             margin: 0.25rem 0.75rem;
-            color: #ffffff;
+            color: #eeeeee;
             padding: 0 0.5rem;
 
             &.selected {

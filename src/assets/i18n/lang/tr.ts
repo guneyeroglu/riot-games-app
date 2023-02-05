@@ -71,6 +71,22 @@ const tr = {
     pageValoMaps: 'Haritalar - Valorant',
     pageValoArsenal: 'Cephanelik - Valorant',
     pageValoRanks: 'Rütbeler - Valorant',
+    valoPearlDescription:
+      "Gözalıcı sualtı şehrinde yer alan iki bölgeli haritada saldıranlar savunanları püskürtmeye çalışıyor. Pearl, herhangi ilave bir mekaniğe sahip değil fakat doğal güzelliğiyle ön planda. Omega Dünya'da yer alan ilk haritada, küçük orta bölge veya iki yandaki uzun menzilli koridorlar aksiyon dolu çatışmalara sahne oluyor.",
+    valoFractionDescription:
+      'Çok gizli bir araştırma tesisi, başarısızlıkla sonuçlanan bir radyanit deneyinden sonra ikiye ayrıldı. Haritadaki farklı habitatlar sayesinde iki farklı seçime sahip olan savunanlar, saldıranları kendi bölgelerinde karşılayabilir ya da saldırıyla başa çıkabilmek için hazırlık yapabilir.',
+    valoBreezeDescription:
+      "Bu tropik cennetteki tarihi yıkıntıları ve deniz kenarındaki mağaraları keşfe çıkın. Ama arkanızı kollayacak ajanlara ihtiyacınız var. Açık alanlarda ve uzun menzilli çatışmalarda buna ihtiyacınız olacak. Dikkati elden bırakmadığınız sürece Breeze'de su akar, yolunu bulur.",
+    valoIceboxDescription:
+      'Sıradaki savaş meydanı kutup soğuğunun hüküm sürdüğü gizli bir Kingdom kazı alanı. İki Spike yerleştirme bölgesi de kar yığınları ve metal parçalarıyla korunduğu için keskin nişancılık hünerlerinin önemini vurguluyor. Çelik halatları kendi lehinize kullanarak bir anda düşmanların üstüne çökebilirsiniz.',
+    valoBindDescription:
+      'İki bölge var. Ortası yok. Ya sağı seçeceksin ya da solu. Eee, hepsi bu kadar mı? Tabii ki değil! İki tarafta da saldıranların kullanabileceği yollar ve rakipleri arkadan vurmaya yardımcı olacak tek yönlü ışınlayıcılar bulunuyor.',
+    valoHavenDescription:
+      'Terk edilmiş bir manastırın avlusunda kapışan ajanlar üç bölgeyi de kontrol altına alabilmek için birbirini yiyor. Kontrol altına alınacak çok bölge var, fakat savunucuların ele geçireceği fazladan bina daha saldırgan şekilde püskürtme yapabilmeleri için faydalı olabilir.',
+    valoSplitDescription:
+      'Uzağa kaçmak istiyorsan yukarı gitmen lazım. Birkaç farklı bölgenin tam ortasında yükselen merkez noktası, iki tane yükseltici halat yardımıyla hızlı bir şekilde hareket etme imkânı tanıyor. Her bir bölgede kontrolü sağlayabilmek için hayati öneme sahip iki dev kule bulunuyor. Gözün göklerden gelebilecek tehlikelerde olsun.',
+    valoAscentDescription:
+      'Ascent, sahip olduğu iki bölge nedeniyle küçük çatışmalara ve sürtüşmelere sahne olan açık bir oyun alanı gibi. İki bölgede de güçlendirilmiş, tekrar açılamayan bomba kapıları bulunuyor. Bu kapılar bir kere kapandı mı geçmek için ya kapıları yok etmeli ya da başka bir yol bulmalısın. Mümkün olduğunca az alan kaybetmeye çalış.',
   },
 };
 
