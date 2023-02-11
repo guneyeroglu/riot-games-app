@@ -3,13 +3,13 @@
 
   [tabindex='-1'] {
     height: 80vh;
-    background-color: #111111;
+    background-color: #171717;
   }
 
   &__content {
     display: flex;
     flex-direction: column;
-    background-color: #111111;
+    background-color: #171717;
     overflow: overlay;
 
     .video {
@@ -96,7 +96,7 @@
         position: sticky;
         top: -2px;
         z-index: 34;
-        background-color: #111111;
+        background-color: #171717;
 
         &.sticky {
           background-color: rgb(17 17 17 / 85%);

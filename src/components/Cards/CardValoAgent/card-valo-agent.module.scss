@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    box-shadow: 0 0 0 1px #d4d4d5, 0 2px 0 0 #767676, 0 1px 3px 0 #d4d4d5;
+    box-shadow: 0 0 0 1px #eeeeee, 0 2px 0 0 #423f3e, 0 1px 3px 0 #eeeeee;
     border-radius: 0.5rem;
     position: relative;
     transition: box-shadow 0.35s ease-in-out;
@@ -22,7 +22,7 @@
       width: 100%;
       height: 100%;
       min-height: 296.72px;
-      background-color: #414141;
+      background-color: #423f3e;
       border-bottom: 3px solid #eeeeee;
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
@@ -40,7 +40,7 @@
       width: 100%;
       height: 100%;
       min-height: 200px;
-      background-color: #1c1c1c;
+      background-color: #212121;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
       border-bottom-left-radius: inherit;
@@ -111,7 +111,7 @@
       align-items: stretch;
       background-size: cover;
       background-position: center;
-      background-color: #272727;
+      background-color: #171717;
       border-radius: inherit;
       padding: 3rem 0;
       transition: width 0.35s ease-in-out;
@@ -121,7 +121,7 @@
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
-        background-color: #d4d4d5;
+        background-color: #eeeeee;
         padding: 1rem 0;
         opacity: 0.75;
 
@@ -140,7 +140,7 @@
 
           span {
             white-space: break-spaces;
-            color: #1c1c1c;
+            color: #171717;
             font-size: 1.25rem;
             font-weight: 700;
             opacity: 0.75;
@@ -175,14 +175,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: stretch;
-        background-color: #d4d4d5;
+        background-color: #eeeeee;
         padding: 1rem 0;
         opacity: 0.95;
-        color: #000000;
+        color: #171717;
 
         h4 {
           text-align: center;
-          color: black;
+          color: #171717;
           font-family: Roboto, sans-serif, system-ui;
           font-size: 1rem;
           font-weight: 600;
@@ -192,7 +192,7 @@
 
         span {
           text-align: center;
-          color: black;
+          color: #171717;
           line-height: 1.5;
           font-size: 0.9rem;
           font-weight: 600;
@@ -202,7 +202,7 @@
     }
 
     &:hover {
-      box-shadow: 0 0 0 3px #eeeeee, 0 4px 0 0 #767676, 0 3px 30px 0 #eeeeee;
+      box-shadow: 0 0 0 3px #eeeeee, 0 4px 0 0 #171717, 0 3px 30px 0 #eeeeee;
 
       .abilities {
         width: 100%;

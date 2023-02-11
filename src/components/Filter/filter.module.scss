@@ -8,7 +8,7 @@
     justify-content: flex-start;
     align-items: stretch;
     background-color: #1c1c1c;
-    border: 1px solid #535353;
+    border: 1px solid #444444;
     border-radius: 0.5rem;
     gap: 1.25rem;
     width: 150px;
@@ -19,7 +19,7 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      background-color: #535353;
+      background-color: #444444;
       border-top-left-radius: 0.3rem;
       border-bottom-left-radius: 0.3rem;
       border-top-right-radius: 0;
@@ -41,11 +41,11 @@
 
     &:hover {
       cursor: pointer;
-      background-color: #2a2a2a;
+      background-color: #2b2b2b;
     }
 
     &.open {
-      background-color: #2a2a2a;
+      background-color: #2b2b2b;
     }
   }
 
@@ -53,7 +53,7 @@
     display: none;
     position: absolute;
     margin: 1rem 0 0 0;
-    border: 1px solid #535353;
+    border: 1px solid #444444;
     border-radius: 0.5rem;
     z-index: 3;
 
@@ -61,7 +61,7 @@
       padding: 0.5rem 1rem;
       margin: 0;
       border-bottom: 1px solid #eeeeee;
-      background-color: #535353;
+      background-color: #444444;
       border-top-left-radius: 0.3rem;
       border-top-right-radius: 0.3rem;
       border-bottom-left-radius: 0;
@@ -100,7 +100,7 @@
 
         &:hover {
           padding: 0.5rem 1rem 0.5rem 2rem;
-          background-color: #535353;
+          background-color: #444444;
           cursor: pointer;
         }
 
@@ -115,7 +115,7 @@
         }
 
         &.selected {
-          background-color: #535353;
+          background-color: #444444;
           padding: 0.5rem 1rem 0.5rem 2rem;
 
           span {

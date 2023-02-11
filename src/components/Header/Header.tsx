@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { Dropdown } from 'semantic-ui-react';
 
 import { Icon } from '../Icons/Icon';
-
 import { iconName } from '../../global/types/';
 
 import styles from './header.module.scss';
@@ -43,14 +42,12 @@ const Header = () => {
     { id: 1, name: t('champions'), to: '/leagueoflegends/champions' },
     { id: 2, name: t('regions'), to: '/leagueoflegends/regions' },
     { id: 3, name: t('items'), to: '/leagueoflegends/items' },
-    { id: 4, name: t('ranks'), to: '/leagueoflegends/ranks' },
   ];
 
   const valoNavItems: INavItem[] = [
     { id: 1, name: t('agents'), to: '/valorant/agents' },
     { id: 2, name: t('maps'), to: '/valorant/maps' },
     { id: 3, name: t('arsenal'), to: '/valorant/arsenal' },
-    { id: 4, name: t('ranks'), to: '/valorant/ranks' },
   ];
 
   const allNavItems: Array<INavItem[]> = [lolNavItems, valoNavItems];
@@ -85,9 +82,7 @@ const Header = () => {
   };
 
   const dropdownStyle = isOpen.firstNav ? styles.open : '';
-
   const firstGameStyle = isOpen.secondNav ? `${styles.games} ${styles.active}` : styles.games;
-
   const secondGameStyle = isOpen.thirdNav ? `${styles.games} ${styles.active}` : styles.games;
 
   return (

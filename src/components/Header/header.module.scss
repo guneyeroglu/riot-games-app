@@ -7,7 +7,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: #111111;
+  background-color: #171717;
   padding: 0 5rem;
   border-bottom: 3px solid #eeeeee;
 
@@ -27,6 +27,9 @@
         align-items: center;
 
         &:first-child {
+          border-top-left-radius: 0.35rem;
+          border-top-right-radius: 0.35rem;
+
           .logo {
             display: flex;
             flex-direction: row;
@@ -36,12 +39,12 @@
 
             svg {
               opacity: 0.5;
-              transition: opacity 0.25s ease-in-out;
+              transition: opacity 0.35s ease-in-out;
             }
 
             i {
               opacity: 0.5;
-              transition: opacity 0.25s ease-in-out;
+              transition: opacity 0.35s ease-in-out;
             }
 
             &:hover {
@@ -66,6 +69,11 @@
           }
         }
 
+        &:last-child {
+          border-bottom-left-radius: 0.35rem;
+          border-bottom-right-radius: 0.35rem;
+        }
+
         .games {
           padding: 1rem 1.25rem;
           background-color: transparent;
@@ -74,22 +82,22 @@
 
           &:hover {
             padding: 1rem 1.25rem;
-            background-color: #1c1c1c;
+            background-color: #212121;
             border-radius: 0.75rem;
-            border-bottom: 3px solid #535353;
+            border-bottom: 3px solid #444444;
           }
 
           &.active {
             padding: 1rem 1.25rem;
-            background-color: #1c1c1c;
+            background-color: #212121;
             border-radius: 0.75rem;
-            border-bottom: 3px solid #535353;
+            border-bottom: 3px solid #444444;
           }
         }
 
         ul {
-          background-color: #111111 !important;
-          border: 3px #535353 solid !important;
+          background-color: #171717 !important;
+          border: 3px #444444 solid !important;
           border-radius: 0.5rem !important;
           min-width: 137.5px !important;
 
@@ -180,8 +188,8 @@
       padding: 0 0 0 2.75rem;
 
       ul {
-        background-color: #111111 !important;
-        border: 3px #535353 solid !important;
+        background-color: #171717 !important;
+        border: 3px #444444 solid !important;
         border-radius: 0.5rem !important;
 
         li {
@@ -191,12 +199,22 @@
             padding: 0 0.5rem;
 
             &.selected {
-              border-bottom: 1px solid white;
+              border-bottom: 1px solid #eeeeee;
             }
           }
 
           &:hover {
             background-color: #212121 !important;
+          }
+
+          &:first-child {
+            border-top-left-radius: 0.35rem;
+            border-top-right-radius: 0.35rem;
+          }
+
+          &:last-child {
+            border-bottom-left-radius: 0.35rem;
+            border-bottom-right-radius: 0.35rem;
           }
         }
 

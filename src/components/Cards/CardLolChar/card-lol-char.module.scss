@@ -4,7 +4,7 @@
   flex: 0 1 20%;
 
   &__item {
-    box-shadow: 0 0 0 1px #535353, 0 1px 0 0 #535353, 0 1px 6px 0 #535353;
+    box-shadow: 0 0 0 1px #444444, 0 1px 0 0 #444444, 0 1px 6px 0 #444444;
     border-radius: 0.7ch;
     border-top-right-radius: 7.17ch;
     transform: scale3d(1, 1, 1);
@@ -32,7 +32,7 @@
       justify-content: flex-start;
       align-items: center;
       padding: 1.25rem 1.5rem;
-      background-color: #535353;
+      background-color: #444444;
       border-bottom-left-radius: 0.7ch;
       border-bottom-right-radius: 0.7ch;
       position: absolute;

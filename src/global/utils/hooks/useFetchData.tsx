@@ -10,10 +10,8 @@ type url =
   | 'lol-region-detail'
   | 'lol-skins'
   | 'lol-items'
-  | 'lol-ranks'
   | 'valo-agents'
-  | 'valo-arsenal'
-  | 'valo-ranks';
+  | 'valo-arsenal';
 
 interface IUrl {
   url: string;
@@ -56,9 +54,6 @@ const useFetchData = (
       type: 'lol-items',
       url: ``,
     },
-
-    { type: 'lol-ranks', url: `` },
-
     {
       type: 'valo-agents',
       url: `https://valorant-api.com/v1/agents?language=${i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'}`,
@@ -66,10 +61,6 @@ const useFetchData = (
     {
       type: 'valo-arsenal',
       url: `https://valorant-api.com/v1/weapons?language=${i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'}`,
-    },
-    {
-      type: 'valo-ranks',
-      url: `https://valorant-api.com/v1/competitivetiers?language=${i18n.language === 'tr_TR' ? 'tr-TR' : 'en-US'}`,
     },
   ];
 

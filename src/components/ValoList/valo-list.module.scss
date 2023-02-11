@@ -9,7 +9,7 @@
 
   &__item {
     padding: 1rem 1rem 0 0;
-    flex: 0 1 25%;
+    flex: 0 1 33.333%;
 
     &--content {
       display: flex;
@@ -41,8 +41,6 @@
         &:hover {
           img {
             box-shadow: 0 0 0 3px #d13539, 0 4px 0 0 #85285b, 0 3px 30px 0 #d13539;
-            // box-shadow: 0 0 0 3px #eeeeee, 0 4px 0 0 #767676,
-            //   0 3px 30px 0 #eeeeee;
             opacity: 1;
           }
 

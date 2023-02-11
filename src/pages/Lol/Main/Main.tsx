@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { CardLolChar, CardLolRegion } from '../../../components/Cards';
-import { imagesCarousel, imagesOther } from '../../../components/Images/';
+import { imagesCarousel } from '../../../components/Images/';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import Spinner from '../../../components/Spinner/Spinner';
 import DrawerRegion from '../../../components/Drawers/DrawerRegion/DrawerRegion';
 import Carousel from '../../../components/Carousel/Carousel';
 
 import backgroundImageChampions from '../../../assets/images/lol/featured-champs-bg.jpeg';
-import backgroundImageRegions from '../../../assets/images/lol/featured-regions-bg.jpeg.jpeg';
+import backgroundImageRegions from '../../../assets/images/lol/featured-regions-bg.jpeg';
+import backgroundImageItems from '../../../assets/images/lol/featured-items-bg.jpeg';
+import imageItem from '../../../assets/images/lol/items.jpeg';
 
 import { useFetchData, useChampionDialog } from '../../../global/utils';
 
@@ -128,25 +130,24 @@ const Main = () => {
         </div>
       </div>
       <div className={styles.container__others}>
-        {imagesOther.map((image) => (
-          <div className={styles.links} key={image.id}>
-            <div className={styles.links__wrapper}>
-              <div className={styles.title}>
-                <FeaturedTitle type={image.name} />
-              </div>
-              <div className={styles.content}>
-                <Link to={image.name}>
-                  <img src={image.url} alt={image.name} />
-                </Link>
-              </div>
-              <div className={styles.nav}>
-                <Link to={image.name}>
-                  <span>{t(image.view)}</span>
-                </Link>
-              </div>
+        <div className={styles['container__others--background']} style={{ backgroundImage: `url(${backgroundImageItems})` }}></div>
+        <div className={styles.links}>
+          <div className={styles.links__wrapper}>
+            <div className={styles.title}>
+              <FeaturedTitle type={'items'} />
+            </div>
+            <div className={styles.content}>
+              <Link to={'items'}>
+                <img src={imageItem} alt={'items'} />
+              </Link>
+            </div>
+            <div className={styles.nav}>
+              <Link to={'items'}>
+                <span>{t('viewItems')}</span>
+              </Link>
             </div>
           </div>
-        ))}
+        </div>
       </div>
       {openDrawer && <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region={regionName} />}
     </div>

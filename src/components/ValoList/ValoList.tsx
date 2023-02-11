@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import agents from '../../assets/images/valo/agents.jpg';
 import maps from '../../assets/images/valo/maps.jpg';
 import arsenal from '../../assets/images/valo/arsenal.jpg';
-import ranks from '../../assets/images/valo/ranks.jpg';
 
 import styles from './valo-list.module.scss';
 
@@ -23,7 +22,6 @@ const ValoList = () => {
     { id: 1, name: 'agents', image: agents },
     { id: 2, name: 'maps', image: maps },
     { id: 3, name: 'arsenal', image: arsenal },
-    { id: 4, name: 'ranks', image: ranks },
   ];
   return (
     <ul className={styles.wrapper}>

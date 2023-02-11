@@ -38,6 +38,11 @@ const Carousel = (props: IProps) => {
           <Icon name='ArrowIcon' />
         </button>
       </div>
+      <div className={styles.wrapper__nav}>
+        {images.map((image, idx) => (
+          <span className={currentImage === idx ? styles.active : ''} key={image.id} onClick={() => setCurrentImage(idx)}></span>
+        ))}
+      </div>
     </div>
   );
 };

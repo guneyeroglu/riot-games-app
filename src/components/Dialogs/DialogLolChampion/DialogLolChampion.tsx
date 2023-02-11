@@ -166,7 +166,7 @@ const DialogLolChampion = (props: IProps) => {
               }}
               onClick={handleImageModalOpen}
             >
-              {!onLoad && <Spinner color='#111111' />}
+              {!onLoad && <Spinner color='#171717' />}
               {!isFetching && championDetails && (
                 <img
                   src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${championDetails?.skins[skinId].num}.jpg`}
@@ -208,7 +208,7 @@ const DialogLolChampion = (props: IProps) => {
                     }}
                     onClick={() => handleSelectedSkill(skill.name)}
                   >
-                    {!skillOnLoad && <Spinner color='#111111' />}
+                    {!skillOnLoad && <Spinner color='#171717' />}
                     {!isFetching && (
                       <img
                         src={`https://ddragon.leagueoflegends.com/cdn/12.22.1/img/${skill.image.group}/${skill.image.full}`}
