@@ -23,8 +23,6 @@ Tools that I used in this project:
 - React-Query
 - SCSS
 - Material UI Library
-- Semantic UI Library
 - React-i18next
-- Framer-Motion
 - React-Lazy-Load
 - ...
