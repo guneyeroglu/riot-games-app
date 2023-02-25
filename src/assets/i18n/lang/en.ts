@@ -1,5 +1,6 @@
 const en = {
   translation: {
+    home: 'Home',
     champions: 'Champions',
     regions: 'Regions',
     items: 'Items',

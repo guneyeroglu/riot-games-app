@@ -1,5 +1,6 @@
 const tr = {
   translation: {
+    home: 'Anasayfa',
     champions: 'Şampiyonlar',
     regions: 'Bölgeler',
     items: 'Eşyalar',
