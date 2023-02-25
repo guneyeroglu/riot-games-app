@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Trans, useTranslation } from 'react-i18next';
-import { Divider } from 'semantic-ui-react';
 
+import Divider from '../Divider/Divider';
 import { Icon } from '../Icons/Icon';
 import FooterItemTop from './FooterItemTop';
 
@@ -54,9 +54,7 @@ const Footer = () => {
         <span>{t('copyrightRiot')}</span>
       </div>
       <div className={styles.wrapper__divider}>
-        <Divider inverted horizontal>
-          {t('socialMedia')}
-        </Divider>
+        <Divider text={t('socialMedia')} />
       </div>
       <div className={styles.wrapper__media}>
         <div className={styles['wrapper__media--icons']}>
