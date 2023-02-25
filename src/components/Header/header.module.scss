@@ -26,151 +26,32 @@
         justify-content: center;
         align-items: center;
 
-        &:first-child {
-          border-top-left-radius: 0.35rem;
-          border-top-right-radius: 0.35rem;
-
-          .logo {
-            display: flex;
+        &.home {
+          a {
+            display: inline-flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
 
             svg {
-              opacity: 0.5;
-              transition: opacity 0.35s ease-in-out;
-            }
+              circle {
+                transition: fill 0.25s ease-in-out;
+              }
 
-            i {
-              opacity: 0.5;
-              transition: opacity 0.35s ease-in-out;
+              polygon {
+                transition: fill 0.25s ease-in-out;
+              }
             }
 
             &:hover {
               svg {
-                opacity: 1;
-              }
+                circle {
+                  fill: #d13539;
+                }
 
-              i {
-                opacity: 1;
-              }
-            }
-          }
-
-          .open {
-            svg {
-              opacity: 1;
-            }
-
-            i {
-              opacity: 1;
-            }
-          }
-        }
-
-        &:last-child {
-          border-bottom-left-radius: 0.35rem;
-          border-bottom-right-radius: 0.35rem;
-        }
-
-        .games {
-          padding: 1rem 1.25rem;
-          background-color: transparent;
-          border-radius: 0.75rem;
-          border-bottom: 3px solid transparent;
-
-          &:hover {
-            padding: 1rem 1.25rem;
-            background-color: #212121;
-            border-radius: 0.75rem;
-            border-bottom: 3px solid #444444;
-          }
-
-          &.active {
-            padding: 1rem 1.25rem;
-            background-color: #212121;
-            border-radius: 0.75rem;
-            border-bottom: 3px solid #444444;
-          }
-        }
-
-        ul {
-          background-color: #171717 !important;
-          border: 3px #444444 solid !important;
-          border-radius: 0.5rem !important;
-          min-width: 137.5px !important;
-
-          li {
-            display: flex !important;
-            flex-direction: row !important;
-            justify-content: center !important;
-            align-items: center !important;
-            gap: 0.25rem !important;
-
-            &::before {
-              content: '';
-              display: inline-block;
-              width: 5px;
-              height: 5px;
-              border-radius: 50%;
-              background-color: transparent;
-              z-index: 1;
-              transition: background-color 0.25s ease-in-out;
-            }
-
-            span {
-              color: #eeeeee;
-              opacity: 0.75;
-              transition: all 0.25s ease-in-out;
-              width: 100% !important;
-              height: 100% !important;
-              padding: 0 3rem 0 0;
-            }
-
-            &:hover {
-              background-color: #212121 !important;
-
-              span {
-                opacity: 1;
-                padding: 0 2rem 0 1rem;
-              }
-
-              &::before {
-                background-color: #eeeeee;
-              }
-            }
-          }
-
-          &::after {
-            display: none !important;
-          }
-        }
-
-        a {
-          display: inline-flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-
-          svg {
-            circle {
-              transition: fill 0.25s ease-in-out;
-            }
-
-            polygon {
-              transition: fill 0.25s ease-in-out;
-            }
-          }
-
-          &:hover {
-            svg {
-              circle {
-                fill: #d13539;
-              }
-
-              polygon {
-                fill: #eeeeee;
+                polygon {
+                  fill: #eeeeee;
+                }
               }
             }
           }
@@ -225,3 +106,22 @@
     }
   }
 }
+
+// @media screen and (max-width: 1024px) {
+//   .wrapper {
+//     padding: 0 2.5rem;
+//     &__nav {
+//       ul {
+//         li {
+//           display: none;
+
+//           &:first-child,
+//           &:nth-child(2),
+//           &:nth-child(3) {
+//             display: inline-flex;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { Divider } from 'semantic-ui-react';
 
+import { useTranslation } from 'react-i18next';
+import Divider from '../../../components/Divider/Divider';
 import heroPhoto from '../../../assets/images/home/riot-games-home-logo.jpeg';
 import valoPhoto from '../../../assets/images/home/valo-card.jpg';
 import lolPhoto from '../../../assets/images/home/lol-card.jpg';
@@ -65,7 +65,7 @@ const Home = () => {
         </div>
       </div>
       <div className={styles.container__divider}>
-        <Divider inverted />
+        <Divider />
       </div>
     </div>
   );
