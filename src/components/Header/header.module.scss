@@ -56,72 +56,48 @@
             }
           }
         }
+
+        .hamburger {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 0.25rem;
+          width: auto;
+          height: auto;
+          background-color: transparent;
+          border: none;
+          outline: none;
+        }
       }
     }
   }
 
   &__settings {
-    .language {
-      display: flex !important;
-      flex-direction: row !important;
-      justify-content: center !important;
-      align-items: center !important;
-      padding: 0 0 0 2.75rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 
-      ul {
-        background-color: #171717 !important;
-        border: 3px #444444 solid !important;
-        border-radius: 0.5rem !important;
-
-        li {
-          span {
-            margin: 0.25rem 0.75rem;
-            color: #eeeeee;
-            padding: 0 0.5rem;
-
-            &.selected {
-              border-bottom: 1px solid #eeeeee;
-            }
-          }
-
-          &:hover {
-            background-color: #212121 !important;
-          }
-
-          &:first-child {
-            border-top-left-radius: 0.35rem;
-            border-top-right-radius: 0.35rem;
-          }
-
-          &:last-child {
-            border-bottom-left-radius: 0.35rem;
-            border-bottom-right-radius: 0.35rem;
-          }
-        }
-
-        &::after {
-          background-color: transparent !important;
+    &.mobile {
+      button {
+        svg {
+          opacity: 1;
         }
       }
     }
   }
 }
 
-// @media screen and (max-width: 1024px) {
-//   .wrapper {
-//     padding: 0 2.5rem;
-//     &__nav {
-//       ul {
-//         li {
-//           display: none;
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    padding: 0 2.5rem;
+  }
+}
 
-//           &:first-child,
-//           &:nth-child(2),
-//           &:nth-child(3) {
-//             display: inline-flex;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 0 1.5rem;
+  }
+}
