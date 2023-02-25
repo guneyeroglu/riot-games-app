@@ -68,7 +68,7 @@
           span {
             color: #c4b998;
             white-space: nowrap;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: 900;
             letter-spacing: 0.02em;
           }
@@ -184,10 +184,11 @@
               box-shadow: 6px 6px 10px 2px rgb(39 42 42 / 65%), 0 0 0 0 rgb(0 0 0 / 0%), 0 0 0 0 rgb(0 0 0 / 0%);
 
               span {
-                font-size: 0.95rem;
+                font-size: 0.8rem;
                 font-weight: 500;
                 color: #eeeeee;
                 letter-spacing: 0.02rem;
+                text-align: justify;
               }
 
               button {
@@ -197,7 +198,7 @@
                 align-items: center;
                 border: none;
                 background-color: transparent;
-                font-size: 0.85rem;
+                font-size: 0.8rem;
                 font-weight: 900;
                 color: #c4b998;
                 letter-spacing: 0.02rem;
@@ -274,7 +275,7 @@
             span {
               font-weight: 600;
               color: #eeeeee;
-              font-size: 2.2rem;
+              font-size: 2rem;
             }
 
             .button {
@@ -296,7 +297,7 @@
             span {
               font-weight: 600;
               color: #eeeeee;
-              font-size: 1rem;
+              font-size: 0.8rem;
               line-height: 100%;
             }
           }
