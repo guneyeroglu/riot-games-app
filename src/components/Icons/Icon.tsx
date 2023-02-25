@@ -16,6 +16,7 @@ import FilterIcon from './FilterIcon';
 import TargetIcon from './TargetIcon';
 import ValorantIcon from './ValorantIcon';
 import ArrowIcon from './ArrowIcon';
+import HamburgerIcon from './HamburgerIcon';
 
 import { iconName } from '../../global/types/IconName';
 
@@ -46,6 +47,7 @@ const IconComponentName: any = {
   TargetIcon: <TargetIcon />,
   ValorantIcon: <ValorantIcon />,
   ArrowIcon: <ArrowIcon />,
+  HamburgerIcon: <HamburgerIcon />,
 };
 
 const Icon = (props: IProps) => {
@@ -54,6 +56,7 @@ const Icon = (props: IProps) => {
   const height: number = props.hg ?? 24;
   const viewBox: string = props.vb ?? '0 0 24 24';
   const fill: string = props.color ?? '#eeeeee';
+
   return (
     <svg width={width} height={height} viewBox={viewBox} fill={fill}>
       {IconComponentName[name]}

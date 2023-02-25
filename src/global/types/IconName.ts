@@ -16,4 +16,5 @@ export type iconName =
   | 'FilterIcon'
   | 'TargetIcon'
   | 'ArrowIcon'
-  | 'ValorantIcon';
+  | 'ValorantIcon'
+  | 'HamburgerIcon';
