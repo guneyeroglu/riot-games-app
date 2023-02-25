@@ -2,7 +2,8 @@ import { useRef, useState } from 'react';
 
 import { Menu, MenuItem } from '@mui/material';
 
-import styles from './dropdown.module.scss';
+import styles from './custom-menu.module.scss';
+import { Icon } from '../Icons/Icon';
 
 interface IITems {
   id: number | string;
@@ -20,8 +21,8 @@ interface IProps {
   clickAway?: boolean;
 }
 
-const Dropdown = (props: IProps) => {
-  const { input, items, hover, pointer, clickAway } = props;
+const CustomMenu = (props: IProps) => {
+  const { input, items, hover, pointer, clickAway, className } = props;
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -30,11 +31,10 @@ const Dropdown = (props: IProps) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  console.log(buttonRef);
 
   return (
     <div className={styles.wrapper}>
@@ -42,17 +42,17 @@ const Dropdown = (props: IProps) => {
         {!hover && (
           <>
             {input}
-            {pointer && <i aria-hidden='true' className='dropdown icon'></i>}
+            {pointer && <Icon name='MenuArrowIcon' />}
           </>
         )}
         {!!hover && (
           <div className={`${styles.item} ${open ? styles.active : ''}`.trim()}>
             {input}
-            {pointer && <i aria-hidden='true' className='dropdown icon'></i>}
+            {pointer && <Icon name='MenuArrowIcon' />}
           </div>
         )}
       </button>
-      <Menu anchorEl={anchorEl} open={open} onClose={handleClose} className={styles.menu}>
+      <Menu anchorEl={anchorEl} open={open} onClose={handleClose} className={`${styles.wrapper__list} ${className || ''}`.trim()}>
         {items.map((li) => (
           <MenuItem
             key={li.id}
@@ -76,4 +76,4 @@ const Dropdown = (props: IProps) => {
   );
 };
 
-export default Dropdown;
+export default CustomMenu;

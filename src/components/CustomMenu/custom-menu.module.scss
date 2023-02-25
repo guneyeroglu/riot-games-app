@@ -1,0 +1,163 @@
+.wrapper {
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    :where(svg, svg) {
+      opacity: 0.5;
+      transition: opacity 0.35s ease-in-out;
+      color: #eeeeee;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      :where(svg) {
+        opacity: 1;
+      }
+    }
+
+    &.open {
+      :where(svg) {
+        opacity: 1;
+      }
+    }
+
+    .item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 0.85rem;
+      background-color: transparent;
+      border-bottom: 3px solid transparent;
+      border-radius: 0.75rem;
+
+      :where(span, svg) {
+        opacity: 1;
+        color: #eeeeee;
+        font-size: 0.85rem;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      &:hover {
+        padding: 0.65rem 0.85rem;
+        background-color: #212121;
+        border-radius: 0.75rem;
+        border-bottom: 3px solid #444444;
+      }
+
+      &.active {
+        padding: 0.65rem 0.85rem;
+        background-color: #212121;
+        border-radius: 0.75rem;
+        border-bottom: 3px solid #444444;
+      }
+    }
+  }
+
+  &__list {
+    &:global(.MuiPopover-root) {
+      :global(.MuiPaper-root) {
+        background-color: transparent;
+        border-radius: 0.5rem;
+        margin: 0.5rem 0 0 0;
+
+        ul {
+          &:global(.MuiList-root) {
+            background-color: #171717;
+            border: 3px #444444 solid;
+            border-radius: 0.5rem;
+            padding: 0;
+
+            li {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              gap: 0.25rem;
+              padding: 0.65rem 0.85rem;
+
+              &::before {
+                content: '';
+                display: inline-block;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: transparent;
+                z-index: 1;
+                transition: background-color 0.25s ease-in-out;
+              }
+
+              span {
+                &:first-child {
+                  font-size: 0.85rem;
+                  font-family: 'Roboto', sans-serif;
+                  color: #eeeeee;
+                  opacity: 0.75;
+                  transition: all 0.25s ease-in-out;
+                  width: 100%;
+                  height: 100%;
+                  padding: 0 3rem 0 0;
+                }
+
+                &:global(.MuiTouchRipple-root) {
+                  display: none;
+                }
+              }
+
+              &:hover {
+                background-color: #212121;
+
+                span {
+                  opacity: 1;
+                  padding: 0 2rem 0 1rem;
+                }
+
+                &::before {
+                  background-color: #eeeeee;
+                }
+              }
+
+              &:first-child {
+                border-top-left-radius: 0.35rem;
+                border-top-right-radius: 0.35rem;
+              }
+
+              &:last-child {
+                border-bottom-left-radius: 0.35rem;
+                border-bottom-right-radius: 0.35rem;
+              }
+
+              &.selected {
+                background-color: #212121;
+
+                span {
+                  &:first-child {
+                    opacity: 1;
+                    padding: 0 2rem 0 1rem;
+                  }
+                }
+
+                &::before {
+                  background-color: #eeeeee;
+                }
+              }
+            }
+
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
