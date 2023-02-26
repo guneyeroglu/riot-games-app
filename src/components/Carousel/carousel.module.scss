@@ -3,10 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 3rem;
   height: 800px;
   border-bottom: 3px solid #eeeeee;
   position: relative;
+  padding: 0 2rem;
 
   &__background {
     width: 100%;
@@ -23,7 +24,7 @@
   &__carousel {
     display: flex;
     width: 100%;
-    max-width: 75vw;
+    max-width: 1400px;
     height: 75%;
     position: relative;
     overflow: hidden;
@@ -123,5 +124,86 @@
         background-color: #222831;
       }
     }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .wrapper {
+    gap: 0;
+    height: 500px;
+    padding: 1rem;
+
+    &__carousel {
+      border: 3px solid #eeeeee;
+      border-radius: 0.5rem;
+      width: 100%;
+      height: 100%;
+      margin: 0 0 1rem 0;
+
+      .button {
+        width: 30px;
+        height: 30px;
+        outline: 2px solid #eeeeee;
+        transform: scale(1);
+        opacity: 1;
+
+        &.next {
+          top: 45%;
+          right: 5%;
+          transform: rotate(180deg);
+        }
+
+        &.prev {
+          top: 45%;
+          left: 5%;
+        }
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1);
+
+          &.next {
+            transform: rotate(180deg) scale(1);
+          }
+        }
+
+        svg {
+          width: 1rem;
+          height: auto;
+        }
+      }
+
+      &:hover {
+        border-radius: 0.5rem;
+      }
+    }
+
+    &__nav {
+      span {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 3px solid #eeeeee;
+        border-radius: 50%;
+        background-color: #eeeeee;
+        transition: background-color 0.35s ease-in-out;
+
+        &.active {
+          cursor: pointer;
+          background-color: #222831;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: #222831;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    height: 350px;
   }
 }

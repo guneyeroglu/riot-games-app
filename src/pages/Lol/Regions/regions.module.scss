@@ -21,7 +21,7 @@
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: calc(2rem + 12.5px) 1.5rem 2rem 1.5rem;
+    padding: 2rem;
 
     span {
       font-weight: 600;
@@ -38,7 +38,27 @@
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 0 calc(1rem + 12.5px) 0;
+    padding: 0 1rem 1rem 2rem;
     min-height: 50vh;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    &__title {
+      padding: 2rem 1rem;
+    }
+
+    &__content {
+      padding: 0 0 1rem 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    &__content {
+      padding: 0 1rem 1rem 1rem;
+    }
   }
 }

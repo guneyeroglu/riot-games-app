@@ -1,6 +1,6 @@
 .card {
   display: block;
-  padding: 2.5rem 2rem 0 0;
+  padding: 2rem 2rem 0 0;
   flex: 0 1 20%;
 
   &__item {
@@ -10,7 +10,7 @@
     transform: scale3d(1, 1, 1);
     transition: border-radius 0.5s ease-in-out, transform 0.5s, box-shadow 0.5s ease-in-out;
     position: relative;
-    max-width: 250px;
+    margin: 0 auto;
 
     &--hero {
       .image {
@@ -54,7 +54,7 @@
 
     &:hover {
       border-top-right-radius: 0.7ch;
-      transform: scale3d(1.05, 1.05, 1);
+      transform: scale3d(1.05, 1.05, 1.05);
       box-shadow: 0 0 0 3px #c4b998, 0 3px 0 0 #c4b998, 0 5px 36px 0 #c4b998;
       cursor: pointer;
 
@@ -74,5 +74,38 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .card {
+    flex: 0 1 25%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    padding: 1rem 1rem 0 0;
+    flex: 0 1 33.333%;
+
+    &__item {
+      transform: scale3d(0.95, 0.95, 0.95);
+
+      &:hover {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex: 0 1 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    flex: 0 1 100%;
   }
 }

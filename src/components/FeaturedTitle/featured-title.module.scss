@@ -26,10 +26,13 @@
     gap: 3rem;
 
     span {
-      color: #c4b998;
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      &.text {
+        color: #c4b998;
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-align: center;
+      }
 
       &:first-child {
         transform: rotate(180deg);
@@ -39,6 +42,26 @@
         width: 100%;
         height: 100%;
         vertical-align: middle;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .wrapper {
+    padding: 1rem;
+
+    &__title {
+      gap: 2rem;
+
+      span {
+        &:is(.text) {
+          font-size: 1.5rem;
+        }
+
+        &:is(:not(.text)) {
+          display: none;
+        }
       }
     }
   }

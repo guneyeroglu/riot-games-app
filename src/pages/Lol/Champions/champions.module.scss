@@ -48,14 +48,14 @@
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 0 2.5rem 2rem;
+    padding: 0 0 2rem 2rem;
 
     .not-found {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      padding: 2.5rem 2rem 2rem 0;
+      padding: 2rem 2rem 2rem 0;
       width: 100%;
 
       span {
@@ -63,6 +63,20 @@
         font-size: 0.9rem;
         color: #c4b998;
         letter-spacing: 4px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    min-height: 500px;
+
+    &__content {
+      padding: 0 0 1rem 1rem;
+
+      .not-found {
+        padding: 2rem 1rem 2rem 0;
       }
     }
   }

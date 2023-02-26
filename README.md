@@ -4,7 +4,7 @@ The development process continues...
 
 - Header (DONE) - RESPONSIVE DESIGN (DONE)
 - Home (DONE) - RESPONSIVE DESIGN (DONE)
-  - LoL Home (DONE) - RESPONSIVE DESIGN (TODO)
+  - LoL Home (DONE) - RESPONSIVE DESIGN (DONE)
     - Champions (DONE) - RESPONSIVE DESIGN (TODO)
     - Regions (DONE) - RESPONSIVE DESIGN (TODO)
     - Items (TODO) - RESPONSIVE DESIGN (TODO)
