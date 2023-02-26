@@ -38,6 +38,7 @@
       span {
         font-size: 3rem;
         font-family: Roboto, sans-serif, system-ui;
+        text-align: center;
         line-height: 1.28571429em;
         font-weight: 500;
         letter-spacing: 0.05rem;
@@ -64,7 +65,7 @@
             padding: 0 1rem 1rem 0;
 
             a {
-              margin: 1.5rem;
+              margin: 1rem;
               max-width: 100%;
               color: #eeeeee;
               text-decoration: none;
@@ -93,5 +94,94 @@
 
   &__divider {
     padding: 0 2.5rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    &__hero {
+      &--images {
+        img {
+          height: 500px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    &__nav {
+      padding: 1rem;
+
+      &--title {
+        margin: 1rem;
+
+        span {
+          font-size: 2.5rem;
+        }
+      }
+
+      .games {
+        &__card {
+          ul {
+            li {
+              a {
+                margin: 0.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__divider {
+      padding: 0 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    &__nav {
+      &--title {
+        padding: 0;
+        justify-content: center;
+      }
+
+      .games {
+        &__card {
+          ul {
+            flex-direction: column;
+            align-items: stretch;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    &__nav {
+      &--title {
+        margin: 0;
+      }
+      .games {
+        &__card {
+          padding: 0;
+
+          ul {
+            li {
+              padding: 1rem 0;
+              a {
+                margin: 0;
+              }
+
+              &:last-child {
+                padding: 0;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

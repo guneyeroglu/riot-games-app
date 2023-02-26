@@ -85,7 +85,7 @@ const Header = () => {
     localStorage.setItem('language', lang);
   };
 
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 1024px)');
 
   useEffect(() => {
     if (isMobile) {

@@ -1,7 +1,11 @@
 .wrapper {
   :global(.MuiPaper-root) {
-    width: 100%;
+    width: 70%;
     background-color: #171717;
+
+    @media screen and (max-width: 850px) {
+      width: 100%;
+    }
   }
 
   &__title {

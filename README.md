@@ -3,16 +3,16 @@
 The development process continues...
 
 - Header (DONE) - RESPONSIVE DESIGN (DONE)
-- Home (DONE) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
-  - LoL Home (DONE) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
-    - Champions (DONE) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
-    - Regions (DONE) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
-    - Items (TODO) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
-  - Valo Home (DONE) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
-    - Agents (DONE) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
-    - Maps (TODO) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
-    - Arsenal (TODO) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
-- Footer (DONE) - DOESN'T HAVE RESPONSIVE DESIGN (TODO)
+- Home (DONE) - RESPONSIVE DESIGN (DONE)
+  - LoL Home (DONE) - RESPONSIVE DESIGN (TODO)
+    - Champions (DONE) - RESPONSIVE DESIGN (TODO)
+    - Regions (DONE) - RESPONSIVE DESIGN (TODO)
+    - Items (TODO) - RESPONSIVE DESIGN (TODO)
+  - Valo Home (DONE) - RESPONSIVE DESIGN (TODO)
+    - Agents (DONE) - RESPONSIVE DESIGN (TODO)
+    - Maps (TODO) - RESPONSIVE DESIGN (TODO)
+    - Arsenal (TODO) - RESPONSIVE DESIGN (TODO)
+- Footer (DONE) - RESPONSIVE DESIGN (DONE)
 
 There may be changes in the number of pages, page content and the tools used.
 LoL' Ranks page and Valo's Ranks paged canceled.
