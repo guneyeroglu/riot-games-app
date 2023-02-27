@@ -68,3 +68,50 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    min-height: 500px;
+
+    &__filter {
+      &--mid {
+        padding: 0 1rem;
+      }
+    }
+
+    &__title {
+      margin: 0 0 1rem 0;
+    }
+
+    &__cards {
+      padding: 0 0 1rem 1rem;
+
+      .not-found {
+        padding: 1rem 1rem 1rem 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    min-height: auto;
+
+    &__filter {
+      margin: 0 0 3rem 0;
+    }
+
+    &__cards {
+      max-width: 600px;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    &__filter {
+      margin: 0 0 1rem 0;
+    }
+  }
+}

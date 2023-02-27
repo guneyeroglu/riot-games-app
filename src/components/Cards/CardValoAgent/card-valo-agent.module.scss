@@ -210,3 +210,71 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .card {
+    flex: 0 1 33.333%;
+    padding: 1rem 1rem 0 0;
+
+    &__item {
+      .image {
+        padding: 1rem;
+      }
+
+      .info {
+        &__title {
+          font-size: 1rem;
+        }
+
+        &__subtitle {
+          font-size: 0.9rem;
+        }
+
+        &__description {
+          font-size: 0.7rem;
+        }
+      }
+
+      .abilities {
+        padding: 1rem 0;
+
+        &__list {
+          &--item {
+            img {
+              width: 35px;
+              height: 35px;
+            }
+
+            span {
+              font-size: 0.9rem;
+            }
+          }
+        }
+
+        &__description {
+          h4 {
+            font-size: 0.9rem;
+          }
+
+          span {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .card {
+    max-width: 350px;
+    flex: 0 1 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    max-width: 350px;
+    flex: 0 1 100%;
+  }
+}
