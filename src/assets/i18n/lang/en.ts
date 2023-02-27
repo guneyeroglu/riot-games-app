@@ -14,7 +14,7 @@ const en = {
     copyrightRiot:
       '™ & © 2022 Riot Games, Inc. League of Legends, Valorant, and all related logos, characters, names and distinctive likenesses thereof are exclusive property of Riot Games, Inc. All Rights Reserved.',
     socialMedia: 'Social Media',
-    developedByWho: '© 2022 | This website is made by <a><span>{{word}}</span></a>.',
+    developedByWho: '© 2022 | This website was developed by <a><span>{{word}}</span></a>.',
     featuredChamps: 'FEATURED CHAMPIONS',
     featuredRegions: 'FEATURED REGIONS',
     viewChamps: 'VIEW ALL CHAMPIONS',
