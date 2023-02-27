@@ -47,10 +47,20 @@
   .wrapper {
     &__title {
       padding: 2rem 1rem;
+      justify-content: center;
     }
 
     &__content {
       padding: 0 0 1rem 1rem;
+      max-width: 768px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    &__content {
+      max-width: 600px;
     }
   }
 }
@@ -59,6 +69,7 @@
   .wrapper {
     &__content {
       padding: 0 1rem 1rem 1rem;
+      max-width: 325px;
     }
   }
 }

@@ -97,3 +97,28 @@
     }
   }
 }
+
+@media screen and (max-width: 850px) {
+  .wrapper {
+    width: 100%;
+
+    &__filter {
+      input {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    &__filter {
+      input {
+        padding: 0.5rem 2.5rem;
+        font-size: 0.6rem;
+      }
+    }
+  }
+}

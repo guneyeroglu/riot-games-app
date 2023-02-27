@@ -188,10 +188,19 @@
 
     .content {
       padding: 1rem;
+      max-width: 768px;
     }
 
     .nav {
       padding: 2rem 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .content {
+      max-width: 600px;
     }
   }
 }
@@ -207,6 +216,7 @@
         }
       }
     }
+
     &__others {
       .links {
         &__wrapper {
@@ -220,6 +230,10 @@
           }
         }
       }
+    }
+
+    .content {
+      max-width: 325px;
     }
 
     .nav {

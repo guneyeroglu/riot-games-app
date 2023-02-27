@@ -9,11 +9,7 @@ import Sort from '../../../components/Sort/Sort';
 
 import championsBackground from '../../../assets/images/lol/champions-background.jpeg';
 
-import {
-  useFetchData,
-  useSortOrder,
-  useChampionDialog,
-} from '../../../global/utils';
+import { useFetchData, useSortOrder, useChampionDialog } from '../../../global/utils';
 
 import styles from './champions.module.scss';
 
@@ -43,24 +39,11 @@ const Champions = () => {
 
   const [inputValue, setInputValue] = useState<string>('');
 
-  const {
-    data: championsData,
-    isLoading,
-    refetch,
-  } = useFetchData('lol-champions');
+  const { data: championsData, isLoading, refetch } = useFetchData('lol-champions');
 
-  const { sortType, setSortType, handleSortOrder } = useSortOrder(
-    'a-z',
-    'name'
-  );
+  const { sortType, setSortType, handleSortOrder } = useSortOrder('a-z', 'name');
 
-  const {
-    openModal,
-    setOpenModal,
-    championName,
-    setChampionName,
-    DialogLolChampion,
-  } = useChampionDialog();
+  const { openModal, setOpenModal, championName, setChampionName, DialogLolChampion } = useChampionDialog();
 
   useEffect(() => {
     document.title = t('pageLolChampions');
@@ -69,11 +52,7 @@ const Champions = () => {
     refetch();
   }, [t, i18n, refetch]);
 
-  const filteredData =
-    !isLoading &&
-    championsData.champions.filter((champ: IChamp) =>
-      champ.name.toUpperCase().includes(inputValue.toUpperCase())
-    );
+  const filteredData = !isLoading && championsData.champions.filter((champ: IChamp) => champ.name.toUpperCase().includes(inputValue.toUpperCase()));
 
   return (
     <div className={styles.container}>
@@ -85,11 +64,7 @@ const Champions = () => {
       ></div>
       <div className={styles.container__filter}>
         <div className={styles.box}>
-          <SearchBar
-            inputValue={inputValue}
-            onSetInputValue={setInputValue}
-            find='champion'
-          />
+          <SearchBar inputValue={inputValue} onSetInputValue={setInputValue} find='champion' />
           <Sort type={sortType} onSetType={setSortType} />
         </div>
       </div>
@@ -102,26 +77,13 @@ const Champions = () => {
           filteredData &&
           filteredData
             .sort(handleSortOrder)
-            .map((champ: IChamp) => (
-              <CardLolChar
-                key={champ.name}
-                data={champ}
-                onSetChampionName={setChampionName}
-                onSetOpen={setOpenModal}
-              />
-            ))}
+            .map((champ: IChamp) => <CardLolChar key={champ.name} data={champ} onSetChampionName={setChampionName} onSetOpen={setOpenModal} />)}
         {!isLoading && filteredData && filteredData.length === 0 && (
           <div className={styles['not-found']}>
             <span>{t('notFoundChampions')}</span>
           </div>
         )}
-        {openModal && (
-          <DialogLolChampion
-            open={openModal}
-            onSetOpen={setOpenModal}
-            championName={championName}
-          />
-        )}
+        {openModal && <DialogLolChampion open={openModal} onSetOpen={setOpenModal} championName={championName} />}
       </div>
     </div>
   );

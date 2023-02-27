@@ -40,7 +40,7 @@ const SearchBar = (props: IProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={classList}>
-        <input type={'search'} placeholder={placeholder} value={inputValue} onChange={handleInputChange} />
+        <input type={'text'} placeholder={placeholder} value={inputValue} onChange={handleInputChange} />
         <div className={styles['wrapper__filter--logo']}>{logo}</div>
         {inputValue.length > 0 && (
           <button className={styles['wrapper__filter--close']} onClick={handleInputValue}>

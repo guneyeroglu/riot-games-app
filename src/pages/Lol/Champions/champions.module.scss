@@ -22,7 +22,6 @@
     background-color: #171717;
     margin: 0 0 5rem 0;
     height: 100px;
-    z-index: 99;
 
     .box {
       display: flex;
@@ -74,10 +73,39 @@
 
     &__content {
       padding: 0 0 1rem 1rem;
+      max-width: 768px;
 
       .not-found {
         padding: 2rem 1rem 2rem 0;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    &__filter {
+      margin: 0 0 3rem 0;
+
+      .box {
+        padding: 0 1rem;
+      }
+    }
+
+    &__content {
+      max-width: 600px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    &__filter {
+      margin: 0 0 1rem 0;
+    }
+
+    &__content {
+      max-width: 325px;
     }
   }
 }
