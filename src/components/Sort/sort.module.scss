@@ -1,3 +1,5 @@
+@use '../../assets/scss/variables/deviceSize' as device;
+
 .container {
   display: flex;
   flex-direction: row;
@@ -133,7 +135,7 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: device.$s) {
   .container {
     display: none;
   }

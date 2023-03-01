@@ -1,3 +1,5 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
+
 .card {
   flex: 0 1 25%;
   padding: 2rem 2rem 0 0;
@@ -211,7 +213,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: device.$m) {
   .card {
     flex: 0 1 33.333%;
     padding: 1rem 1rem 0 0;
@@ -265,14 +267,14 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: device.$s) {
   .card {
     max-width: 350px;
     flex: 0 1 50%;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: device.$xs) {
   .card {
     max-width: 350px;
     flex: 0 1 100%;

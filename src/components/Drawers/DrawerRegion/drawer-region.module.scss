@@ -1,7 +1,9 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
+
 .wrapper {
   display: block;
 
-  [tabindex='-1'] {
+  :global(.MuiPaper-root) {
     height: 80vh;
     background-color: #171717;
   }
@@ -16,6 +18,7 @@
       position: relative;
       width: 100vw;
       height: 70vh;
+      min-height: 70vh;
       -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
       mask-image: linear-gradient(rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
 
@@ -138,6 +141,85 @@
           &:hover {
             span {
               color: #896c3c;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$m) {
+  .wrapper {
+    &__content {
+      .video {
+        height: 60vh;
+        min-height: 60vh;
+
+        &__title {
+          padding: 1rem 0;
+        }
+      }
+
+      &--description {
+        padding: 1rem;
+      }
+
+      &--champions {
+        .featured {
+          max-width: 768px;
+          padding: 0 0 1rem 1rem;
+        }
+
+        .nav {
+          padding: 1rem 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$s) {
+  .wrapper {
+    &__content {
+      .video {
+        height: 50vh;
+        min-height: 50vh;
+      }
+
+      &--champions {
+        .featured {
+          max-width: 600px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$xs) {
+  .wrapper {
+    &__content {
+      .video {
+        height: 40vh;
+        min-height: 40vh;
+      }
+
+      &--description {
+        span {
+          font-size: 0.8rem;
+          margin: 0 auto;
+        }
+      }
+
+      &--champions {
+        .featured {
+          max-width: 325px;
+        }
+
+        .nav {
+          a {
+            span {
+              font-size: 1rem;
             }
           }
         }

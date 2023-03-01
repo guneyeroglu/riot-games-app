@@ -1,3 +1,5 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
+
 .wrapper {
   position: relative;
 
@@ -43,7 +45,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: device.$m) {
   .wrapper {
     &__title {
       padding: 2rem 1rem;
@@ -57,7 +59,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: device.$s) {
   .wrapper {
     &__content {
       max-width: 600px;
@@ -65,7 +67,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: device.$xs) {
   .wrapper {
     &__content {
       padding: 0 1rem 1rem 1rem;

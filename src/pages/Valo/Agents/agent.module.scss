@@ -1,3 +1,5 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
+
 .container {
   display: block;
   position: relative;
@@ -69,7 +71,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: device.$m) {
   .container {
     min-height: 500px;
 
@@ -93,7 +95,7 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: device.$s) {
   .container {
     min-height: auto;
 
@@ -108,7 +110,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: device.$xs) {
   .container {
     &__filter {
       margin: 0 0 1rem 0;

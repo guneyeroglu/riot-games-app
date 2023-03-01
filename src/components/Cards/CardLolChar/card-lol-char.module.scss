@@ -1,3 +1,5 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
+
 .card {
   display: block;
   padding: 2rem 2rem 0 0;
@@ -77,13 +79,13 @@
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: device.$l) {
   .card {
     flex: 0 1 25%;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: device.$m) {
   .card {
     padding: 1rem 1rem 0 0;
     flex: 0 1 33.333%;
@@ -98,13 +100,13 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: device.$s) {
   .card {
     flex: 0 1 50%;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: device.$xs) {
   .card {
     flex: 0 1 100%;
   }

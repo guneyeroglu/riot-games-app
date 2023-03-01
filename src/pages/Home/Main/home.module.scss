@@ -1,3 +1,5 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
+
 .container {
   display: block;
   color: #eeeeee;
@@ -97,7 +99,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: device.$m) {
   .container {
     &__hero {
       &--images {
@@ -138,7 +140,7 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: device.$s) {
   .container {
     &__nav {
       &--title {
@@ -158,7 +160,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: device.$xs) {
   .container {
     &__nav {
       &--title {

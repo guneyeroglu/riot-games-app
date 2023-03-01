@@ -1,3 +1,5 @@
+@use '../../assets/scss/variables/deviceSize' as device;
+
 .wrapper {
   position: relative;
   transition: filter 0.35s ease-in-out;
@@ -136,7 +138,7 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: device.$s) {
   .wrapper {
     display: none;
   }

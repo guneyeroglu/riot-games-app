@@ -1,3 +1,5 @@
+@use '../../assets/scss/variables/deviceSize' as device;
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -127,7 +129,7 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: device.$s) {
   .wrapper {
     gap: 0;
     height: 500px;
@@ -202,7 +204,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: device.$xs) {
   .wrapper {
     height: 350px;
   }

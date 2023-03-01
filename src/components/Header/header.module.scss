@@ -1,3 +1,5 @@
+@use '../../assets/scss/variables/deviceSize' as device;
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -90,13 +92,13 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: device.$m) {
   .wrapper {
     padding: 0 2.5rem;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: device.$s) {
   .wrapper {
     padding: 0 1.5rem;
   }

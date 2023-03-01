@@ -1,3 +1,5 @@
+@use '../../assets/scss/variables/deviceSize' as device;
+
 .wrapper {
   background-color: #171717;
 
@@ -28,7 +30,7 @@
       }
     }
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: device.$m) {
       flex-direction: column;
     }
   }
@@ -191,7 +193,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: device.$s) {
   .wrapper {
     &__links,
     &__nav,
