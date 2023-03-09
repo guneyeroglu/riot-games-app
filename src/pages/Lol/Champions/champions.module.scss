@@ -49,37 +49,17 @@
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 0 2rem 2rem;
-
-    .not-found {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem 2rem 2rem 0;
-      width: 100%;
-
-      span {
-        font-weight: 400;
-        font-size: 0.9rem;
-        color: #c4b998;
-        letter-spacing: 4px;
-      }
-    }
+    padding: 0 2rem 2rem;
   }
 }
 
 @media screen and (max-width: device.$m) {
   .container {
-    min-height: 500px;
+    min-height: 700px;
 
     &__content {
-      padding: 0 0 1rem 1rem;
+      padding: 0 1rem 1rem;
       max-width: 768px;
-
-      .not-found {
-        padding: 2rem 1rem 2rem 0;
-      }
     }
   }
 }

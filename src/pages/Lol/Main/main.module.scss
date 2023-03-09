@@ -27,10 +27,6 @@
         justify-content: center;
         align-items: stretch;
         gap: 1rem;
-
-        .content {
-          padding: 0 0 2rem 2rem;
-        }
       }
     }
 
@@ -55,10 +51,6 @@
         justify-content: center;
         align-items: center;
         gap: 1rem;
-
-        .content {
-          padding: 2rem 1rem 2rem 2rem;
-        }
       }
     }
   }
@@ -85,6 +77,7 @@
 
     .links {
       padding: 0;
+      width: 100%;
 
       &__wrapper {
         display: flex;
@@ -92,6 +85,7 @@
         justify-content: center;
         align-items: center;
         gap: 1rem;
+        width: 100%;
 
         .content {
           a {
@@ -170,24 +164,6 @@
 
 @media screen and (max-width: device.$m) {
   .container {
-    &__featured {
-      .champions {
-        &__wrapper {
-          .content {
-            padding: 0 0 1rem 1rem;
-          }
-        }
-      }
-
-      .regions {
-        &__wrapper {
-          .content {
-            padding: 1rem 0 1rem 1rem;
-          }
-        }
-      }
-    }
-
     .content {
       padding: 1rem;
       max-width: 768px;
@@ -209,16 +185,6 @@
 
 @media screen and (max-width: device.$xs) {
   .container {
-    &__featured {
-      .regions {
-        &__wrapper {
-          .content {
-            padding: 1rem;
-          }
-        }
-      }
-    }
-
     &__others {
       .links {
         &__wrapper {

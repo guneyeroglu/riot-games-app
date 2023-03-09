@@ -5,7 +5,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 75px;
+  min-height: 75px;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -94,12 +94,6 @@
 
 @media screen and (max-width: device.$m) {
   .wrapper {
-    padding: 0 2.5rem;
-  }
-}
-
-@media screen and (max-width: device.$s) {
-  .wrapper {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 }

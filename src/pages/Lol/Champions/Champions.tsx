@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { CardLolChar } from '../../../components/Cards';
 import Spinner from '../../../components/Spinner/Spinner';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
+import DataNotFound from '../../../components/DataNotFound/DataNotFound';
 import SearchBar from '../../../components/Search/SearchBar';
 import Sort from '../../../components/Sort/Sort';
 
@@ -39,7 +40,7 @@ const Champions = () => {
 
   const [inputValue, setInputValue] = useState<string>('');
 
-  const { data: championsData, isLoading, refetch } = useFetchData('lol-champions');
+  const { data: championsData, isLoading, isError, refetch } = useFetchData('lol-champions');
 
   const { sortType, setSortType, handleSortOrder } = useSortOrder('a-z', 'name');
 
@@ -52,7 +53,8 @@ const Champions = () => {
     refetch();
   }, [t, i18n, refetch]);
 
-  const filteredData = !isLoading && championsData.champions.filter((champ: IChamp) => champ.name.toUpperCase().includes(inputValue.toUpperCase()));
+  const filteredData =
+    !isLoading && championsData && championsData.champions.filter((champ: IChamp) => champ.name.toUpperCase().includes(inputValue.toUpperCase()));
 
   return (
     <div className={styles.container}>
@@ -78,11 +80,8 @@ const Champions = () => {
           filteredData
             .sort(handleSortOrder)
             .map((champ: IChamp) => <CardLolChar key={champ.name} data={champ} onSetChampionName={setChampionName} onSetOpen={setOpenModal} />)}
-        {!isLoading && filteredData && filteredData.length === 0 && (
-          <div className={styles['not-found']}>
-            <span>{t('notFoundChampions')}</span>
-          </div>
-        )}
+        {!isLoading && filteredData && !filteredData.length && <DataNotFound text={t('notFoundChampions')} />}
+        {!isLoading && isError && <DataNotFound text={t('notFoundChampions')} />}
         {openModal && <DialogLolChampion open={openModal} onSetOpen={setOpenModal} championName={championName} />}
       </div>
     </div>

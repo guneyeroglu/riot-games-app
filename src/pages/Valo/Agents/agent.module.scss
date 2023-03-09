@@ -50,30 +50,14 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    padding: 0 0 2rem 2rem;
     max-width: 1400px;
-
-    .not-found {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      padding: 2.5rem 2rem 2rem 0;
-      width: 100%;
-
-      span {
-        font-weight: 400;
-        font-size: 0.9rem;
-        color: #eeeeee;
-        letter-spacing: 4px;
-      }
-    }
+    padding: 2rem;
   }
 }
 
 @media screen and (max-width: device.$m) {
   .container {
-    min-height: 500px;
+    min-height: 700px;
 
     &__filter {
       &--mid {
@@ -86,11 +70,7 @@
     }
 
     &__cards {
-      padding: 0 0 1rem 1rem;
-
-      .not-found {
-        padding: 1rem 1rem 1rem 0;
-      }
+      padding: 1rem;
     }
   }
 }
@@ -104,7 +84,7 @@
     }
 
     &__cards {
-      max-width: 600px;
+      max-width: 700px;
       justify-content: center;
     }
   }

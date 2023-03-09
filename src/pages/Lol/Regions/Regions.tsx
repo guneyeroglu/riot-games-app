@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import DrawerRegion from '../../../components/Drawers/DrawerRegion/DrawerRegion';
+import DataNotFound from '../../../components/DataNotFound/DataNotFound';
 import Spinner from '../../../components/Spinner/Spinner';
 import { CardLolRegion } from '../../../components/Cards';
 
 import backgroundImageRegions from '../../../assets/images/lol/regions-background.png';
 
 import { useFetchData } from '../../../global/utils';
+
 import { IRegion } from '../../../global/interfaces';
 
 import styles from './regions.module.scss';
@@ -17,7 +19,7 @@ const Regions = () => {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   const [regionName, setRegionName] = useState<string>('');
 
-  const { data, isLoading, refetch } = useFetchData('lol-regions');
+  const { data, isLoading, isError, refetch } = useFetchData('lol-regions');
 
   useEffect(() => {
     document.title = t('pageLolRegions');
@@ -40,6 +42,7 @@ const Regions = () => {
       <div className={styles.wrapper__content}>
         {isLoading && <Spinner color='#eeeeee' />}
         {!isLoading && data?.factions.map((region: IRegion) => <CardLolRegion key={region.name} region={region} onSetDrawer={handleDrawer} />)}
+        {isError && <DataNotFound text={t('notFoundRegions')} />}
       </div>
       {openDrawer && <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region={regionName} />}
     </div>

@@ -25,6 +25,7 @@ const tr = {
     searchAgent: 'AJAN BUL',
     notFoundChampions: 'ŞAMPİYON BULUNAMADI',
     notFoundAgents: 'AJAN BULUNAMADI',
+    notFoundRegions: 'BÖLGE BULUNAMADI',
     all: 'Tümü',
     sorting: 'SIRALAMA',
     'a-z': 'A-Z',

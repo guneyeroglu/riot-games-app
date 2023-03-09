@@ -27,14 +27,14 @@
 
   &__nav {
     display: block;
-    padding: 2.5rem;
+    padding: 2rem;
 
     &--title {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      margin: 2.5rem;
+      margin: 1rem;
       padding: 0 0 0 1rem;
 
       span {
@@ -51,8 +51,6 @@
       display: block;
 
       &__card {
-        padding: 1rem 0 0 1rem;
-
         ul {
           display: flex;
           flex-direction: row;
@@ -64,7 +62,6 @@
           li {
             display: flex;
             flex: 0 1 50%;
-            padding: 0 1rem 1rem 0;
 
             a {
               margin: 1rem;
@@ -75,15 +72,15 @@
               img {
                 max-width: 100%;
                 height: auto;
-                border: 2px solid transparent;
+                border: 3px solid transparent;
                 border-radius: 3ch;
                 opacity: 1;
-                transition: all 0.35s ease-in-out;
+                transition: border 0.35s ease-in-out, opacity 0.35s ease-in-out;
               }
 
               &:hover {
                 img {
-                  border: 2px solid #444444;
+                  border: 3px solid #444444;
                   opacity: 0.5;
                 }
               }
@@ -95,7 +92,7 @@
   }
 
   &__divider {
-    padding: 0 2.5rem;
+    padding: 0 2rem;
   }
 }
 
@@ -114,7 +111,8 @@
       padding: 1rem;
 
       &--title {
-        margin: 1rem;
+        margin: 0.5rem;
+        padding: 0 0 0 0.5rem;
 
         span {
           font-size: 2.5rem;

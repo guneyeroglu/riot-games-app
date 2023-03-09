@@ -27,7 +27,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 2rem 0;
+        padding: 2rem;
         z-index: 5;
         position: absolute;
         right: 0;
@@ -114,7 +114,7 @@
         width: 100%;
         max-width: 1400px;
         margin: 0 auto;
-        padding: 0 0 2.5rem 2rem;
+        padding: 2rem;
       }
 
       .nav {
@@ -122,7 +122,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 2rem 0;
+        padding: 2rem;
 
         a {
           color: #eeeeee;
@@ -141,6 +141,7 @@
           &:hover {
             span {
               color: #896c3c;
+              cursor: pointer;
             }
           }
         }
@@ -151,13 +152,17 @@
 
 @media screen and (max-width: device.$m) {
   .wrapper {
+    :global(.MuiPaper-root) {
+      height: 800px;
+    }
+
     &__content {
       .video {
-        height: 60vh;
-        min-height: 60vh;
+        height: 800px;
+        min-height: 800px;
 
         &__title {
-          padding: 1rem 0;
+          padding: 1rem;
         }
       }
 
@@ -168,11 +173,11 @@
       &--champions {
         .featured {
           max-width: 768px;
-          padding: 0 0 1rem 1rem;
+          padding: 1rem;
         }
 
         .nav {
-          padding: 1rem 0;
+          padding: 2rem 1rem;
         }
       }
     }
@@ -181,10 +186,14 @@
 
 @media screen and (max-width: device.$s) {
   .wrapper {
+    :global(.MuiPaper-root) {
+      height: 700px;
+    }
+
     &__content {
       .video {
-        height: 50vh;
-        min-height: 50vh;
+        height: 700px;
+        min-height: 700px;
       }
 
       &--champions {
@@ -198,10 +207,14 @@
 
 @media screen and (max-width: device.$xs) {
   .wrapper {
+    :global(.MuiPaper-root) {
+      height: 600px;
+    }
+
     &__content {
       .video {
-        height: 40vh;
-        min-height: 40vh;
+        height: 600px;
+        min-height: 600px;
       }
 
       &--description {

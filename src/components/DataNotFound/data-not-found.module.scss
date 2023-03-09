@@ -1,0 +1,24 @@
+@use '../../assets/scss/variables/deviceSize' as device;
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+
+  span {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #c4b998;
+    letter-spacing: 4px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: device.$m) {
+  .wrapper {
+    padding: 1rem;
+  }
+}

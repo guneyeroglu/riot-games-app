@@ -6,12 +6,11 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 0 1rem 1rem;
   list-style-type: none;
 
   &__item {
-    padding: 1rem 1rem 0 0;
-    flex: 0 1 33.333%;
+    flex: 0 1 calc(33.333% - 1rem);
+    margin: 1rem 0.5rem;
 
     &--content {
       display: flex;
@@ -59,7 +58,7 @@
 @media screen and (max-width: device.$m) {
   .wrapper {
     &__item {
-      flex: 0 1 50%;
+      flex: 0 1 calc(50% - 1rem);
     }
   }
 }
@@ -67,7 +66,7 @@
 @media screen and (max-width: device.$xs) {
   .wrapper {
     &__item {
-      flex: 0 1 100%;
+      flex: 0 1 calc(100% - 1rem);
     }
   }
 }

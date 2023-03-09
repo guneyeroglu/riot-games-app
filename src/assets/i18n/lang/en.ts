@@ -25,6 +25,7 @@ const en = {
     searchAgent: 'FIND AN AGENT',
     notFoundChampions: 'NO CHAMPIONS FOUND',
     notFoundAgents: 'NO AGENTS FOUND',
+    notFoundRegions: 'NO REGIONS FOUND',
     all: 'All',
     sorting: 'SORTING BY',
     'a-z': 'A-Z',

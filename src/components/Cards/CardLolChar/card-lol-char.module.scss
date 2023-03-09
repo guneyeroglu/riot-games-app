@@ -2,8 +2,8 @@
 
 .card {
   display: block;
-  padding: 2rem 2rem 0 0;
-  flex: 0 1 20%;
+  margin: 1rem;
+  flex: 0 1 calc(20% - 2rem);
 
   &__item {
     box-shadow: 0 0 0 1px #444444, 0 1px 0 0 #444444, 0 1px 6px 0 #444444;
@@ -81,14 +81,13 @@
 
 @media screen and (max-width: device.$l) {
   .card {
-    flex: 0 1 25%;
+    flex: 0 1 calc(25% - 2rem);
   }
 }
 
 @media screen and (max-width: device.$m) {
   .card {
-    padding: 1rem 1rem 0 0;
-    flex: 0 1 33.333%;
+    flex: 0 1 calc(33.333% - 2rem);
 
     &__item {
       transform: scale3d(0.95, 0.95, 0.95);
@@ -102,12 +101,12 @@
 
 @media screen and (max-width: device.$s) {
   .card {
-    flex: 0 1 50%;
+    flex: 0 1 calc(50% - 2rem);
   }
 }
 
 @media screen and (max-width: device.$xs) {
   .card {
-    flex: 0 1 100%;
+    flex: 0 1 calc(100% - 2rem);
   }
 }

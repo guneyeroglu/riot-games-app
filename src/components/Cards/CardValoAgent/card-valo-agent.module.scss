@@ -1,8 +1,8 @@
 @use '../../../assets/scss/variables/deviceSize' as device;
 
 .card {
-  flex: 0 1 25%;
-  padding: 2rem 2rem 0 0;
+  flex: 0 1 calc(25% - 2rem);
+  margin: 1rem;
 
   &__item {
     width: 100%;
@@ -215,8 +215,7 @@
 
 @media screen and (max-width: device.$m) {
   .card {
-    flex: 0 1 33.333%;
-    padding: 1rem 1rem 0 0;
+    flex: 0 1 calc(33.333% - 2rem);
 
     &__item {
       .image {
@@ -270,13 +269,13 @@
 @media screen and (max-width: device.$s) {
   .card {
     max-width: 350px;
-    flex: 0 1 50%;
+    flex: 0 1 calc(50% - 2rem);
   }
 }
 
 @media screen and (max-width: device.$xs) {
   .card {
-    max-width: 350px;
+    margin: 1rem 0;
     flex: 0 1 100%;
   }
 }

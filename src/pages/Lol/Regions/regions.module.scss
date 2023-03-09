@@ -40,7 +40,7 @@
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1rem 1rem 2rem;
+    padding: 0 2rem 2rem;
     min-height: 50vh;
   }
 }
@@ -53,7 +53,7 @@
     }
 
     &__content {
-      padding: 0 0 1rem 1rem;
+      padding: 0 1rem 1rem;
       max-width: 768px;
     }
   }
@@ -70,7 +70,6 @@
 @media screen and (max-width: device.$xs) {
   .wrapper {
     &__content {
-      padding: 0 1rem 1rem 1rem;
       max-width: 325px;
     }
   }
