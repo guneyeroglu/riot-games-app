@@ -1,3 +1,4 @@
+import { useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LazyLoad from 'react-lazy-load';
@@ -31,10 +32,10 @@ const CardValoAgent = (props: IProps) => {
   const { data: agent } = props;
 
   const { i18n } = useTranslation();
-
   const [abilityId, setAbilityId] = useState<number>(-1);
-
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
+  const isMobile = useMediaQuery('(max-width: 1024px)');
 
   const handleAbility = (id: number) => {
     if (abilityId === id || id === -1) {
@@ -48,9 +49,15 @@ const CardValoAgent = (props: IProps) => {
     setIsLoading(false);
   };
 
+  const handleHoverEffect = () => {
+    if (!isMobile) return;
+
+    setOpen(true);
+  };
+
   return (
     <div className={styles.card}>
-      <div className={styles.card__item} onMouseLeave={() => handleAbility(-1)}>
+      <div className={`${styles.card__item} ${open ? styles.open : ''}`.trim()} onMouseLeave={() => handleAbility(-1)} onClick={handleHoverEffect}>
         <div className={styles.image}>
           {isLoading && <Spinner />}
           {

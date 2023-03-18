@@ -55,6 +55,14 @@
   }
 }
 
+@media screen and (max-width: device.$l) {
+  .container {
+    &__cards {
+      max-width: 1024px;
+    }
+  }
+}
+
 @media screen and (max-width: device.$m) {
   .container {
     min-height: 700px;

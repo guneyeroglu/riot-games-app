@@ -34,6 +34,7 @@
       img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
     }
 
@@ -203,7 +204,17 @@
       }
     }
 
-    &:hover {
+    @media screen and (min-width: device.$m) {
+      &:hover {
+        box-shadow: 0 0 0 3px #eeeeee, 0 4px 0 0 #171717, 0 3px 30px 0 #eeeeee;
+
+        .abilities {
+          width: 100%;
+        }
+      }
+    }
+
+    &.open {
       box-shadow: 0 0 0 3px #eeeeee, 0 4px 0 0 #171717, 0 3px 30px 0 #eeeeee;
 
       .abilities {
@@ -212,11 +223,14 @@
     }
   }
 }
+@media screen and (max-width: device.$l) {
+  .card {
+    flex: 0 1 calc(33.333% - 2rem);
+  }
+}
 
 @media screen and (max-width: device.$m) {
   .card {
-    flex: 0 1 calc(33.333% - 2rem);
-
     &__item {
       .image {
         padding: 1rem;
