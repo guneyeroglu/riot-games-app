@@ -49,15 +49,19 @@ const CardValoAgent = (props: IProps) => {
     setIsLoading(false);
   };
 
-  const handleHoverEffect = () => {
+  const handleHoverEffect = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isMobile) return;
 
-    setOpen(true);
+    const target = e.target as HTMLInputElement;
+    if (target.id.includes('abilit')) return;
+
+    setAbilityId(-1);
+    setOpen((preValue) => !preValue);
   };
 
   return (
     <div className={styles.card}>
-      <div className={`${styles.card__item} ${open ? styles.open : ''}`.trim()} onMouseLeave={() => handleAbility(-1)} onClick={handleHoverEffect}>
+      <div className={`${styles.card__item} ${open ? styles.open : styles.close}`.trim()} onMouseLeave={() => handleAbility(-1)} onClick={handleHoverEffect}>
         <div className={styles.image}>
           {isLoading && <Spinner />}
           {
@@ -78,7 +82,7 @@ const CardValoAgent = (props: IProps) => {
           </div>
         </div>
         <div className={styles.abilities} style={{ backgroundImage: `url('${agent.background}')` }}>
-          <div className={styles.abilities__list}>
+          <div className={styles.abilities__list} id={'abilities'}>
             {agent.abilities
               .filter((ability) => ability.slot !== 'Passive')
               .map((ability) => (
@@ -90,10 +94,10 @@ const CardValoAgent = (props: IProps) => {
                   key={ability.displayName}
                   id={`ability-${agent.abilities.indexOf(ability)}`}
                 >
-                  <LazyLoad width={'100%'} height={'100%'} offset={400}>
-                    <img src={ability.displayIcon} alt={ability.displayName} />
-                  </LazyLoad>
-                  <span>
+                  {/* <LazyLoad width={'100%'} height={'100%'} offset={400}> */}
+                  <img src={ability.displayIcon} alt={ability.displayName} id={'ability-img'} />
+                  {/* </LazyLoad> */}
+                  <span id='ability-text'>
                     {ability.slot === 'Ability1' && 'Q'}
                     {ability.slot === 'Ability2' && 'E'}
                     {ability.slot === 'Grenade' && 'C'}

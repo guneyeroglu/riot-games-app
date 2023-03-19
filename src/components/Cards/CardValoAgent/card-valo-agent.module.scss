@@ -221,6 +221,14 @@
         width: 100%;
       }
     }
+
+    &.close {
+      box-shadow: 0 0 0 1px #eeeeee, 0 2px 0 0 #423f3e, 0 1px 3px 0 #eeeeee;
+
+      .abilities {
+        width: 0;
+      }
+    }
   }
 }
 @media screen and (max-width: device.$l) {
