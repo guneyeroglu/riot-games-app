@@ -38,7 +38,10 @@ const Filter = (props: IProps) => {
   const { t } = useTranslation();
   const [roleNumber, setRoleNumber] = useState<number>(-1);
   const { data, inputValue, filterValue, onSetFilterValue } = props;
+
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -46,8 +49,6 @@ const Filter = (props: IProps) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const open = Boolean(anchorEl);
 
   const roleList = data?.data
     .filter((agent: IAgent) => agent.displayName && agent.isPlayableCharacter)

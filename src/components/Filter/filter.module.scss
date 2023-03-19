@@ -144,7 +144,8 @@
 }
 
 @media screen and (max-width: device.$s) {
-  .wrapper {
+  .wrapper,
+  .popover {
     display: none;
   }
 }
