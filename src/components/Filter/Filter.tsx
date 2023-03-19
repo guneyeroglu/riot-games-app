@@ -1,9 +1,8 @@
 import { Dispatch, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Popover } from '@mui/material';
 
 import { Icon } from '../Icons/Icon';
-
-import { useClickOutside } from '../../global/utils';
 
 import styles from './filter.module.scss';
 
@@ -27,6 +26,7 @@ interface IAgent {
   };
   isPlayableCharacter: boolean;
 }
+
 interface IProps {
   data: { data: IAgent[] };
   inputValue: string;
@@ -36,14 +36,18 @@ interface IProps {
 
 const Filter = (props: IProps) => {
   const { t } = useTranslation();
-
-  const [open, setOpen] = useState<boolean>(false);
-
   const [roleNumber, setRoleNumber] = useState<number>(-1);
-
   const { data, inputValue, filterValue, onSetFilterValue } = props;
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  const domNode = useClickOutside(() => setOpen(false));
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
 
   const roleList = data?.data
     .filter((agent: IAgent) => agent.displayName && agent.isPlayableCharacter)
@@ -51,10 +55,6 @@ const Filter = (props: IProps) => {
       agents[agent?.role?.displayName] = agent?.role?.displayIcon;
       return agents;
     }, {});
-
-  const handleVisibleMenu = () => {
-    setOpen((prev) => !prev);
-  };
 
   const handleSelectedListItem = (number: number) => {
     setRoleNumber(number);
@@ -65,10 +65,6 @@ const Filter = (props: IProps) => {
     return onSetFilterValue('');
   };
 
-  const menuClassList = open ? `${styles.wrapper__menu} ${styles.visible}` : styles.wrapper__menu;
-
-  const buttonClassList = open ? `${styles.wrapper__button} ${styles.open}` : styles.wrapper__button;
-
   useEffect(() => {
     if (roleNumber >= 0) {
       onSetFilterValue(Object.keys(roleList)[roleNumber]);
@@ -76,60 +72,76 @@ const Filter = (props: IProps) => {
   }, [onSetFilterValue, roleList, roleNumber]);
 
   return (
-    <div className={styles.wrapper} ref={domNode}>
-      <div className={buttonClassList} onClick={handleVisibleMenu}>
+    <div className={styles.wrapper}>
+      <button className={`${styles.wrapper__button} ${open ? styles.open : ''}`.trim()} onClick={handleClick}>
         <div className={styles['wrapper__button--icon']}>
           <Icon name='FilterIcon' />
         </div>
         <div className={styles['wrapper__button--text']}>
           <span>{t('filterAgent')}</span>
         </div>
-      </div>
-      <div className={menuClassList}>
-        <h3>{t('agentsRole')}</h3>
-        <ul id='roles'>
-          <li
-            className={
-              data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue)).length === 0
-                ? styles.deactivate
-                : filterValue === ''
-                ? styles.selected
-                : ''
-            }
-            onClick={() => handleSelectedListItem(-1)}
-          >
-            <Icon name='TargetIcon' />
-            <span>{t('all')}</span>
-            <span>({data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue) && agent.isPlayableCharacter).length})</span>
-          </li>
-          {roleList &&
-            Object.keys(roleList).map((roleName: string) => (
-              <li
-                key={roleName}
-                onClick={() => handleSelectedListItem(Object.keys(roleList).indexOf(roleName))}
-                className={
-                  data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue)).filter((agent) => agent?.role?.displayName === roleName)
-                    .length === 0
-                    ? styles.deactivate
-                    : filterValue === roleName
-                    ? styles.selected
-                    : ''
-                }
-              >
-                <img src={roleList[roleName]} alt={roleName} />
-                <span>{roleName}</span>
-                <span>
-                  (
-                  {
+      </button>
+      <Popover
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        className={styles.popover}
+      >
+        <div className={styles.menu}>
+          <h3>{t('agentsRole')}</h3>
+          <ul id='roles'>
+            <li
+              className={
+                data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue)).length === 0
+                  ? styles.deactivate
+                  : filterValue === ''
+                  ? styles.selected
+                  : ''
+              }
+              onClick={() => handleSelectedListItem(-1)}
+            >
+              <Icon name='TargetIcon' />
+              <span>{t('all')}</span>
+              <span>({data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue) && agent.isPlayableCharacter).length})</span>
+            </li>
+            {roleList &&
+              Object.keys(roleList).map((roleName: string) => (
+                <li
+                  key={roleName}
+                  onClick={() => handleSelectedListItem(Object.keys(roleList).indexOf(roleName))}
+                  className={
                     data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue)).filter((agent) => agent?.role?.displayName === roleName)
-                      .length
+                      .length === 0
+                      ? styles.deactivate
+                      : filterValue === roleName
+                      ? styles.selected
+                      : ''
                   }
-                  )
-                </span>
-              </li>
-            ))}
-        </ul>
-      </div>
+                >
+                  <img src={roleList[roleName]} alt={roleName} />
+                  <span>{roleName}</span>
+                  <span>
+                    (
+                    {
+                      data?.data
+                        .filter((agent) => agent.displayName.toUpperCase().includes(inputValue))
+                        .filter((agent) => agent?.role?.displayName === roleName).length
+                    }
+                    )
+                  </span>
+                </li>
+              ))}
+          </ul>
+        </div>
+      </Popover>
     </div>
   );
 };
