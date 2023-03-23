@@ -1,13 +1,30 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Carousel from '../../../components/Carousel/Carousel';
+import LazyLoad from 'react-lazy-load';
 
+import Spinner from '../../../components/Spinner/Spinner';
+import { Icon } from '../../../components/Icons/Icon';
 import { valorantMaps as data } from '../../../global/utils';
+import backgroundVideo from '../../../assets/images/valo/background-video.mp4';
+import backgroundPoster from '../../../assets/images/valo/background-poster.jpeg';
 
 import styles from './maps.module.scss';
 
 const Maps = () => {
   const { t, i18n } = useTranslation();
+  const [currentMap, setCurrentMap] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const handleSpinner = () => {
+    setIsLoading(false);
+  };
+
+  const handleMapChange = (id: number) => {
+    if (id === currentMap) return;
+
+    setIsLoading(true);
+    setCurrentMap(id);
+  };
 
   useEffect(() => {
     document.title = t('pageValoMaps');
@@ -16,17 +33,43 @@ const Maps = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Carousel
-        images={data.map((map, idx) => {
-          const obj = {
-            id: idx,
-            name: map.name,
-            url: map.featuredImage,
-          };
-
-          return obj;
-        })}
-      />
+      <video autoPlay muted loop poster={backgroundPoster}>
+        <source src={backgroundVideo} type='video/mp4' />
+      </video>
+      <div className={styles.wrapper__content}>
+        <div className={styles.title}>
+          <span>{t('maps')}</span>
+        </div>
+        <div key={data[currentMap].name} className={styles.image}>
+          {isLoading && (
+            <div className={styles.image__spinner}>
+              <Spinner />
+            </div>
+          )}
+          <LazyLoad
+            width={isLoading ? '0%' : '100%'}
+            height={isLoading ? '0%' : '400px'}
+            offset={400}
+            className={`${styles.image__lazy} ${isLoading ? styles.hidden : ''}`.trim()}
+          >
+            <img src={data[currentMap].featuredImage} alt={data[currentMap].name} onLoad={handleSpinner} style={{ borderWidth: isLoading ? 0 : 3 }} />
+          </LazyLoad>
+          <div className={styles.image__info}>
+            <span>{data[currentMap].name}</span>
+            <span>{t(data[currentMap].description)}</span>
+            <span>{`${currentMap < 9 ? `0${currentMap + 1}` : currentMap}`}</span>
+            <button className={styles.go}>
+              <span>{t('viewGallery')}</span>
+              <Icon name='ArrowIcon' />
+            </button>
+          </div>
+          <div className={styles.image__actions}>
+            {data.map((_el, index) => (
+              <button key={index} className={`${currentMap === index ? styles.selected : ''}`} onClick={() => handleMapChange(index)}></button>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

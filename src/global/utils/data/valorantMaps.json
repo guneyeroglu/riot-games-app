@@ -2,7 +2,7 @@
   {
     "name": "PEARL",
     "description": "valoPearlDescription",
-    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blte17f24241398ef2a/62b1c4691944ac5ac426350d/PearlLoadingScreen_MapFeaturedImage_930x522.png",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blte17f24241398ef2a/62b1c4691944ac5ac426350d/PearlLoadingScreen_MapFeaturedImage_930x522.png?width=786&height=394",
     "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta45fb32a709b9d1e/62b1c477482ba357e65de200/PearlLoadingScreen_MapFeaturedImageMobile_630X565.png",
     "images": [
       "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8c140b764049e9a6/62b1c4c4a064e356abaf50ce/Pearl_Gallery_01.jpg",
@@ -19,7 +19,7 @@
   {
     "name": "FRACTURE",
     "description": "valoFractionDescription",
-    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf4485163c8c5873c/6131b23e9db95e7ff74b6393/Valorant_FRACTURE_Minimap_Alpha_web.png",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf4485163c8c5873c/6131b23e9db95e7ff74b6393/Valorant_FRACTURE_Minimap_Alpha_web.png?width=786&height=394",
     "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf4485163c8c5873c/6131b23e9db95e7ff74b6393/Valorant_FRACTURE_Minimap_Alpha_web.png",
     "images": [
       "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt1a720126e3713bba/6131bf518e16ab655b34901a/Fracture_Screenshot-8.jpg",
@@ -35,7 +35,7 @@
   {
     "name": "BREEZE",
     "description": "valoBreezeDescription",
-    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt35784ce11f377ff5/6087eefd5907c910150f7588/Breeze_MapWebsite.png",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt35784ce11f377ff5/6087eefd5907c910150f7588/Breeze_MapWebsite.png?width=786&height=394",
     "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltb2bb446a76f18515/607f996675873e466bcc554f/breeze-featured-mobile_v1.png",
     "images": [
       "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltba64f41bce11904b/607f9e3bc661f15b3da77f85/breeze_1.jpg",
@@ -54,7 +54,7 @@
   {
     "name": "ICEBOX",
     "description": "valoIceboxDescription",
-    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltde02911a015d7ef9/5f80d2851f5f6d4173b4e49d/Icebox_transparentbg_for_Web.png",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltde02911a015d7ef9/5f80d2851f5f6d4173b4e49d/Icebox_transparentbg_for_Web.png?width=786&height=394",
     "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt906b24335d555d2d/5f80d2859245d74a2063d39b/Iceboxtopdown.jpg",
     "images": [
       "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt9ef7b41910a14118/5f80debff6c586323f8b17a3/icebox_1.jpg",
@@ -70,7 +70,7 @@
   {
     "name": "BIND",
     "description": "valoBindDescription",
-    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8538036a309525ae/5ebc470bfd85ad7411ce6b50/bind-featured.png",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8538036a309525ae/5ebc470bfd85ad7411ce6b50/bind-featured.png?width=786&height=394",
     "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt0f5de98b3f24752b/5ebc799920f7727335262069/bind-featured-mobile.png",
     "images": [
       "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltc54ad3a88d94a4d6/5eabe92eaf7e315106b4799b/bind1.jpg",
@@ -84,7 +84,7 @@
   {
     "name": "HAVEN",
     "description": "valoHavenDescription",
-    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8afb5b8145f5e9b2/5ebc46f7b8c49976b71c0bc5/haven-featured.png",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8afb5b8145f5e9b2/5ebc46f7b8c49976b71c0bc5/haven-featured.png?width=786&height=394",
     "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltb087e5cc6a3a8bb8/5ebc7993b97c864b123fbb24/haven-featured-mobile.png",
     "images": [
       "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt7df0b99a582cc5aa/5eabe987b8a6356e4ddc0ca4/haven1.jpg",
@@ -96,7 +96,7 @@
   {
     "name": "SPLIT",
     "description": "valoSplitDescription",
-    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltd188c023f88f7d91/5ebc46db20f7727335261fcd/split-featured.png",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltd188c023f88f7d91/5ebc46db20f7727335261fcd/split-featured.png?width=786&height=394",
     "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltf054bce7a5079e50/5ebc79893f24223049062700/split-featured-mobile.png",
     "images": [
       "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt643d33e2defb855c/5eabe9fe248a28605479c547/split1.jpg",
@@ -107,8 +107,8 @@
   },
   {
     "name": "ASCENT",
-    "description": "valoAscendDescription",
-    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta9b912e1a1b59aa4/5ebc471cfa550001f72bcb13/ascent-featured.png",
+    "description": "valoAscentDescription",
+    "featuredImage": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta9b912e1a1b59aa4/5ebc471cfa550001f72bcb13/ascent-featured.png?width=786&height=394",
     "featuredImageMobile": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt3edb81dba7971965/5ebc79a2f7d1ee4c034c9c04/ascent-featured-mobile.png",
     "images": [
       "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt930666d9ab927326/5eabe9c45751b2150e57a42c/ascent1.jpg",

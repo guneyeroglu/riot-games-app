@@ -1,0 +1,19 @@
+@mixin slide($name, $percent, $way: Y) {
+  @keyframes #{$name} {
+    @if $way == Y {
+      0% {
+        transform: translateY($percent);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    } @else {
+      0% {
+        transform: translateX($percent);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+}
