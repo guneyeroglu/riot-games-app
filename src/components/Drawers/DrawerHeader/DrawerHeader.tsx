@@ -18,6 +18,7 @@ interface IProps {
   className?: string;
   homeUrl?: string;
 }
+
 const DrawerHeader = (props: IProps) => {
   const { open, onClose, className, contents, homeUrl } = props;
   const { t } = useTranslation();

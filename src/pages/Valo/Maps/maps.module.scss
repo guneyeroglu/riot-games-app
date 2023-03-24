@@ -38,8 +38,8 @@
       justify-content: flex-start;
       align-items: center;
       margin: 0 0 2rem 0;
-      animation: title 1s ease-in-out;
-      @include slide(title, -500%);
+      animation: title-slide 1s ease-in-out;
+      @include slide(title-slide, -500%);
 
       span {
         font-size: 2rem;
@@ -80,8 +80,8 @@
           border-radius: 3.5rem;
           background-color: #eeeeee;
           border: 3px solid #eeeeee;
-          animation: image 1s ease-in-out;
-          @include slide(image, 50%);
+          animation: image-slide 1s ease-in-out;
+          @include slide(image-slide, -50%, X);
         }
 
         &.hidden {
@@ -102,8 +102,8 @@
         padding: 2rem;
         border-bottom-left-radius: 3.5rem;
         transition: height 0.35s ease-in-out;
-        animation: height 1s ease-in-out;
-        @include max-content(height);
+        animation: height-max-content 1s ease-in-out;
+        @include max-content(height-max-content);
 
         & > span {
           font-size: 1.25rem;
@@ -112,16 +112,17 @@
 
           &:nth-child(1) {
             margin: 0 0 1rem 0;
-            animation: span-1 1s ease-in-out, span-1-opacity 1.75s ease-in-out;
-            @include slide(span-1, 125%, X);
+            animation: span-1-slide 1s ease-in-out, span-1-opacity 2s ease-in-out;
+            @include slide(span-1-slide, 125%, X);
             @include opacity(span-1-opacity, 0.75);
           }
 
           &:nth-child(2) {
             font-size: 0.85rem;
             font-weight: 400;
-            animation: span-2 1s ease-in-out;
-            @include opacity(span-2, 0.75);
+            animation: span-2-slice 1s ease-in-out, span-2-opacity 2s ease-in-out;
+            @include slide(span-2-slice, -125%, X);
+            @include opacity(span-2-opacity, 0.75);
           }
 
           &:nth-child(3) {
@@ -135,17 +136,17 @@
         }
 
         button.go {
-          height: 40px;
           display: flex;
           flex-direction: row;
           justify-content: center;
           align-items: center;
           gap: 0.5rem;
+          margin: 1rem 0 0 0;
           background-color: transparent;
           border: none;
           outline: none;
-          animation: button-slice 1s ease-in-out, button-opacity 1.75s ease-in-out;
-          @include slide(button-slice, -125%, X);
+          animation: button-slice 1s ease-in-out, button-opacity 2s ease-in-out;
+          @include slide(button-slice, 125%, X);
           @include opacity(button-opacity, 0.75);
           opacity: 0.75;
 

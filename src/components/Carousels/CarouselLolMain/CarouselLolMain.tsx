@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { Icon } from '../Icons/Icon';
-import { IImage } from '../Images/lol/main/ImagesCarousel';
+import { Icon } from '../../Icons/Icon';
+import { IImage } from '../../Images/lol/main/ImagesCarousel';
 
-import styles from './carousel.module.scss';
+import styles from './carousel-lol-main.module.scss';
 
 interface IProps {
   images: IImage[];
 }
 
-const Carousel = (props: IProps) => {
+const CarouselLolMain = (props: IProps) => {
   const { images } = props;
 
   const [currentImage, setCurrentImage] = useState<number>(0);
@@ -47,4 +47,4 @@ const Carousel = (props: IProps) => {
   );
 };
 
-export default Carousel;
+export default CarouselLolMain;

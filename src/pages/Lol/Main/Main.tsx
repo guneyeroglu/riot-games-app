@@ -7,7 +7,7 @@ import { imagesCarousel } from '../../../components/Images/';
 import FeaturedTitle from '../../../components/FeaturedTitle/FeaturedTitle';
 import Spinner from '../../../components/Spinner/Spinner';
 import DrawerRegion from '../../../components/Drawers/DrawerRegion/DrawerRegion';
-import Carousel from '../../../components/Carousel/Carousel';
+import { CarouselLolMain } from '../../../components/Carousels';
 
 import backgroundImageChampions from '../../../assets/images/lol/featured-champs-bg.jpeg';
 import backgroundImageRegions from '../../../assets/images/lol/featured-regions-bg.jpeg';
@@ -85,7 +85,7 @@ const Main = () => {
 
   return (
     <div className={styles.container}>
-      <Carousel images={imagesCarousel} />
+      <CarouselLolMain images={imagesCarousel} />
       <div className={styles.container__featured}>
         <div className={styles.champions}>
           <div className={styles.champions__background} style={{ backgroundImage: `url(${backgroundImageChampions})` }}></div>

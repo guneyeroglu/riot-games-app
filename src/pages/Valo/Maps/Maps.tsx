@@ -4,6 +4,8 @@ import LazyLoad from 'react-lazy-load';
 
 import Spinner from '../../../components/Spinner/Spinner';
 import { Icon } from '../../../components/Icons/Icon';
+import DrawerMaps from '../../../components/Drawers/DrawerMaps/DrawerMaps';
+
 import { valorantMaps as data } from '../../../global/utils';
 import backgroundVideo from '../../../assets/images/valo/background-video.mp4';
 import backgroundPoster from '../../../assets/images/valo/background-poster.jpeg';
@@ -12,6 +14,7 @@ import styles from './maps.module.scss';
 
 const Maps = () => {
   const { t, i18n } = useTranslation();
+  const [open, setOpen] = useState<boolean>(false);
   const [currentMap, setCurrentMap] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -24,6 +27,10 @@ const Maps = () => {
 
     setIsLoading(true);
     setCurrentMap(id);
+  };
+
+  const handleViewGallery = () => {
+    setOpen(true);
   };
 
   useEffect(() => {
@@ -58,7 +65,7 @@ const Maps = () => {
             <span>{data[currentMap].name}</span>
             <span>{t(data[currentMap].description)}</span>
             <span>{`${currentMap < 9 ? `0${currentMap + 1}` : currentMap}`}</span>
-            <button className={styles.go}>
+            <button className={styles.go} onClick={handleViewGallery}>
               <span>{t('viewGallery')}</span>
               <Icon name='ArrowIcon' />
             </button>
@@ -70,6 +77,7 @@ const Maps = () => {
           </div>
         </div>
       </div>
+      <DrawerMaps open={open} onClose={() => setOpen(false)} currentMap={currentMap} />
     </div>
   );
 };
