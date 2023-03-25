@@ -211,7 +211,7 @@ const DialogLolChampion = (props: IProps) => {
                     {!skillOnLoad && <Spinner color='#171717' />}
                     {!isFetching && (
                       <img
-                        src={`https://ddragon.leagueoflegends.com/cdn/12.22.1/img/${skill.image.group}/${skill.image.full}`}
+                        src={`https://ddragon.leagueoflegends.com/cdn/13.6.1/img/${skill.image.group}/${skill.image.full}`}
                         alt={skill.name}
                         width={skillWidth}
                         onLoad={handleSkillOnLoad}

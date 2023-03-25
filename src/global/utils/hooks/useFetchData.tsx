@@ -36,11 +36,11 @@ const useFetchData = (
     },
     {
       type: 'lol-champions-url',
-      url: `https://ddragon.leagueoflegends.com/cdn/12.22.1/data/${i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'}/champion.json`,
+      url: `https://ddragon.leagueoflegends.com/cdn/13.6.1/data/${i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'}/champion.json`,
     },
     {
       type: 'lol-champion-detail',
-      url: `https://ddragon.leagueoflegends.com/cdn/12.22.1/data/${i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'}/champion/${name}.json`,
+      url: `https://ddragon.leagueoflegends.com/cdn/13.6.1/data/${i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'}/champion/${name}.json`,
     },
     {
       type: 'lol-regions',
