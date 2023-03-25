@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Drawer } from '@mui/material';
+
+import { CarouselValoMap } from '../../Carousels';
 import { Icon } from '../../Icons/Icon';
 import { valorantMaps as data } from '../../../global/utils';
 
@@ -29,7 +31,9 @@ const DrawerMaps = (props: IProps) => {
             <span>{data[currentMap].name}</span>
             <span>{t(data[currentMap].description)}</span>
           </div>
-          <div className={styles.images}></div>
+          <div className={styles.images}>
+            <CarouselValoMap images={data[currentMap].images} />
+          </div>
         </div>
       </div>
     </Drawer>

@@ -80,8 +80,9 @@
           border-radius: 3.5rem;
           background-color: #eeeeee;
           border: 3px solid #eeeeee;
-          animation: image-slide 1s ease-in-out;
+          animation: image-slide 1s ease-in-out, span-1-opacity 2s ease-in-out;
           @include slide(image-slide, -50%, X);
+          @include opacity(span-1-opacity, 0.75);
         }
 
         &.hidden {

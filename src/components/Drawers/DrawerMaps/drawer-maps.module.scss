@@ -11,14 +11,12 @@
   }
 
   .wrapper {
-    max-width: 1400px;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 0 auto;
-    height: 100%;
     position: relative;
 
     &__title {
@@ -92,6 +90,7 @@
         align-items: flex-start;
         padding: 2rem;
         border-right: 3px solid #eeeeee;
+        margin: 0 0 50px 0;
 
         span {
           font-size: 1rem;
@@ -115,7 +114,8 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        padding: 2rem;
+        padding: 0 2rem;
+        overflow: hidden;
       }
     }
   }

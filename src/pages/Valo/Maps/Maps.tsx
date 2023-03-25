@@ -64,7 +64,7 @@ const Maps = () => {
           <div className={styles.image__info}>
             <span>{data[currentMap].name}</span>
             <span>{t(data[currentMap].description)}</span>
-            <span>{`${currentMap < 9 ? `0${currentMap + 1}` : currentMap}`}</span>
+            <span>{currentMap < 9 ? `0${currentMap + 1}` : currentMap + 1}</span>
             <button className={styles.go} onClick={handleViewGallery}>
               <span>{t('viewGallery')}</span>
               <Icon name='ArrowIcon' />
