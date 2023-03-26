@@ -1,7 +1,7 @@
 import { Dispatch, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Dialog } from '@mui/material';
+import { Dialog, useMediaQuery } from '@mui/material';
 
 import { Icon } from '../../Icons/Icon';
 import IconButton from '../../IconButton/IconButton';
@@ -54,7 +54,6 @@ interface IChampionDetails {
 
 const DialogLolChampion = (props: IProps) => {
   const { open, onSetOpen, championName } = props;
-
   const [skinId, setSkinId] = useState<number>(0);
   const [width, setWidth] = useState<string>('0%');
   const [onLoad, setOnLoad] = useState<boolean>(false);
@@ -63,7 +62,6 @@ const DialogLolChampion = (props: IProps) => {
   const [lore, setLore] = useState<boolean>(false);
   const [skillName, setSkillName] = useState<string>('');
   const [imageOpen, setImageOpen] = useState<boolean>(false);
-
   const { t, i18n } = useTranslation();
 
   const handleClose = () => {
@@ -78,10 +76,9 @@ const DialogLolChampion = (props: IProps) => {
   };
 
   const { data, isFetching, refetch } = useFetchData('lol-champion-detail', championName, { enabled: false });
-
   const championDetails: IChampionDetails = data?.data?.[championName];
-
   const skinQuantity = championDetails?.skins.length;
+  const isTablet = useMediaQuery('(max-width: 1024px)');
 
   const handleNextSkin = () => {
     setWidth('0%');
@@ -141,8 +138,20 @@ const DialogLolChampion = (props: IProps) => {
     }
   }, [refetch, championName, i18n.language]);
 
+  useEffect(() => {
+    if (isTablet) {
+      handleClose();
+    }
+  }, [handleClose, isTablet]);
+
   return (
-    <Dialog open={open} maxWidth='md' fullWidth onClose={handleClose} className={skillName === '' ? styles.container : `${styles.container} ${styles.open}`}>
+    <Dialog
+      open={open && !isTablet}
+      maxWidth='md'
+      fullWidth
+      onClose={handleClose}
+      className={skillName === '' ? styles.container : `${styles.container} ${styles.open}`}
+    >
       <div className={styles.wrapper}>
         <div className={styles.wrapper__title}>
           <div className={styles['wrapper__title--button']}>

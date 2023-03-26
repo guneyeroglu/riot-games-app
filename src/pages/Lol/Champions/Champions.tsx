@@ -39,11 +39,8 @@ const Champions = () => {
   const { t, i18n } = useTranslation();
 
   const [inputValue, setInputValue] = useState<string>('');
-
   const { data: championsData, isLoading, isError, refetch } = useFetchData('lol-champions');
-
   const { sortType, setSortType, handleSortOrder } = useSortOrder('a-z', 'name');
-
   const { openModal, setOpenModal, championName, setChampionName, DialogLolChampion } = useChampionDialog();
 
   useEffect(() => {

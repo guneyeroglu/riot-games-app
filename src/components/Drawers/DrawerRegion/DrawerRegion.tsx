@@ -1,9 +1,7 @@
 import { useState, Dispatch, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-
 import { SwipeableDrawer } from '@mui/material';
-
 import { QueryObserverResult, RefetchOptions, RefetchQueryFilters } from '@tanstack/react-query';
 
 import { CardLolChar } from '../../Cards';
@@ -51,10 +49,8 @@ interface ILolRegionDetail {
 
 const DrawerRegion = (props: IProps) => {
   const { open, onSetOpen, region } = props;
-
   const divRef = useRef<HTMLDivElement>(null);
   const [divOffSetTop, setDivOffSetTop] = useState<number>(0);
-
   const { t } = useTranslation();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);

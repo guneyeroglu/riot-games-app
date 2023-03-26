@@ -5,6 +5,8 @@ import { useFetchData } from '../../../global/utils';
 import { IChamp } from '../../../global/interfaces';
 
 import styles from './card-lol-char.module.scss';
+import { useMediaQuery } from '@mui/material';
+import { useNavigate } from 'react-router';
 
 interface IProps {
   data: IChamp;
@@ -14,10 +16,13 @@ interface IProps {
 
 const CardLol = (props: IProps) => {
   const { data: champ, onSetChampionName: setChampionName, onSetOpen } = props;
-
   const { data: champUrl } = useFetchData('lol-champions-url');
+  const navigate = useNavigate();
+  const isTablet = useMediaQuery('(max-width: 1024px)');
 
   const handleChampionName = (name: string) => {
+    if (isTablet) return navigate(`/leagueoflegends/champions/${name}}`);
+
     const charName = Object.keys(champUrl?.data).find(
       (char: string) =>
         champUrl?.data[char]?.name.replace("'", '').replace('`', '').replace('’', '').toLowerCase() ===
@@ -25,6 +30,7 @@ const CardLol = (props: IProps) => {
     );
 
     setChampionName(charName || '');
+
     onSetOpen(true);
   };
 
