@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
-
 import { Menu, MenuItem } from '@mui/material';
 
-import styles from './custom-menu.module.scss';
 import { Icon } from '../Icons/Icon';
+
+import styles from './custom-menu.module.scss';
 
 interface IITems {
   id: number | string;

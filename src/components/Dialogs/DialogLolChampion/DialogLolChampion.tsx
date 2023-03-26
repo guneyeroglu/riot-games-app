@@ -142,7 +142,9 @@ const DialogLolChampion = (props: IProps) => {
     if (isTablet) {
       handleClose();
     }
-  }, [handleClose, isTablet]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isTablet]);
 
   return (
     <Dialog

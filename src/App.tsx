@@ -1,10 +1,10 @@
-import MainRouter from './routers/MainRouter';
+import Router from './routers/Router';
 
 import './assets/i18n';
 import './assets/scss/global.scss';
 
 const App = () => {
-  return <MainRouter />;
+  return <Router />;
 };
 
 export default App;

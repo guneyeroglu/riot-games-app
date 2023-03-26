@@ -1,11 +1,10 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router';
-
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+import { Route, Routes } from 'react-router-dom';
 
 import { ScrollToTop } from '../global/utils';
 import Spinner from '../components/Spinner/Spinner';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 const Home = lazy(() => import('../pages/Home/Main/Home'));
 const Champions = lazy(() => import('../pages/Lol/Champions/Champions'));
@@ -17,7 +16,7 @@ const Maps = lazy(() => import('../pages/Valo/Maps/Maps'));
 const Arsenal = lazy(() => import('../pages/Valo/Arsenal/Arsenal'));
 const ValoMain = lazy(() => import('../pages/Valo/Main/Main'));
 
-const MainRouter = () => {
+const Router = () => {
   return (
     <ScrollToTop>
       <Header />
@@ -40,4 +39,4 @@ const MainRouter = () => {
   );
 };
 
-export default MainRouter;
+export default Router;
