@@ -21,10 +21,10 @@ const DrawerMaps = (props: IProps) => {
     <Drawer open={open} anchor='left' className={styles.drawer} onClose={onClose}>
       <div className={styles.wrapper}>
         <div className={styles.wrapper__title}>
+          <span>{data[currentMap].name}</span>
           <button onClick={onClose}>
             <Icon name='CloseIcon' />
           </button>
-          <span>{data[currentMap].name}</span>
         </div>
         <div className={styles.wrapper__content}>
           <div className={styles.description}>

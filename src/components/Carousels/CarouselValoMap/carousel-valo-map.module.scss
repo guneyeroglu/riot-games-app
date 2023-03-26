@@ -1,3 +1,5 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -70,6 +72,23 @@
         cursor: pointer;
         opacity: 1;
       }
+    }
+  }
+}
+
+@media screen and (max-width: device.$xs) {
+  .wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    position: unset;
+    padding: 0;
+
+    &__carousel {
+      height: 275px;
+    }
+
+    &__actions {
+      position: unset;
     }
   }
 }

@@ -1,3 +1,4 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
 @import '../../../assets/scss/functions/slide.scss';
 @import '../../../assets/scss/functions/opacity.scss';
 @import '../../../assets/scss/functions/max-content.scss';
@@ -60,7 +61,6 @@
 
       &__spinner {
         width: 100%;
-        height: 400px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -75,8 +75,9 @@
 
         img {
           width: 100%;
-          height: 400px;
+          height: 100%;
           object-fit: cover;
+          object-position: center;
           border-radius: 3.5rem;
           background-color: #eeeeee;
           border: 3px solid #eeeeee;
@@ -92,8 +93,8 @@
 
       &__info {
         position: absolute;
-        bottom: -3.5rem;
-        right: -3.5rem;
+        bottom: -5.5rem;
+        right: -5.5rem;
         width: 300px;
         display: flex;
         flex-direction: column;
@@ -194,7 +195,6 @@
         justify-content: flex-start;
         align-items: center;
         gap: 1rem;
-        margin: 0 3.5rem 0 0;
 
         button {
           width: 30px;
@@ -215,6 +215,60 @@
             cursor: pointer;
             background-color: #d13539;
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$m) {
+  .wrapper {
+    height: 100%;
+
+    &__content {
+      height: 100%;
+      padding: 1rem;
+
+      .image {
+        height: 100%;
+
+        &__spinner {
+          order: 2;
+        }
+
+        &__lazy {
+          order: 2;
+        }
+
+        &__info {
+          position: relative;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: 0;
+          order: 3;
+          width: 100%;
+
+          transition: none;
+          animation: none;
+
+          & > span {
+            font-size: 1.25rem;
+            font-weight: 600;
+            opacity: 0.75;
+
+            &:nth-child(2) {
+              animation: none;
+            }
+          }
+
+          button.go {
+            animation: none;
+          }
+        }
+
+        &__actions {
+          order: 1;
         }
       }
     }

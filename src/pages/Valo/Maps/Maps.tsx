@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LazyLoad from 'react-lazy-load';
+import { useMediaQuery } from '@mui/material';
 
 import Spinner from '../../../components/Spinner/Spinner';
 import { Icon } from '../../../components/Icons/Icon';
@@ -17,6 +18,7 @@ const Maps = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [currentMap, setCurrentMap] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const isMobile = useMediaQuery('(max-width: 600px)');
 
   const handleSpinner = () => {
     setIsLoading(false);
@@ -49,13 +51,13 @@ const Maps = () => {
         </div>
         <div key={data[currentMap].name} className={styles.image}>
           {isLoading && (
-            <div className={styles.image__spinner}>
+            <div className={styles.image__spinner} style={{ height: isMobile ? '275px' : '450px' }}>
               <Spinner />
             </div>
           )}
           <LazyLoad
             width={isLoading ? '0%' : '100%'}
-            height={isLoading ? '0%' : '400px'}
+            height={isLoading ? '0%' : `${isMobile ? '275px' : '450px'}`}
             offset={400}
             className={`${styles.image__lazy} ${isLoading ? styles.hidden : ''}`.trim()}
           >

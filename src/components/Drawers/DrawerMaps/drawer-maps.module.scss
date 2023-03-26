@@ -1,3 +1,5 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
+
 .drawer {
   display: block;
 
@@ -17,15 +19,13 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    position: relative;
 
     &__title {
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding: 0 2rem;
 
       button {
         display: flex;
@@ -34,6 +34,7 @@
         align-items: center;
         width: 60px;
         height: 60px;
+        z-index: 1;
         background-color: #eeeeee;
         border: none;
         outline: none;
@@ -59,15 +60,14 @@
       }
 
       span {
-        font-size: 16rem;
+        font-size: 14rem;
         font-weight: 600;
         color: #171717;
-        position: absolute;
         -webkit-text-stroke: 3px #eeeeee;
         opacity: 0.01;
         left: 0;
         top: 0;
-        letter-spacing: 2rem;
+        letter-spacing: 0.5rem;
         white-space: nowrap;
         line-height: 0.85;
       }
@@ -116,6 +116,75 @@
         align-items: center;
         padding: 0 2rem;
         overflow: hidden;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$l) {
+  .drawer {
+    .wrapper {
+      &__title {
+        span {
+          font-size: 10rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$m) {
+  .drawer {
+    :global(.MuiPaper-root) {
+      padding: 1rem;
+    }
+
+    .wrapper {
+      &__title {
+        height: 75px;
+
+        span {
+          font-size: 5rem;
+        }
+      }
+
+      &__content {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 2rem 0;
+        height: calc(100% - 75px);
+        gap: 2rem;
+
+        .description {
+          flex: 1 0 30%;
+          width: 100%;
+          height: auto;
+          padding: 1rem;
+          border-right: none;
+          border-bottom: 3px solid #eeeeee;
+          margin: 0;
+        }
+
+        .images {
+          flex: 1 0 calc(70% - 2rem);
+          width: 100%;
+          height: auto;
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$xs) {
+  .drawer {
+    .wrapper {
+      &__title {
+        justify-content: flex-end;
+
+        span {
+          display: none;
+        }
       }
     }
   }

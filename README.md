@@ -10,7 +10,7 @@ The development process continues...
     - Items (TODO) - RESPONSIVE DESIGN (TODO)
   - Valo Home (DONE) - RESPONSIVE DESIGN (DONE)
     - Agents (DONE) - RESPONSIVE DESIGN (DONE)
-    - Maps (DONE) - RESPONSIVE DESIGN (TODO)
+    - Maps (DONE) - RESPONSIVE DESIGN (DONE)
     - Arsenal (TODO) - RESPONSIVE DESIGN (TODO)
 - Footer (DONE) - RESPONSIVE DESIGN (DONE)
 
