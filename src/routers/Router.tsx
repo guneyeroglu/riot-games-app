@@ -8,6 +8,7 @@ import Footer from '../components/Footer/Footer';
 
 const Home = lazy(() => import('../pages/Home/Main/Home'));
 const Champions = lazy(() => import('../pages/Lol/Champions/Champions'));
+const Champion = lazy(() => import('../pages/Lol/Champions/Champion/Champion'));
 const Regions = lazy(() => import('../pages/Lol/Regions/Regions'));
 const Items = lazy(() => import('../pages/Lol/Items/Items'));
 const LolMain = lazy(() => import('../pages/Lol/Main/Main'));
@@ -25,7 +26,7 @@ const Router = () => {
           <Route path='/' element={<Home />} />
           <Route path='/leagueoflegends' element={<LolMain />} />
           <Route path='/leagueoflegends/champions' element={<Champions />} />
-          <Route path='/leagueoflegends/champions/:champion' element={<Champions />} />
+          <Route path='/leagueoflegends/champion/:championName' element={<Champion />} />
           <Route path='/leagueoflegends/regions' element={<Regions />} />
           <Route path='/leagueoflegends/items' element={<Items />} />
           <Route path='/valorant' element={<ValoMain />} />

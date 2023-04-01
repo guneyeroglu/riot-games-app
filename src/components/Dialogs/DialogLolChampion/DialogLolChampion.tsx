@@ -9,47 +9,15 @@ import Spinner from '../../Spinner/Spinner';
 
 import { useFetchData } from '../../../global/utils';
 
+import { IChampionDetails } from '../../../global/interfaces';
+
 import styles from './dialog-lol-champion.module.scss';
+import { Link } from 'react-router-dom';
 
 interface IProps {
   open: boolean;
   onSetOpen: Dispatch<boolean>;
   championName: string;
-}
-
-interface IImage {
-  full: string;
-  group: string;
-  h: number;
-  sprite: string;
-  w: number;
-  x: number;
-  y: number;
-}
-
-interface ISkill {
-  description: string;
-  image: IImage;
-  name: string;
-}
-
-interface ISkin {
-  id: string;
-  name: string;
-  num: number;
-}
-
-interface IChampionDetails {
-  blurb: string;
-  id: string;
-  image: IImage;
-  key: string;
-  lore: string;
-  name: string;
-  passive: ISkill;
-  skins: ISkin[];
-  spells: ISkill[];
-  title: string;
 }
 
 const DialogLolChampion = (props: IProps) => {
@@ -160,12 +128,16 @@ const DialogLolChampion = (props: IProps) => {
             <IconButton label='CloseIcon' onClick={handleClose} />
           </div>
           {isFetching && <Spinner color='#c4b998' />}
-          <span>
-            {!isFetching &&
-              `${championDetails?.name.toUpperCase()} - ${
-                i18n.language === 'tr_TR' ? championDetails?.title.toLocaleUpperCase() : championDetails?.title.toUpperCase()
-              }`}
-          </span>
+          {!isFetching && (
+            <Link to={`/leagueoflegends/champion/${championDetails?.id}`}>
+              <span>
+                {`${championDetails?.name.toUpperCase()} - ${
+                  i18n.language === 'tr_TR' ? championDetails?.title.toLocaleUpperCase() : championDetails?.title.toUpperCase()
+                }`}
+              </span>
+              <Icon name='ArrowIcon' />
+            </Link>
+          )}
         </div>
         <div className={styles.wrapper__content}>
           <div className={styles['wrapper__content-img']}>

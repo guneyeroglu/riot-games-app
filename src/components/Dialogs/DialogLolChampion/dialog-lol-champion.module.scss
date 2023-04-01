@@ -66,12 +66,44 @@
               }
             }
 
-            span {
+            a {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              gap: 0.5rem;
+              text-decoration: none;
               color: #c4b998;
-              white-space: nowrap;
-              font-size: 1.5rem;
-              font-weight: 900;
-              letter-spacing: 0.02em;
+              transition: color 0.35s ease-in-out;
+
+              span {
+                color: #c4b998;
+                white-space: nowrap;
+                font-size: 1.5rem;
+                font-weight: 900;
+                letter-spacing: 0.02em;
+                transition: color 0.35s ease-in-out;
+              }
+
+              svg {
+                fill: #c4b998;
+                rotate: 135deg;
+                width: 20px;
+                height: 20px;
+                transition: fill 0.35s ease-in-out;
+              }
+
+              &:hover {
+                color: #d13539;
+
+                span {
+                  color: #d13539;
+                }
+
+                svg {
+                  fill: #d13539;
+                }
+              }
             }
           }
 

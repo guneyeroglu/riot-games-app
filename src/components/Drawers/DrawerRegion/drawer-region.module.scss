@@ -4,7 +4,7 @@
   display: block;
 
   :global(.MuiPaper-root) {
-    height: 80vh;
+    height: 80dvh;
     background-color: #171717;
   }
 
@@ -17,8 +17,8 @@
     .video {
       position: relative;
       width: 100vw;
-      height: 70vh;
-      min-height: 70vh;
+      height: 70dvh;
+      min-height: 70dvh;
       -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
       mask-image: linear-gradient(rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
 

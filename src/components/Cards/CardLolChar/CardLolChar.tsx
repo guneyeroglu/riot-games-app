@@ -1,12 +1,12 @@
 import { Dispatch } from 'react';
+import { useNavigate } from 'react-router';
 import LazyLoad from 'react-lazy-load';
+import { useMediaQuery } from '@mui/material';
 
 import { useFetchData } from '../../../global/utils';
 import { IChamp } from '../../../global/interfaces';
 
 import styles from './card-lol-char.module.scss';
-import { useMediaQuery } from '@mui/material';
-import { useNavigate } from 'react-router';
 
 interface IProps {
   data: IChamp;
@@ -21,16 +21,15 @@ const CardLol = (props: IProps) => {
   const isTablet = useMediaQuery('(max-width: 1024px)');
 
   const handleChampionName = (name: string) => {
-    if (isTablet) return navigate(`/leagueoflegends/champions/${name}}`);
-
     const charName = Object.keys(champUrl?.data).find(
       (char: string) =>
         champUrl?.data[char]?.name.replace("'", '').replace('`', '').replace('’', '').toLowerCase() ===
         name.replace("'", '').replace('`', '').replace('’', '').toLowerCase(),
     );
 
-    setChampionName(charName || '');
+    if (isTablet) return navigate(`/leagueoflegends/champion/${charName}`);
 
+    setChampionName(charName || '');
     onSetOpen(true);
   };
 
