@@ -24,6 +24,10 @@ interface ILolRegionDetail {
   data: {
     'associated-champions': IChamp[];
     'champion-list-order': number;
+    image: {
+      title: string;
+      uri: string;
+    };
     faction: {
       headerImage: string;
       name: string;
@@ -53,7 +57,7 @@ const DrawerRegion = (props: IProps) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [divOffSetTop, setDivOffSetTop] = useState<number>(0);
   const { t } = useTranslation();
-  const [isLoaded, setIsLoaded] = useState<boolean>(true);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
   const isMobile = useMediaQuery('(max-width: 850px)');
 
@@ -121,7 +125,7 @@ const DrawerRegion = (props: IProps) => {
                 </div>
               </div>
             )}
-            <video autoPlay loop preload='auto' playsInline onLoadedData={() => setIsLoaded(true)}>
+            <video autoPlay loop preload='auto' playsInline onLoadedData={() => setIsLoaded(true)} poster={data?.image?.uri}>
               <source src={data?.faction.video.uri} type='video/webm' />
             </video>
           </div>
