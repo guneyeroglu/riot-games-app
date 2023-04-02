@@ -121,7 +121,7 @@ const DrawerRegion = (props: IProps) => {
                 </div>
               </div>
             )}
-            <video src={data?.faction.video.uri} autoPlay loop preload='auto' onLoadedData={() => setIsLoaded(true)}></video>
+            <video src={data?.faction.video.uri} autoPlay loop preload='auto' playsInline onLoadedData={() => setIsLoaded(true)}></video>
           </div>
         )}
         {isLoaded && (
