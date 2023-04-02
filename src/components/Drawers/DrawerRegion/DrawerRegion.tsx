@@ -143,7 +143,7 @@ const DrawerRegion = (props: IProps) => {
                     <source src={data?.faction.video.uri} type='video/webm' />
                   </video>
                 )}
-                {isMobile && <img src={data.faction.image.uri} alt={data.faction.image.title} onLoad={() => setIsLoaded(true)} />}
+                {isMobile && <img src={data.faction.image.uri} alt={data.faction.image.title} onLoad={() => setIsLoaded(true)} className={styles.poster} />}
               </div>
             )}
             {isLoaded && !isFetching && (
@@ -171,7 +171,7 @@ const DrawerRegion = (props: IProps) => {
             )}
           </div>
           {!isLoaded && <Spinner color='#eeeeee' center />}
-          {isLoaded && !isFetching && (
+          {isLoaded && !isFetching && isMobile && (
             <div className={styles.action}>
               <button onClick={() => onSetOpen(false)}>
                 <Icon name='CloseIcon' />
