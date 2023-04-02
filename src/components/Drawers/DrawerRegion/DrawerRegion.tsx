@@ -146,7 +146,7 @@ const DrawerRegion = (props: IProps) => {
                 {isMobile && <img src={data.faction.image.uri} alt={data.faction.image.title} onLoad={() => setIsLoaded(true)} />}
               </div>
             )}
-            {isLoaded && (
+            {isLoaded && !isFetching && (
               <>
                 <div className={styles['wrapper__content--description']}>
                   <span>{data?.faction.overview.short.replace(/<\/?[^>]+(>|$)/g, '')}</span>
@@ -171,7 +171,7 @@ const DrawerRegion = (props: IProps) => {
             )}
           </div>
           {!isLoaded && <Spinner color='#eeeeee' center />}
-          {isLoaded && (
+          {isLoaded && !isFetching && (
             <div className={styles.action}>
               <button onClick={() => onSetOpen(false)}>
                 <Icon name='CloseIcon' />
