@@ -62,7 +62,8 @@
         }
       }
 
-      video {
+      video,
+      img {
         object-fit: cover;
         width: 100%;
         height: 100%;
@@ -184,7 +185,7 @@
 @media screen and (max-width: device.$m) {
   .wrapper {
     :global(.MuiPaper-root) {
-      height: 800px;
+      height: 100%;
     }
 
     &__content {
@@ -217,10 +218,6 @@
 
 @media screen and (max-width: device.$s) {
   .wrapper {
-    :global(.MuiPaper-root) {
-      height: 100%;
-    }
-
     &__content {
       .video {
         height: 600px;

@@ -59,7 +59,7 @@ const DrawerRegion = (props: IProps) => {
   const { t } = useTranslation();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
-  const isMobile = useMediaQuery('(max-width: 850px)');
+  const isMobile = useMediaQuery('(max-width: 1024px)');
 
   const handleCloseDrawer = () => {
     onSetOpen(false);
@@ -109,7 +109,7 @@ const DrawerRegion = (props: IProps) => {
       <div className={styles.wrapper__content} onScroll={handleScroll}>
         {!isFetching && (
           <div className={styles.video}>
-            {isLoaded && (
+            {(isLoaded || isMobile) && (
               <div className={styles.video__title}>
                 <div className={styles['video__title--logo']}>
                   <img
@@ -125,9 +125,12 @@ const DrawerRegion = (props: IProps) => {
                 </div>
               </div>
             )}
-            <video autoPlay loop preload='auto' playsInline onLoadedData={() => setIsLoaded(true)} poster={data?.faction.image.uri}>
-              <source src={data?.faction.video.uri} type='video/webm' />
-            </video>
+            {!isMobile && (
+              <video autoPlay loop preload='auto' playsInline onLoadedData={() => setIsLoaded(true)}>
+                <source src={data?.faction.video.uri} type='video/webm' />
+              </video>
+            )}
+            {isMobile && <img src={data.faction.image.uri} alt={data.faction.image.title} />}
           </div>
         )}
         {isLoaded && (
