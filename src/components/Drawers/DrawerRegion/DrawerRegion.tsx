@@ -70,7 +70,9 @@ const DrawerRegion = (props: IProps) => {
     onSetOpen(true);
   };
 
-  const { data, isFetching }: ILolRegionDetail = useFetchData('lol-region-detail', region);
+  const { data, isFetching, refetch }: ILolRegionDetail = useFetchData('lol-region-detail', region, {
+    enabled: !!region,
+  });
 
   enum REGIONS {
     'bandle-city' = 'bandle_city',
@@ -104,66 +106,76 @@ const DrawerRegion = (props: IProps) => {
     }
   }, [divRef.current?.offsetTop]);
 
+  useEffect(() => {
+    if (region) {
+      refetch();
+    }
+  }, [refetch, region]);
+
   return (
     <SwipeableDrawer anchor='bottom' open={open} onClose={handleCloseDrawer} onOpen={handleOpenDrawer} className={styles.wrapper}>
-      <div className={styles.wrapper__content} onScroll={handleScroll}>
-        {!isFetching && (
-          <div className={styles.video}>
-            {(isLoaded || isMobile) && (
-              <div className={styles.video__title}>
-                <div className={styles['video__title--logo']}>
-                  <img
-                    src={`https://universe.leagueoflegends.com/images/${REGIONS[data?.faction.slug as keyof typeof REGIONS]}_crest_icon.png`}
-                    alt={data?.faction.name}
-                  />
-                </div>
-                <div className={styles['video__title--header']}>
-                  <span>{data?.faction.name.toUpperCase()}</span>
-                </div>
-                <div className={styles['video__title--footer']}>
-                  <img src='https://universe.leagueoflegends.com/images/t1HeaderDivider.png' alt='-' />
-                </div>
+      {open && (
+        <>
+          <div className={styles.wrapper__content} onScroll={handleScroll}>
+            {!isFetching && (
+              <div className={styles.video}>
+                {isLoaded && (
+                  <div className={styles.video__title}>
+                    <div className={styles['video__title--logo']}>
+                      <img
+                        src={`https://universe.leagueoflegends.com/images/${REGIONS[data?.faction.slug as keyof typeof REGIONS]}_crest_icon.png`}
+                        alt={data?.faction.name}
+                      />
+                    </div>
+                    <div className={styles['video__title--header']}>
+                      <span>{data?.faction.name.toUpperCase()}</span>
+                    </div>
+                    <div className={styles['video__title--footer']}>
+                      <img src='https://universe.leagueoflegends.com/images/t1HeaderDivider.png' alt='-' />
+                    </div>
+                  </div>
+                )}
+                {!isMobile && (
+                  <video autoPlay loop preload='auto' playsInline onLoadedData={() => setIsLoaded(true)}>
+                    <source src={data?.faction.video.uri} type='video/webm' />
+                  </video>
+                )}
+                {isMobile && <img src={data.faction.image.uri} alt={data.faction.image.title} onLoad={() => setIsLoaded(true)} />}
               </div>
             )}
-            {!isMobile && (
-              <video autoPlay loop preload='auto' playsInline onLoadedData={() => setIsLoaded(true)}>
-                <source src={data?.faction.video.uri} type='video/webm' />
-              </video>
+            {isLoaded && (
+              <>
+                <div className={styles['wrapper__content--description']}>
+                  <span>{data?.faction.overview.short.replace(/<\/?[^>]+(>|$)/g, '')}</span>
+                </div>
+                <div className={styles['wrapper__content--champions']}>
+                  <div className={`${styles.title} ${scroll ? styles.sticky : ''}`.trim()} ref={divRef}>
+                    <FeaturedTitle type='champions' />
+                  </div>
+                  <div className={styles.featured}>
+                    {data?.['associated-champions'].map((champ) => (
+                      <CardLolChar key={champ.name} data={champ} onSetChampionName={setChampionName} onSetOpen={setOpenModal} />
+                    ))}
+                  </div>
+                  <div className={styles.nav}>
+                    <Link to='/leagueoflegends/champions'>
+                      <span>{t('viewChamps')}</span>
+                    </Link>
+                  </div>
+                </div>
+                {openModal && <DialogLolChampion open={openModal} onSetOpen={setOpenModal} championName={championName} />}
+              </>
             )}
-            {isMobile && <img src={data.faction.image.uri} alt={data.faction.image.title} />}
           </div>
-        )}
-        {(isLoaded || isMobile) && (
-          <>
-            <div className={styles['wrapper__content--description']}>
-              <span>{data?.faction.overview.short.replace(/<\/?[^>]+(>|$)/g, '')}</span>
+          {!isLoaded && <Spinner color='#eeeeee' center />}
+          {isLoaded && (
+            <div className={styles.action}>
+              <button onClick={() => onSetOpen(false)}>
+                <Icon name='CloseIcon' />
+              </button>
             </div>
-            <div className={styles['wrapper__content--champions']}>
-              <div className={`${styles.title} ${scroll ? styles.sticky : ''}`.trim()} ref={divRef}>
-                <FeaturedTitle type='champions' />
-              </div>
-              <div className={styles.featured}>
-                {data?.['associated-champions'].map((champ) => (
-                  <CardLolChar key={champ.name} data={champ} onSetChampionName={setChampionName} onSetOpen={setOpenModal} />
-                ))}
-              </div>
-              <div className={styles.nav}>
-                <Link to='/leagueoflegends/champions'>
-                  <span>{t('viewChamps')}</span>
-                </Link>
-              </div>
-            </div>
-            {openModal && <DialogLolChampion open={openModal} onSetOpen={setOpenModal} championName={championName} />}
-          </>
-        )}
-      </div>
-      {!isLoaded && !isMobile && <Spinner color='#eeeeee' center />}
-      {(isLoaded || isMobile) && (
-        <div className={styles.action}>
-          <button onClick={() => onSetOpen(false)}>
-            <Icon name='CloseIcon' />
-          </button>
-        </div>
+          )}
+        </>
       )}
     </SwipeableDrawer>
   );
