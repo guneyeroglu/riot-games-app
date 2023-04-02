@@ -71,7 +71,7 @@ const Champions = () => {
         <FeaturedTitle type='champions' translation='champions' />
       </div>
       <div className={styles.container__content}>
-        {isLoading && <Spinner padding={true} />}
+        {isLoading && <Spinner />}
         {!isLoading &&
           filteredData &&
           filteredData

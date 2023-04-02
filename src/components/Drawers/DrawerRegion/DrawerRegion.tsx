@@ -170,7 +170,7 @@ const DrawerRegion = (props: IProps) => {
               </>
             )}
           </div>
-          {!isLoaded && <Spinner color='#eeeeee' center />}
+          {!isLoaded && isFetching && <Spinner color='#eeeeee' />}
           {isLoaded && !isFetching && isMobile && (
             <div className={styles.action}>
               <button onClick={() => onSetOpen(false)}>

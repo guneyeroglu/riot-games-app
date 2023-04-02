@@ -73,7 +73,7 @@ const Agents = () => {
         <FeaturedTitle type='agents' />
       </div>
       <div className={styles.container__cards}>
-        {isLoading && <Spinner padding={true} />}
+        {isLoading && <Spinner />}
         {!isLoading && filteredData && filteredData.map((agent: IAgent) => <CardValoAgent data={agent} key={agent.uuid} />)}
         {!isLoading && filteredData && !filteredData.length && <DataNotFound text={t('notFoundAgents')} />}
         {!isLoading && isError && <DataNotFound text={t('notFoundAgents')} />}

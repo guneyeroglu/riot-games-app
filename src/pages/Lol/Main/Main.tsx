@@ -94,7 +94,7 @@ const Main = () => {
               <FeaturedTitle type='champions' />
             </div>
             <div className={styles.content}>
-              {areChampionsLoading && <Spinner padding={true} />}
+              {areChampionsLoading && <Spinner />}
               {!areChampionsLoading &&
                 featuredCharacters
                   .map((champName: string) => championsData?.champions.find((champ: IChamp) => champ.name.toUpperCase() === champName.toUpperCase()))
