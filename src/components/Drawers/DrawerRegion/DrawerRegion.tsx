@@ -24,10 +24,6 @@ interface ILolRegionDetail {
   data: {
     'associated-champions': IChamp[];
     'champion-list-order': number;
-    image: {
-      title: string;
-      uri: string;
-    };
     faction: {
       headerImage: string;
       name: string;
@@ -41,6 +37,10 @@ interface ILolRegionDetail {
         width: number;
         x: number;
         y: number;
+      };
+      image: {
+        title: string;
+        uri: string;
       };
       overview: { short: string };
     };
@@ -125,7 +125,7 @@ const DrawerRegion = (props: IProps) => {
                 </div>
               </div>
             )}
-            <video autoPlay loop preload='auto' playsInline onLoadedData={() => setIsLoaded(true)} poster={data?.image?.uri}>
+            <video autoPlay loop preload='auto' playsInline onLoadedData={() => setIsLoaded(true)} poster={data?.faction.image.uri}>
               <source src={data?.faction.video.uri} type='video/webm' />
             </video>
           </div>
