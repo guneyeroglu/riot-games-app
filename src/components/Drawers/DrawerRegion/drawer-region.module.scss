@@ -148,6 +148,37 @@
       }
     }
   }
+
+  .action {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 0.5rem;
+    position: fixed;
+    z-index: 35;
+    top: 3.25rem;
+    right: 2rem;
+
+    button {
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      background-color: #2b2b2b;
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 @media screen and (max-width: device.$m) {
@@ -208,7 +239,7 @@
 @media screen and (max-width: device.$xs) {
   .wrapper {
     :global(.MuiPaper-root) {
-      height: 600px;
+      height: 100%;
     }
 
     &__content {

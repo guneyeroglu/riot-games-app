@@ -1,12 +1,13 @@
 import { useState, Dispatch, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { SwipeableDrawer } from '@mui/material';
+import { SwipeableDrawer, useMediaQuery } from '@mui/material';
 import { QueryObserverResult, RefetchOptions, RefetchQueryFilters } from '@tanstack/react-query';
 
 import { CardLolChar } from '../../Cards';
 import FeaturedTitle from '../../FeaturedTitle/FeaturedTitle';
 import Spinner from '../../Spinner/Spinner';
+import { Icon } from '../../Icons/Icon';
 
 import { useChampionDialog, useFetchData } from '../../../global/utils';
 import { IChamp } from '../../../global/interfaces/';
@@ -54,6 +55,7 @@ const DrawerRegion = (props: IProps) => {
   const { t } = useTranslation();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
+  const isMobile = useMediaQuery('(max-width: 600px)');
 
   const handleCloseDrawer = () => {
     onSetOpen(false);
@@ -147,6 +149,13 @@ const DrawerRegion = (props: IProps) => {
         )}
       </div>
       {!isLoaded && <Spinner color='#eeeeee' center />}
+      {isLoaded && isMobile && (
+        <div className={styles.action}>
+          <button onClick={() => onSetOpen(false)}>
+            <Icon name='CloseIcon' />
+          </button>
+        </div>
+      )}
     </SwipeableDrawer>
   );
 };
