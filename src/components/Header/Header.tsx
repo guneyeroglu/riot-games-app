@@ -76,7 +76,7 @@ const Header = () => {
       id: 2,
       name: <Icon name='TRIcon' vb='0 0 640 480' wh={24} />,
       onClick: () => handleChangeLanguage('tr_TR'),
-      selected: 'tr_TR' === (localStorage.getItem('language') ?? 'tr_TR'),
+      selected: 'tr_TR' === localStorage.getItem('language'),
     },
   ];
 
@@ -96,6 +96,10 @@ const Header = () => {
       setOpen(false);
     };
   }, [isMobile]);
+
+  useEffect(() => {
+    if (!localStorage.getItem('language')) localStorage.setItem('language', 'en_US');
+  }, []);
 
   return (
     <header className={styles.wrapper}>
