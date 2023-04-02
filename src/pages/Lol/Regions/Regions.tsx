@@ -44,7 +44,7 @@ const Regions = () => {
         {!isLoading && data?.factions.map((region: IRegion) => <CardLolRegion key={region.name} region={region} onSetDrawer={handleDrawer} />)}
         {isError && <DataNotFound text={t('notFoundRegions')} />}
       </div>
-      {openDrawer && <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region={regionName} />}
+      <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region={regionName} />
     </div>
   );
 };

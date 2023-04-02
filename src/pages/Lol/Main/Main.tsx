@@ -149,7 +149,7 @@ const Main = () => {
           </div>
         </div>
       </div>
-      {openDrawer && <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region={regionName} />}
+      <DrawerRegion open={openDrawer} onSetOpen={setOpenDrawer} region={regionName} />
     </div>
   );
 };
