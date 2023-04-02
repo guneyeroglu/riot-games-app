@@ -55,7 +55,7 @@ const DrawerRegion = (props: IProps) => {
   const { t } = useTranslation();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
-  const isMobile = useMediaQuery('(max-width: 600px)');
+  const isMobile = useMediaQuery('(max-width: 850px)');
 
   const handleCloseDrawer = () => {
     onSetOpen(false);

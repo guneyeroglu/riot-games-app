@@ -218,13 +218,13 @@
 @media screen and (max-width: device.$s) {
   .wrapper {
     :global(.MuiPaper-root) {
-      height: 700px;
+      height: 100%;
     }
 
     &__content {
       .video {
-        height: 700px;
-        min-height: 700px;
+        height: 600px;
+        min-height: 600px;
       }
 
       &--champions {
@@ -238,16 +238,7 @@
 
 @media screen and (max-width: device.$xs) {
   .wrapper {
-    :global(.MuiPaper-root) {
-      height: 100%;
-    }
-
     &__content {
-      .video {
-        height: 600px;
-        min-height: 600px;
-      }
-
       &--description {
         span {
           font-size: 0.8rem;
