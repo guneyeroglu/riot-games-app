@@ -57,7 +57,7 @@ const DrawerRegion = (props: IProps) => {
   const { open, onSetOpen, region, onSetRegion } = props;
   const divRef = useRef<HTMLDivElement>(null);
   const [divOffSetTop, setDivOffSetTop] = useState<number>(0);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
   const isMobile = useMediaQuery('(max-width: 1024px)');
@@ -113,7 +113,7 @@ const DrawerRegion = (props: IProps) => {
       setIsLoaded(false);
       refetch();
     }
-  }, [refetch, region]);
+  }, [refetch, region, i18n.language]);
 
   return (
     <SwipeableDrawer anchor='bottom' open={open} onClose={handleCloseDrawer} onOpen={handleOpenDrawer} className={styles.wrapper}>
