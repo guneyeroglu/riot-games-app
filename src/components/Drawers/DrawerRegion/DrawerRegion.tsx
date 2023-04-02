@@ -18,6 +18,7 @@ interface IProps {
   open: boolean;
   onSetOpen: Dispatch<boolean>;
   region: string;
+  onSetRegion: Dispatch<string>;
 }
 
 interface ILolRegionDetail {
@@ -53,7 +54,7 @@ interface ILolRegionDetail {
 }
 
 const DrawerRegion = (props: IProps) => {
-  const { open, onSetOpen, region } = props;
+  const { open, onSetOpen, region, onSetRegion } = props;
   const divRef = useRef<HTMLDivElement>(null);
   const [divOffSetTop, setDivOffSetTop] = useState<number>(0);
   const { t } = useTranslation();
@@ -64,6 +65,7 @@ const DrawerRegion = (props: IProps) => {
   const handleCloseDrawer = () => {
     onSetOpen(false);
     setIsLoaded(false);
+    onSetRegion('');
   };
 
   const handleOpenDrawer = () => {
@@ -108,6 +110,7 @@ const DrawerRegion = (props: IProps) => {
 
   useEffect(() => {
     if (region) {
+      setIsLoaded(false);
       refetch();
     }
   }, [refetch, region]);
