@@ -46,9 +46,9 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.wrapper__logo}>
-        <Link to='/'>
+        <a href='/' target='_self'>
           <Icon name='RiotGamesIcon' vb={'0 0 587.93 165'} />
-        </Link>
+        </a>
       </div>
       <div className={styles.wrapper__copyright}>
         <span>{t('copyrightRiot')}</span>

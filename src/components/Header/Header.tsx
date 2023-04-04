@@ -119,9 +119,9 @@ const Header = () => {
             </li>
           )}
           <li className={styles.home}>
-            <Link to='/'>
+            <a href='/' target='_self'>
               <Icon name='RiotFistIcon' vb='0 0 32 32' />
-            </Link>
+            </a>
           </li>
           {!isMobile && (
             <li>

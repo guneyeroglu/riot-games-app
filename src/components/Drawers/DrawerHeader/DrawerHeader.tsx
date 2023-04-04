@@ -1,8 +1,8 @@
-import { Drawer } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { Icon } from '../../Icons/Icon';
-
 import { useTranslation } from 'react-i18next';
+import { Drawer } from '@mui/material';
+
+import { Icon } from '../../Icons/Icon';
 
 import styles from './drawer-header.module.scss';
 
@@ -16,16 +16,15 @@ interface IProps {
   onClose: () => any;
   contents: IContent[];
   className?: string;
-  homeUrl?: string;
 }
 
 const DrawerHeader = (props: IProps) => {
-  const { open, onClose, className, contents, homeUrl } = props;
+  const { open, onClose, className, contents } = props;
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleClickNavigate = () => {
-    navigate(homeUrl || '/');
+    navigate('/');
     onClose();
   };
 
