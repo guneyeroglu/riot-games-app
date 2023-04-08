@@ -65,6 +65,7 @@ const tr = {
     pageRiotHome: 'Anasayfa - Riot Games',
     pageLolHome: 'Anasayfa - League of Legends',
     pageLolChampions: 'Şampiyonlar - League of Legends',
+    pageLolChampion: '{{word}} - Şampiyon - League of Legends',
     pageLolRegions: 'Bölgeler - League of Legends',
     pageLolItems: 'Eşyalar - League of Legends',
     pageLolRanks: 'Rütbeler - League of Legends',
@@ -89,6 +90,9 @@ const tr = {
       'Uzağa kaçmak istiyorsan yukarı gitmen lazım. Birkaç farklı bölgenin tam ortasında yükselen merkez noktası, iki tane yükseltici halat yardımıyla hızlı bir şekilde hareket etme imkânı tanıyor. Her bir bölgede kontrolü sağlayabilmek için hayati öneme sahip iki dev kule bulunuyor. Gözün göklerden gelebilecek tehlikelerde olsun.',
     valoAscentDescription:
       'Ascent, sahip olduğu iki bölge nedeniyle küçük çatışmalara ve sürtüşmelere sahne olan açık bir oyun alanı gibi. İki bölgede de güçlendirilmiş, tekrar açılamayan bomba kapıları bulunuyor. Bu kapılar bir kere kapandı mı geçmek için ya kapıları yok etmeli ya da başka bir yol bulmalısın. Mümkün olduğunca az alan kaybetmeye çalış.',
+    role: 'Rol',
+    skins: 'Kostümler',
+    abilities: 'Yetenekler',
   },
 };
 

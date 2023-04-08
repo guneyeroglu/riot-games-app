@@ -31,4 +31,5 @@ export interface IChampionDetails {
   skins: ISkin[];
   spells: ISkill[];
   title: string;
+  tags: string[];
 }

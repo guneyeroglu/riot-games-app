@@ -66,6 +66,7 @@ const en = {
     pageRiotHome: 'Home - Riot Games',
     pageLolHome: 'Home - League of Legends',
     pageLolChampions: 'Champions - League of Legends',
+    pageLolChampion: '{{word}} - Champion - League of Legends',
     pageLolRegions: 'Regions - League of Legends',
     pageLolItems: 'Items - League of Legends',
     pageLolRanks: 'Ranks - League of Legends',
@@ -90,6 +91,9 @@ const en = {
       'If you want to go far, you’ll have to go up. A pair of sites split by an elevated center allows for rapid movement using two rope ascenders. Each site is built with a looming tower vital for control. Remember to watch above before it all blows sky-high.',
     valoAscentDescription:
       'An open playground for small wars of position and attrition divide two sites on Ascent. Each site can be fortified by irreversible bomb doors; once they’re down, you’ll have to destroy them or find another way. Yield as little territory as possible.',
+    role: 'Role',
+    skins: 'Skins',
+    abilities: 'Abilities',
   },
 };
 
