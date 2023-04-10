@@ -33,7 +33,7 @@ const Champion = () => {
   }, [championName, i18n.language, refetch, t]);
 
   useEffect(() => {
-    if (spanRef) setWidth(spanRef.current?.offsetWidth || 0);
+    if (spanRef) setWidth((preValue) => spanRef.current?.getBoundingClientRect().width || preValue);
   }, [spanRef, championDetails]);
 
   console.log(championDetails);

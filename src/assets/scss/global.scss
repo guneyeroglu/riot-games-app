@@ -34,5 +34,6 @@ body {
 
 ::selection {
   color: #eeeeee;
-  background-color: #d13539;
+  background: #d13539;
+  -webkit-text-fill-color: #eeeeee;
 }

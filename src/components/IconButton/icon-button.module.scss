@@ -27,4 +27,16 @@
       fill: #eeeeee;
     }
   }
+
+  &.open {
+    width: 36px;
+    height: 36px;
+    border-radius: 0.5rem;
+    background-color: #d13539;
+
+    svg {
+      width: 24px;
+      fill: #eeeeee;
+    }
+  }
 }

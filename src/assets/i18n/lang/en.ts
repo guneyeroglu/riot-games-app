@@ -94,6 +94,7 @@ const en = {
     role: 'Role',
     skins: 'Skins',
     abilities: 'Abilities',
+    detail: 'Detail',
   },
 };
 

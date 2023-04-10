@@ -93,6 +93,7 @@ const tr = {
     role: 'Rol',
     skins: 'Kostümler',
     abilities: 'Yetenekler',
+    detail: 'Detay',
   },
 };
 
