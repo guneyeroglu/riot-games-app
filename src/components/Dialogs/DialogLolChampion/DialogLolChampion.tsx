@@ -45,7 +45,7 @@ const DialogLolChampion = (props: IProps) => {
     setLore(false);
   };
 
-  const { data, isFetching, isLoading, refetch } = useFetchData('lol-champion-detail', championName, { enabled: false });
+  const { data, isFetching, refetch } = useFetchData('lol-champion-detail', championName, { enabled: false });
   const championDetails: IChampionDetails = data?.data?.[championName];
   const skinQuantity = championDetails?.skins.length;
   const isTablet = useMediaQuery('(max-width: 1024px)');

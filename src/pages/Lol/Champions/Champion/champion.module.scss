@@ -10,7 +10,7 @@
     max-height: 80dvh;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
     mask-image: linear-gradient(rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
     filter: brightness(0.75);
@@ -18,7 +18,7 @@
 
   &__content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
