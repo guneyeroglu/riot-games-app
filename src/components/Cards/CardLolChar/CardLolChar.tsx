@@ -46,7 +46,7 @@ const CardLol = (props: IProps) => {
           ></div>
         </LazyLoad>
         <div className={styles['card__item--name']}>
-          <span>{champ.name.toUpperCase()}</span>
+          <span>{champ.name.toLocaleUpperCase('en-US')}</span>
         </div>
       </div>
     </div>

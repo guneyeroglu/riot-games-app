@@ -37,7 +37,7 @@ const Regions = () => {
     <div className={styles.wrapper}>
       <div className={styles.wrapper__background} style={{ backgroundImage: `url(${backgroundImageRegions})` }}></div>
       <div className={styles.wrapper__title}>
-        <span>{i18n.language === 'tr_TR' ? t('regions').toLocaleUpperCase() : t('regions').toUpperCase()}</span>
+        <span>{i18n.language === 'tr_TR' ? t('regions').toLocaleUpperCase('TR') : t('regions').toLocaleUpperCase('en-US')}</span>
       </div>
       <div className={styles.wrapper__content}>
         {isLoading && <Spinner color='#eeeeee' />}

@@ -49,12 +49,12 @@ const Champion = () => {
           <div className={styles.wrapper__content}>
             <div className={styles.title}>
               <div className={styles.title__header}>
-                <span>{championDetails?.title.toUpperCase()}</span>
+                <span>{i18n.language === 'tr_TR' ? championDetails?.title.toLocaleUpperCase('TR') : championDetails?.title.toLocaleUpperCase('en-US')}</span>
                 <img src='https://universe.leagueoflegends.com/images/t1HeaderDivider.png' alt='-' />
                 <fieldset>
                   <div className={styles.gradient}></div>
                   <legend style={{ marginLeft: `calc(50% - calc(${width}px / 2) - 2rem)` }}>
-                    <span ref={spanRef}>{championDetails.name.toUpperCase()}</span>
+                    <span ref={spanRef}>{championDetails.name.toLocaleUpperCase('en-US')}</span>
                   </legend>
                   <div className={styles.champion}>
                     <div className={styles.champion__info}>
@@ -64,7 +64,7 @@ const Champion = () => {
                         </div>
                         <div className={styles.content__role}>
                           <span>{t('role').toUpperCase()}</span>
-                          <span>{championDetails.tags[0].toUpperCase()}</span>
+                          <span>{championDetails.tags[0].toLocaleUpperCase('en-US')}</span>
                         </div>
                       </div>
                       <div className={styles.content}>

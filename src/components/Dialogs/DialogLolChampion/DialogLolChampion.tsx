@@ -244,7 +244,7 @@ const DialogLolChampion = (props: IProps) => {
           <div className={styles.button}>
             <IconButton label='CloseIcon' onClick={handleImageModalClose} open />
           </div>
-          <span>{i18n.language === 'tr_TR' ? championDetails?.skins[skinId].name.toLocaleUpperCase() : championDetails?.skins[skinId].name.toUpperCase()}</span>
+          <span>{championDetails?.skins[skinId].name}</span>
           <div className={styles.dialog__content}>
             <img
               src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${championDetails?.skins[skinId].num}.jpg`}

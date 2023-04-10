@@ -72,7 +72,7 @@ const CardValoAgent = (props: IProps) => {
         </div>
         <div className={styles.info}>
           <div className={styles.info__title}>
-            <span>{agent.displayName.toUpperCase()}</span>
+            <span>{agent.displayName.toLocaleUpperCase('en-US')}</span>
           </div>
           <div className={styles.info__subtitle}>
             <span>{agent.role.displayName}</span>
@@ -108,7 +108,9 @@ const CardValoAgent = (props: IProps) => {
             <div className={styles.abilities__description}>
               <h4>
                 {`- ${
-                  i18n.language === 'tr_TR' ? agent.abilities[abilityId].displayName.toLocaleUpperCase() : agent.abilities[abilityId].displayName.toUpperCase()
+                  i18n.language === 'tr_TR'
+                    ? agent.abilities[abilityId].displayName.toLocaleUpperCase('TR')
+                    : agent.abilities[abilityId].displayName.toLocaleUpperCase('en-US')
                 } -`}
               </h4>
               <span>{agent.abilities[abilityId].description}</span>

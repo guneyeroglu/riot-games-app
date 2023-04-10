@@ -57,7 +57,7 @@ const Agents = () => {
 
   const filteredData = data?.data
     .filter((agent: IAgent) => agent.isPlayableCharacter)
-    .filter((agent: IAgent) => agent.displayName.toUpperCase().includes(inputValue.toUpperCase()))
+    .filter((agent: IAgent) => agent.displayName.toLocaleUpperCase('en-US').includes(inputValue.toLocaleUpperCase('en-US')))
     .filter((agent: IAgent) => agent.role.displayName.includes(filterValue));
 
   return (

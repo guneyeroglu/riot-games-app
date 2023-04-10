@@ -30,7 +30,7 @@ const SearchBar = (props: IProps) => {
     );
 
   const handleInputChange = (event: { target: HTMLInputElement }) => {
-    onSetInputValue(event.target.value.toLocaleLowerCase().toUpperCase());
+    onSetInputValue(event.target.value.toLocaleLowerCase().toLocaleUpperCase('en-US'));
   };
 
   const handleInputValue = () => {

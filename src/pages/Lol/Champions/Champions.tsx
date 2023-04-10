@@ -51,7 +51,9 @@ const Champions = () => {
   }, [t, i18n, refetch]);
 
   const filteredData =
-    !isLoading && championsData && championsData.champions.filter((champ: IChamp) => champ.name.toUpperCase().includes(inputValue.toUpperCase()));
+    !isLoading &&
+    championsData &&
+    championsData.champions.filter((champ: IChamp) => champ.name.toLocaleUpperCase('en-US').includes(inputValue.toLocaleUpperCase('en-US')));
 
   return (
     <div className={styles.container}>

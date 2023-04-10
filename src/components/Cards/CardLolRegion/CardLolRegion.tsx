@@ -30,7 +30,7 @@ const CardLolRegion = (props: IProps) => {
     <div className={styles.card} onClick={() => onSetDrawer(region.slug)}>
       <div className={styles.card__background} style={{ backgroundImage: `url(${region.image.uri})` }}></div>
       <div className={styles.card__name}>
-        <span>{region.name.toUpperCase()}</span>
+        <span>{region.name.toLocaleUpperCase('en-US')}</span>
       </div>
       <img src={`https://universe.leagueoflegends.com/images/${REGIONS[region.slug as keyof typeof REGIONS]}_crest_icon.png`} alt={region.name} />
     </div>

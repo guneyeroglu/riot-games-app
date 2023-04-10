@@ -97,7 +97,9 @@ const Main = () => {
               {areChampionsLoading && <Spinner />}
               {!areChampionsLoading &&
                 featuredCharacters
-                  .map((champName: string) => championsData?.champions.find((champ: IChamp) => champ.name.toUpperCase() === champName.toUpperCase()))
+                  .map((champName: string) =>
+                    championsData?.champions.find((champ: IChamp) => champ.name.toLocaleUpperCase('en-US') === champName.toLocaleUpperCase('en-US')),
+                  )
                   .map((champ: IChamp) => <CardLolChar key={champ.name} data={champ} onSetOpen={setOpenModal} onSetChampionName={setChampionName} />)}
               <DialogLolChampion open={openModal} onSetOpen={setOpenModal} championName={championName} />
             </div>

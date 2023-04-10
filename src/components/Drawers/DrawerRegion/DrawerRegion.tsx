@@ -131,7 +131,7 @@ const DrawerRegion = (props: IProps) => {
                       />
                     </div>
                     <div className={styles['video__title--header']}>
-                      <span>{data?.faction.name.toUpperCase()}</span>
+                      <span>{data?.faction.name.toLocaleUpperCase('en-US')}</span>
                     </div>
                     <div className={styles['video__title--footer']}>
                       <img src='https://universe.leagueoflegends.com/images/t1HeaderDivider.png' alt='-' />

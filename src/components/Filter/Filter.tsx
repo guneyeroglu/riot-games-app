@@ -101,7 +101,7 @@ const Filter = (props: IProps) => {
           <ul id='roles'>
             <li
               className={
-                data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue)).length === 0
+                data?.data.filter((agent) => agent.displayName.toLocaleUpperCase('en-US').includes(inputValue)).length === 0
                   ? styles.deactivate
                   : filterValue === ''
                   ? styles.selected
@@ -111,7 +111,9 @@ const Filter = (props: IProps) => {
             >
               <Icon name='TargetIcon' />
               <span>{t('all')}</span>
-              <span>({data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue) && agent.isPlayableCharacter).length})</span>
+              <span>
+                ({data?.data.filter((agent) => agent.displayName.toLocaleUpperCase('en-US').includes(inputValue) && agent.isPlayableCharacter).length})
+              </span>
             </li>
             {roleList &&
               Object.keys(roleList).map((roleName: string) => (
@@ -119,8 +121,9 @@ const Filter = (props: IProps) => {
                   key={roleName}
                   onClick={() => handleSelectedListItem(Object.keys(roleList).indexOf(roleName))}
                   className={
-                    data?.data.filter((agent) => agent.displayName.toUpperCase().includes(inputValue)).filter((agent) => agent?.role?.displayName === roleName)
-                      .length === 0
+                    data?.data
+                      .filter((agent) => agent.displayName.toLocaleUpperCase('en-US').includes(inputValue))
+                      .filter((agent) => agent?.role?.displayName === roleName).length === 0
                       ? styles.deactivate
                       : filterValue === roleName
                       ? styles.selected
@@ -133,7 +136,7 @@ const Filter = (props: IProps) => {
                     (
                     {
                       data?.data
-                        .filter((agent) => agent.displayName.toUpperCase().includes(inputValue))
+                        .filter((agent) => agent.displayName.toLocaleUpperCase('en-US').includes(inputValue))
                         .filter((agent) => agent?.role?.displayName === roleName).length
                     }
                     )
