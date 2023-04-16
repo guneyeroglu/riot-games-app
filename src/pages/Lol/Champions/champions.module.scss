@@ -33,7 +33,7 @@
       max-width: 1400px;
       height: 100%;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 3rem;
     }
   }
 
@@ -87,7 +87,9 @@
     }
 
     &__content {
-      max-width: 325px;
+      max-width: 100%;
+      width: 100%;
+      gap: 1rem;
     }
   }
 }

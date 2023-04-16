@@ -19,6 +19,7 @@ const CardLol = (props: IProps) => {
   const { data: champUrl } = useFetchData('lol-champions-url');
   const navigate = useNavigate();
   const isTablet = useMediaQuery('(max-width: 1024px)');
+  const isMobile = useMediaQuery('(max-width: 600px)');
 
   const handleChampionName = (name: string) => {
     const charName = Object.keys(champUrl?.data).find(
@@ -36,7 +37,7 @@ const CardLol = (props: IProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__item} onClick={() => handleChampionName(champ.name)}>
-        <LazyLoad width={'100%'} height={425} offset={400} className={styles['card__item--hero']}>
+        <LazyLoad width={'100%'} height={isMobile ? 150 : 425} offset={400} className={styles['card__item--hero']}>
           <div
             className={styles.image}
             style={{

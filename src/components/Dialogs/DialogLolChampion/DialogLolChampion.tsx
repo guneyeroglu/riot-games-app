@@ -140,7 +140,7 @@ const DialogLolChampion = (props: IProps) => {
         <div className={styles.wrapper}>
           <div className={styles.wrapper__title}>
             <div className={styles.name}>
-              <span>{championDetails?.skins[skinId].name}</span>
+              <span>{championDetails?.skins[skinId].name === 'default' ? championName : championDetails?.skins[skinId].name}</span>
             </div>
             <div className={styles.actions}>
               <Link to={`/leagueoflegends/champion/${championDetails?.id}`}>
@@ -231,7 +231,7 @@ const DialogLolChampion = (props: IProps) => {
                     {championDetails &&
                       [championDetails.passive, ...championDetails.spells]
                         .find((skill) => skill.name === skillName)
-                        ?.description.replace(/<\/?[^>]+(>|$)/g, '')}
+                        ?.description.replace(/<\/?[^>]+(>|$)/g, ' ')}
                   </span>
                 </div>
               </>
@@ -244,7 +244,7 @@ const DialogLolChampion = (props: IProps) => {
           <div className={styles.button}>
             <IconButton label='CloseIcon' onClick={handleImageModalClose} open />
           </div>
-          <span>{championDetails?.skins[skinId].name}</span>
+          <span>{championDetails?.skins[skinId].name === 'default' ? championName : championDetails?.skins[skinId].name}</span>
           <div className={styles.dialog__content}>
             <img
               src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${championDetails?.skins[skinId].num}.jpg`}
