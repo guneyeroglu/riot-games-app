@@ -48,7 +48,6 @@
         & > span {
           font-size: 4rem;
           font-weight: 600;
-          letter-spacing: 0.2em;
           background: #c4b998;
           background: -webkit-linear-gradient(to bottom, #c4b998 0%, #937341 100%);
           background: -moz-linear-gradient(to bottom, #c4b998 0%, #937341 100%);
@@ -666,7 +665,7 @@
       .title {
         &__header {
           & > span {
-            font-size: 2.5rem;
+            font-size: 2rem;
           }
 
           fieldset {
