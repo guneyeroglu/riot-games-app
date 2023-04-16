@@ -346,6 +346,7 @@
                   border-radius: 50%;
                   background-color: rgb(57, 64, 72);
                   margin-right: calc(20px + 15px);
+                  transition: background-color 0.35s ease-in-out;
                 }
 
                 &::after {
