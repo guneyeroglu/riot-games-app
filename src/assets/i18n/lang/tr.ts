@@ -94,6 +94,7 @@ const tr = {
     skins: 'Kostümler',
     abilities: 'Yetenekler',
     detail: 'Detay',
+    passive: 'Pasif',
   },
 };
 

@@ -81,9 +81,9 @@
           border-radius: 3.5rem;
           background-color: #eeeeee;
           border: 3px solid #eeeeee;
-          animation: image-slide 1s ease-in-out, span-1-opacity 2s ease-in-out;
+          animation: image-slide 1s ease-in-out, image-1-opacity 2s ease-in-out;
           @include slide(image-slide, -50%, X);
-          @include opacity(span-1-opacity, 0.75);
+          @include opacity(image-1-opacity);
         }
 
         &.hidden {
@@ -116,7 +116,7 @@
             margin: 0 0 1rem 0;
             animation: span-1-slide 1s ease-in-out, span-1-opacity 2s ease-in-out;
             @include slide(span-1-slide, 125%, X);
-            @include opacity(span-1-opacity, 0.75);
+            @include opacity(span-1-opacity, 0, 0.75);
           }
 
           &:nth-child(2) {
@@ -124,7 +124,7 @@
             font-weight: 400;
             animation: span-2-slice 1s ease-in-out, span-2-opacity 2s ease-in-out;
             @include slide(span-2-slice, -125%, X);
-            @include opacity(span-2-opacity, 0.75);
+            @include opacity(span-2-opacity, 0, 0.75);
           }
 
           &:nth-child(3) {
@@ -149,7 +149,7 @@
           outline: none;
           animation: button-slice 1s ease-in-out, button-opacity 2s ease-in-out;
           @include slide(button-slice, 125%, X);
-          @include opacity(button-opacity, 0.75);
+          @include opacity(button-opacity, 0, 0.75);
           opacity: 0.75;
 
           span {

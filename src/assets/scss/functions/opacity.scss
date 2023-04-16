@@ -1,10 +1,10 @@
-@mixin opacity($name, $opacity: 1) {
+@mixin opacity($name, $opacityStart: 0, $opacityEnd: 1) {
   @keyframes #{$name} {
     0% {
-      opacity: 0;
+      opacity: $opacityStart;
     }
     100% {
-      opacity: $opacity;
+      opacity: $opacityEnd;
     }
   }
 }

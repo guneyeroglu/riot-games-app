@@ -2,13 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
+import Spinner from '../../../../components/Spinner/Spinner';
 import { useFetchData } from '../../../../global/utils';
 
 import { IChampionDetails } from '../../../../global/interfaces';
 
 import styles from './champion.module.scss';
-import { Link } from 'react-router-dom';
-import Spinner from '../../../../components/Spinner/Spinner';
 
 const Champion = () => {
   const { championName } = useParams();
@@ -21,7 +20,10 @@ const Champion = () => {
   const [skillWidth, setSkillWidth] = useState<string>('0%');
   const [skillName, setSkillName] = useState<string>('');
   const [skillOnLoad, setSkillOnLoad] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const spanRef = useRef<HTMLSpanElement>(null);
+  const abilitiesRef = useRef<HTMLDivElement>(null);
+  const skinsRef = useRef<HTMLDivElement>(null);
 
   const { data, isFetching, refetch, isLoading, isError } = useFetchData('lol-champion-detail', championName, { enabled: true });
   const championDetails: IChampionDetails = data?.data?.[championName || ''];
@@ -43,6 +45,29 @@ const Champion = () => {
     }
 
     return setSkillName(name);
+  };
+
+  const handleScrollToAbilities = () => {
+    abilitiesRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleScrollToSkins = () => {
+    skinsRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  enum ABILITY {
+    'P' = 0,
+    'Q' = 1,
+    'W' = 2,
+    'E' = 3,
+    'R' = 4,
+  }
+
+  const handleAbilityChange = (idx: number) => {
+    if (ability === ABILITY[idx]) return;
+
+    setIsLoaded(false);
+    setAbility(ABILITY[idx]);
   };
 
   useEffect(() => {
@@ -78,7 +103,7 @@ const Champion = () => {
           <div className={styles.wrapper__content}>
             <div className={styles.title}>
               <div className={styles.title__header}>
-                <span>{i18n.language === 'tr_TR' ? championDetails?.title.toLocaleUpperCase('TR') : championDetails?.title.toLocaleUpperCase('en-US')}</span>
+                <span>{i18n.language === 'tr_TR' ? championDetails?.title : championDetails?.title.toLocaleUpperCase('en-US')}</span>
                 <img src='https://universe.leagueoflegends.com/images/t1HeaderDivider.png' alt='-' />
                 <fieldset>
                   <div className={styles.gradient}></div>
@@ -92,19 +117,19 @@ const Champion = () => {
                           <img src='https://universe.leagueoflegends.com/images/role_icon_fighter.png' alt='role-icon' />
                         </div>
                         <div className={styles.content__role}>
-                          <span>{t('role').toUpperCase()}</span>
+                          <h5>{t('role').toUpperCase()}</h5>
                           <span>{championDetails.tags[0].toLocaleUpperCase('en-US')}</span>
                         </div>
                       </div>
                       <div className={styles.content}>
-                        <Link to={'#'} className={styles.content__role}>
-                          <span>{t('skins').toUpperCase()}</span>
-                        </Link>
+                        <button className={styles.content__role} onClick={handleScrollToAbilities}>
+                          <span>{t('abilities').toUpperCase()}</span>
+                        </button>
                       </div>
                       <div className={styles.content}>
-                        <Link to={'#'} className={styles.content__role}>
-                          <span>{t('abilities').toUpperCase()}</span>
-                        </Link>
+                        <button className={styles.content__role} onClick={handleScrollToSkins}>
+                          <span>{t('skins').toUpperCase()}</span>
+                        </button>
                       </div>
                     </div>
                     <div className={styles.champion__lore}>
@@ -114,65 +139,99 @@ const Champion = () => {
                 </fieldset>
               </div>
             </div>
-            {/* <div className={styles.skills}>
-              <div className={styles.skills__title}>
+            <div className={styles.abilities}>
+              <div className={styles.abilities__title}>
                 <span>{t('abilities').toLocaleUpperCase('en-US')}</span>
+                <div className={styles.scroll} ref={abilitiesRef}></div>
               </div>
               {!isFetching && !isLoading && championDetails && (
-                <ul className={styles.skills__list}>
-                  <li>
-                    <div className={styles.skill}>
+                <div className={styles.abilities__info}>
+                  <div className={styles.content}>
+                    <ul>
                       {championDetails &&
-                        [championDetails?.passive, ...championDetails?.spells]?.map((skill) => (
-                          <div
-                            key={skill.name + skill.description}
-                            className={skillName === skill.name ? `${styles.skill__item} ${styles.active}` : styles.skill__item}
-                            style={{
-                              pointerEvents: skillOnLoad ? 'auto' : 'none',
-                              backgroundColor: skillOnLoad ? 'transparent' : '#eeeeee',
-                            }}
-                            onClick={() => handleSelectedSkill(skill.name)}
-                          >
-                            {!skillOnLoad && <Spinner color='#171717' />}
-                            {!isFetching && (
-                              <img
-                                src={`https://ddragon.leagueoflegends.com/cdn/13.6.1/img/${skill.image.group}/${skill.image.full}`}
-                                alt={skill.name}
-                                width={skillWidth}
-                                onLoad={handleSkillOnLoad}
-                              />
-                            )}
-                          </div>
+                        [championDetails?.passive, ...championDetails?.spells]?.map((skill, idx) => (
+                          <li key={skill.name + skill.description} className={ability === ABILITY[idx] ? styles.selected : ''}>
+                            <button className={styles.ability} onClick={() => handleAbilityChange(idx)}>
+                              <div
+                                className={styles.image}
+                                style={{
+                                  pointerEvents: skillOnLoad ? 'auto' : 'none',
+                                  backgroundColor: skillOnLoad ? 'transparent' : '#eeeeee',
+                                }}
+                                onClick={() => handleSelectedSkill(skill.name)}
+                              >
+                                {!skillOnLoad && <Spinner color='#171717' />}
+                                {!isFetching && (
+                                  <img
+                                    src={`https://ddragon.leagueoflegends.com/cdn/13.6.1/img/${skill.image.group}/${skill.image.full}`}
+                                    alt={skill.name}
+                                    width={skillWidth}
+                                    height={skillWidth}
+                                    onLoad={handleSkillOnLoad}
+                                  />
+                                )}
+                              </div>
+                            </button>
+                          </li>
                         ))}
-                    </div>
+                    </ul>
                     <div className={styles.video}>
                       {key !== '0000' && (
-                        <video autoPlay loop muted preload='auto' playsInline>
+                        <video
+                          autoPlay
+                          loop
+                          muted
+                          preload='auto'
+                          playsInline
+                          key={ability}
+                          onLoadedData={() => setIsLoaded(true)}
+                          className={!isLoaded ? styles.loading : ''}
+                        >
                           <source src={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/${key}/ability_${key}_${ability}1.webm`} type='video/webm' />
                           <source src={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/${key}/ability_${key}_${ability}1.mp4`} type='video/mp4' />
                         </video>
                       )}
+                      {!isLoaded && <Spinner color='#eeeeee' />}
                     </div>
-                  </li>
-                </ul>
+                  </div>
+                  {championDetails &&
+                    [championDetails?.passive, ...championDetails?.spells]
+                      .filter((_skill, idx) => idx === ABILITY[ability as keyof typeof ABILITY])
+                      .map((skill) => (
+                        <div key={skill.name + skill.description} className={styles.description}>
+                          <h6>{ability === 'P' ? t('passive') : ability}</h6>
+                          <h5>{skill.name}</h5>
+                          <p>{skill.description.replace(/<\/?[^>]+(>|$)/g, ' ')}</p>
+                        </div>
+                      ))}
+                </div>
               )}
-            </div> */}
-          </div>
-          {/* <div className={styles.wrapper__box}>
-            <div className={styles.gradient}></div>
-            <div className={styles.first}>
-              <div className={styles.first__skins}>
-                {championDetails.skins.map((skin) => (
-                  <button key={skin.name + skin.id} onClick={() => setCurrentImageNumber(skin.num)}>
-                    <img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championName}_${skin.num}.jpg`} alt={skin.name} />
-                  </button>
-                ))}
+            </div>
+            <div className={styles.skins}>
+              <div className={styles.skins__title}>
+                <span>{t('skins').toLocaleUpperCase('en-US')}</span>
+                <div className={styles.scroll} ref={skinsRef}></div>
               </div>
+              <div className={styles.skins__image}>
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${currentImageNumber}.jpg`}
+                  alt={''}
+                  key={currentImageNumber}
+                />
+              </div>
+              <ul className={styles.list}>
+                {championDetails &&
+                  championDetails.skins.map((skin) => (
+                    <li key={skin.id + skin.name + skin.num}>
+                      <button onClick={() => setCurrentImageNumber(skin.num)}>
+                        <img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${skin.num}.jpg`} alt={skin.name} />
+                        <span>{skin.name === 'default' ? championName : skin.name}</span>
+                      </button>
+                    </li>
+                  ))}
+              </ul>
             </div>
-            <div className={styles.middle}>
-              <img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championName}_${currentImageNumber}.jpg`} alt='-' />
-            </div>
-          </div> */}
+          </div>
         </div>
       )}
     </>

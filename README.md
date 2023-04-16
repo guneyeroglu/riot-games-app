@@ -6,7 +6,7 @@ The development process continues...
 - Home (DONE) - RESPONSIVE DESIGN (DONE)
   - LoL Home (DONE) - RESPONSIVE DESIGN (DONE)
     - Champions (DONE) - RESPONSIVE DESIGN (DONE)
-      - Champions/:champion (TODO) - RESPONSIVE DESIGN (TODO)
+      - Champions/:champion (DONE) - RESPONSIVE DESIGN (DONE)
     - Regions (DONE) - RESPONSIVE DESIGN (DONE)
     - Items (TODO) - RESPONSIVE DESIGN (TODO)
   - Valo Home (DONE) - RESPONSIVE DESIGN (DONE)

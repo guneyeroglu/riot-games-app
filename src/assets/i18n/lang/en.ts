@@ -95,6 +95,7 @@ const en = {
     skins: 'Skins',
     abilities: 'Abilities',
     detail: 'Detail',
+    passive: 'Passive',
   },
 };
 
