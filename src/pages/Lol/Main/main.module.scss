@@ -88,6 +88,8 @@
         width: 100%;
 
         .content {
+          padding: 2rem 3rem;
+
           a {
             color: #eeeeee;
             text-decoration: none;
@@ -163,6 +165,16 @@
 
 @media screen and (max-width: device.$m) {
   .container {
+    &__others {
+      .links {
+        &__wrapper {
+          .content {
+            padding: 1rem 2rem;
+          }
+        }
+      }
+    }
+
     .content {
       padding: 1rem;
       max-width: 768px;
@@ -184,10 +196,21 @@
 
 @media screen and (max-width: device.$xs) {
   .container {
+    &__featured {
+      .champions {
+        &__wrapper {
+          .content {
+            gap: 1rem;
+          }
+        }
+      }
+    }
+
     &__others {
       .links {
         &__wrapper {
           .content {
+            padding: 1rem;
             a {
               img {
                 height: 250px;
@@ -197,10 +220,6 @@
           }
         }
       }
-    }
-
-    .content {
-      max-width: 325px;
     }
 
     .nav {
