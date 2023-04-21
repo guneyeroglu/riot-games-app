@@ -9,121 +9,62 @@
   height: 800px;
   border-bottom: 3px solid #eeeeee;
   position: relative;
-  padding: 0 2rem;
-
-  &__background {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-repeat: no-repeat;
-    opacity: 0.2;
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    transition: background-image 0.35s ease-in-out;
-  }
 
   &__carousel {
     display: flex;
     width: 100%;
-    max-width: 1400px;
-    height: 75%;
+    max-width: 100%;
+    height: 100%;
     position: relative;
     overflow: hidden;
-    border: 3px solid transparent;
-    border-radius: 10.5rem;
-    transition: border 0.35s ease-in-out, border-radius 0.35s ease-in-out;
 
-    .slide {
+    :global(.swiper) {
       width: 100%;
       height: 100%;
-      position: absolute;
-      transition: transform 0.35s;
 
-      img {
+      .slide {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-      }
-    }
+        position: absolute;
+        transition: transform 0.35s;
 
-    .button {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      border: none;
-      outline: 2px solid transparent;
-      border-radius: 50%;
-      z-index: 5;
-      background-color: #222831;
-      color: #eeeeee;
-      font-size: 1rem;
-      transform: scale(1.1);
-      opacity: 0.75;
-      transition: background-color 0.35s ease-in-out, outline 0.35s ease-in-out, transform 0.35s ease-in-out, opacity 0.35s ease-in-out;
-
-      &.next {
-        top: 45%;
-        right: 2%;
-        transform: rotate(180deg);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
-      &.prev {
-        top: 45%;
-        left: 2%;
-      }
-
-      &:hover {
-        cursor: pointer;
-        outline: 2px solid #eeeeee;
-        transform: scale(1.25);
+      .bullets {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 3px solid #eeeeee;
+        border-radius: 50%;
+        background-color: #eeeeee;
+        transition: background-color 0.35s ease-in-out;
         opacity: 1;
 
-        &.next {
-          transform: rotate(180deg) scale(1.25);
+        &:global(.swiper-pagination-bullet-active) {
+          cursor: pointer;
+          background-color: #222831;
         }
+
+        &:hover {
+          cursor: pointer;
+          background-color: #222831;
+        }
+      }
+
+      :global(.swiper-pagination-fraction) {
+        background-color: #22283195;
+        padding: 0.25rem 0;
       }
     }
 
     &:hover {
-      border: 3px solid #eeeeee;
-      border-radius: 5.5rem;
-
-      & > button.button {
-        display: flex;
+      button {
         opacity: 1;
-      }
-    }
-  }
-
-  &__nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-
-    span {
-      display: inline-block;
-      width: 15px;
-      height: 15px;
-      border: 3px solid #eeeeee;
-      border-radius: 50%;
-      background-color: #eeeeee;
-      transition: background-color 0.35s ease-in-out;
-
-      &.active {
-        cursor: pointer;
-        background-color: #222831;
-      }
-
-      &:hover {
-        cursor: pointer;
-        background-color: #222831;
       }
     }
   }
@@ -133,52 +74,6 @@
   .wrapper {
     gap: 0;
     height: 500px;
-    padding: 1rem;
-
-    &__carousel {
-      border: 3px solid #eeeeee;
-      border-radius: 0.5rem;
-      width: 100%;
-      height: 100%;
-      margin: 0 0 1rem 0;
-
-      .button {
-        width: 30px;
-        height: 30px;
-        outline: 2px solid #eeeeee;
-        transform: scale(1);
-        opacity: 1;
-
-        &.next {
-          top: 45%;
-          right: 5%;
-          transform: rotate(180deg);
-        }
-
-        &.prev {
-          top: 45%;
-          left: 5%;
-        }
-
-        &:hover {
-          cursor: pointer;
-          transform: scale(1);
-
-          &.next {
-            transform: rotate(180deg) scale(1);
-          }
-        }
-
-        svg {
-          width: 1rem;
-          height: auto;
-        }
-      }
-
-      &:hover {
-        border-radius: 0.5rem;
-      }
-    }
 
     &__nav {
       span {
@@ -206,6 +101,6 @@
 
 @media screen and (max-width: device.$xs) {
   .wrapper {
-    height: 350px;
+    height: 300px;
   }
 }

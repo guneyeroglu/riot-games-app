@@ -1,0 +1,78 @@
+@use '../../../../../assets/scss/variables/deviceSize' as device;
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: 2px solid transparent;
+  border-radius: 50%;
+  z-index: 5;
+  background-color: #222831;
+  color: #eeeeee;
+  font-size: 1rem;
+  transform: scale(1.1);
+  opacity: 0.75;
+  transition: background-color 0.35s ease-in-out, outline 0.35s ease-in-out, transform 0.35s ease-in-out, opacity 0.35s ease-in-out;
+
+  &.next {
+    top: 45%;
+    right: 2%;
+    transform: rotate(180deg);
+  }
+
+  &.prev {
+    top: 45%;
+    left: 2%;
+  }
+
+  &:hover {
+    cursor: pointer;
+    outline: 2px solid #eeeeee;
+    transform: scale(1.25);
+    opacity: 1;
+
+    &.next {
+      transform: rotate(180deg) scale(1.25);
+    }
+  }
+}
+
+@media screen and (max-width: device.$s) {
+  .button {
+    width: 30px;
+    height: 30px;
+    outline: 2px solid #eeeeee;
+    transform: scale(1);
+    opacity: 1;
+
+    &.next {
+      top: 45%;
+      right: 5%;
+      transform: rotate(180deg);
+    }
+
+    &.prev {
+      top: 45%;
+      left: 5%;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1);
+
+      &.next {
+        transform: rotate(180deg) scale(1);
+      }
+    }
+
+    svg {
+      width: 1rem;
+      height: auto;
+    }
+  }
+}
