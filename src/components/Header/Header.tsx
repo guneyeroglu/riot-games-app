@@ -43,7 +43,6 @@ const Header = () => {
   const lolNavItems: INavItem[] = [
     { id: 1, name: t('champions'), onClick: () => handleNavigate('/leagueoflegends/champions') },
     { id: 2, name: t('regions'), onClick: () => handleNavigate('/leagueoflegends/regions') },
-    { id: 3, name: t('items'), onClick: () => handleNavigate('/leagueoflegends/items') },
   ];
 
   const valoNavItems: INavItem[] = [

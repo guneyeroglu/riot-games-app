@@ -8,7 +8,6 @@ The development process continues...
     - Champions (DONE) - RESPONSIVE DESIGN (DONE)
       - Champions/:champion (DONE) - RESPONSIVE DESIGN (DONE)
     - Regions (DONE) - RESPONSIVE DESIGN (DONE)
-    - Items (TODO) - RESPONSIVE DESIGN (TODO)
   - Valo Home (DONE) - RESPONSIVE DESIGN (DONE)
     - Agents (DONE) - RESPONSIVE DESIGN (DONE)
     - Maps (DONE) - RESPONSIVE DESIGN (DONE)
@@ -26,4 +25,6 @@ Tools that I used in this project:
 - Material UI Library
 - React-i18next
 - React-Lazy-Load
+- Swiper
+- uuid
 - ...

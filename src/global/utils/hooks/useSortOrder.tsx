@@ -18,11 +18,7 @@ const useSortOrder = (orderType: orderType, orderState: string) => {
     }
   };
 
-  return {
-    handleSortOrder: (a: any, b: any) => handleSortOrder(a, b),
-    setSortType: (value: orderType) => setSortType(value),
-    sortType: sortType,
-  };
+  return { handleSortOrder: (a: any, b: any) => handleSortOrder(a, b), setSortType: (value: orderType) => setSortType(value), sortType };
 };
 
 export default useSortOrder;

@@ -23,20 +23,8 @@ interface IAgent {
   description: string;
   fullPortrait: string;
   background: string;
-  role: {
-    uuid: string;
-    displayName: string;
-    description: string;
-    displayIcon: string;
-  };
-  abilities: [
-    {
-      slot: abilityName;
-      displayName: string;
-      description: string;
-      displayIcon: string;
-    },
-  ];
+  role: { uuid: string; displayName: string; description: string; displayIcon: string };
+  abilities: { slot: abilityName; displayName: string; description: string; displayIcon: string }[];
   isPlayableCharacter: boolean;
 }
 

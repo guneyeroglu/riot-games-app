@@ -19,38 +19,15 @@ import { useFetchData, useChampionDialog } from '../../../global/utils';
 import styles from './main.module.scss';
 
 interface IChamp {
-  background: {
-    title: string;
-    uri: string;
-    width: number;
-    height: number;
-    x: number;
-    y: number;
-  };
-  image: {
-    title: string;
-    uri: string;
-    width: number;
-    height: number;
-    x: number;
-    y: number;
-  };
+  background: { title: string; uri: string; width: number; height: number; x: number; y: number };
+  image: { title: string; uri: string; width: number; height: number; x: number; y: number };
   name: string;
   slug: string;
 }
 
 interface IRegion {
   description: string;
-  image: {
-    title: string;
-    subtitle: string;
-    description: string;
-    uri: string;
-    width: number;
-    height: number;
-    x: number;
-    y: number;
-  };
+  image: { title: string; subtitle: string; description: string; uri: string; width: number; height: number; x: number; y: number };
   name: string;
   slug: string;
 }
@@ -126,26 +103,6 @@ const Main = () => {
             <div className={styles.nav}>
               <Link to='regions'>
                 <span>{t('viewRegions')}</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.container__others}>
-        <div className={styles['container__others--background']} style={{ backgroundImage: `url(${backgroundImageItems})` }}></div>
-        <div className={styles.links}>
-          <div className={styles.links__wrapper}>
-            <div className={styles.title}>
-              <FeaturedTitle type={'items'} />
-            </div>
-            <div className={styles.content}>
-              <Link to={'items'}>
-                <img src={imageItem} alt={'items'} />
-              </Link>
-            </div>
-            <div className={styles.nav}>
-              <Link to={'items'}>
-                <span>{t('viewItems')}</span>
               </Link>
             </div>
           </div>

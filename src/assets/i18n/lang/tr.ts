@@ -3,8 +3,6 @@ const tr = {
     home: 'Anasayfa',
     champions: 'Şampiyonlar',
     regions: 'Bölgeler',
-    items: 'Eşyalar',
-    ranks: 'Rütbeler',
     agents: 'Ajanlar',
     maps: 'Haritalar',
     arsenal: 'Cephanelik',

@@ -20,18 +20,8 @@ const Home = () => {
   const { t, i18n } = useTranslation();
 
   const gameList: IGames[] = [
-    {
-      id: 1,
-      name: 'League of Legends',
-      to: '/leagueoflegends',
-      photo: lolPhoto,
-    },
-    {
-      id: 2,
-      name: 'Valorant',
-      to: '/valorant',
-      photo: valoPhoto,
-    },
+    { id: 1, name: 'League of Legends', to: '/leagueoflegends', photo: lolPhoto },
+    { id: 2, name: 'Valorant', to: '/valorant', photo: valoPhoto },
   ];
 
   useEffect(() => {

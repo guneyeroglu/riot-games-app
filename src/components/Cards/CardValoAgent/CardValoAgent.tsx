@@ -17,14 +17,7 @@ interface IProps {
     fullPortrait: string;
     background: string;
     role: { uuid: string; displayName: string; description: string };
-    abilities: [
-      {
-        slot: abilityName;
-        displayName: string;
-        description: string;
-        displayIcon: string;
-      },
-    ];
+    abilities: { slot: abilityName; displayName: string; description: string; displayIcon: string }[];
   };
 }
 

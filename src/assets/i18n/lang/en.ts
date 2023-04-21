@@ -3,8 +3,6 @@ const en = {
     home: 'Home',
     champions: 'Champions',
     regions: 'Regions',
-    items: 'Items',
-    ranks: 'Ranks',
     agents: 'Agents',
     maps: 'Maps',
     arsenal: 'Arsenal',
