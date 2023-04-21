@@ -11,8 +11,6 @@ import { CarouselLolMain } from '../../../components/Carousels';
 
 import backgroundImageChampions from '../../../assets/images/lol/featured-champs-bg.jpeg';
 import backgroundImageRegions from '../../../assets/images/lol/featured-regions-bg.jpeg';
-import backgroundImageItems from '../../../assets/images/lol/featured-items-bg.jpeg';
-import imageItem from '../../../assets/images/lol/items.jpeg';
 
 import { useFetchData, useChampionDialog } from '../../../global/utils';
 
