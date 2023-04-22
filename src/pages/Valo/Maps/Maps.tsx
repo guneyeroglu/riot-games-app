@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import LazyLoad from 'react-lazy-load';
 import { useMediaQuery } from '@mui/material';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { A11y, Pagination } from 'swiper';
 
 import Spinner from '../../../components/Spinner/Spinner';
 import { Icon } from '../../../components/Icons/Icon';
@@ -24,13 +25,6 @@ const Maps = () => {
     setIsLoading(false);
   };
 
-  const handleMapChange = (id: number) => {
-    if (id === currentMap) return;
-
-    setIsLoading(true);
-    setCurrentMap(id);
-  };
-
   const handleViewGallery = () => {
     setOpen(true);
   };
@@ -49,21 +43,44 @@ const Maps = () => {
         <div className={styles.title}>
           <span>{t('maps')}</span>
         </div>
-        <div key={data[currentMap].name} className={styles.image}>
-          {isLoading && (
-            <div className={styles.image__spinner} style={{ height: isMobile ? '275px' : '450px' }}>
-              <Spinner />
-            </div>
-          )}
-          <LazyLoad
-            width={isLoading ? '0%' : '100%'}
-            height={isLoading ? '0%' : `${isMobile ? '275px' : '450px'}`}
-            offset={400}
-            className={`${styles.image__lazy} ${isLoading ? styles.hidden : ''}`.trim()}
+        <div className={styles.images}>
+          <Swiper
+            modules={[Pagination, A11y]}
+            slidesPerView={1}
+            spaceBetween={50}
+            className={styles.images__swiper}
+            loop
+            onSlideChangeTransitionStart={(swiper) => setCurrentMap(swiper.realIndex)}
+            pagination={{
+              type: 'bullets',
+              clickable: true,
+              renderBullet: (_index, className) => {
+                return `<span class="${className} ${styles.actions}"><button></button></span>`;
+              },
+            }}
           >
-            <img src={data[currentMap].featuredImage} alt={data[currentMap].name} onLoad={handleSpinner} style={{ borderWidth: isLoading ? 0 : 3 }} />
-          </LazyLoad>
-          <div className={styles.image__info}>
+            {data.map((map) => (
+              <SwiperSlide key={map.name}>
+                <div key={map.name} className={styles['images__swiper--item']}>
+                  {isLoading && (
+                    <div key={map.description} className={styles.spinner} style={{ height: isMobile ? '275px' : '450px' }}>
+                      <Spinner />
+                    </div>
+                  )}
+                  <img
+                    key={map.name}
+                    src={map.featuredImage}
+                    alt={map.name}
+                    onLoad={handleSpinner}
+                    style={{ borderWidth: isLoading ? 0 : 3 }}
+                    width={isLoading ? '0%' : '100%'}
+                    height={isLoading ? '0%' : `${isMobile ? '275px' : '450px'}`}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div key={data[currentMap].name} className={styles['images__swiper--info']}>
             <span>{data[currentMap].name}</span>
             <span>{t(data[currentMap].description)}</span>
             <span>{currentMap < 9 ? `0${currentMap + 1}` : currentMap + 1}</span>
@@ -71,11 +88,6 @@ const Maps = () => {
               <span>{t('viewGallery')}</span>
               <Icon name='ArrowIcon' />
             </button>
-          </div>
-          <div className={styles.image__actions}>
-            {data.map((_el, index) => (
-              <button key={index} className={`${currentMap === index ? styles.selected : ''}`} onClick={() => handleMapChange(index)}></button>
-            ))}
           </div>
         </div>
       </div>

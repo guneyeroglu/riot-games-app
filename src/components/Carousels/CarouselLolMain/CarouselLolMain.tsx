@@ -5,8 +5,6 @@ import { useMediaQuery } from '@mui/material';
 import { ButtonGroup } from './components';
 import { IImage } from '../../Images/lol/main/ImagesCarousel';
 
-import 'swiper/scss';
-import 'swiper/scss/pagination';
 import styles from './carousel-lol-main.module.scss';
 
 interface IProps {
@@ -38,8 +36,8 @@ const CarouselLolMain = (props: IProps) => {
         >
           {images.map((image) => (
             <SwiperSlide key={image.id}>
-              <div className={styles.slide}>
-                <img src={image.url} alt={image.name} />
+              <div key={image.id} className={styles.slide}>
+                <img key={image.id} src={image.url} alt={image.name} />
               </div>
             </SwiperSlide>
           ))}
