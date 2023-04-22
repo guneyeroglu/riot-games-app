@@ -32,7 +32,7 @@ const DrawerMaps = (props: IProps) => {
             <span>{t(data[currentMap].description)}</span>
           </div>
           <div className={styles.images}>
-            <CarouselValoMap images={data[currentMap].images} />
+            <CarouselValoMap data={data[currentMap]} />
           </div>
         </div>
       </div>

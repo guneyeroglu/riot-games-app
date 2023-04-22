@@ -1,35 +1,40 @@
 import { useState } from 'react';
-import { Icon } from '../../Icons/Icon';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { A11y, Pagination } from 'swiper';
+
+import { ButtonGroup } from './components';
+
 import styles from './carousel-valo-map.module.scss';
 
 interface IProps {
-  images: string[];
+  data: { description: string; featuredImage: string; featuredImageMobile: string; images: string[]; name: string };
 }
 
 const CarouselValoMap = (props: IProps) => {
-  const { images } = props;
+  const { data } = props;
+
   const [currentImage, setCurrentImage] = useState<number>(0);
 
-  const handleIncreaseImage = () => setCurrentImage((preValue) => (preValue === images.length - 1 ? 0 : preValue + 1));
-  const handleDecreaseImage = () => setCurrentImage((preValue) => (preValue === 0 ? images.length - 1 : preValue - 1));
+  const buttonProps = { currentImage };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrapper__carousel}>
-        {images.map((image, idx) => (
-          <img key={image + idx} src={image} alt={`${image}-${idx + 1}`} style={{ transform: `translateX(${100 * (idx - currentImage)}%)` }} />
-        ))}
-      </div>
-      <div className={styles.wrapper__actions}>
-        <span>{currentImage < 9 ? `0${currentImage + 1}` : currentImage + 1}</span>
-        <span>/</span>
-        <span>{images.length < 10 ? `0${images.length}` : images.length}</span>
-        <button onClick={handleDecreaseImage}>
-          <Icon name='ArrowIcon' />
-        </button>
-        <button onClick={handleIncreaseImage}>
-          <Icon name='ArrowIcon' />
-        </button>
+        <Swiper
+          className={styles.swiper}
+          modules={[Pagination, A11y]}
+          slidesPerView={1}
+          spaceBetween={50}
+          loop
+          onSlideChangeTransitionStart={(swiper) => setCurrentImage(swiper.realIndex)}
+        >
+          {data.images.map((image, idx) => (
+            <SwiperSlide key={image + idx}>
+              <img src={image} alt={`${data.name} - ${idx + 1}`} />
+            </SwiperSlide>
+          ))}
+          <ButtonGroup {...buttonProps} />
+        </Swiper>
       </div>
     </div>
   );
