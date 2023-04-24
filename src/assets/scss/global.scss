@@ -37,3 +37,7 @@ body {
   background: #d13539;
   -webkit-text-fill-color: #eeeeee;
 }
+
+.MuiTouchRipple-root {
+  display: none !important;
+}

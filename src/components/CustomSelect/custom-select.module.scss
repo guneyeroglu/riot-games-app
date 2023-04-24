@@ -1,0 +1,80 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    background-color: #1c1c1c;
+    border: 1px solid #444444;
+    border-radius: 0.5rem;
+    color: #eeeeee;
+
+    :global(.MuiSelect-select) {
+      padding-top: 0rem;
+      padding-bottom: 0;
+
+      & ~ svg {
+        color: #eeeeee;
+        width: 1rem;
+        height: 1rem;
+        top: calc(50% - 0.5rem);
+      }
+
+      & ~ fieldset {
+        border: none;
+        outline: none;
+        height: 50px;
+        top: 0;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #2b2b2b;
+    }
+  }
+}
+
+.menu {
+  &:global(.MuiPopover-root) {
+    :global(.MuiPaper-root) {
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      background-color: transparent;
+      border: 3px #444444 solid;
+      border-radius: 0.5rem;
+      max-height: 150px;
+
+      ul {
+        padding: 0;
+        background-color: #171717;
+
+        li {
+          background-color: #171717;
+          color: #eeeeee;
+          opacity: 0.5;
+          transition: opacity 0.35s ease-in-out, background-color 0.35s ease-in-out;
+
+          &:hover {
+            background-color: #212121;
+            opacity: 1;
+          }
+
+          &:global(.Mui-selected) {
+            background-color: #212121;
+            opacity: 1;
+          }
+        }
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

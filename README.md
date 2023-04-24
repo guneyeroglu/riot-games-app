@@ -12,6 +12,8 @@ The development process continues...
     - Agents (DONE) - RESPONSIVE DESIGN (DONE)
     - Maps (DONE) - RESPONSIVE DESIGN (DONE)
     - Arsenal (TODO) - RESPONSIVE DESIGN (TODO)
+  - Not Found (TODO) - RESPONSIVE DESIGN (TODO)
+  - Copyright Page (TODO) - RESPONSIVE DESIGN (TODO)
 - Footer (DONE) - RESPONSIVE DESIGN (DONE)
 
 There may be changes in the number of pages, page content and the tools used.
