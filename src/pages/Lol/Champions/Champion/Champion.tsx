@@ -215,7 +215,7 @@ const Champion = () => {
               <div className={styles.skins__image}>
                 <img
                   src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${currentImageNumber}.jpg`}
-                  alt={''}
+                  alt={`${championName} - ${currentImageNumber}`}
                   key={currentImageNumber}
                 />
               </div>
@@ -223,7 +223,7 @@ const Champion = () => {
                 {championDetails &&
                   championDetails.skins.map((skin) => (
                     <li key={skin.id + skin.name + skin.num}>
-                      <button onClick={() => setCurrentImageNumber(skin.num)}>
+                      <button onClick={() => setCurrentImageNumber(skin.num)} className={skin.num === currentImageNumber ? styles.active : ''}>
                         <img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${skin.num}.jpg`} alt={skin.name} />
                         <span>{skin.name === 'default' ? championName : skin.name}</span>
                       </button>

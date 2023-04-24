@@ -66,11 +66,3 @@
     }
   }
 }
-
-@media screen and (max-width: device.$xs) {
-  .wrapper {
-    &__content {
-      max-width: 325px;
-    }
-  }
-}
