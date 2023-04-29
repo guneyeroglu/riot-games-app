@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useFetchData } from '../../../global/utils';
 import CustomSelect from '../../../components/CustomSelect/CustomSelect';
 import { CardValoArsenal } from '../../../components/Cards';
+import { v4 as uuidv4 } from 'uuid';
 
-import { IArsenalDetails } from '../../../global/interfaces';
+import { useFetchData } from '../../../global/utils';
+
+import { IArsenalDetails, IWeapon } from '../../../global/interfaces';
 
 import styles from './arsenal.module.scss';
 
@@ -13,16 +15,24 @@ const Arsenal = () => {
   const { t, i18n } = useTranslation();
 
   const { data, refetch } = useFetchData('valo-arsenal');
-  const [currentWeapon, setCurrentWeapon] = useState<string>(t('allWeapons'));
+  const [currentWeapon, setCurrentWeapon] = useState<string>(`Weapon 1`);
 
   const dataWeaponList = data?.data.reduce((acc: any, curr: any) => {
-    const { shopData, weapons } = curr;
+    const { shopData } = curr;
+    if (!!shopData?.categoryText) acc[shopData?.categoryText] = '';
 
-    if (!!shopData?.categoryText) acc[shopData?.categoryText] = weapons;
     return acc;
   }, {});
 
-  const weaponsList = [t('allWeapons'), ...Object.keys(dataWeaponList || []), t('melee')];
+  const handleWeaposList = () => {
+    const arr: IWeapon[] = [];
+    arr[0] = { id: uuidv4(), text: t('allWeapons'), value: `Weapon 1` };
+    Object.keys(dataWeaponList || []).map((item, idx) => arr.push({ id: uuidv4(), text: item, value: `Weapon ${idx + 2}` }));
+    arr[arr.length] = { id: uuidv4(), text: t('melee'), value: `Weapon ${arr.length + 1}` };
+    return arr;
+  };
+
+  const weaponsList = handleWeaposList();
 
   useEffect(() => {
     document.title = t('pageValoArsenal');
@@ -30,10 +40,6 @@ const Arsenal = () => {
 
     refetch();
   }, [t, i18n, refetch]);
-
-  useEffect(() => {
-    setCurrentWeapon(t('allWeapons'));
-  }, [t]);
 
   return (
     <div className={styles.wrapper}>
@@ -55,9 +61,10 @@ const Arsenal = () => {
         <div className={styles['wrapper__content--cards']}>
           {data?.data
             .filter((item: IArsenalDetails) => {
-              if (currentWeapon === t('allWeapons')) return true;
-              if (currentWeapon === t('melee')) return !item.shopData;
-              return item.shopData?.categoryText === currentWeapon;
+              const weapon = weaponsList.find((item) => item.value === currentWeapon)?.text;
+              if (weapon === t('allWeapons')) return true;
+              if (weapon === t('melee')) return !item.shopData;
+              return item.shopData?.categoryText === weapon;
             })
             .map((item: IArsenalDetails) => (
               <CardValoArsenal key={item.uuid} item={item} />

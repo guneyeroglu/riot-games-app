@@ -3,10 +3,12 @@ import { useTranslation } from 'react-i18next';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
+import { IWeapon } from '../../global/interfaces';
+
 import styles from './custom-select.module.scss';
 
 interface IProps {
-  items: string[];
+  items: IWeapon[];
   currentWeapon: string;
   onSetCurrentWeapon: (value: string) => void;
 }
@@ -23,8 +25,8 @@ const CustomSelect = (props: IProps) => {
   return (
     <div key={t('allWeapons')} className={styles.wrapper}>
       <Select
-        defaultValue={t('allWeapons')}
-        value={currentWeapon || undefined}
+        defaultValue={''}
+        value={currentWeapon || ''}
         onChange={handleChange}
         className={`${styles.wrapper__content} ${open ? styles.open : ''}`}
         MenuProps={{ className: styles.menu }}
@@ -32,8 +34,8 @@ const CustomSelect = (props: IProps) => {
         onClose={() => setOpen(false)}
       >
         {items.map((item) => (
-          <MenuItem key={item} value={item}>
-            {item}
+          <MenuItem key={item.id} value={item.value}>
+            {item.text}
           </MenuItem>
         ))}
       </Select>
