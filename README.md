@@ -1,7 +1,6 @@
 # [Riot Games All in One](https://riotgamesallinone.netlify.app/)
 
 <img width="2056" alt="1" src="https://user-images.githubusercontent.com/93340900/235313304-859fc0b9-173a-4bed-94d0-4851e86cc288.png">
-<img width="2056" alt="2" src="https://user-images.githubusercontent.com/93340900/235313312-524b2766-9ab5-4da2-81e1-b70f7fc393f8.png">
 
 #
 
@@ -26,11 +25,11 @@ It is a website consisting of 9 pages.
 #### - Arsenal Page
 
 ### Some screenshots
-
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 11" src="https://user-images.githubusercontent.com/93340900/235313551-c1c340de-ea42-4cce-a80e-6ccaec86788d.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 21" src="https://user-images.githubusercontent.com/93340900/235313571-0d9e4fb7-89f7-499a-91cf-3f66e20594e1.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 50 11" src="https://user-images.githubusercontent.com/93340900/235313368-3b96b60a-1581-4e1f-832a-72f53429fccc.png">
-<img width="2056" alt="Ekran Resmi 2023-04-29 18 48 47" src="https://user-images.githubusercontent.com/93340900/235313430-1343cee7-a113-46d3-bd49-5b02421e472e.png">
-<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 41" src="https://user-images.githubusercontent.com/93340900/235313405-0463d1b3-2730-4f68-b6eb-56f556d3387b.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 50 21" src="https://user-images.githubusercontent.com/93340900/235313412-0eb18861-bac0-403f-b1d4-8d7137a39027.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 41" src="https://user-images.githubusercontent.com/93340900/235313405-0463d1b3-2730-4f68-b6eb-56f556d3387b.png">
 <img width="1430" alt="Ekran Resmi 2023-04-29 18 56 10" src="https://user-images.githubusercontent.com/93340900/235313447-dbaf0661-ead2-4193-9154-f9fd5ff4a372.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 52 25" src="https://user-images.githubusercontent.com/93340900/235313451-66d3bf7d-32f8-4c74-aab4-8f0285017f9e.png">
 <img width="1102" alt="Ekran Resmi 2023-04-29 18 52 39" src="https://user-images.githubusercontent.com/93340900/235313471-46191a99-ec43-423f-a680-43e859b59dfc.png">
@@ -42,8 +41,6 @@ It is a website consisting of 9 pages.
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 55 11" src="https://user-images.githubusercontent.com/93340900/235313537-2d26cdd4-b16e-4cc1-9f21-e532ffd44cc6.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 55 23" src="https://user-images.githubusercontent.com/93340900/235313540-57cc6430-0da1-4b93-ba58-766daa91816d.png">
 <img width="2055" alt="Ekran Resmi 2023-04-29 18 55 43" src="https://user-images.githubusercontent.com/93340900/235313550-e1a23250-91da-457f-8181-ca8f12bda3dd.png">
-<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 11" src="https://user-images.githubusercontent.com/93340900/235313551-c1c340de-ea42-4cce-a80e-6ccaec86788d.png">
-<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 21" src="https://user-images.githubusercontent.com/93340900/235313571-0d9e4fb7-89f7-499a-91cf-3f66e20594e1.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 53 55" src="https://user-images.githubusercontent.com/93340900/235313616-7ac5f6eb-671f-4318-9476-a62c58b02ead.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 50 41" src="https://user-images.githubusercontent.com/93340900/235313624-1aac0f21-6d3f-4b7e-bd5f-839b2c5023b0.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 54 12" src="https://user-images.githubusercontent.com/93340900/235313640-01d09822-ae7b-4693-8fa6-5c0486030bef.png">
