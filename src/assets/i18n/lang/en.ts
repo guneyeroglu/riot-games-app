@@ -94,6 +94,8 @@ const en = {
     leg: 'Leg',
     range: 'Range',
     magazineSize: 'Magazine Size',
+    notFound: 'LOST? TAKE A MAGICAL JOURNEY BACK TO THE KNOWN UNIVERSE.',
+    returnToUniverse: 'RETURN TO UNIVERSE',
   },
 };
 

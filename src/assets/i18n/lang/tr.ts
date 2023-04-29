@@ -93,6 +93,8 @@ const tr = {
     leg: 'Bacak',
     range: 'Menzil',
     magazineSize: 'Şarjör Boyutu',
+    notFound: 'YOLUNU MU KAYBETTİN? GERİ DÖN VE EVRENİ KEŞFETTİĞİN SİHİRLİ BİR YOLCULUĞA ÇIK!',
+    returnToUniverse: 'EVRENE DÖN',
   },
 };
 

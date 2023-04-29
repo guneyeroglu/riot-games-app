@@ -15,6 +15,7 @@ const Agents = lazy(() => import('../pages/Valo/Agents/Agents'));
 const Maps = lazy(() => import('../pages/Valo/Maps/Maps'));
 const Arsenal = lazy(() => import('../pages/Valo/Arsenal/Arsenal'));
 const ValoMain = lazy(() => import('../pages/Valo/Main/Main'));
+const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
 const Router = () => {
   return (
@@ -31,6 +32,7 @@ const Router = () => {
           <Route path='/valorant/agents' element={<Agents />} />
           <Route path='/valorant/maps' element={<Maps />} />
           <Route path='/valorant/arsenal' element={<Arsenal />} />
+          <Route path='/*' element={<NotFound />} />
         </Routes>
       </Suspense>
       <Footer />

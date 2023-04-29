@@ -1,0 +1,185 @@
+@use '../../assets/scss/variables/deviceSize' as device;
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 75dvh;
+  position: relative;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    z-index: -1;
+    filter: brightness(0.95);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      opacity: 0.75;
+      background: #c4b998;
+      background: -webkit-linear-gradient(to bottom, #c4b998 0%, #937341 100%);
+      background: -moz-linear-gradient(to bottom, #c4b998 0%, #937341 100%);
+      background: linear-gradient(to bottom, #c4b998 0%, #937341 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #c4b998;
+    }
+
+    &--message {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem 0;
+
+      span {
+        font-size: 2rem;
+        font-weight: 600;
+        opacity: 0.75;
+        background: #c4b998;
+        background: -webkit-linear-gradient(to bottom, #c4b998 0%, #937341 100%);
+        background: -moz-linear-gradient(to bottom, #c4b998 0%, #937341 100%);
+        background: linear-gradient(to bottom, #c4b998 0%, #937341 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+      }
+    }
+
+    &--navigate {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      min-width: 250px;
+      height: 65px;
+
+      a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        text-decoration: none;
+        -webkit-border-image: -webkit-linear-gradient(top, #c3a758, #6b521e) stretch;
+        border-image: linear-gradient(180deg, #c3a758, #6b521e) stretch;
+        border-style: solid;
+        background-color: rgba(25, 28, 33, 0.8);
+        border-image-slice: 1;
+        padding: 0 2rem;
+
+        span {
+          font-size: 1.25rem;
+          font-weight: 600;
+          opacity: 0.75;
+          background: #937341;
+          background: -webkit-linear-gradient(to bottom, #c4b998 0%, #937341 100%);
+          background: -moz-linear-gradient(to bottom, #c4b998 0%, #937341 100%);
+          background: linear-gradient(to bottom, #c4b998 0%, #937341 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-align: center;
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+          fill: #c4b998;
+          transform: rotate(180deg);
+        }
+
+        @media screen and (min-width: (device.$m + 1)) {
+          &:hover {
+            cursor: pointer;
+
+            svg {
+              animation: slide 1s ease 0s 1 normal forwards;
+
+              @keyframes slide {
+                0% {
+                  opacity: 0;
+                  transform: translateX(-250px) rotate(180deg);
+                }
+
+                100% {
+                  opacity: 1;
+                  transform: translateX(0) rotate(180deg);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$m) {
+  .wrapper {
+    &__content {
+      padding: 0 1rem;
+
+      &--navigate {
+        a {
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$xs) {
+  .wrapper {
+    height: 65dvh;
+
+    &__content {
+      h3 {
+        font-size: 1rem;
+      }
+
+      &--message {
+        span {
+          font-size: 1.5rem;
+        }
+      }
+
+      &--navigate {
+        min-width: 200px;
+        height: 50px;
+
+        a {
+          span {
+            font-size: 1rem;
+          }
+
+          svg {
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+    }
+  }
+}
