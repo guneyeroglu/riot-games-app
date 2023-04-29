@@ -18,4 +18,6 @@ export type iconName =
   | 'ArrowIcon'
   | 'ValorantIcon'
   | 'MenuArrowIcon'
-  | 'HamburgerIcon';
+  | 'HamburgerIcon'
+  | 'InfoIcon'
+  | 'DotIcon';

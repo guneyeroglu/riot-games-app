@@ -18,6 +18,8 @@ import ValorantIcon from './ValorantIcon';
 import ArrowIcon from './ArrowIcon';
 import HamburgerIcon from './HamburgerIcon';
 import MenuArrowIcon from './MenuArrowIcon';
+import InfoIcon from './InfoIcon';
+import DotIcon from './DotIcon';
 
 import { iconName } from '../../global/types/IconName';
 
@@ -50,6 +52,8 @@ const IconComponentName: any = {
   ArrowIcon: <ArrowIcon />,
   HamburgerIcon: <HamburgerIcon />,
   MenuArrowIcon: <MenuArrowIcon />,
+  InfoIcon: <InfoIcon />,
+  DotIcon: <DotIcon />,
 };
 
 const Icon = (props: IProps) => {

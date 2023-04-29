@@ -1,3 +1,5 @@
+@use '../../../assets/scss/variables/deviceSize' as device;
+
 .wrapper {
   max-width: 1400px;
   width: 100%;
@@ -5,7 +7,7 @@
   padding: 0 2rem;
 
   &__content {
-    padding: 2rem 0;
+    padding: 10rem 0;
     border-left: 1px solid #eeeeee;
 
     &--head {
@@ -13,6 +15,9 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
+      border-top: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+      padding: 5rem 0;
 
       .title {
         flex: 1 60%;
@@ -25,6 +30,7 @@
           font-size: 5rem;
           color: #eeeeee;
           font-weight: 600;
+          text-align: start;
         }
       }
 
@@ -62,6 +68,72 @@
           align-items: center;
           width: 250px;
           height: 50px;
+        }
+      }
+    }
+
+    &--cards {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media screen and (max-width: device.$m) {
+  .wrapper {
+    padding: 0 1rem;
+
+    &__content {
+      padding: 5rem 0;
+
+      &--head {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2.5rem 0;
+
+        .title {
+          flex: none;
+          margin: 0 0 1rem 0;
+
+          span {
+            font-size: 3.5rem;
+          }
+        }
+
+        .navigate {
+          flex: none;
+          width: 100%;
+
+          &__text {
+            align-self: self-end;
+            margin: 0 0 1rem 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: device.$xs) {
+  .wrapper {
+    &__content {
+      &--head {
+        border-right: 1px solid #eeeeee;
+        padding: 2.5rem 1rem;
+
+        .title {
+          span {
+            font-size: 2rem;
+          }
+        }
+
+        .navigate {
+          &__button {
+            width: 100%;
+          }
         }
       }
     }

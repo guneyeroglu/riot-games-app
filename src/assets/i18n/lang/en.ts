@@ -46,7 +46,7 @@ const en = {
     valoProtocol: 'VLRT PR0T0C0L',
     allWeapons: 'All Weapons',
     melee: 'Melee',
-    tacticalKnife: 'Tactical Knife',
+    tacticalKnife: 'TACTICAL KNIFE',
     standardKnife: 'Standard Knife',
     free: 'Free',
     credit: 'Credit',
@@ -89,6 +89,11 @@ const en = {
     detail: 'Detail',
     passive: 'Passive',
     volarantProtocol: 'VLRT PR0T0C0L',
+    head: 'Head',
+    body: 'Body',
+    leg: 'Leg',
+    range: 'Range',
+    magazineSize: 'Magazine Size',
   },
 };
 

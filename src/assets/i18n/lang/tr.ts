@@ -45,7 +45,7 @@ const tr = {
     valoProtocol: 'VLRT PR0T0K0LÜ',
     allWeapons: 'Tüm Silahlar',
     melee: 'Yakın Dövüş',
-    tacticalKnife: 'Taktik Bıçak',
+    tacticalKnife: 'TAKTİK BIÇAK',
     standardKnife: 'Standart Bıçak',
     free: 'Bedava',
     credit: 'Kredi',
@@ -88,6 +88,11 @@ const tr = {
     detail: 'Detay',
     passive: 'Pasif',
     volarantProtocol: 'VLRT PR0T0K0LÜ',
+    head: 'Kafa',
+    body: 'Gövde',
+    leg: 'Bacak',
+    range: 'Menzil',
+    magazineSize: 'Şarjör Boyutu',
   },
 };
 

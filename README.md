@@ -11,7 +11,7 @@ The development process continues...
   - Valo Home (DONE) - RESPONSIVE DESIGN (DONE)
     - Agents (DONE) - RESPONSIVE DESIGN (DONE)
     - Maps (DONE) - RESPONSIVE DESIGN (DONE)
-    - Arsenal (TODO) - RESPONSIVE DESIGN (TODO)
+    - Arsenal (TODO) - RESPONSIVE DESIGN (DONE)
   - Not Found (TODO) - RESPONSIVE DESIGN (TODO)
   - Copyright Page (TODO) - RESPONSIVE DESIGN (TODO)
 - Footer (DONE) - RESPONSIVE DESIGN (DONE)
