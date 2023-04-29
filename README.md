@@ -159,6 +159,6 @@ When you get the notification which shows that the terminal is running successfu
 
 #
 
-### THANKS
+### ME
 
 This project was developed by [Güney Eroğlu](https://www.linkedin.com/in/guneyeroglu/).
