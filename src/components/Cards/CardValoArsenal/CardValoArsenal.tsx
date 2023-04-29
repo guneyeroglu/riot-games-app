@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useTranslation } from 'react-i18next';
 import { v4 as uuidv4 } from 'uuid';
+import { Tooltip } from '@mui/material';
 
 import { ButtonGroup, LinearLabel } from './components';
 import { Icon } from '../../Icons/Icon';
@@ -20,6 +21,8 @@ const CardValoArsenal = (props: IProps) => {
   const [currentSkin, setCurrentSkin] = useState<number>(0);
   const [currentInfo, setCurrentInfo] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(false);
+  const [swiper, setSwiper] = useState<any>(null);
+  const [mouseLeave, setMouseLeave] = useState<boolean>(false);
 
   const handleSlideChange = (id: number) => {
     setCurrentSkin(id);
@@ -31,8 +34,18 @@ const CardValoArsenal = (props: IProps) => {
 
   const skins = item?.skins.filter((image) => !!image.contentTierUuid);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (swiper && mouseLeave) {
+        swiper.slideTo(0);
+      }
+    }, 250);
+
+    return () => clearInterval(interval);
+  }, [swiper, mouseLeave, currentSkin]);
+
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} onMouseEnter={() => setMouseLeave(false)} onMouseLeave={() => setMouseLeave(true)}>
       <div className={styles.wrapper__title}>
         <span>{item?.shopData ? item?.displayName.toLocaleUpperCase('en-US') : t('tacticalKnife')}.</span>
       </div>
@@ -45,7 +58,9 @@ const CardValoArsenal = (props: IProps) => {
       </div>
       <div className={styles.wrapper__skins}>
         <div className={styles['wrapper__skins--title']}>
-          <span>{skins?.[currentSkin].displayName}</span>
+          <Tooltip title={skins?.[currentSkin].displayName || ''}>
+            <span>{skins?.[currentSkin].displayName}</span>
+          </Tooltip>
           {item?.weaponStats && (
             <button onClick={handleInfoContent}>
               <Icon name='InfoIcon' />
@@ -56,17 +71,18 @@ const CardValoArsenal = (props: IProps) => {
           <Swiper
             slidesPerView={1}
             spaceBetween={150}
-            loop
             onSlideChangeTransitionStart={(swiper) => handleSlideChange(swiper.realIndex)}
+            grabCursor
+            onSwiper={(swiper) => setSwiper(swiper)}
             className={styles.swiper}
-            lazyPreloadPrevNext={1}
+            lazyPreloadPrevNext={2}
           >
             {skins?.map((image) => (
               <SwiperSlide key={image.uuid} className={styles.slide}>
                 <img src={image.levels[0].displayIcon} alt={image.displayName} loading='lazy' />
               </SwiperSlide>
             ))}
-            <ButtonGroup />
+            <ButtonGroup maxLength={skins.length} />
           </Swiper>
         </div>
       </div>

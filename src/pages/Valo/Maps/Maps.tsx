@@ -50,6 +50,7 @@ const Maps = () => {
             spaceBetween={50}
             className={styles.images__swiper}
             loop
+            grabCursor
             onSlideChangeTransitionStart={(swiper) => setCurrentMap(swiper.realIndex)}
             pagination={{
               type: 'bullets',

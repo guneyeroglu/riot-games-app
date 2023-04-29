@@ -26,6 +26,7 @@ const CarouselValoMap = (props: IProps) => {
           slidesPerView={1}
           spaceBetween={50}
           loop
+          grabCursor
           onSlideChangeTransitionStart={(swiper) => setCurrentImage(swiper.realIndex)}
         >
           {data.images.map((image, idx) => (

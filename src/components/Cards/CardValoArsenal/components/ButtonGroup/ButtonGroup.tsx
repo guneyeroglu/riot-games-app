@@ -3,7 +3,12 @@ import { Icon } from '../../../../Icons/Icon';
 
 import styles from './button-group.module.scss';
 
-const ButtonGroup = () => {
+interface IProps {
+  maxLength: number;
+}
+
+const ButtonGroup = (props: IProps) => {
+  const { maxLength } = props;
   const swiper = useSwiper();
 
   const handleNextSkin = () => {
@@ -16,10 +21,10 @@ const ButtonGroup = () => {
 
   return (
     <div className={styles.wrapper}>
-      <button onClick={handlePrevSkin}>
+      <button onClick={handlePrevSkin} disabled={swiper.realIndex === 0}>
         <Icon name='ArrowIcon' />
       </button>
-      <button onClick={handleNextSkin}>
+      <button onClick={handleNextSkin} disabled={swiper.realIndex === maxLength - 1}>
         <Icon name='ArrowIcon' />
       </button>
     </div>

@@ -22,6 +22,7 @@ const CarouselLolMain = (props: IProps) => {
           modules={[Pagination, A11y]}
           slidesPerView={1}
           spaceBetween={0}
+          grabCursor
           loop
           pagination={{
             type: isMobile ? 'fraction' : 'bullets',
