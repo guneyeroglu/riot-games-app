@@ -1,34 +1,102 @@
-# RIOT GAMES WEBSITE APP
+# [Riot Games All in One](https://riotgamesallinone.netlify.app/)
 
-The development process continues...
+<img width="2056" alt="1" src="https://user-images.githubusercontent.com/93340900/235313304-859fc0b9-173a-4bed-94d0-4851e86cc288.png">
+<img width="2056" alt="2" src="https://user-images.githubusercontent.com/93340900/235313312-524b2766-9ab5-4da2-81e1-b70f7fc393f8.png">
 
-- Header (DONE) - RESPONSIVE DESIGN (DONE)
-- Home (DONE) - RESPONSIVE DESIGN (DONE)
-  - LoL Home (DONE) - RESPONSIVE DESIGN (DONE)
-    - Champions (DONE) - RESPONSIVE DESIGN (DONE)
-      - Champions/:champion (DONE) - RESPONSIVE DESIGN (DONE)
-    - Regions (DONE) - RESPONSIVE DESIGN (DONE)
-  - Valo Home (DONE) - RESPONSIVE DESIGN (DONE)
-    - Agents (DONE) - RESPONSIVE DESIGN (DONE)
-    - Maps (DONE) - RESPONSIVE DESIGN (DONE)
-    - Arsenal (DONE) - RESPONSIVE DESIGN (DONE)
-  - Not Found (DONE) - RESPONSIVE DESIGN (DONE)
-  - Copyright Page (TODO) - RESPONSIVE DESIGN (TODO)
-- Footer (DONE) - RESPONSIVE DESIGN (DONE)
+#
 
-There may be changes in the number of pages, page content and the tools used.
-LoL' Ranks page, Valo's Ranks page and LoL's Item page canceled. Copyright Page canceled. Added text instead.
+## CONTENT and DATA
 
-README.md file will be changed when the project done.
+My project is a wiki-style website that provides information about the games LoL and Valorant, developed by Riot Games. All APIs belong to the Riot Games.
 
-Tools that I used in this project:
+#
 
-- Axios
-- React-Query
-- SCSS
-- Material UI Library
-- React-i18next
-- React-Lazy-Load
-- Swiper
-- uuid
-- ...
+## PAGES 
+
+It is a website consisting of 9 pages. 
+
+#### - Home Page
+#### - LoL Page
+#### - Champions Page
+#### - Champion Page
+#### - Regions Page
+#### - Valo Page
+#### - Agents Page
+#### - Maps Page
+#### - Arsenal Page
+
+### Some screenshots
+
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 11" src="https://user-images.githubusercontent.com/93340900/235313368-3b96b60a-1581-4e1f-832a-72f53429fccc.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 48 47" src="https://user-images.githubusercontent.com/93340900/235313430-1343cee7-a113-46d3-bd49-5b02421e472e.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 41" src="https://user-images.githubusercontent.com/93340900/235313405-0463d1b3-2730-4f68-b6eb-56f556d3387b.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 21" src="https://user-images.githubusercontent.com/93340900/235313412-0eb18861-bac0-403f-b1d4-8d7137a39027.png">
+<img width="1430" alt="Ekran Resmi 2023-04-29 18 56 10" src="https://user-images.githubusercontent.com/93340900/235313447-dbaf0661-ead2-4193-9154-f9fd5ff4a372.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 52 25" src="https://user-images.githubusercontent.com/93340900/235313451-66d3bf7d-32f8-4c74-aab4-8f0285017f9e.png">
+<img width="1102" alt="Ekran Resmi 2023-04-29 18 52 39" src="https://user-images.githubusercontent.com/93340900/235313471-46191a99-ec43-423f-a680-43e859b59dfc.png">
+<img width="1202" alt="Ekran Resmi 2023-04-29 18 52 55" src="https://user-images.githubusercontent.com/93340900/235313479-ea6639e6-153b-4b6c-bdae-69b40ec96039.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 53 13" src="https://user-images.githubusercontent.com/93340900/235313491-ade1bf33-5dc6-4b34-a340-3e96c22782d8.png">
+<img width="2054" alt="Ekran Resmi 2023-04-29 18 53 31" src="https://user-images.githubusercontent.com/93340900/235313513-8b5c91e0-56ce-4cfa-8489-69f3d2099c8c.png">
+<img width="307" alt="Ekran Resmi 2023-04-29 18 54 42" src="https://user-images.githubusercontent.com/93340900/235313532-82e3b34a-574c-4ad9-9355-e0fa45880e47.png">
+<img width="1343" alt="Ekran Resmi 2023-04-29 18 54 56" src="https://user-images.githubusercontent.com/93340900/235313534-25a50c71-e815-4926-9645-19d0b61d8289.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 55 11" src="https://user-images.githubusercontent.com/93340900/235313537-2d26cdd4-b16e-4cc1-9f21-e532ffd44cc6.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 55 23" src="https://user-images.githubusercontent.com/93340900/235313540-57cc6430-0da1-4b93-ba58-766daa91816d.png">
+<img width="2055" alt="Ekran Resmi 2023-04-29 18 55 43" src="https://user-images.githubusercontent.com/93340900/235313550-e1a23250-91da-457f-8181-ca8f12bda3dd.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 11" src="https://user-images.githubusercontent.com/93340900/235313551-c1c340de-ea42-4cce-a80e-6ccaec86788d.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 21" src="https://user-images.githubusercontent.com/93340900/235313571-0d9e4fb7-89f7-499a-91cf-3f66e20594e1.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 53 55" src="https://user-images.githubusercontent.com/93340900/235313616-7ac5f6eb-671f-4318-9476-a62c58b02ead.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 41" src="https://user-images.githubusercontent.com/93340900/235313624-1aac0f21-6d3f-4b7e-bd5f-839b2c5023b0.png">
+<img width="2056" alt="Ekran Resmi 2023-04-29 18 54 12" src="https://user-images.githubusercontent.com/93340900/235313640-01d09822-ae7b-4693-8fa6-5c0486030bef.png">
+
+#
+
+Also, if you try to access a site that doesn't exist.
+
+#### - Not Found Page
+
+#
+
+## DEVELOPMENT
+
+All pages has responsive design.
+
+Here are some of the tools I use:
+
+#### - Axios for fetch
+#### - React Hooks for data & state management
+#### - SCSS for styling
+#### - i18next & react-i18next for multi-language (EN | TR)
+#### - Material UI Library for some React Components
+#### - React-Lazy-Load for lazy loading
+#### - uuid for unique id
+#### - Swiper for touchable slider
+
+#
+
+## DEPLOYMENT
+
+### - Netlify
+
+I preferred Netlify for the deployment phase. You can access it via this [link](https://riotgamesallinone.netlify.app/).
+
+### - Localhost
+
+If you want to run this site in your local, you can clone the project. After that, you can simply follow the steps below in your terminal.
+
+```bash
+npm install
+npm start
+```
+
+When you get the notification which shows that the terminal is running successfully, the browser will most likely open automatically the website. But if it doesn't, you can go to the [http://localhost:3000](http://localhost:3000).
+
+#
+
+### THANKS 
+
+This project was developed by [Güney Eroğlu](https://www.linkedin.com/in/guneyeroglu/).
+
+
+
+
+
