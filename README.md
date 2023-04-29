@@ -38,13 +38,9 @@ It is a website consisting of 9 pages.
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 53 55" src="https://user-images.githubusercontent.com/93340900/235314277-7d8db75e-64a6-47ab-9e1c-1f4860c76ed8.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 54 12" src="https://user-images.githubusercontent.com/93340900/235314292-2f65cf5e-5253-4694-aa11-b17c64fb76a2.png">
 <img width="1343" alt="Ekran Resmi 2023-04-29 18 54 56" src="https://user-images.githubusercontent.com/93340900/235313534-25a50c71-e815-4926-9645-19d0b61d8289.png">
-<img width="307" alt="Ekran Resmi 2023-04-29 18 54 42" src="https://user-images.githubusercontent.com/93340900/235313532-82e3b34a-574c-4ad9-9355-e0fa45880e47.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 55 11" src="https://user-images.githubusercontent.com/93340900/235313537-2d26cdd4-b16e-4cc1-9f21-e532ffd44cc6.png">
 <img width="2056" alt="Ekran Resmi 2023-04-29 18 55 23" src="https://user-images.githubusercontent.com/93340900/235313540-57cc6430-0da1-4b93-ba58-766daa91816d.png">
 <img width="2055" alt="Ekran Resmi 2023-04-29 18 55 43" src="https://user-images.githubusercontent.com/93340900/235313550-e1a23250-91da-457f-8181-ca8f12bda3dd.png">
-<img width="2056" alt="Ekran Resmi 2023-04-29 18 53 55" src="https://user-images.githubusercontent.com/93340900/235313616-7ac5f6eb-671f-4318-9476-a62c58b02ead.png">
-<img width="2056" alt="Ekran Resmi 2023-04-29 18 50 41" src="https://user-images.githubusercontent.com/93340900/235313624-1aac0f21-6d3f-4b7e-bd5f-839b2c5023b0.png">
-<img width="2056" alt="Ekran Resmi 2023-04-29 18 54 12" src="https://user-images.githubusercontent.com/93340900/235313640-01d09822-ae7b-4693-8fa6-5c0486030bef.png">
 <img width="1430" alt="Ekran Resmi 2023-04-29 18 56 10" src="https://user-images.githubusercontent.com/93340900/235313447-dbaf0661-ead2-4193-9154-f9fd5ff4a372.png">
 
 #
