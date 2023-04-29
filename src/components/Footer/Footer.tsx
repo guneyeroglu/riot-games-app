@@ -68,6 +68,24 @@ const Footer = () => {
       <div className={styles.wrapper__info}>
         <p>
           <Trans
+            defaults='legalJibberJabberText'
+            components={{
+              span: <span />,
+              link1: (
+                <a href='https://riotgamesallinone.netlify.app/' target='_blank' rel='noreferrer'>
+                  {null}
+                </a>
+              ),
+              link2: (
+                <a href={t('legalJibberJabberLink')} target='_blank' rel='noreferrer'>
+                  {null}
+                </a>
+              ),
+            }}
+          />
+        </p>
+        <p>
+          <Trans
             defaults='developedByWho'
             values={{ word: 'Güney Eroğlu' }}
             components={{

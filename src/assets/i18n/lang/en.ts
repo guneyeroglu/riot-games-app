@@ -96,6 +96,8 @@ const en = {
     magazineSize: 'Magazine Size',
     notFound: 'LOST? TAKE A MAGICAL JOURNEY BACK TO THE KNOWN UNIVERSE.',
     returnToUniverse: 'RETURN TO UNIVERSE',
+    legalJibberJabberLink: 'https://www.riotgames.com/en/legal',
+    legalJibberJabberText: `<link1><span>riotgamesallinone.com</span></link1> was created under Riot Games' <link2><span>"Legal Jibber Jabber"</span></link2> policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.`,
   },
 };
 

@@ -95,6 +95,8 @@ const tr = {
     magazineSize: 'Şarjör Boyutu',
     notFound: 'YOLUNU MU KAYBETTİN? GERİ DÖN VE EVRENİ KEŞFETTİĞİN SİHİRLİ BİR YOLCULUĞA ÇIK!',
     returnToUniverse: 'EVRENE DÖN',
+    legalJibberJabberLink: 'https://www.riotgames.com/tr/yasal',
+    legalJibberJabberText: `<link1><span>riotgamesallinone.com</span></link1>, Riot Games'in sahibi olduğu içeriklerle şirketin <link2><span>"Yasal Bıdı Bıdı"</span></link2> politikasına uyacak şekilde yapıldı. Riot Games bu projeyi desteklememekte veya ona sponsor olmamaktadır.`,
   },
 };
 

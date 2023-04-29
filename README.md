@@ -17,7 +17,9 @@ The development process continues...
 - Footer (DONE) - RESPONSIVE DESIGN (DONE)
 
 There may be changes in the number of pages, page content and the tools used.
-LoL' Ranks page, Valo's Ranks page and LoL's Item page canceled.
+LoL' Ranks page, Valo's Ranks page and LoL's Item page canceled. Copyright Page canceled. Added text instead.
+
+README.md file will be changed when the project done.
 
 Tools that I used in this project:
 
