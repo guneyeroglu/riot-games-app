@@ -36,7 +36,7 @@ const CardValoArsenal = (props: IProps) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (swiper && mouseLeave) {
+      if (swiper && !swiper.destroyed && mouseLeave) {
         swiper.slideTo(0);
       }
     }, 250);
