@@ -19,13 +19,17 @@ const useFetchData = (
   const { i18n } = useTranslation();
 
   const enabled = options ? options.enabled : true;
+  const championUrlVersion: string = '14.1.1'; //* It has to be updated as a new champion is added
 
   const urls: IUrl[] = [
     { type: 'lol-champions', url: `https://universe-meeps.leagueoflegends.com/v1/${i18n.language === 'tr_TR' ? 'tr_tr' : 'en_us'}/champion-browse/index.json` },
-    { type: 'lol-champions-url', url: `https://ddragon.leagueoflegends.com/cdn/13.6.1/data/${i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'}/champion.json` },
+    {
+      type: 'lol-champions-url',
+      url: `https://ddragon.leagueoflegends.com/cdn/${championUrlVersion}/data/${i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'}/champion.json`,
+    },
     {
       type: 'lol-champion-detail',
-      url: `https://ddragon.leagueoflegends.com/cdn/13.6.1/data/${i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'}/champion/${name}.json`,
+      url: `https://ddragon.leagueoflegends.com/cdn/${championUrlVersion}/data/${i18n.language === 'tr_TR' ? 'tr_TR' : 'en_US'}/champion/${name}.json`,
     },
     { type: 'lol-regions', url: `https://universe-meeps.leagueoflegends.com/v1/${i18n.language === 'tr_TR' ? 'tr_tr' : 'en_us'}/faction-browse/index.json` },
     {
