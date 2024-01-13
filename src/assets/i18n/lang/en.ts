@@ -11,7 +11,7 @@ const en = {
     downloadMobile: 'DOWNLOAD RIOT MOBILE COMPANION APP',
     copyrightRiot:
       '™ & © 2022 Riot Games, Inc. League of Legends, Valorant, and all related logos, characters, names and distinctive likenesses thereof are exclusive property of Riot Games, Inc. All Rights Reserved.',
-    socialMedia: 'Social Media',
+    socialMediaAccounts: 'Social Media Accounts',
     developedByWho: '© 2022 | This website was developed by <a><span>{{word}}</span></a>.',
     featuredChamps: 'FEATURED CHAMPIONS',
     featuredRegions: 'FEATURED REGIONS',
@@ -98,6 +98,7 @@ const en = {
     returnToUniverse: 'RETURN TO UNIVERSE',
     legalJibberJabberLink: 'https://www.riotgames.com/en/legal',
     legalJibberJabberText: `<link1><span>riotgamesallinone.com</span></link1> was created under Riot Games' <link2><span>"Legal Jibber Jabber"</span></link2> policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.`,
+    devSocialMediaAccounts: "Developer's Social Media Accounts",
   },
 };
 

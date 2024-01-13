@@ -54,7 +54,7 @@ const Footer = () => {
         <span>{t('copyrightRiot')}</span>
       </div>
       <div className={styles.wrapper__divider}>
-        <Divider text={t('socialMedia')} />
+        <Divider text={t('devSocialMediaAccounts')} />
       </div>
       <div className={styles.wrapper__media}>
         <div className={styles['wrapper__media--icons']}>

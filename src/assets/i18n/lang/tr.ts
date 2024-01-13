@@ -11,7 +11,7 @@ const tr = {
     downloadMobile: 'RIOT MOBILE UYGULAMASINI İNDİR',
     copyrightRiot:
       "™ & © 2022 Riot Games Inc. Her hakkı saklıdır. Riot Games, League of Legends ve Valorant; Riot Games, Inc.'nin tescilli markaları, ticari markaları ya da hizmet markalarıdır.",
-    socialMedia: 'Sosyal Medya',
+    socialMediaAccounts: 'Sosyal Medya Hesaplarımız',
     developedByWho: '© 2022 | Bu web sitesi <a><span>{{word}}</span></a> tarafından geliştirilmiştir.',
     featuredChamps: 'ÖNE ÇIKAN ŞAMPİYONLAR',
     featuredRegions: 'ÖNE ÇIKAN BÖLGELER',
@@ -97,6 +97,7 @@ const tr = {
     returnToUniverse: 'EVRENE DÖN',
     legalJibberJabberLink: 'https://www.riotgames.com/tr/yasal',
     legalJibberJabberText: `<link1><span>riotgamesallinone.com</span></link1>, Riot Games'in sahibi olduğu içeriklerle şirketin <link2><span>"Yasal Bıdı Bıdı"</span></link2> politikasına uyacak şekilde yapıldı. Riot Games bu projeyi desteklememekte veya ona sponsor olmamaktadır.`,
+    devSocialMediaAccounts: 'Geliştiricinin Sosyal Medya Hesapları',
   },
 };
 

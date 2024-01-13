@@ -10,7 +10,7 @@ const Divider = (props: IProps) => {
       {text && (
         <div className={styles.wrapper}>
           <div className={styles.border}></div>
-          <span>{text}</span>
+          <span className={styles.text}>{text}</span>
           <div className={styles.border}></div>
         </div>
       )}

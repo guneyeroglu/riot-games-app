@@ -55,7 +55,7 @@ const Home = () => {
         </div>
       </div>
       <div className={styles.container__divider}>
-        <Divider />
+        <Divider text={t('socialMediaAccounts')} />
       </div>
     </div>
   );
