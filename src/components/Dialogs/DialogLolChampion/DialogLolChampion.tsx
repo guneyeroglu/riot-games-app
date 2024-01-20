@@ -1,15 +1,15 @@
 import { Dispatch, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Dialog, useMediaQuery } from '@mui/material';
 
 import { Icon } from '../../Icons/Icon';
-import { Link } from 'react-router-dom';
 import IconButton from '../../IconButton/IconButton';
 import Spinner from '../../Spinner/Spinner';
 
 import { useFetchData } from '../../../global/utils';
-
+import { lolApiVersion } from '../../../global/constants';
 import { IChampionDetails } from '../../../global/interfaces';
 
 import styles from './dialog-lol-champion.module.scss';
@@ -206,7 +206,7 @@ const DialogLolChampion = (props: IProps) => {
                       {!skillOnLoad && <Spinner color='#171717' />}
                       {!isFetching && (
                         <img
-                          src={`https://ddragon.leagueoflegends.com/cdn/13.6.1/img/${skill.image.group}/${skill.image.full}`}
+                          src={`https://ddragon.leagueoflegends.com/cdn/${lolApiVersion}/img/${skill.image.group}/${skill.image.full}`}
                           alt={skill.name}
                           width={skillWidth}
                           onLoad={handleSkillOnLoad}

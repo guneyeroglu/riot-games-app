@@ -3,9 +3,10 @@ import { useNavigate, useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import Spinner from '../../../../components/Spinner/Spinner';
-import { useFetchData } from '../../../../global/utils';
 
+import { useFetchData } from '../../../../global/utils';
 import { IChampionDetails } from '../../../../global/interfaces';
+import { lolApiVersion } from '../../../../global/constants';
 
 import styles from './champion.module.scss';
 
@@ -163,7 +164,7 @@ const Champion = () => {
                                 {!skillOnLoad && <Spinner color='#171717' />}
                                 {!isFetching && (
                                   <img
-                                    src={`https://ddragon.leagueoflegends.com/cdn/13.6.1/img/${skill.image.group}/${skill.image.full}`}
+                                    src={`https://ddragon.leagueoflegends.com/cdn/${lolApiVersion}/img/${skill.image.group}/${skill.image.full}`}
                                     alt={skill.name}
                                     width={skillWidth}
                                     height={skillWidth}
