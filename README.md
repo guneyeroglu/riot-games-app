@@ -1,4 +1,4 @@
-# [Riot Games All in One](https://riotgamesallinone.netlify.app/)
+# [Riot Games All in One](https://riotgamesallinone.vercel.app)
 
 <img width="2056" alt="1" src="https://user-images.githubusercontent.com/93340900/235313304-859fc0b9-173a-4bed-94d0-4851e86cc288.png">
 
@@ -142,9 +142,9 @@ Here are some of the tools I use:
 
 ## DEPLOYMENT
 
-### - Netlify
+### - Vercel
 
-I preferred Netlify for the deployment phase. You can access it via this [link](https://riotgamesallinone.netlify.app/).
+I preferred Vercel for the deployment phase. You can access it via this [link](https://riotgamesallinone.vercel.app).
 
 ### - Localhost
 
